@@ -64,13 +64,22 @@ main>.page-cover.home-hero--film .film-actions>.btn~.btn:hover{background:var(--
 }
 .home-hero--film :is(a,button):focus-visible,.film-rail a:focus-visible{outline:2px solid var(--white);outline-offset:4px;border-radius:var(--r-btn)}
 
-/* Pause control reuses the existing .home-hero__motion look; moved to the top right so it stays clear of labels. */
-.film-motion{top:20px;bottom:auto;right:22px;width:44px;height:44px;transition:background var(--t-fast),border-color var(--t-fast)}
-.film-motion span:before,.film-motion span:after{top:13px}
-.home-hero--film .film-motion:focus-visible,.film-hero-in-view .site-assistant-launcher:focus-visible{outline:2px solid var(--white);outline-offset:4px;border-radius:50%}
-.film-motion:hover,.film-hero-in-view .site-assistant-launcher:hover{background:var(--dark);border-color:var(--white)}
-.film-motion[aria-pressed=true] span:before{top:12px;left:15px;width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid currentColor;background:transparent}
-.film-motion[aria-pressed=true] span:after{display:none}
+/* Keep the film free of playback icons, with a quiet accessible motion option below. */
+.film-motion-row{position:relative;z-index:1;display:flex;justify-content:flex-end;padding:0 32px}
+.film-motion-row .film-motion{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 0;border:0;background:transparent;color:var(--on-dark-dim);font:inherit;font-size:12px;cursor:pointer;text-decoration:underline;text-underline-offset:4px;transition:color var(--t-fast)}
+.film-motion-row[hidden],.film-motion[hidden]{display:none}
+.film-motion-row .film-motion:hover{color:var(--white)}
+.film-motion-row .film-motion:focus-visible{outline:2px solid var(--white);outline-offset:4px;border-radius:var(--r-btn)}
+.film-hero-in-view .site-assistant-launcher:focus-visible{outline:2px solid var(--white);outline-offset:4px;border-radius:50%}
+.film-hero-in-view .site-assistant-launcher:hover{background:var(--dark);border-color:var(--white)}
+
+/* The archived navigation comparison still imports this controller and uses the original icon. */
+.home-hero__motion.film-motion{top:20px;bottom:auto;right:22px;width:44px;height:44px;transition:background var(--t-fast),border-color var(--t-fast)}
+.home-hero__motion.film-motion span:before,.home-hero__motion.film-motion span:after{top:13px}
+.home-hero__motion.film-motion:focus-visible{outline:2px solid var(--white);outline-offset:4px;border-radius:50%}
+.home-hero__motion.film-motion:hover{background:var(--dark);border-color:var(--white)}
+.home-hero__motion.film-motion[aria-pressed=true] span:before{top:12px;left:15px;width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid currentColor;background:transparent}
+.home-hero__motion.film-motion[aria-pressed=true] span:after{display:none}
 
 /* Keep crop navigation clear. Dock the existing support control beside the
    film, then restore its normal fixed launcher when the hero leaves view. */
@@ -126,7 +135,8 @@ main>.page-cover.home-hero--film .film-actions>.btn~.btn:hover{background:var(--
   .film-sector__name:after{left:2px;right:2px;bottom:0}
   .film-sector__explore{padding:6px 2px;gap:4px}
   .home-hero--film:not([data-hover="-1"]) .film-sector:not([data-hover=true]) .film-sector__name{transform:none;opacity:1}
-  .film-motion{right:12px;top:20px}
+  .film-motion-row{padding:0 20px}
+  .home-hero__motion.film-motion{right:12px;top:20px}
   .film-hero-in-view .site-assistant-launcher{left:12px;top:calc(var(--film-hero-top,var(--nav-h)) + 20px)}
   .film-rail{display:block;padding:0 20px}
   .film-rail:before{left:20px;right:20px}

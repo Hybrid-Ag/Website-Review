@@ -16,7 +16,9 @@
   var establishing = filmEl.querySelector('.film-strip--establishing');
   var all = [establishing].concat(strips);
   var sectors = Array.prototype.slice.call(hero.querySelectorAll('.film-sector'));
-  var toggle = hero.querySelector('[data-film-toggle]');
+  var toggle = document.querySelector('[data-film-toggle]');
+  var motionRow = toggle.closest('.film-motion-row');
+  var toggleLabel = toggle.querySelector('[data-film-toggle-label]');
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
@@ -215,8 +217,10 @@
     hero.setAttribute('data-motion-paused', String(paused()));
     document.body.classList.toggle('film-hero-in-view', visible);
     toggle.hidden = posterOnly();
+    if (motionRow) motionRow.hidden = posterOnly();
     toggle.setAttribute('aria-pressed', String(stopped));
-    toggle.setAttribute('aria-label', stopped ? 'Play background video' : 'Pause background video');
+    toggle.setAttribute('aria-label', stopped ? 'Play background motion' : 'Pause background motion');
+    if (toggleLabel) toggleLabel.textContent = stopped ? 'Play background motion' : 'Pause background motion';
   }
   function unload() {
     all.forEach(function (strip) {
