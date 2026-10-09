@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resources - Hybrid-Ag</title>
+<meta name="description" content="Hybrid-Ag guides to crop nutrition, testing and prescription blends, with Apple and Cherry playbooks and sample programs for review.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/resources.css?v=7480ab0443">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/knowledge-center.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Resources - Hybrid-Ag">
+<meta property="og:description" content="Hybrid-Ag guides to crop nutrition, testing and prescription blends, with Apple and Cherry playbooks and sample programs for review.">
+<meta property="og:url" content="https://www.hybridag.com.au/knowledge-center.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Resources - Hybrid-Ag">
+<meta name="twitter:description" content="Hybrid-Ag guides to crop nutrition, testing and prescription blends, with Apple and Cherry playbooks and sample programs for review.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="resources" class="resource-refined">
+<div id="site-header"></div>
+
+<main>
+  <header class="resources-hero page-cover page-cover--photo" data-home-field>
+    <img class="resources-hero__image" src="assets/photos/responsive/tree-rows-1200.webp" decoding="async" height="793" width="1200" sizes="100vw" srcset="assets/photos/responsive/tree-rows-480.webp 480w, assets/photos/responsive/tree-rows-768.webp 768w, assets/photos/responsive/tree-rows-1200.webp 1200w" alt="Ripening cereal heads in an Australian broadacre paddock" fetchpriority="high">
+    <div class="resources-hero__shade" aria-hidden="true"></div>
+    <div class="wrap resources-hero__inner page-cover__inner">
+      <span class="eyebrow">Resources</span>
+      <h1>Practical guides to crop nutrition.</h1>
+      <p>Understand your test results and the decisions behind a crop nutrition program. Read the crop playbooks or bring your questions to the team.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="#guides">Explore the guides</a>
+        <a class="btn resources-hero__secondary" href="soil-test.html">Request testing</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="resources-guides" id="guides" data-reveal data-home-field="light">
+    <div class="wrap">
+      <div class="resources-heading">
+        <div><span class="eyebrow eyebrow--orange">Using your test results</span><h2>Guides to testing and interpretation.</h2></div>
+        <p>Find out what each test can tell you and what information helps the team interpret it. Results are read alongside the crop and growing conditions, not on their own.</p>
+      </div>
+      <div class="resources-guide-grid">
+        <a class="resources-guide" href="resource-testing-layers.html"><div class="resources-guide__image"><img class="resources-guide__soil" src="assets/photos/responsive/soil-rootzone-1200.webp" height="2400" width="1800" sizes="(max-width: 620px) calc(100vw - 48px), (max-width: 1020px) calc((100vw - 64px) / 2), (max-width: 1248px) calc((100vw - 80px) / 3), 390px" srcset="assets/photos/responsive/soil-rootzone-480.webp 480w, assets/photos/responsive/soil-rootzone-768.webp 768w, assets/photos/responsive/soil-rootzone-1200.webp 1200w, assets/photos/responsive/soil-rootzone-1800.webp 1800w" alt="Fine roots and soil in a close-up of the root zone" loading="lazy" decoding="async"></div><div class="resources-guide__body"><span>Understand your results</span><h3>What each test can tell you.</h3><p>See what soil, plant, water and produce tests measure, and the limits of each.</p><strong class="resources-guide__link">Read the guide</strong></div></a>
+        <a class="resources-guide" href="resource-position-pattern-plan.html"><div class="resources-guide__image"><img class="resources-guide__assessment" src="assets/photos/responsive/testing-interpretation-orchard-1200.webp" height="3024" width="4032" sizes="(max-width: 620px) calc(100vw - 48px), (max-width: 1020px) calc((100vw - 64px) / 2), (max-width: 1248px) calc((100vw - 80px) / 3), 390px" srcset="assets/photos/responsive/testing-interpretation-orchard-480.webp 480w, assets/photos/responsive/testing-interpretation-orchard-768.webp 768w, assets/photos/responsive/testing-interpretation-orchard-1200.webp 1200w, assets/photos/responsive/testing-interpretation-orchard-1800.webp 1800w" alt="A man using a handheld instrument beside a pear tree" loading="lazy" decoding="async"></div><div class="resources-guide__body"><span>Decision framework</span><h3>Position. Pattern. Plan.</h3><p>Review the current results and crop history before deciding what to do next.</p><strong class="resources-guide__link">Read the guide</strong></div></a>
+        <a class="resources-guide" href="resource-sampling-context.html"><div class="resources-guide__image"><img class="resources-guide__sampling" src="assets/photos/responsive/leaf-testing-field-samples-1200.webp" height="720" width="1280" sizes="(max-width: 620px) calc(100vw - 48px), (max-width: 1020px) calc((100vw - 64px) / 2), (max-width: 1248px) calc((100vw - 80px) / 3), 390px" srcset="assets/photos/responsive/leaf-testing-field-samples-480.webp 480w, assets/photos/responsive/leaf-testing-field-samples-768.webp 768w, assets/photos/responsive/leaf-testing-field-samples-1200.webp 1200w, assets/photos/responsive/leaf-testing-field-samples-1280.webp 1280w" alt="Crop and root samples beside sample bags on a ute tailgate" loading="lazy" decoding="async"></div><div class="resources-guide__body"><span>Sampling records</span><h3>Make every sample a useful reference.</h3><p>Keep the original report and sample details together as a useful reference for future crop nutrition decisions.</p><strong class="resources-guide__link">Read the guide</strong></div></a>
+      </div>
+      <div class="resources-related-grid">
+        <a class="resources-related" href="services-testing.html#prescription-pathways"><span>Prescription blends</span><h3>From test results to a blend.</h3><p>Explore dry and granular prescriptions informed by soil testing, or liquid prescriptions informed by leaf testing and DSA.</p><strong>Explore the prescription pathways</strong></a>
+        <a class="resources-related" href="post-harvest.html"><span>Seasonal review</span><h3>Review this harvest. Plan the next prescription.</h3><p>Review yield, fruit quality and existing test results with the team before planning next season’s nutrition.</p><strong>Read the post-harvest guide</strong></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="resources-playbooks" id="crop-playbooks" data-reveal data-home-field="light">
+    <div class="wrap">
+      <div class="resources-heading">
+        <div><span class="eyebrow eyebrow--orange">Crop playbooks</span><h2>A closer look at orchard nutrition.</h2></div>
+        <p>Read the Apple and Cherry playbooks alongside your own block records. The sample programs are review drafts, not approved application guidance. Discuss them with the team before considering them for your orchard.</p>
+      </div>
+      <div class="resources-playbook-grid">
+        <article class="resources-playbook">
+          <div class="resources-playbook__cover"><img src="assets/apple-playbook-cover.jpg" width="839" height="1191" alt="Cover of the Apple Nutrition Playbook" loading="lazy" decoding="async"></div>
+          <div class="resources-playbook__body">
+            <span class="resources-playbook__label">Apple Nutrition Playbook</span>
+            <h3>Apple nutrition through the season.</h3>
+            <p>Read about orchard conditions, crop load and fruit quality, with a sample Pink Lady program to discuss with the team.</p>
+            <div class="resources-playbook__actions">
+              <a href="sectors-apples.html">Read about apple nutrition</a>
+              <a href="program-apples.html">View sample program <span>Review draft</span></a>
+              <a href="assets/apple-nutrition-playbook.pdf" download="Hybrid-Ag-Apple-Nutrition-Playbook.pdf">Download the playbook <span>PDF</span></a>
+            </div>
+            <p class="muted" data-booklet-review-note><small>Review draft: visitors will provide their contact details to receive this booklet when the website launches. Downloads remain open here while the website is being reviewed.</small></p>
+          </div>
+        </article>
+        <article class="resources-playbook">
+          <div class="resources-playbook__cover"><img src="assets/playbook-cover.jpg" width="436" height="620" alt="Cover of the Cherry Nutrition Playbook" loading="lazy" decoding="async"></div>
+          <div class="resources-playbook__body">
+            <span class="resources-playbook__label">Cherry Nutrition Playbook</span>
+            <h3>Cherry nutrition through the season.</h3>
+            <p>Read about cherry growth and testing through the season, with a sample program to discuss with the team.</p>
+            <div class="resources-playbook__actions">
+              <a href="sectors-cherries.html">Read about cherry nutrition</a>
+              <a href="program-cherries.html">View sample program <span>Review draft</span></a>
+              <a href="assets/cherry-nutrition-playbook.pdf" download="Hybrid-Ag-Cherry-Nutrition-Playbook.pdf">Download the playbook <span>PDF</span></a>
+            </div>
+            <p class="muted" data-booklet-review-note><small>Review draft: visitors will provide their contact details to receive this booklet when the website launches. Downloads remain open here while the website is being reviewed.</small></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="resources-services" data-reveal>
+    <div class="wrap">
+      <div class="resources-heading">
+        <div><span class="eyebrow">Water and produce testing</span><h2>Testing before application and after harvest.</h2></div>
+        <p>Water testing helps assess suitability for sprays, irrigation or fertigation. Produce testing measures the harvested crop and helps assess Nutrient removal.</p>
+      </div>
+      <div class="resources-service-grid">
+        <a class="resources-service" href="services-water-testing.html"><div class="resources-service__image"><img src="assets/photos/responsive/water-testing-hero-1800.webp" height="868" width="1812" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/water-testing-hero-480.webp 480w, assets/photos/responsive/water-testing-hero-768.webp 768w, assets/photos/responsive/water-testing-hero-1200.webp 1200w, assets/photos/responsive/water-testing-hero-1800.webp 1800w" alt="Water sample being collected beside an irrigated crop" loading="lazy" decoding="async"></div><div class="resources-service__body"><span>Water quality</span><h3>Water testing</h3><p>Assess water for spray, irrigation or fertigation use, taking account of the delivery system.</p><strong class="resources-service__link">Explore water testing</strong></div></a>
+        <a class="resources-service" href="services-produce-testing.html"><div class="resources-service__image"><img src="assets/photos/responsive/cherries-1800.webp" height="1280" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/cherries-480.webp 480w, assets/photos/responsive/cherries-768.webp 768w, assets/photos/responsive/cherries-1200.webp 1200w, assets/photos/responsive/cherries-1800.webp 1800w" alt="Harvested cherries" loading="lazy" decoding="async"></div><div class="resources-service__body"><span>Harvest results</span><h3>Produce testing</h3><p>Read crop composition alongside dry matter, yield and relevant quality measures.</p><strong class="resources-service__link">Explore produce testing</strong></div></a>
+      </div>
+      <a class="resources-deep-dive" href="resource-water-quality-foliar-sprays.html"><div><span>Water quality guide</span><h3>Water is part of every foliar spray.</h3></div><p>Understand pH, alkalinity, hardness and conductivity, how treatment affects water, and the units used on Australian reports.</p><strong>Read the guide</strong></a>
+    </div>
+  </section>
+
+  <section class="resources-systems" data-reveal data-home-field="light">
+    <div class="wrap">
+      <div class="resources-heading">
+        <div><span class="eyebrow eyebrow--berry">Crop and production context</span><h2>Find information for your cropping system.</h2></div>
+        <p>Find the services and crop information relevant to your paddock, orchard, vineyard or vegetable crop.</p>
+      </div>
+      <div class="resources-system-grid">
+        <a class="resources-system" href="horticulture.html"><div class="resources-system__image"><img src="assets/photos/responsive/fruit-on-tree-1800.webp" height="1280" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/fruit-on-tree-480.webp 480w, assets/photos/responsive/fruit-on-tree-768.webp 768w, assets/photos/responsive/fruit-on-tree-1200.webp 1200w, assets/photos/responsive/fruit-on-tree-1800.webp 1800w" alt="Fruit developing in a horticulture block" loading="lazy" decoding="async"></div><span>Block</span><h3>Horticulture</h3><p>Marketable fruit, pack-out, grade, quality and post-harvest condition.</p><strong>Explore Horticulture</strong></a>
+        <a class="resources-system" href="small-crop.html"><div class="resources-system__image"><img src="assets/photos/responsive/veg-crop-1800.webp" height="1280" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/veg-crop-480.webp 480w, assets/photos/responsive/veg-crop-768.webp 768w, assets/photos/responsive/veg-crop-1200.webp 1200w, assets/photos/responsive/veg-crop-1800.webp 1800w" alt="Commercial vegetable crop rows" loading="lazy" decoding="async"></div><span>Paddock or block</span><h3>Small Crop</h3><p>Rapid crop cycles, marketable harvest, uniformity and customer specification.</p><strong>Explore Small Crop</strong></a>
+        <a class="resources-system" href="broadacre.html"><div class="resources-system__image"><img src="assets/photos/responsive/cereal-1800.webp" height="1280" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/cereal-480.webp 480w, assets/photos/responsive/cereal-768.webp 768w, assets/photos/responsive/cereal-1200.webp 1200w, assets/photos/responsive/cereal-1800.webp 1800w" alt="Cereal crop in a broadacre paddock" loading="lazy" decoding="async"></div><span>Paddock</span><h3>Broadacre &amp; Pasture</h3><p>Establishment, yield, quality, input efficiency and usable pasture growth.</p><strong>Explore Broadacre</strong></a>
+        <a class="resources-system" href="viticulture.html"><div class="resources-system__image"><img src="assets/photos/responsive/vine-rows-1739.webp" height="1149" width="1739" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/vine-rows-480.webp 480w, assets/photos/responsive/vine-rows-768.webp 768w, assets/photos/responsive/vine-rows-1200.webp 1200w, assets/photos/responsive/vine-rows-1739.webp 1739w" alt="Vine rows in a viticulture block" loading="lazy" decoding="async"></div><span>Block</span><h3>Viticulture</h3><p>Canopy, crop, fruit composition, production specification and harvest timing.</p><strong>Explore Viticulture</strong></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="resources-cta" data-reveal>
+    <div class="wrap resources-cta__inner">
+      <div><span class="eyebrow">Use what you already have</span><h2>Have results to discuss?</h2><p>Bring your reports and tell us what you need to understand. The team can help you decide what needs a closer look.</p></div>
+      <div class="cta-row">
+        <a class="btn resources-cta__primary" href="soil-test.html?test=existing">Bring existing results</a>
+        <a class="btn resources-cta__secondary" href="services-testing.html">Compare test types</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

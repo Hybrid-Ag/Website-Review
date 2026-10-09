@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post-Harvest Review | Hybrid-Ag</title>
+<meta name="description" content="Review harvest yield, fruit quality and existing test results with Hybrid-Ag before planning a prescription blend and next season’s nutrition.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/resource-guide.css?v=d22eeb9772">
+<link rel="stylesheet" href="css/pages/post-harvest.css?v=3528b59b60">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/post-harvest.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Post-Harvest Review | Hybrid-Ag">
+<meta property="og:description" content="Review harvest yield, fruit quality and existing test results with Hybrid-Ag before planning a prescription blend and next season’s nutrition.">
+<meta property="og:url" content="https://www.hybridag.com.au/post-harvest.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Post-Harvest Review | Hybrid-Ag">
+<meta name="twitter:description" content="Review harvest yield, fruit quality and existing test results with Hybrid-Ag before planning a prescription blend and next season’s nutrition.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body class="resource-refined post-harvest-refined" data-page="resources">
+<div id="site-header"></div>
+
+<main>
+<aside class="wrap" data-pages-review-notice role="note" aria-label="Public review notice" style="margin:20px auto;padding:16px;border:1px solid #b65300;background:#fff1df;color:#1a1714">
+<strong>Public website review.</strong> Forms, sign-in and ordering are previews. Nothing is sent to Hybrid-Ag. Use the team's contact details for a real enquiry.
+</aside>
+  <!-- HERO -->
+  <header class="guide-hero page-cover page-cover--photo" data-home-field>
+    <img class="guide-hero__image" src="assets/photos/responsive/post-harvest-apples-1800.webp" srcset="assets/photos/responsive/post-harvest-apples-480.webp 480w, assets/photos/responsive/post-harvest-apples-768.webp 768w, assets/photos/responsive/post-harvest-apples-1200.webp 1200w, assets/photos/responsive/post-harvest-apples-1800.webp 1800w" sizes="100vw" width="4000" height="3000" alt="Harvested red apples in a wooden bin in the orchard" fetchpriority="high" decoding="async">
+    <div class="guide-hero__shade" aria-hidden="true"></div>
+    <div class="wrap guide-hero__inner page-cover__inner">
+        <span class="eyebrow">Post-harvest review</span>
+        <h1>Review this harvest. Plan the next prescription.</h1>
+        <p>Look at yield and fruit quality alongside your test results and block history. Hybrid-Ag can help review what worked, what needs attention and whether a prescription blend is needed before next season.</p>
+        <div class="cta-row">
+          <a class="btn btn--teal" href="#post-harvest-review">Request a post-harvest review</a>
+          <a class="btn guide-hero__secondary" href="#harvest-results">What to review</a>
+        </div>
+    </div>
+  </header>
+
+  <section class="guide-intro harvest-editorial" data-reveal data-home-field>
+    <div class="wrap guide-intro__grid">
+      <div>
+        <span class="eyebrow eyebrow--orange">Looking back at the season</span><h2>Was the crop what you expected?</h2>
+        <figure class="harvest-figure harvest-figure--assessment">
+          <picture>
+            <source type="image/avif" srcset="assets/photos/responsive/testing-interpretation-orchard-480.avif 480w, assets/photos/responsive/testing-interpretation-orchard-768.avif 768w, assets/photos/responsive/testing-interpretation-orchard-1200.avif 1200w, assets/photos/responsive/testing-interpretation-orchard-1800.avif 1800w" sizes="(max-width: 900px) calc(100vw - 48px), 568px">
+            <img src="assets/photos/responsive/testing-interpretation-orchard-1200.webp" srcset="assets/photos/responsive/testing-interpretation-orchard-480.webp 480w, assets/photos/responsive/testing-interpretation-orchard-768.webp 768w, assets/photos/responsive/testing-interpretation-orchard-1200.webp 1200w, assets/photos/responsive/testing-interpretation-orchard-1800.webp 1800w" sizes="(max-width: 900px) calc(100vw - 48px), 568px" width="4032" height="3024" alt="Person using a handheld instrument beside pear trees" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Fruit assessment in an orchard.</figcaption>
+        </figure>
+      </div>
+      <div class="guide-intro__copy">
+        <p>Once the crop is off, there is an opportunity to look at how the season went while the details are still fresh. The quantity harvested matters, but so do the quality of the fruit and the feedback from your market.</p>
+        <p>Start with what you wanted to achieve and compare it with what happened. If you changed the nutrition, review the applications alongside the harvest results and the conditions on the block. We can then discuss which applications to retain and where more information is needed.</p>
+        <a class="guide-hero__back harvest-back" href="knowledge-center.html">Back to Resources</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-blocks" id="harvest-results" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="guide-heading">
+        <div><span class="eyebrow eyebrow--berry">Harvest results</span><h2>Bring the results you have.</h2></div>
+        <p>You do not need a complete set of records to start the discussion. Bring what is available and tell us where the crop met your expectations or fell short.</p>
+      </div>
+      <div class="guide-blocks__grid harvest-review-grid">
+        <article><h3>Yield and crop load</h3><p>Harvest quantity, the area it came from and crop load help describe the season. Where earlier figures are available, compare the same block and variety rather than treating different crops as a direct comparison.</p></article>
+        <article><h3>Fruit quality and pack-out</h3><p>Look at grading and pack-out, with any measurements of fruit size, colour, firmness or Brix. Market feedback, storage and shelf-life results can add to the review as they become available.</p></article>
+        <article><h3>What happened on the block</h3><p>Your observations help explain the results. Discuss canopy condition, harvest timing and any weather or irrigation difficulties, including differences between blocks.</p></article>
+        <article><h3>Nutrition and test history</h3><p>Bring existing soil and plant reports with sample details, together with any records of blends, application rates and dates. Review these against the crop results and the cost of the inputs.</p></article>
+      </div>
+      <p class="harvest-review-note">A better or poorer harvest does not, on its own, prove that nutrition caused the change. Crop load, weather, irrigation and harvest or storage conditions also need to be considered.</p>
+    </div>
+  </section>
+
+  <section class="guide-band harvest-nutrition harvest-editorial" data-reveal>
+    <div class="wrap guide-intro__grid">
+      <div>
+        <span class="eyebrow">After the crop is off</span><h2>Consider the tree or vine as well as the harvest.</h2>
+        <figure class="harvest-figure harvest-figure--canopy">
+          <picture>
+            <source type="image/avif" srcset="assets/photos/responsive/post-harvest-orchard-canopy-480.avif 480w, assets/photos/responsive/post-harvest-orchard-canopy-768.avif 768w, assets/photos/responsive/post-harvest-orchard-canopy-1200.avif 1200w, assets/photos/responsive/post-harvest-orchard-canopy-1800.avif 1800w" sizes="(max-width: 900px) calc(100vw - 48px), 568px">
+            <img src="assets/photos/responsive/post-harvest-orchard-canopy-1200.webp" srcset="assets/photos/responsive/post-harvest-orchard-canopy-480.webp 480w, assets/photos/responsive/post-harvest-orchard-canopy-768.webp 768w, assets/photos/responsive/post-harvest-orchard-canopy-1200.webp 1200w, assets/photos/responsive/post-harvest-orchard-canopy-1800.webp 1800w" sizes="(max-width: 900px) calc(100vw - 48px), 568px" width="1800" height="1350" alt="Leafy trellised orchard rows with cut foliage on the ground" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Leafy trellised orchard rows.</figcaption>
+        </figure>
+      </div>
+      <div class="guide-intro__copy">
+        <p>In deciduous orchards and vineyards, active leaves can continue photosynthesis after harvest. Stored reserves contribute to early spring growth, so the period before leaf fall deserves attention.</p>
+        <p>What is practical depends on the crop, harvest date and canopy condition, as well as the weather and available water. A late-harvested block may need a different approach from one picked earlier. There is no single post-harvest application that suits every block.</p>
+        <p>Existing test results can help inform the discussion, but a soil, tissue or sap report does not by itself measure stored carbohydrate reserves. If another sample would help answer a specific question, the team can advise on the test and timing.</p>
+        <div class="cta-row"><a class="btn guide-band__action" href="resource-testing-layers.html">What each test can tell you</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-intro" id="request" data-reveal data-home-field>
+    <div class="wrap guide-intro__grid">
+      <div><span class="eyebrow eyebrow--orange">The next prescription</span><h2>Use this season to plan the next.</h2></div>
+      <div class="guide-intro__copy">
+        <p>Before repeating the same applications, review what the soil and crop need now and what you want to achieve next season. Hybrid-Ag uses your results and block history to develop a custom or prescription blend where one is appropriate.</p>
+        <p>The recommendation also needs to suit your budget, application equipment and the time available. Discuss what can be done after harvest and what is better planned for a later stage, rather than following a fixed calendar.</p>
+        <p>Keep the original reports and application details together. As further test, pack-out or storage results come in, they can be added to the review and used when making the next decision.</p>
+        <div class="cta-row"><a class="btn btn--teal" href="services-testing.html#prescription-pathways">Our prescription approach</a><a class="btn btn--outline" href="resource-sampling-context.html">Keep a useful test history</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="harvest-request band-cream" id="post-harvest-review" data-reveal data-home-field>
+    <div class="wrap harvest-request__grid">
+      <div class="harvest-request__copy">
+        <span class="eyebrow eyebrow--orange">Request a post-harvest review</span>
+        <h2>Talk through your harvest and results.</h2>
+        <p>Tell us about the crop you have just harvested, the results you already have and what you want to improve. We will discuss the available information and the next useful step for your block.</p>
+        <p class="harvest-offer">Review of existing data is free. If new laboratory testing or sampling would help, we will explain the recommended sample, timing and cost before anything proceeds.</p>
+        <p>Prefer to talk it through? Call us on <a href="tel:+61357228000">(03) 5722 8000</a>.</p>
+      </div>
+      <form class="form" data-lead-form="post_harvest" style="max-width:none" method="post" novalidate>
+        <div class="stack-8">
+          <label for="name">Name</label>
+          <input class="field" id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+        </div>
+        <div class="form-row">
+          <div class="stack-8">
+            <label for="phone">Phone</label>
+            <input class="field" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Best number">
+          </div>
+          <div class="stack-8">
+            <label for="email">Email</label>
+            <input class="field" id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+          </div>
+        </div>
+        <div class="stack-8">
+          <label for="crop">Crop &amp; region</label>
+          <input class="field" id="crop" name="crop" type="text" placeholder="e.g. cherries, Yarra Valley" required>
+        </div>
+        <div class="stack-8">
+          <label for="notes">What are you seeing on the block?</label>
+          <textarea class="field" id="notes" name="notes" placeholder="Last season’s results and what you want to review before next season."></textarea>
+        </div>
+        <p class="form-privacy" data-attachment-guidance>Mention existing results or photos in your notes. This form does not upload files. After sending your request, email useful files to <a href="mailto:support@hybridag.com.au">support@hybridag.com.au</a> and include your HAL reference if one is shown.</p>
+        <div class="cta-row" style="margin-top:6px">
+          <button class="pill" type="submit" disabled>Send your request &rarr;</button>
+        </div>
+        <p class="form-privacy" data-form-unavailable>If the online form is unavailable, <a href="mailto:support@hybridag.com.au">email support@hybridag.com.au</a> or call <a href="tel:+61357228000">(03) 5722 8000</a>.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="guide-related" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="guide-heading"><div><span class="eyebrow eyebrow--berry">Crop-specific guides</span><h2>Read more about your crop.</h2></div><p>The Apple and Cherry booklets explain nutrition through the season, including the post-harvest period. Their sample programs are review drafts, not a prescription for your block.</p></div>
+      <div class="harvest-programs">
+        <article><span class="eyebrow">Apple nutrition</span><h3>Apples</h3><p>Read the Apple Playbook alongside your block’s results, from crop load and fruit quality to storage and planning the next season.</p><div class="cta-row"><a class="btn btn--teal" href="sectors-apples.html">Explore apple nutrition</a><a class="btn btn--outline" href="assets/apple-nutrition-playbook.pdf" download="Hybrid-Ag-Apple-Nutrition-Playbook.pdf">Download Apple Playbook</a></div><p class="muted" data-booklet-review-note><small>Review draft: visitors will provide their contact details to receive this booklet when the website launches. Downloads remain open here while the website is being reviewed.</small></p></article>
+        <article><span class="eyebrow eyebrow--berry">Cherry nutrition</span><h3>Cherries</h3><p>Read the Cherry Playbook for the seasonal context, including post-harvest reserves and the return to spring growth.</p><div class="cta-row"><a class="btn btn--teal" href="sectors-cherries.html">Explore cherry nutrition</a><a class="btn btn--outline" href="assets/cherry-nutrition-playbook.pdf" download="Hybrid-Ag-Cherry-Nutrition-Playbook.pdf">Download Cherry Playbook</a></div><p class="muted" data-booklet-review-note><small>Review draft: visitors will provide their contact details to receive this booklet when the website launches. Downloads remain open here while the website is being reviewed.</small></p></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/forms.js?v=64cf9ffeb6"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

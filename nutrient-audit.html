@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nutrient Audit — Hybrid-Ag</title>
+<meta name="description" content="Have your existing soil, plant, water and produce reports reviewed together. Discuss Nutrient requirements and the next steps for your crop.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/nutrient-audit.css?v=c64c9de006">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/service-refinements.css?v=63c0fac8e0">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/nutrient-audit.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nutrient Audit — Hybrid-Ag">
+<meta property="og:description" content="Have your existing soil, plant, water and produce reports reviewed together. Discuss Nutrient requirements and the next steps for your crop.">
+<meta property="og:url" content="https://www.hybridag.com.au/nutrient-audit.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nutrient Audit — Hybrid-Ag">
+<meta name="twitter:description" content="Have your existing soil, plant, water and produce reports reviewed together. Discuss Nutrient requirements and the next steps for your crop.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="services" class="service-refined audit-page">
+<div id="site-header"></div>
+
+<main>
+  <header class="audit-hero page-cover page-cover--photo" data-home-field>
+    <div class="audit-hero__mosaic" aria-hidden="true">
+      <img src="assets/photos/responsive/soil-rootzone-1800.webp" decoding="async" height="2400" width="1800" sizes="(max-width: 620px) 50vw, 25vw" srcset="assets/photos/responsive/soil-rootzone-480.webp 480w, assets/photos/responsive/soil-rootzone-768.webp 768w, assets/photos/responsive/soil-rootzone-1200.webp 1200w, assets/photos/responsive/soil-rootzone-1800.webp 1800w" alt="">
+      <img src="assets/photos/responsive/leaf-tissue-testing-hero-1800.webp" decoding="async" height="1333" width="2000" sizes="(max-width: 620px) 50vw, 25vw" srcset="assets/photos/responsive/leaf-tissue-testing-hero-480.webp 480w, assets/photos/responsive/leaf-tissue-testing-hero-768.webp 768w, assets/photos/responsive/leaf-tissue-testing-hero-1200.webp 1200w, assets/photos/responsive/leaf-tissue-testing-hero-1800.webp 1800w" alt="">
+      <img src="assets/photos/responsive/water-testing-hero-1800.webp" decoding="async" height="868" width="1812" sizes="(max-width: 620px) 50vw, 25vw" srcset="assets/photos/responsive/water-testing-hero-480.webp 480w, assets/photos/responsive/water-testing-hero-768.webp 768w, assets/photos/responsive/water-testing-hero-1200.webp 1200w, assets/photos/responsive/water-testing-hero-1800.webp 1800w" alt="">
+      <img src="assets/photos/responsive/fruit-on-tree-1800.webp" decoding="async" height="1280" width="1920" sizes="(max-width: 620px) 50vw, 25vw" srcset="assets/photos/responsive/fruit-on-tree-480.webp 480w, assets/photos/responsive/fruit-on-tree-768.webp 768w, assets/photos/responsive/fruit-on-tree-1200.webp 1200w, assets/photos/responsive/fruit-on-tree-1800.webp 1800w" alt="">
+    </div>
+    <div class="audit-hero__shade" aria-hidden="true"></div>
+    <div class="wrap audit-hero__inner page-cover__inner">
+      <span class="eyebrow">Testing and interpretation</span>
+      <h1>Nutrient Audit.</h1>
+      <p class="audit-hero__lead">Make sense of the test results you already have.</p>
+      <p>Bring your existing reports and tell us what you need to understand. Hybrid-Ag reviews the results alongside your crop and paddock or block history, then discusses what to do next.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="soil-test.html?test=existing">Bring existing results</a>
+        <a class="btn audit-hero__secondary" href="services-testing.html">Start with testing</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="audit-distinction" data-reveal data-home-field>
+    <div class="wrap audit-heading">
+      <div>
+        <span class="eyebrow eyebrow--orange">Reviewing reports together</span>
+        <h2>Understand what the reports mean for your crop.</h2>
+      </div>
+      <div class="audit-distinction__copy">
+        <p>Soil, plant, water and produce tests measure different things. The audit compares relevant results while keeping their sampling dates, locations and methods clear.</p>
+        <p>No single number creates an automatic diagnosis or product recommendation.</p>
+      </div>
+    </div>
+    <div class="wrap audit-layers" role="list">
+      <a href="services-soil-testing.html" role="listitem"><span>01</span><strong>Soil</strong><p>Soil conditions and Nutrient levels in the sampled area.</p></a>
+      <a href="services-leaf-tissue-testing.html" role="listitem"><span>02</span><strong>Leaf and tissue</strong><p>Nutrient levels in the sampled plant tissue at the recorded growth stage.</p></a>
+      <a href="services-differential-sap-analysis.html" role="listitem"><span>03</span><strong>Differential sap</strong><p>Separate young and old tissue results, compared with each other and any repeat samples.</p></a>
+      <a href="services-water-testing.html" role="listitem"><span>04</span><strong>Water</strong><p>Water quality for irrigation, fertigation and foliar application.</p></a>
+      <a href="services-produce-testing.html" role="listitem"><span>05</span><strong>Produce</strong><p>Crop composition, harvest volume, Nutrient removal and quality measures.</p></a>
+    </div>
+  </section>
+
+  <section class="audit-method" id="audit-method" data-reveal data-home-field>
+    <div class="wrap audit-heading audit-heading--dark">
+      <div><span class="eyebrow">How the audit is organised</span><h2>Position. Pattern. Plan.</h2></div>
+      <p>Crop stage, recent conditions and production history help explain the results. The team also needs to know what you are aiming to achieve.</p>
+    </div>
+    <div class="wrap audit-method__grid">
+      <article><span>01</span><strong>Position</strong><h3>Where is the crop now?</h3><p>Bring the current reports and sampling details. Tell us about the crop and variety, its growth stage, recent conditions and what you need to understand.</p></article>
+      <article><span>02</span><strong>Pattern</strong><h3>How did it get here?</h3><p>Compare previous results with changes through the season, applications, crop response and differences between paddocks, blocks or zones.</p></article>
+      <article><span>03</span><strong>Plan</strong><h3>What deserves attention next?</h3><p>Discuss what needs attention now, what can wait and whether further testing or observations would help.</p></article>
+    </div>
+  </section>
+
+  <section class="audit-output" id="audit-output" data-reveal data-home-field>
+    <div class="audit-output__image"><img src="assets/photos/responsive/differential-sap-testing-hero-1672.webp" height="941" width="1672" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/differential-sap-testing-hero-480.webp 480w, assets/photos/responsive/differential-sap-testing-hero-768.webp 768w, assets/photos/responsive/differential-sap-testing-hero-1200.webp 1200w, assets/photos/responsive/differential-sap-testing-hero-1672.webp 1672w" alt="Plant samples prepared for Nutrient analysis" loading="lazy" decoding="async"></div>
+    <div class="audit-output__copy">
+      <span class="eyebrow eyebrow--berry">Your audit results</span>
+      <h2>An explanation you can use.</h2>
+      <p>The audit explains the available results for your crop and identifies any further information needed. Measured results are kept separate from their interpretation.</p>
+      <dl>
+        <div><dt>Reports reviewed together</dt><dd>Where the results agree, where they differ and what remains uncertain.</dd></div>
+        <div><dt>Priorities for the crop</dt><dd>What needs attention now and what can be addressed later.</dd></div>
+        <div><dt>Soil requirements and prescription blends</dt><dd>Where relevant, calculated elemental requirements in kilograms per hectare to help guide a prescription recommendation.</dd></div>
+        <div><dt>Crop nutrition planning</dt><dd>Application timing and method considered alongside crop stage and what is practical on farm.</dd></div>
+        <div><dt>Review points</dt><dd>Any crop observations or repeat tests needed to assess the recommendation.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="audit-sectors" id="audit-sectors" data-reveal data-home-field>
+    <div class="wrap audit-heading">
+      <div><span class="eyebrow eyebrow--orange">One audit, four cropping systems</span><h2>The audit considers what matters for your crop.</h2></div>
+      <p>The team considers the crop stage and the quality or production measures relevant to your business.</p>
+    </div>
+    <div class="audit-sectors__grid">
+      <a href="horticulture.html"><img src="assets/photos/responsive/orchard-block-1800.webp" height="909" width="1920" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/orchard-block-480.webp 480w, assets/photos/responsive/orchard-block-768.webp 768w, assets/photos/responsive/orchard-block-1200.webp 1200w, assets/photos/responsive/orchard-block-1800.webp 1800w" alt="Rows in a horticulture block" loading="lazy" decoding="async"><span>Blocks</span><strong>Horticulture</strong><small>Marketable fruit, pack-out, grade, condition and shelf life.</small></a>
+      <a href="small-crop.html"><img src="assets/photos/responsive/veg-crop-1800.webp" height="1280" width="1920" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/veg-crop-480.webp 480w, assets/photos/responsive/veg-crop-768.webp 768w, assets/photos/responsive/veg-crop-1200.webp 1200w, assets/photos/responsive/veg-crop-1800.webp 1800w" alt="Commercial vegetable crop rows" loading="lazy" decoding="async"><span>Paddocks or blocks</span><strong>Small Crop</strong><small>Marketable yield, specification, uniformity, timing and quality.</small></a>
+      <a href="broadacre.html"><img src="assets/photos/responsive/cereal-1800.webp" height="1280" width="1920" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/cereal-480.webp 480w, assets/photos/responsive/cereal-768.webp 768w, assets/photos/responsive/cereal-1200.webp 1200w, assets/photos/responsive/cereal-1800.webp 1800w" alt="Broadacre cereal crop in a paddock" loading="lazy" decoding="async"><span>Paddocks</span><strong>Broadacre &amp; Pasture</strong><small>Yield, grain quality, Nutrient efficiency and rotation position.</small></a>
+      <a href="viticulture.html"><img src="assets/photos/responsive/vine-rows-1739.webp" height="1149" width="1739" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/vine-rows-480.webp 480w, assets/photos/responsive/vine-rows-768.webp 768w, assets/photos/responsive/vine-rows-1200.webp 1200w, assets/photos/responsive/vine-rows-1739.webp 1739w" alt="Vine rows in a viticulture block" loading="lazy" decoding="async"><span>Blocks</span><strong>Viticulture</strong><small>Crop and canopy, maturity, specification, condition and harvest timing.</small></a>
+    </div>
+  </section>
+
+  <section class="audit-program audit-program--text" id="audit-program" data-reveal data-home-field>
+    <div class="wrap audit-program__copy">
+      <div>
+        <span class="eyebrow eyebrow--berry">From audit to program</span>
+        <h2>Use the audit to plan crop nutrition.</h2>
+      </div>
+      <div class="audit-program__body">
+        <p>The Apple and Cherry sample programs show how a nutrition recommendation can be set out across a season. These website versions are review drafts, not approved application guidance. Discuss them with the team before considering them for your orchard.</p>
+        <div class="cta-row"><a class="btn btn--teal" href="program-apples.html#interactive-program">View the Apple sample program</a><a class="btn audit-start__secondary" href="program-cherries.html#interactive-program">View the Cherry sample program</a></div>
+        <a class="audit-program__link" href="program.html">View all crop programs</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="audit-start" id="audit-start" data-reveal data-home-field>
+    <div class="wrap audit-heading">
+      <div><span class="eyebrow eyebrow--orange">Two useful starting points</span><h2>Start with the results you have.</h2></div>
+      <p>The team reviews your request and explains which reports to share before the audit begins.</p>
+    </div>
+    <div class="wrap audit-start__grid">
+      <article>
+        <span>01</span><h3>I already have reports.</h3>
+        <p>Tell us which soil, plant, water or produce results exist and the crop question behind them. The team will explain how to share the relevant files.</p>
+        <a class="btn btn--teal" href="soil-test.html?test=existing">Bring existing results</a>
+      </article>
+      <article>
+        <span>02</span><h3>I need the right testing first.</h3>
+        <p>Tell us about your crop and what you need to understand. The team will confirm which test or combination of tests is suitable.</p>
+        <a class="btn audit-start__secondary" href="soil-test.html?test=not-sure">Ask the team where to start</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="audit-team" data-reveal data-home-field>
+    <div class="audit-team__copy">
+      <span class="eyebrow eyebrow--orange">Discussing the findings</span>
+      <h2>Talk through the audit with the team.</h2>
+      <p>The team discusses the findings with you, including what the results show and what remains uncertain. That discussion helps establish a practical recommendation for your crop.</p>
+      <a class="btn btn--teal" href="team.html">Meet the team</a>
+    </div>
+    <div class="audit-team__image"><img src="assets/photos/responsive/testing-interpretation-orchard-1600.webp" height="1200" width="1600" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/testing-interpretation-orchard-480.webp 480w, assets/photos/responsive/testing-interpretation-orchard-768.webp 768w, assets/photos/responsive/testing-interpretation-orchard-1200.webp 1200w, assets/photos/responsive/testing-interpretation-orchard-1600.webp 1600w" alt="Person using a handheld instrument beside pear trees" loading="lazy" decoding="async"></div>
+  </section>
+
+  <section class="audit-cta" data-reveal data-home-field>
+    <div class="wrap audit-cta__inner">
+      <div><span class="eyebrow">Discuss your crop and test results</span><h2>Talk through your existing reports with the team.</h2></div>
+      <div class="cta-row"><a class="btn audit-cta__primary" href="soil-test.html?test=existing">Start a Nutrient Audit</a><a class="btn audit-cta__secondary" href="contact.html">Talk to the team</a></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

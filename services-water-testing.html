@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Water Testing and Interpretation - Hybrid-Ag</title>
+<meta name="description" content="Water testing for irrigation, fertigation and sprays, interpreted for your water source, crop and delivery system.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/testing-detail.css?v=dedc84104f">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/service-refinements.css?v=63c0fac8e0">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/services-water-testing.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Water Testing and Interpretation - Hybrid-Ag">
+<meta property="og:description" content="Water testing for irrigation, fertigation and sprays, interpreted for your water source, crop and delivery system.">
+<meta property="og:url" content="https://www.hybridag.com.au/services-water-testing.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Water Testing and Interpretation - Hybrid-Ag">
+<meta name="twitter:description" content="Water testing for irrigation, fertigation and sprays, interpreted for your water source, crop and delivery system.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="services" class="service-refined">
+<div id="site-header"></div>
+
+<main>
+  <header class="testing-detail-hero testing-detail-hero--water page-cover page-cover--photo" data-home-field>
+    <picture>
+      <source type="image/avif" sizes="100vw" srcset="assets/photos/responsive/water-irrigation-aerial-480.avif 480w, assets/photos/responsive/water-irrigation-aerial-768.avif 768w, assets/photos/responsive/water-irrigation-aerial-1200.avif 1200w, assets/photos/responsive/water-irrigation-aerial-1800.avif 1800w">
+      <img class="testing-detail-hero__image" src="assets/photos/responsive/water-irrigation-aerial-1800.webp" decoding="async" height="1200" width="1800" sizes="100vw" srcset="assets/photos/responsive/water-irrigation-aerial-480.webp 480w, assets/photos/responsive/water-irrigation-aerial-768.webp 768w, assets/photos/responsive/water-irrigation-aerial-1200.webp 1200w, assets/photos/responsive/water-irrigation-aerial-1800.webp 1800w" alt="Aerial view of a sprinkler watering green crop rows" fetchpriority="high">
+    </picture>
+    <div class="testing-detail-hero__shade" aria-hidden="true"></div>
+    <div class="wrap testing-detail-hero__inner page-cover__inner">
+      <span class="eyebrow">Water testing and interpretation</span>
+      <h1>Water testing for irrigation, fertigation and sprays.</h1>
+      <p>A water report needs to be interpreted for its intended use. The team considers the source, crop and delivery system, whether the water is used for sprays, irrigation or fertigation.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="soil-test.html?test=water">Request water testing</a>
+        <a class="btn testing-detail-hero__secondary" href="#foliar-water">Why water quality matters</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="testing-detail-intro" id="water-uses" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--orange">How the water is used</span><h2>Tell us how the water will be used.</h2></div>
+        <p>Water quality needs to be assessed for the intended use. A report on bore, dam, tank, mains or blended water may raise different questions for spraying, fertigation or irrigation.</p>
+      </div>
+      <div class="testing-detail-intro__grid">
+        <article><span>01</span><strong>Spray water</strong><p>Check the water conditions that may affect mixing, compatibility and foliar application.</p></article>
+        <article><span>02</span><strong>Irrigation and fertigation</strong><p>Read salinity, Sodium and other constraints against the crop, soil, root zone and delivery system.</p></article>
+        <article><span>03</span><strong>Source and system</strong><p>Record the water source, any blending or filtration, changes through the season and how the water reaches the crop.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-method" id="foliar-water" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow">Foliar water quality</span><h2>Water is the first ingredient in the spray tank.</h2></div>
+        <p>Source water can affect the products added to a tank. Testing helps establish the starting conditions when investigating mixing, compatibility or application problems.</p>
+      </div>
+      <div class="testing-detail-method__grid testing-detail-method__grid--four">
+        <div><span>01</span><strong>Do not stop at pH</strong><h3>pH is a snapshot.</h3><p>It shows how acidic or alkaline the sample is when tested. It does not describe how strongly the water will resist change.</p></div>
+        <div><span>02</span><strong>Hardness and alkalinity</strong><h3>Hardness and alkalinity are different.</h3><p>Calcium and Magnesium contribute to hardness. Bicarbonate and carbonate contribute to buffering and can influence tank behaviour.</p></div>
+        <div><span>03</span><strong>Verify treatment</strong><h3>Test the water after treatment.</h3><p>Filtration, softening, acidification and reverse osmosis do not produce the same water. Test the final water at the point of use.</p></div>
+        <div><span>04</span><strong>Seasonal variation</strong><h3>The source can change.</h3><p>Bore, dam, river and blended supplies may vary through the season. One old result may not describe the water being used now.</p></div>
+      </div>
+      <a class="btn testing-detail-method__action" href="resource-water-quality-foliar-sprays.html">Read the water quality guide</a>
+    </div>
+  </section>
+
+  <section class="testing-detail-signals" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--berry">The report</span><h2>Consider the results together.</h2></div>
+        <p>No single figure describes water quality. The team considers the relationship between measurements and how the water will be used.</p>
+      </div>
+      <div class="testing-detail-signals__grid">
+        <article><span>01</span><h3>pH and alkalinity</h3><p>Separate the immediate pH reading from the buffering capacity that can influence how the water responds in a tank or system.</p></article>
+        <article><span>02</span><h3>EC and dissolved salts</h3><p>Read the overall salt load in relation to the crop, soil conditions, source and irrigation strategy.</p></article>
+        <article><span>03</span><h3>Hardness and bicarbonate</h3><p>Understand mineral load and buffering where mixing, deposits, compatibility or system performance are part of the question.</p></article>
+        <article><span>04</span><h3>Sodium, chloride and SAR</h3><p>Interpret the Sodium relationship and specific salts for the soil, root zone and intended water use.</p></article>
+        <article><span>05</span><h3>Specific elements and metals</h3><p>Review Boron, Iron, Manganese and other measured elements where the source or intended use makes them relevant.</p></article>
+        <article><span>06</span><h3>Turbidity and biology</h3><p>Consider suspended material or microbiology when the source, filtration, crop or delivery pathway makes those questions useful.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-units" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--orange">Understanding the units</span><h2>Check the reporting units.</h2></div>
+        <p>A value is only comparable when the unit and reporting basis stay attached. Check which of these common Australian units and reporting bases appear on your report.</p>
+      </div>
+      <div class="testing-detail-units__list">
+        <div><strong>Total hardness</strong><span>mg/L as CaCO<sub>3</sub></span><p>Shows the combined hardness contribution, commonly from dissolved Calcium and Magnesium.</p></div>
+        <div><strong>Alkalinity</strong><span>mg/L as CaCO<sub>3</sub></span><p>Describes acid-neutralising or buffering capacity. Bicarbonate may also be reported separately in mg/L.</p></div>
+        <div><strong>Electrical conductivity</strong><span>dS/m or &micro;S/cm</span><p>Shows overall ionic conductivity. One dS/m equals 1,000 &micro;S/cm.</p></div>
+        <div><strong>Individual ions</strong><span>mg/L</span><p>Sodium, chloride, Boron, Iron, Manganese and other measured constituents need their own result.</p></div>
+        <div><strong>Sodium adsorption ratio</strong><span>Unitless ratio</span><p>Relates Sodium to Calcium and Magnesium for irrigation and soil-structure interpretation.</p></div>
+      </div>
+      <p class="testing-detail-units__note">In dilute water, a value reported in ppm is approximately the same numerical value in mg/L. The report should still identify the constituent and, for hardness or alkalinity, the basis used.</p>
+    </div>
+  </section>
+
+  <section class="testing-detail-split" data-reveal data-home-field>
+    <div class="testing-detail-split__image"><img src="assets/photos/responsive/paddock-green-1800.webp" height="1278" width="1920" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/paddock-green-480.webp 480w, assets/photos/responsive/paddock-green-768.webp 768w, assets/photos/responsive/paddock-green-1200.webp 1200w, assets/photos/responsive/paddock-green-1800.webp 1800w" alt="Irrigated green crop paddock under an open sky" loading="lazy" decoding="async"></div>
+    <div class="testing-detail-split__copy">
+      <span class="eyebrow eyebrow--orange">Interpretation before action</span>
+      <h2>Interpret water results for the crop and system.</h2>
+      <p>The same result may mean different things for different crops and systems. A single threshold should not be treated as a recommendation for every situation.</p>
+      <dl>
+        <div><dt>For sprays</dt><dd>Check compatibility for the intended products, tank mix, water source and application.</dd></div>
+        <div><dt>For fertigation</dt><dd>Consider the water quality alongside fertiliser, equipment, soil and root-zone conditions.</dd></div>
+        <div><dt>For irrigation</dt><dd>Crop sensitivity, soil behaviour, climate, volume and seasonal pattern all matter.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="testing-detail-method" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow">The Hybrid-Ag approach</span><h2>Position. Pattern. Plan.</h2></div>
+        <p>Water results are reviewed alongside the intended use and any relevant soil, plant or production data.</p>
+      </div>
+      <div class="testing-detail-method__grid">
+        <div><span>01</span><strong>Position</strong><h3>What does the current sample show?</h3><p>Establish the source, intended use, crop, system and current laboratory measures.</p></div>
+        <div><span>02</span><strong>Pattern</strong><h3>What may have changed?</h3><p>Review seasonal changes, water blends, earlier reports and the delivery system alongside observations from the paddock or block.</p></div>
+        <div><span>03</span><strong>Plan</strong><h3>What needs attention next?</h3><p>Discuss any further testing needed and what to check as the water is used.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-context" data-reveal data-home-field>
+    <div class="wrap testing-detail-context__inner">
+      <div><span class="eyebrow eyebrow--orange">Before sampling</span><h2>Prepare before collecting a water sample.</h2></div>
+      <div class="testing-detail-context__list">
+        <div><span>01</span><div><strong>Identify the source</strong><p>Bore, dam, river, tank, mains supply or blend, including anything that changes before use.</p></div></div>
+        <div><span>02</span><div><strong>Name the intended use</strong><p>Sprays, irrigation, fertigation or a combination, plus the crop and production system.</p></div></div>
+        <div><span>03</span><div><strong>Explain the question</strong><p>Share what has changed, what has been observed and the decision the result needs to support.</p></div></div>
+        <div><span>04</span><div><strong>Keep previous results</strong><p>Earlier reports can help show whether the current sample is typical or part of a changing pattern.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-cta" data-reveal data-home-field>
+    <div class="wrap testing-detail-cta__inner">
+      <div><span class="eyebrow">Start with the intended use</span><h2>Discuss water testing with the team.</h2></div>
+      <div class="cta-row">
+        <a class="btn testing-detail-cta__primary" href="soil-test.html?test=water">Request water testing</a>
+        <a class="btn testing-detail-cta__secondary" href="resource-water-quality-foliar-sprays.html">Read the water quality guide</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

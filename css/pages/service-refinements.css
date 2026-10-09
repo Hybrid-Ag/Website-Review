@@ -1,0 +1,179 @@
+/* Services inherit the accepted cover, typography and Three Signals renderer.
+   This opt-in pass only tightens the editorial layout and native controls. */
+.service-refined #site-footer>.stripe{display:none}
+.service-refined main :is(h1,h2,h3){text-wrap:balance}
+.service-refined main>section :is(h2,.h2){max-width:24ch;font-size:clamp(34px,3.4vw,48px);line-height:1.08}
+.service-refined .audit-hero .eyebrow{color:var(--white)}
+.service-refined :is(.test-catalogue,.testing-questions,.testing-existing,
+  .testing-detail-intro,.testing-detail-signals,.testing-detail-units,.testing-detail-method,.testing-detail-context,.soil-prescription-bridge,
+  .dsa-report,.dsa-comparison,.dsa-trend,.dsa-workflow,
+  .prescription-kg,.prescription-compare,.prescription-formats,.prescription-staging,
+  .audit-distinction,.audit-method,.audit-sectors,.audit-program--text,.audit-start,.testing-request){padding-block:clamp(48px,5vw,72px)}
+
+.service-refined :is(.test-catalogue__heading,.testing-questions__heading,.testing-existing__inner,.testing-detail-heading,.audit-heading,
+  .audit-program--text .audit-program__copy,.testing-layers__inner){grid-template-columns:minmax(0,1fr) minmax(0,.85fr);align-items:center;gap:32px 64px}
+.service-refined :is(.test-catalogue__heading,.testing-questions__heading,.testing-detail-heading,.audit-heading)>p,
+.service-refined :is(.testing-existing__inner>div:last-child>p,.audit-distinction__copy,.audit-program__body>p,.testing-layers__inner>p){margin:0;padding:0;font-size:17px;line-height:1.6}
+.service-refined .testing-questions__heading{padding-block:0}
+.service-refined .testing-questions__grid{padding-bottom:0}
+.service-refined :is(.test-catalogue__grid,.testing-questions__grid,.testing-detail-intro__grid,.testing-detail-signals__grid,.testing-detail-method__grid,
+  .testing-detail-units__list,.dsa-report__groups,.dsa-comparison__grid,.dsa-trend__grid,.prescription-compare__table,.prescription-formats__grid,
+  .audit-layers,.audit-method__grid,.audit-sectors__grid,.audit-start__grid){margin-top:32px}
+.service-refined :is(.testing-detail-intro__grid,.testing-detail-signals__grid,.testing-detail-method__grid,.dsa-comparison__grid,.dsa-trend__grid,.audit-method__grid)>:is(article,div){min-width:0;min-height:0;padding-block:24px}
+.service-refined :is(.testing-detail-intro__grid strong,.testing-detail-signals__grid h3,.dsa-trend__grid strong,.audit-layers strong){margin-top:14px;font-size:25px;line-height:1.1}
+.service-refined :is(.testing-detail-method__grid,.testing-questions__grid,.audit-method__grid,.dsa-comparison__grid) h3{font-size:27px;line-height:1.1}
+.service-refined :is(.testing-detail-context__inner,.dsa-workflow__inner,.prescription-staging__inner,.testing-request__layout){grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px 64px}
+.service-refined :is(.dsa-report__inner,.prescription-kg__inner,.soil-prescription-bridge__inner){gap:40px 64px}
+.service-refined :is(.dsa-report__copy,.prescription-kg__copy,.soil-prescription-bridge__copy,.prescription-staging__inner>div:first-child,.dsa-workflow__inner>div:first-child)>p{margin-top:18px;font-size:17px;line-height:1.6}
+.service-refined :is(.testing-detail-context__list,.dsa-workflow__list,.prescription-staging__list)>div{padding-block:16px}
+.service-refined .prescription-formats__grid article{padding-block:24px}
+.service-refined .prescription-formats__grid h3{max-width:22ch;font-size:28px}
+.service-refined .prescription-kg__mark{font-size:clamp(112px,12vw,170px)}
+.service-refined .audit-layers a{padding-block:24px}
+.service-refined .audit-start__grid article{min-height:0;padding:28px}
+.service-refined .audit-start__grid h3{max-width:24ch;margin-top:14px;font-size:29px}
+.service-refined .audit-start__grid .btn{margin-top:24px}
+.service-refined .audit-sectors__grid a{min-height:360px;padding:24px}
+
+/* Compact equal-width cards, with their actions aligned across each row. */
+.service-refined .test-catalogue__grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+.service-refined .test-service{min-width:0;min-height:0;padding:24px;transition:border-color var(--t-fast),transform var(--t-fast)}
+.service-refined .test-service__label{margin-top:18px}
+.service-refined .test-service__action{padding-top:20px}
+.service-refined .prescription-pathway{grid-template-columns:80px minmax(0,1fr) minmax(140px,200px);gap:24px;padding:24px}
+.service-refined .prescription-pathway__copy strong{max-width:40ch}
+.service-refined .liquid-prescription-intro__body{max-width:84ch;margin-top:24px;font-size:17px;line-height:1.6;color:var(--body)}
+.service-refined.liquid-prescription-refined .testing-detail-hero__image{object-position:center 42%}
+.service-refined.liquid-prescription-refined .testing-detail-hero__shade{background:rgba(18,19,18,.65)}
+.service-refined.liquid-prescription-refined .testing-detail-split__image img{object-position:50% 62%}
+.service-refined.liquid-prescription-refined .testing-detail-split__copy .cta-row{gap:12px;margin-top:24px}
+.service-refined.liquid-prescription-refined .testing-detail-split__copy>.btn{align-self:flex-start;margin-top:24px}
+.service-refined.liquid-prescription-refined .btn--outline{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+.service-refined.liquid-prescription-refined .btn--outline:hover{background:var(--ink);color:var(--white)}
+.service-refined .prescription-pathway--liquid{background:var(--ink)}
+.service-refined .prescription-pathway--liquid .prescription-pathway__metric{font-size:35px;line-height:1}
+.service-refined .prescription-pathway--liquid:hover{background:var(--teal-dk)}
+.service-refined #prescription-pathways{scroll-margin-top:calc(var(--nav-h) + 24px)}
+
+/* One shared centre seam. Images fill the text-driven panel rather than
+   stretching it to their intrinsic height; content stays above the field. */
+.service-refined :is(.testing-process,.testing-detail-split,.audit-output,.audit-team){grid-template-columns:repeat(2,minmax(0,1fr));min-height:0}
+.service-refined :is(.testing-process,.testing-detail-split,.audit-output,.audit-team)>div{position:relative;z-index:1;min-width:0}
+.service-refined :is(.testing-process__image,.testing-detail-split__image,.audit-output__image,.audit-team__image){min-height:420px;overflow:hidden}
+.service-refined :is(.testing-process__image,.testing-detail-split__image,.audit-output__image,.audit-team__image) img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.service-refined :is(.testing-process__content,.testing-detail-split__copy,.audit-output__copy,.audit-team__copy){padding:48px clamp(32px,4vw,64px)}
+.service-refined :is(.testing-process__content,.testing-detail-split__copy,.audit-output__copy,.audit-team__copy)>p{margin-top:18px;font-size:17px;line-height:1.6}
+.service-refined .testing-process__content .h2{max-width:24ch}
+.service-refined :is(.testing-process ol,.testing-detail-split dl,.audit-output dl){margin-top:24px}
+.service-refined .testing-process li{padding-block:14px;grid-template-columns:28px minmax(0,1fr)}
+.service-refined :is(.testing-detail-split dl,.audit-output dl)>div{grid-template-columns:minmax(120px,.5fr) minmax(0,1fr);gap:18px;padding-block:12px}
+.service-refined :is(.testing-process,.audit-team) .btn{margin-top:24px}
+.service-refined .audit-team__image{order:2}
+.service-refined .audit-team__copy{order:1}
+.service-refined .audit-sectors__grid{position:relative;z-index:1}
+
+/* Same compact, wrapping actions as the established editorial pages. */
+.service-refined main>section .btn{height:auto;min-height:44px;max-width:100%;padding:11px 20px;font-size:12px;line-height:1.5;white-space:normal;text-align:center;justify-content:center}
+.service-refined :is(.service-cta__inner,.testing-detail-cta__inner,.audit-cta__inner){display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,300px);align-items:center;gap:40px;padding-block:56px}
+.service-refined :is(.service-cta,.testing-detail-cta,.audit-cta) h2{max-width:28ch}
+.service-refined :is(.testing-detail-cta,.audit-cta) .cta-row{margin:0;gap:12px;flex-direction:column;align-items:stretch}
+.service-refined .service-cta{background:var(--teal-dk)}
+.service-refined .service-cta .btn{justify-self:stretch}
+.service-refined .audit-program .cta-row{gap:12px;margin-top:24px}
+.service-refined .audit-program--text .audit-program__copy h2{max-width:24ch}
+.service-refined .audit-program__link{display:inline-flex;align-items:center;min-height:44px;margin-top:8px}
+.service-refined .audit-start__secondary{border-color:var(--ink)}
+.service-refined .audit-start__secondary:hover{background:var(--ink);color:var(--white)}
+.service-refined .audit-cta__secondary{border-color:var(--white)}
+.service-refined .audit-cta__secondary:hover{background:var(--white);color:var(--ink)}
+.service-refined .testing-layers__inner{padding-block:56px}
+.service-refined .testing-request__intro{top:calc(var(--nav-h) + 24px)}
+.service-refined .testing-form{min-width:0;min-height:0}
+.service-refined .testing-intro__grid>div{min-height:0;padding-block:24px}
+
+/* Leaf testing is the entry point for both dry tissue and paired sap.
+   Use the established typography, field renderer and photo seam throughout. */
+.service-refined.leaf-testing-refined :is(#compare-tests,#tissue-read,#dsa){scroll-margin-top:calc(var(--nav-h) + 24px)}
+.service-refined.leaf-testing-refined .testing-detail-hero__image{object-position:center 44%}
+.service-refined.leaf-testing-refined .testing-detail-hero__shade{background:rgba(18,19,18,.65)}
+.service-refined.leaf-testing-refined .leaf-test-comparison__dsa{background:var(--cream)}
+.service-refined.leaf-testing-refined .dsa-comparison__grid article{display:flex;flex-direction:column;min-width:0;padding-inline:28px}
+.service-refined.leaf-testing-refined .dsa-comparison__grid article>span{font-size:15px;color:var(--teal-dk)}
+.service-refined.leaf-testing-refined .dsa-comparison__grid article>strong{margin-top:10px;letter-spacing:var(--tracking-ui)}
+.service-refined.leaf-testing-refined .dsa-comparison__grid h3{max-width:24ch;min-height:2.2em}
+.service-refined.leaf-testing-refined .dsa-comparison__grid dl{flex:1;margin-block:20px 24px}
+.service-refined.leaf-testing-refined .dsa-comparison__grid dl>div{grid-template-columns:100px minmax(0,1fr);gap:14px}
+.service-refined.leaf-testing-refined .dsa-comparison__grid .btn{align-self:flex-start;margin:0}
+.service-refined.leaf-testing-refined .btn--outline{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+.service-refined.leaf-testing-refined .btn--outline:hover{background:var(--ink);color:var(--white)}
+.service-refined.leaf-testing-refined .leaf-dsa-feature{padding-block:clamp(48px,5vw,72px);background:var(--cream)}
+.service-refined.leaf-testing-refined .leaf-dsa-feature__grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 64px;align-items:center;margin-top:32px}
+.service-refined.leaf-testing-refined .leaf-dsa-pair{margin:0;padding:24px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--r-card)}
+.service-refined.leaf-testing-refined .leaf-dsa-pair__event{padding-bottom:18px;border-bottom:1px solid var(--hairline);font-family:var(--font-display);font-size:17px;text-align:center;color:var(--body)}
+.service-refined.leaf-testing-refined .leaf-dsa-pair__samples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-block:20px}
+.service-refined.leaf-testing-refined .leaf-dsa-pair__samples>div{text-align:center;min-width:0}
+.service-refined.leaf-testing-refined .leaf-dsa-pair__samples>div+div{border-left:1px solid var(--hairline)}
+.service-refined.leaf-testing-refined .leaf-dsa-pair svg{display:block;width:88px;max-width:100%;height:88px;margin:0 auto 10px;fill:none;stroke:var(--teal-dk);stroke-width:1.5}
+.service-refined.leaf-testing-refined .leaf-dsa-pair__samples :is(strong,span){display:block}
+.service-refined.leaf-testing-refined .leaf-dsa-pair__samples strong{font-family:var(--font-display);font-size:25px;font-weight:400}
+.service-refined.leaf-testing-refined .leaf-dsa-pair__samples span{margin-top:4px;color:var(--body);font-size:14px}
+.service-refined.leaf-testing-refined .leaf-dsa-pair figcaption{padding-top:18px;border-top:1px solid var(--hairline);font-size:14px;line-height:1.55;color:var(--body);text-align:center}
+.service-refined.leaf-testing-refined .leaf-dsa-feature__copy h3{font-size:29px;line-height:1.1}
+.service-refined.leaf-testing-refined :is(.leaf-dsa-feature__copy,.testing-detail-context__inner>div:first-child)>p{margin-top:18px;font-size:17px;line-height:1.6;color:var(--body)}
+.service-refined.leaf-testing-refined :is(.leaf-dsa-feature__copy,.testing-detail-split__copy)>.btn{align-self:flex-start;margin-top:24px}
+.service-refined.leaf-testing-refined .testing-detail-split__copy>.leaf-test-photo-note{font-size:13px;line-height:1.5}
+.service-refined.leaf-testing-refined .leaf-test-prescription{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px 64px;align-items:center;margin-top:32px;padding-top:28px;border-top:1px solid rgba(255,255,255,.22)}
+.service-refined.leaf-testing-refined .leaf-test-prescription>p{max-width:76ch;color:var(--on-dark);font-size:17px;line-height:1.6}
+.service-refined.leaf-testing-refined .leaf-test-prescription>.btn{margin:0}
+
+@media(max-width:1248px){
+  .service-refined .audit-program--text .audit-program__copy{padding-inline:24px}
+}
+@media(max-width:1020px){
+  .service-refined .test-catalogue__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .service-refined .test-service,.service-refined .test-service:nth-child(n+4){grid-column:auto}
+}
+@media(max-width:900px){
+  .service-refined :is(.test-catalogue__heading,.testing-questions__heading,.testing-existing__inner,.testing-detail-heading,.audit-heading,
+    .audit-program--text .audit-program__copy,.testing-layers__inner,.testing-detail-context__inner,.dsa-workflow__inner,.prescription-staging__inner,
+    .dsa-report__inner,.prescription-kg__inner,.soil-prescription-bridge__inner,.testing-request__layout){grid-template-columns:1fr;gap:18px}
+  .service-refined :is(.testing-process,.testing-detail-split,.audit-output,.audit-team){grid-template-columns:1fr}
+  .service-refined :is(.testing-process__image,.testing-detail-split__image,.audit-output__image,.audit-team__image){width:100%;min-height:0;aspect-ratio:16/10}
+  .service-refined :is(.testing-process__content,.testing-detail-split__copy,.audit-output__copy,.audit-team__copy){padding:40px 24px}
+  .service-refined :is(.testing-detail-split dl,.audit-output dl)>div{grid-template-columns:1fr;gap:4px}
+  .service-refined .audit-team__image{order:1}
+  .service-refined .audit-team__copy{order:2}
+  .service-refined :is(.service-cta__inner,.testing-detail-cta__inner,.audit-cta__inner){grid-template-columns:1fr;gap:28px;padding-block:48px}
+  .service-refined :is(.testing-detail-cta,.audit-cta) .cta-row{flex-direction:row;flex-wrap:wrap}
+  .service-refined .service-cta .btn{justify-self:start}
+  .service-refined .testing-request__intro{position:static}
+  .service-refined .prescription-pathway{grid-template-columns:80px minmax(0,1fr)}
+  .service-refined .prescription-pathway__action{grid-column:2}
+  .service-refined.leaf-testing-refined :is(.leaf-dsa-feature__grid,.leaf-test-prescription){grid-template-columns:1fr;gap:24px}
+  .service-refined.leaf-testing-refined .leaf-test-prescription>.btn{justify-self:start}
+}
+@media(max-width:620px){
+  .service-refined .test-catalogue__grid{grid-template-columns:1fr}
+  .service-refined .prescription-pathway{grid-template-columns:1fr}
+  .service-refined .prescription-pathway__action{grid-column:auto}
+  /* Retain all four crop images with equivalent space on narrow screens. */
+  .service-refined .testing-detail-hero__mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}
+  .service-refined .testing-detail-hero__mosaic img:nth-child(n+3){display:block}
+  .service-refined.leaf-testing-refined .dsa-comparison__grid article{padding-inline:20px}
+  .service-refined.leaf-testing-refined .dsa-comparison__grid h3{min-height:0}
+  .service-refined.leaf-testing-refined .dsa-comparison__grid dl>div{grid-template-columns:1fr;gap:4px}
+  .service-refined.leaf-testing-refined .leaf-dsa-pair{padding:20px 16px}
+}
+@media(max-width:560px){
+  .service-refined .site-assistant-launcher{width:48px;min-height:48px;grid-template-columns:1fr;gap:0;padding:0;border:1px solid var(--teal-dk);border-radius:var(--r-btn)}
+  .service-refined .site-assistant-launcher__icon{width:46px;height:46px;border-radius:var(--r-btn)}
+  .service-refined :is(.site-assistant-launcher__copy,.site-assistant-launcher__arrow){display:none}
+  .service-refined:has([data-testing-request]:focus-within) .site-assistant:not(.is-open) .site-assistant-launcher{visibility:hidden;pointer-events:none}
+}
+@media(max-width:520px){
+  .service-refined :is(.testing-detail-cta,.audit-cta) .cta-row{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce),(hover:none),(pointer:coarse){
+  .service-refined :is(.test-service,.test-option,.audit-sectors__grid img,.testing-form__progress span){transition:none}
+  .service-refined :is(.test-service:hover,.test-option:hover,.audit-sectors__grid a:hover img){transform:none}
+}

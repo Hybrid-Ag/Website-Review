@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Hybrid-Ag</title>
+<meta name="description" content="Contact Hybrid-Ag about your crop, existing test results or testing needs. Send an enquiry or call the team.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/contact.css?v=40cfc7a492">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/contact.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact — Hybrid-Ag">
+<meta property="og:description" content="Contact Hybrid-Ag about your crop, existing test results or testing needs. Send an enquiry or call the team.">
+<meta property="og:url" content="https://www.hybridag.com.au/contact.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact — Hybrid-Ag">
+<meta name="twitter:description" content="Contact Hybrid-Ag about your crop, existing test results or testing needs. Send an enquiry or call the team.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<script type="application/ld+json">{"@type":"LocalBusiness","name":"Hybrid-Ag","url":"https://www.hybridag.com.au","logo":"https://www.hybridag.com.au/assets/hybrid-ag-logo.png","telephone":"+61357228000","sameAs":["https://www.facebook.com/HybridAgPtyLtd","https://www.instagram.com/hybridag","https://www.linkedin.com/company/hybrid-ag","https://x.com/HybridAg1"],"address":{"@type":"PostalAddress","streetAddress":"52 Buckler Rd","addressLocality":"Wangaratta","addressRegion":"VIC","postalCode":"3677","addressCountry":"AU"},"@context":"https://schema.org"}</script>
+<!-- /SEO:auto -->
+</head>
+<body data-page="">
+<div id="site-header"></div>
+
+<main>
+<aside class="wrap" data-pages-review-notice role="note" aria-label="Public review notice" style="margin:20px auto;padding:16px;border:1px solid #b65300;background:#fff1df;color:#1a1714">
+<strong>Public website review.</strong> Forms, sign-in and ordering are previews. Nothing is sent to Hybrid-Ag. Use the team's contact details for a real enquiry.
+</aside>
+  <!-- HERO (short) -->
+  <header class="hero hero--short contact-hero page-cover page-cover--photo">
+    <div class="contact-hero__media" aria-hidden="true">
+      <img src="assets/banners/market-sectors/horticulture-960.webp" width="960" height="1280" sizes="(max-width: 1040px) 50vw, 25vw" srcset="assets/banners/market-sectors/horticulture-320.webp 320w, assets/banners/market-sectors/horticulture-480.webp 480w, assets/banners/market-sectors/horticulture-768.webp 768w, assets/banners/market-sectors/horticulture-960.webp 960w" alt="" fetchpriority="high" decoding="async">
+      <img src="assets/banners/market-sectors/small-crop-960.webp" width="960" height="1280" sizes="(max-width: 1040px) 50vw, 25vw" srcset="assets/banners/market-sectors/small-crop-320.webp 320w, assets/banners/market-sectors/small-crop-480.webp 480w, assets/banners/market-sectors/small-crop-768.webp 768w, assets/banners/market-sectors/small-crop-960.webp 960w" alt="" decoding="async">
+      <img src="assets/banners/market-sectors/broadacre-960.webp" width="960" height="1280" sizes="(max-width: 1040px) 50vw, 25vw" srcset="assets/banners/market-sectors/broadacre-320.webp 320w, assets/banners/market-sectors/broadacre-480.webp 480w, assets/banners/market-sectors/broadacre-768.webp 768w, assets/banners/market-sectors/broadacre-960.webp 960w" alt="" decoding="async">
+      <img src="assets/banners/market-sectors/viticulture-960.webp" width="960" height="1280" sizes="(max-width: 1040px) 50vw, 25vw" srcset="assets/banners/market-sectors/viticulture-320.webp 320w, assets/banners/market-sectors/viticulture-480.webp 480w, assets/banners/market-sectors/viticulture-768.webp 768w, assets/banners/market-sectors/viticulture-960.webp 960w" alt="" decoding="async">
+    </div>
+    <div class="contact-hero__shade" aria-hidden="true"></div>
+    <div class="wrap hero-inner page-cover__inner">
+      <span class="eyebrow">Talk to Hybrid-Ag</span>
+      <h1>Tell us about your crop.</h1>
+      <p class="sub">Whether you have a question about the crop or need help understanding a test result, you can contact the team here. You do not need to know which test or product you need. A team member will read your enquiry and get back to you.</p>
+    </div>
+  </header>
+
+  <!-- SPLIT: form (left) + talk-to-a-person (right) -->
+  <section class="section" data-reveal>
+    <div class="wrap split align-start">
+
+      <!-- LEFT — send your data -->
+      <div>
+        <span class="eyebrow eyebrow--orange">Send an enquiry</span>
+        <h2 class="h2" style="font-size:26px">How can we help?</h2>
+        <p class="muted italic" style="margin:10px 0 22px;max-width:48ch">Let us know if you already have test results, or ask the team how to arrange sampling.</p>
+        <form class="form" id="contact-form" data-lead-form="contact" method="post" novalidate>
+          <div class="form-row">
+            <div class="field-group">
+              <label for="name">Your name</label>
+              <input class="field" id="name" name="name" type="text" autocomplete="name" placeholder="First and last" required>
+            </div>
+            <div class="field-group">
+              <label for="farm">Farm or trading name</label>
+              <input class="field" id="farm" name="farm" type="text" placeholder="Farm or trading name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label for="email">Email</label>
+              <input class="field" id="email" name="email" type="email" autocomplete="email" placeholder="you@farm.com.au">
+            </div>
+            <div class="field-group">
+              <label for="phone">Phone</label>
+              <input class="field" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx">
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="test">What would you like help with?</label>
+            <select class="field" id="test" name="test" required>
+              <option value="">Choose an option&hellip;</option>
+              <optgroup label="Testing and results">
+                <option value="existing">Review existing test results</option>
+                <option value="soil">Soil testing</option>
+                <option value="leaf">Standard leaf and tissue testing</option>
+                <option value="sap">Differential Sap Analysis (DSA)</option>
+                <option value="water">Water testing</option>
+                <option value="produce">Produce testing</option>
+              </optgroup>
+              <optgroup label="Prescription blends">
+                <option value="prescription-dry">Dry and granular prescription blends</option>
+                <option value="prescription-liquid">Liquid prescription blends</option>
+              </optgroup>
+              <optgroup label="Crop nutrition and products">
+                <option value="program">Discuss a crop nutrition program</option>
+                <option value="product">Product advice or pricing</option>
+              </optgroup>
+              <optgroup label="Other enquiries">
+                <option value="order">An order or delivery</option>
+                <option value="other">Something else</option>
+              </optgroup>
+              <option value="not-sure">Not sure — I would like some advice</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="message">Anything else? <span style="color:var(--body);font-weight:400;text-transform:none;letter-spacing:0;font-family:var(--font-body)">(optional)</span></label>
+            <textarea class="field" id="message" name="message" placeholder="Tell us about the crop, its growth stage and what you would like help with."></textarea>
+          </div>
+          <p class="form-privacy" data-attachment-guidance>Mention existing results or photos in your message. This form does not upload files. After sending your request, email useful files to <a href="mailto:support@hybridag.com.au">support@hybridag.com.au</a> and include your HAL reference if one is shown.</p>
+          <button class="pill" type="submit" style="align-self:flex-start;margin-top:4px" disabled>Send enquiry &rarr;</button>
+          <p class="form-privacy" data-form-unavailable>If the online form is unavailable, <a href="mailto:support@hybridag.com.au">email support@hybridag.com.au</a> or call <a href="tel:+61357228000">(03) 5722 8000</a>.</p>
+        </form>
+      </div>
+
+      <!-- RIGHT — talk to a person -->
+      <aside class="talk-panel">
+        <span class="eyebrow">Prefer to call?</span>
+        <h2>Speak with the team.</h2>
+        <p class="muted" style="font-style:italic;margin-top:-6px">Call the office about your crop or test results. We can discuss what you need help with and whether further testing or a prescription blend would be appropriate.</p>
+        <a class="call-big" href="tel:+61357228000">(03) 5722 8000</a>
+        <div class="cta-row" style="margin-top:2px">
+          <a class="pill pill--teal" href="#contact-form" data-request-callback>Request a call &rarr;</a>
+        </div>
+        <p class="call-note">If you leave a message, include your number, location and crop so we can direct your enquiry to the appropriate team member.</p>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- TESTING BAND (no dead-end) -->
+  <section class="testing-band">
+    <div class="wrap">
+      <h3>Have existing test results? We can review them with you.</h3>
+      <a class="pill pill--teal" href="soil-test.html">Request testing &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ADDRESS / MAP -->
+  <section class="section band-cream" data-reveal>
+    <div class="wrap">
+      <span class="eyebrow eyebrow--berry">Find us</span>
+      <h2 class="h2 measure-20">Visit us in Wangaratta, North East Victoria.</h2>
+      <div class="split align-stretch" style="margin-top:36px">
+        <a class="contact-directions" href="https://www.google.com/maps/dir/?api=1&amp;destination=52%20Buckler%20Rd%2C%20Wangaratta%20VIC%203677%2C%20Australia" target="_blank" rel="noopener noreferrer">
+          <span class="eyebrow">Visit Hybrid-Ag</span>
+          <strong>52 Buckler Road</strong>
+          <span>Wangaratta, Victoria 3677</span>
+          <span class="contact-directions__link">Get directions in Google Maps &nearr;</span>
+        </a>
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:22px">
+          <div>
+            <span class="meta" style="color:var(--teal);font-family:var(--font-display);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase">Head office &amp; warehouse</span>
+            <address class="map-addr" style="margin-top:8px;font-size:19px;line-height:1.5">
+              <b>Hybrid-Ag</b><br>
+              52 Buckler Rd<br>
+              Wangaratta VIC 3677
+            </address>
+          </div>
+          <div>
+            <span class="meta" style="color:var(--orange);font-family:var(--font-display);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase">By phone</span>
+            <p style="margin-top:8px"><a class="call-big" href="tel:+61357228000" style="font-size:26px">(03) 5722 8000</a></p>
+          </div>
+          <div class="cta-row">
+            <a class="pill" href="request-cherry-audit.html">Request a free cherry audit &rarr;</a>
+            <a class="pill pill--ghost" href="program.html">See the program</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA BAND -->
+  <section class="band band-teal" data-reveal>
+    <div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="wrap band-inner center">
+      <h2 class="h2" style="color:#fff;max-width:22ch;margin-inline:auto">You can start with a question.</h2>
+      <p class="sub" style="color:#eafffd;margin:14px auto 0">You do not need a complete set of results to contact us. Mention any tests or photos you have, then share useful files by email.</p>
+      <div class="cta-row" style="justify-content:center;margin-top:28px">
+        <a class="pill" href="soil-test.html">Request testing &rarr;</a>
+        <a class="pill pill--ghost-light" href="tel:+61357228000">Call (03) 5722 8000</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/forms.js?v=64cf9ffeb6"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

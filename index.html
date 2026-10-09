@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hybrid-Ag - Precision Nutrition</title>
+<meta name="description" content="Hybrid-Ag provides testing, agronomic advice and custom prescription blends for Australian growers. Explore support for your crop and soil requirements.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/home.css?v=9157906338">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/home-film-hero.css?v=f8139788cf">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hybrid-Ag - Precision Nutrition">
+<meta property="og:description" content="Hybrid-Ag provides testing, agronomic advice and custom prescription blends for Australian growers. Explore support for your crop and soil requirements.">
+<meta property="og:url" content="https://www.hybridag.com.au/">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hybrid-Ag - Precision Nutrition">
+<meta name="twitter:description" content="Hybrid-Ag provides testing, agronomic advice and custom prescription blends for Australian growers. Explore support for your crop and soil requirements.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Hybrid-Ag","url":"https://www.hybridag.com.au","logo":"https://www.hybridag.com.au/assets/hybrid-ag-logo.png","telephone":"+61357228000","sameAs":["https://www.facebook.com/HybridAgPtyLtd","https://www.instagram.com/hybridag","https://www.linkedin.com/company/hybrid-ag","https://x.com/HybridAg1"],"address":{"@type":"PostalAddress","streetAddress":"52 Buckler Rd","addressLocality":"Wangaratta","addressRegion":"VIC","postalCode":"3677","addressCountry":"AU"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Hybrid-Ag","url":"https://www.hybridag.com.au","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.hybridag.com.au/search.html?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
+<!-- /SEO:auto -->
+</head>
+<body class="home-refined" data-page="home">
+<div id="site-header"></div>
+
+<main>
+<header class="home-hero home-hero--film page-cover" id="home-hero" data-hover="-1" data-render="poster">
+  <div class="film-stage" id="film-stage">
+    <div class="film" id="film" aria-hidden="true">
+      <figure class="film-strip film-strip--establishing" data-clip="establishing"><img class="film-poster" src="assets/video/hero/hero-establishing-poster.jpg" alt="" decoding="async"><video muted loop playsinline preload="none" disablepictureinpicture></video></figure>
+      <a class="film-strip" data-index="0" data-clip="horticulture" href="horticulture.html" tabindex="-1" aria-label="Explore Horticulture"><img class="film-poster" src="assets/video/hero/hero-horticulture-poster.jpg?v=13779169-2" alt="" decoding="async" loading="lazy"><video muted loop playsinline preload="none" disablepictureinpicture></video></a>
+      <a class="film-strip" data-index="1" data-clip="broadacre" href="broadacre.html" tabindex="-1" aria-label="Explore Broadacre"><img class="film-poster" src="assets/video/hero/hero-broadacre-poster.jpg" alt="" decoding="async" loading="lazy"><video muted loop playsinline preload="none" disablepictureinpicture></video></a>
+      <a class="film-strip" data-index="2" data-clip="smallcrop" href="small-crop.html" tabindex="-1" aria-label="Explore Small Crop"><img class="film-poster" src="assets/video/hero/hero-smallcrop-poster.jpg" alt="" decoding="async" loading="lazy"><video muted loop playsinline preload="none" disablepictureinpicture></video></a>
+      <a class="film-strip" data-index="3" data-clip="viticulture" href="viticulture.html" tabindex="-1" aria-label="Explore Viticulture"><img class="film-poster" src="assets/video/hero/hero-viticulture-poster.jpg?v=32915339-2" alt="" decoding="async" loading="lazy"><video muted loop playsinline preload="none" disablepictureinpicture></video></a>
+    </div>
+    <div class="film-shade" aria-hidden="true"></div>
+  </div>
+
+  <div class="film-copy">
+    <span class="eyebrow">Our approach</span>
+    <h1>Precision nutrition</h1>
+    <p class="film-tagline">Optimising inputs, maximising outcomes.</p>
+    <p class="film-intro">Prescription blends tailored to your crop and soil.</p>
+    <div class="cta-row film-actions">
+      <a class="btn btn--teal" href="services-testing.html#test-types">Organise testing</a>
+      <a class="btn" href="contact.html?callback=team#contact-form">Talk to an agronomist</a>
+    </div>
+  </div>
+
+  <nav class="film-sectors" aria-label="Explore your sector">
+    <ul>
+      <li class="film-sector" data-index="0" data-sector="horticulture">
+        <span class="film-sector__stem" aria-hidden="true"></span>
+        <a class="film-sector__link" href="horticulture.html" aria-label="Explore Horticulture"><span class="film-sector__name">Horticulture</span><span class="film-sector__explore">Explore <span aria-hidden="true">↗</span></span></a>
+      </li>
+      <li class="film-sector" data-index="1" data-sector="broadacre">
+        <span class="film-sector__stem" aria-hidden="true"></span>
+        <a class="film-sector__link" href="broadacre.html" aria-label="Explore Broadacre"><span class="film-sector__name">Broadacre</span><span class="film-sector__explore">Explore <span aria-hidden="true">↗</span></span></a>
+      </li>
+      <li class="film-sector" data-index="2" data-sector="smallcrop">
+        <span class="film-sector__stem" aria-hidden="true"></span>
+        <a class="film-sector__link" href="small-crop.html" aria-label="Explore Small Crop"><span class="film-sector__name">Small Crop</span><span class="film-sector__explore">Explore <span aria-hidden="true">↗</span></span></a>
+      </li>
+      <li class="film-sector" data-index="3" data-sector="viticulture">
+        <span class="film-sector__stem" aria-hidden="true"></span>
+        <a class="film-sector__link" href="viticulture.html" aria-label="Explore Viticulture"><span class="film-sector__name">Viticulture</span><span class="film-sector__explore">Explore <span aria-hidden="true">↗</span></span></a>
+      </li>
+    </ul>
+  </nav>
+
+  <button class="home-hero__motion film-motion" type="button" data-film-toggle aria-pressed="false" hidden aria-label="Pause background video"><span aria-hidden="true"></span></button>
+</header>
+
+<!-- Service pathways retain Three Signals below the film. -->
+<section class="film-pathways" id="pathways" data-home-field aria-label="Results, blends and programs">
+  <nav class="film-rail wrap">
+    <div class="film-rail__item">
+      <a class="film-rail__main" href="nutrient-audit.html"><span class="film-rail__index" aria-hidden="true">01</span><span class="film-rail__copy"><strong>Already have results?</strong><small>Discuss them with our team</small></span><span class="film-rail__arrow" aria-hidden="true">↗</span></a>
+      <a class="film-rail__sub" href="soil-test.html?test=existing#request">Bring existing results <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="film-rail__item">
+      <a class="film-rail__main" href="services-prescription-blends.html"><span class="film-rail__index" aria-hidden="true">02</span><span class="film-rail__copy"><strong>Prescription blends</strong><small>Explore dry and granular blends</small></span><span class="film-rail__arrow" aria-hidden="true">↗</span></a>
+      <a class="film-rail__sub" href="services-liquid-prescription-blends.html">Explore liquid prescription blends <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="film-rail__item">
+      <a class="film-rail__main" href="program.html"><span class="film-rail__index" aria-hidden="true">03</span><span class="film-rail__copy"><strong>Crop programs</strong><small>Stage-by-stage nutrition, by crop</small></span><span class="film-rail__arrow" aria-hidden="true">↗</span></a>
+      <a class="film-rail__sub" href="program-cherries.html">Cherry program <span aria-hidden="true">↗</span></a>
+    </div>
+  </nav>
+</section>
+
+  <section class="system-reader section" id="whole-system" data-system-reader data-home-field aria-labelledby="system-reader-title">
+    <div class="wrap" data-home-motion>
+      <div class="system-reader__heading">
+        <div>
+          <span class="eyebrow eyebrow--berry">Testing and interpretation</span>
+          <h2 class="h2" id="system-reader-title">Testing gives us a starting point.</h2>
+        </div>
+        <p>Different tests answer different questions. We look at the results alongside your crop and growing conditions before making a recommendation.</p>
+      </div>
+
+      <div class="system-reader__tabs" role="tablist" aria-label="Testing options">
+        <button id="reader-tab-soil" type="button" role="tab" aria-selected="true" aria-controls="reader-panel" tabindex="0" data-reader-tab="soil"><span>01</span>Soil</button>
+        <button id="reader-tab-plant" type="button" role="tab" aria-selected="false" aria-controls="reader-panel" tabindex="-1" data-reader-tab="plant"><span>02</span>Leaf and sap</button>
+        <button id="reader-tab-water" type="button" role="tab" aria-selected="false" aria-controls="reader-panel" tabindex="-1" data-reader-tab="water"><span>03</span>Water</button>
+        <button id="reader-tab-produce" type="button" role="tab" aria-selected="false" aria-controls="reader-panel" tabindex="-1" data-reader-tab="produce"><span>04</span>Produce data</button>
+      </div>
+
+      <article class="system-reader__panel" id="reader-panel" role="tabpanel" aria-labelledby="reader-tab-soil" data-reader-panel data-tone="soil">
+        <div class="system-reader__number" aria-hidden="true">01</div>
+        <div class="system-reader__content">
+          <span class="system-reader__label" data-reader-label>Soil conditions</span>
+          <h3 data-reader-title>What does your soil test tell you?</h3>
+          <p data-reader-copy>A soil test measures conditions in the sampled area. Depending on the test selected, results include pH, Carbon, holding capacity and Nutrient levels. We consider the sampling depth and test method when interpreting the results for your paddock or block.</p>
+          <a class="system-reader__link" href="services-soil-testing.html" data-reader-link>Explore soil testing</a>
+        </div>
+        <dl class="system-reader__facts">
+          <div><dt>What it shows</dt><dd data-reader-question>What do the results show about the soil in this area?</dd></div>
+          <div><dt>How it helps</dt><dd data-reader-decision>Which Nutrient requirements to consider for a prescription blend, and whether further testing is needed.</dd></div>
+        </dl>
+      </article>
+    </div>
+  </section>
+
+  <section class="approach-band" id="approach" data-home-field>
+    <div class="wrap approach-band__heading" data-home-motion>
+      <div>
+        <span class="eyebrow">The Hybrid-Ag approach</span>
+        <h2 class="h2">Position. Pattern. Plan.</h2>
+      </div>
+      <p>We review the current results and what has happened on the farm before discussing a plan with you.</p>
+    </div>
+    <div class="wrap approach-band__grid" data-home-motion>
+      <div><span class="approach-band__num">01</span><span class="approach-band__role">Position</span><h3>Where are you now?</h3><p>Start with the results you have and the crop or soil issue you want to address.</p></div>
+      <div><span class="approach-band__num">02</span><span class="approach-band__role">Pattern</span><h3>How did you get here?</h3><p>Look at previous tests and applications alongside changes in the crop and growing conditions.</p></div>
+      <div><span class="approach-band__num">03</span><span class="approach-band__role">Plan</span><h3>What should happen next?</h3><p>Discuss the Nutrient requirements, a suitable prescription blend and when to review progress.</p></div>
+    </div>
+  </section>
+
+  <section class="client-proof" aria-labelledby="client-proof-title" data-client-proof hidden>
+    <div class="wrap client-proof__inner">
+      <div class="client-proof__heading">
+        <span class="eyebrow">Trusted in the field</span>
+        <h2 id="client-proof-title">Working alongside growers and rural partners.</h2>
+        <p>Hybrid-Ag works with growers and rural partners on crop nutrition and prescription blends.</p>
+        <p class="client-proof__status" data-client-proof-status hidden></p>
+      </div>
+      <div class="client-proof__logos" data-client-logos></div>
+    </div>
+  </section>
+
+  <section class="grower-stories section" id="grower-stories" data-home-field aria-labelledby="grower-stories-title">
+    <div class="wrap" data-home-motion>
+      <div class="grower-stories__heading">
+        <span class="eyebrow eyebrow--berry">From the field</span>
+        <h2 class="h2" id="grower-stories-title">Hear from our growers directly.</h2>
+        <p>Two growers share their experience of working with Hybrid-Ag, in their own words.</p>
+      </div>
+      <div class="grower-stories__grid">
+        <article class="grower-story">
+          <div class="grower-story__video" data-grower-video-player>
+            <video id="manna-farms-video" data-grower-video controls preload="none" playsinline poster="assets/video/grower-stories/manna-farms-poster.jpg" aria-label="Manna Farms testimonial">
+              <source src="assets/video/grower-stories/manna-farms-testimonial.mp4" type="video/mp4">
+              <track kind="captions" srclang="en" label="English" src="assets/video/grower-stories/manna-farms-testimonial.en.vtt?v=979829413e" default>
+            </video>
+          </div>
+          <div class="grower-story__caption">
+            <div class="grower-story__identity"><span>Grower perspective</span><h3>Manna Farms</h3></div>
+            <p>The family at Manna Farms describes why they approached Hybrid-Ag and how the working relationship developed.</p>
+            <details class="grower-story__transcript">
+              <summary>Read transcript</summary>
+              <div class="grower-story__transcript-copy">
+                <p><em>[Music]</em></p>
+                <p>We're fourth-generation farmers from Mildura. My grandfather, great-grandfather and dad have all been involved in farming this way. Dad bought these farms in this region back in 1969, and started to grow his own business from there.</p>
+                <p>Around the late '80s, he was having some problems with soil compaction, and just a decline in the trees and so forth. He was pointed across to biodynamic farming by his sister, actually. The first farm was certified biodynamic in 1989, and since then it's been a lifestyle and a philosophy we've decided to run with.</p>
+                <p>It's now my brother Rob and myself who own and run the business. In 2009, I suppose we were probably somewhere around 550, 600 acres. Over the following three years, we expanded and expanded and expanded, and we've ended up now with 1,300 acres: just under 400 acres of citrus, around 500 acres of almonds and 15 acres of avocados. We've now got this big beast of a biodynamic farming operation.</p>
+                <p>We just want to produce the best-quality fruit we can, whether we're organic, conventional, biodynamic or whatever it may be. It's all about taste and flavour. Producing a really nice, nutrient-dense fruit probably relates to eating quality. The better the fruit tastes, that's going to bring return customers and obviously drive profitability in the business.</p>
+                <p>As the farming industry changes, people want to know this paddock-to-plate stuff. They want to get in touch and in contact with who it is that's growing their fruit, what their properties look like, and be actively involved or emotionally tied to the actual farm itself.</p>
+                <p>There's going to be more importance on regenerative farming, looking after the soil and being potentially carbon neutral. People will drive and push us as farmers to look after the land a lot better. Climate change is obviously a massive issue. Farming is probably one industry that can fix it pretty much straight away, if we really wanted to, across the world.</p>
+                <p>We originally brought them on board around 2011, I think it was. The main reason was a change in some of the composting we were using. We were putting out straight cow manure, and putting out quite a lot of it. We talked to the guys at Hybrid Ag about what they could do for us, and found that a few tweaks in the compost blend could significantly reduce the amount we were putting out. So we decided to give it a go, and we did see some great results straight up.</p>
+                <p>That relationship's only grown, especially over the last three or four years. Tom and I often sit down in the office and have a bit of a chinwag about life, philosophies about farming, and what we should be doing to look after the land and the soil, and leave it in a better place than we started. Having that trust with him and what he believes has given us the flexibility to let him take charge of some aspects and areas we're not happy with.</p>
+                <p>It's a nice, smooth, easy relationship. It's happy days from my point of view.</p>
+                <p><em>[Music]</em></p>
+                <p>Hybrid Ag. Transforming food for health.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+        <article class="grower-story">
+          <div class="grower-story__video" data-grower-video-player>
+            <video id="old-oak-orchards-video" data-grower-video controls preload="none" playsinline poster="assets/video/grower-stories/old-oak-orchards-poster.jpg" aria-label="Old Oak Orchards testimonial">
+              <source src="assets/video/grower-stories/old-oak-orchards-testimonial.mp4" type="video/mp4">
+              <track kind="captions" srclang="en" label="English" src="assets/video/grower-stories/old-oak-orchards-testimonial.en.vtt?v=970c4a93f1" default>
+            </video>
+          </div>
+          <div class="grower-story__caption">
+            <div class="grower-story__identity"><span>Grower perspective</span><h3>Old Oak Orchards</h3></div>
+            <p>A second-generation orchard family reflects on nearly 50 years growing fruit and more than a decade working with Hybrid-Ag.</p>
+            <details class="grower-story__transcript">
+              <summary>Read transcript</summary>
+              <div class="grower-story__transcript-copy">
+                <p><em>[Music]</em></p>
+                <p>We've probably got an anniversary of 50 years next year of growing. We're second generation. We currently have a third generation on board, which is pretty encouraging.</p>
+                <p>“Yeah, we've got a fair bit of work ahead of us, I think.”</p>
+                <p>“We're thinning.”</p>
+                <p>“And no backpackers.”</p>
+                <p>“No, that's going to be the challenge: our staffing levels at the moment.”</p>
+                <p>I think generally farming is probably something that's in your blood. I always had a passion from a young age to grow stuff. I've done nothing else but grow fruit. I've lived where I currently live for about 49 or 50 years of my 52 years of life.</p>
+                <p>You get into a situation where it's not a forced situation. It's a good lifestyle. The only problem is the amount of hours you work a week. We do 60 hours as a quiet week, and 80's not uncommon.</p>
+                <p>Since Gavin and I have been in business together, which is 26, 27 years, we've probably achieved what two generations do in our time frame together. We've built a pretty big pack house. We've got a fair-sized business happening. It's been a lot of work, and we haven't necessarily always had, as we always put it, old money to help you along the way. It's been sink or swim, and we've been swimming pretty hard.</p>
+                <p>Well, we used to grow a lot of cherries years ago, and through the association meetings, Tom was always there and in our ear: “Give me a go, give me a go.” It would be 14, 15, 16 years, something like that, since we first gave him a try on one block that was struggling a little bit. Now we use Hybrid Ag fertilisers across the whole farm.</p>
+                <p><em>[Music]</em></p>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-feature" data-home-field>
+    <div class="testing-feature__image testing-feature__image--orchard" data-home-media><img src="assets/photos/responsive/testing-interpretation-orchard-1600.webp" height="1200" width="1600" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/testing-interpretation-orchard-480.webp 480w, assets/photos/responsive/testing-interpretation-orchard-768.webp 768w, assets/photos/responsive/testing-interpretation-orchard-1200.webp 1200w, assets/photos/responsive/testing-interpretation-orchard-1600.webp 1600w" alt="Agronomist inspecting fruit and leaves in a pear block" loading="lazy" decoding="async"></div>
+    <div class="testing-feature__content" data-home-motion>
+      <span class="eyebrow">Testing support</span>
+      <h2 class="h2">Need help with your test results?</h2>
+      <p>Bring the results you already have, or ask the team about new testing. We can discuss what the numbers mean for your crop and whether more information is needed.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="soil-test.html">Request testing</a>
+        <a class="btn testing-feature__call" href="nutrient-audit.html">Bring existing results</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-section section" data-home-field>
+    <div class="wrap" data-home-motion>
+      <div class="product-section__heading">
+        <div><span class="eyebrow eyebrow--berry">Product range</span><h2 class="h2">Products to suit your nutrition requirements.</h2></div>
+        <a class="product-section__all" href="shop.html">View the full range</a>
+      </div>
+      <div class="product-grid">
+        <a class="product-tile" href="bio-sea-fkf.html"><div class="product-tile__image"><img src="assets/products/bio-sea-fkf.webp" alt="Bio-Sea FKF product packaging" loading="lazy" decoding="async"></div><div class="product-tile__body"><span>Biological</span><h3>Bio-Sea&reg; FKF</h3><p>Explore product</p></div></a>
+        <a class="product-tile" href="opti-trace-budmax.html"><div class="product-tile__image"><img src="assets/products/opti-trace-budmax.webp" alt="Opti-Trace BudMax product packaging" loading="lazy" decoding="async"></div><div class="product-tile__body"><span>Trace nutrition</span><h3>Opti-Trace&reg; BudMax</h3><p>Explore product</p></div></a>
+        <a class="product-tile" href="power-cal-organic.html"><div class="product-tile__image"><img src="assets/products/power-cal-organic.webp" alt="Power-Cal Organic product packaging" loading="lazy" decoding="async"></div><div class="product-tile__body"><span>Calcium</span><h3>Power-Cal&reg; Organic</h3><p>Explore product</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="human-support" data-home-field>
+    <div class="human-support__copy" data-home-motion>
+      <span class="eyebrow eyebrow--orange">Your agronomy team</span>
+      <h2 class="h2">Talk it through with an agronomist.</h2>
+      <p>Tell us about your crop and the conditions on your farm. Our team can help interpret the results and discuss a prescription blend or other Hybrid-Ag products for your requirements.</p>
+      <a class="btn btn--teal" href="team.html">Meet the team</a>
+    </div>
+    <div class="human-support__image" data-home-media><img src="assets/photos/responsive/human-support-team-1800.webp" height="1455" width="2048" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/human-support-team-480.webp 480w, assets/photos/responsive/human-support-team-768.webp 768w, assets/photos/responsive/human-support-team-1200.webp 1200w, assets/photos/responsive/human-support-team-1800.webp 1800w" alt="Hybrid-Ag agronomy and support team outdoors" loading="lazy" decoding="async"></div>
+  </section>
+
+  <section class="resource-section section" data-home-field>
+    <div class="wrap" data-home-motion>
+      <div class="resource-section__heading">
+        <div><span class="eyebrow">Practical resources</span><h2 class="h2">Help with testing and crop nutrition.</h2></div>
+        <a class="resource-section__all" href="knowledge-center.html">Open the resource library</a>
+      </div>
+      <div class="resource-grid">
+        <a href="resource-testing-layers.html"><span>Understand your results</span><h3>Choosing the right test</h3><p>What soil, plant, water and produce testing can tell you, and what each test cannot establish on its own.</p></a>
+        <a href="resource-position-pattern-plan.html"><span>Planning crop nutrition</span><h3>Position. Pattern. Plan.</h3><p>How current results and farm history help inform a nutrition plan.</p></a>
+        <a href="resource-sampling-context.html"><span>Sampling records</span><h3>Make every sample a useful reference.</h3><p>Keep the original report and sample details together as a useful reference for future crop nutrition decisions.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-cta" data-home-field>
+    <div class="wrap home-cta__inner" data-home-motion>
+      <div><span class="eyebrow">Talk to the team</span><h2 class="h2">Not sure which test you need?</h2></div>
+      <a class="btn" href="soil-test.html?test=not-sure">Start a testing request</a>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/data/client-logos.js?v=ec8358046a"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/home-film-hero.js?v=3ea586bc20"></script>
+<script src="js/system-reader.js?v=b4c2a5a71e"></script>
+<script src="js/client-proof.js?v=8e364df2d7"></script>
+<script src="js/grower-videos.js?v=7cc6151016"></script>
+<script src="js/home-motion.js?v=62d1b1d077"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

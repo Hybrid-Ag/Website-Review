@@ -1,0 +1,29 @@
+Agri-Vive RF | Hybrid-Ag working product reference
+REVIEW DRAFT. Not a label, Safety Data Sheet or application recommendation.
+
+Liquid nutrition for active growth.
+Agri-Vive RF combines Nitrogen, Calcium, Potassium and Magnesium, with trace Nutrients, in one concentrated liquid.
+Discuss your crop and soil requirements with the team, including a prescription blend and whether RF is appropriate.
+
+Overview
+New leaves, shoots and developing crops need a supply of Nutrients. The RF brochure draft describes use during active growth across vegetables, orchards and Broadacre crops, rather than a single crop or stage.
+Crop demand and the Nutrients already available help determine the recommendation. Soil and plant test results, growing conditions and your application equipment give the agronomist useful context.
+
+Composition source: dashboard staging. Basis: % w/v
+Calcium and Sulphur remain under review in the RF brochure comparison. The master record also retains a nominal-batch-volume warning. The RF figures remain provisional until that basis and the current product documents are confirmed.
+Nitrogen (N): 9.39177
+Potassium (K): 1.91163
+Calcium (Ca): 6.46
+Magnesium (Mg): 0.564
+Boron (B): 0.05125
+Zinc (Zn): 0.0683761
+Copper (Cu): 0.0460721
+Manganese (Mn): 0.06555
+Carbon (Carbon): 3.8825
+
+Application
+A foliar application and a fertigation application are not interchangeable. Crop type, Nutrient supply, growth rate and growing conditions affect the rate and timing.
+Confirm the current product label, crop-specific recommendation, mixing and handling directions with the team.
+
+Price, pack availability, codes and document revisions require confirmation. Nothing has been ordered or approved.
+Prepared 6 October 2026 from the local website review register.

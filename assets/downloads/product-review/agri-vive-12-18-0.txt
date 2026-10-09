@@ -1,0 +1,29 @@
+Agri-Vive 12.18.0 | Hybrid-Ag working product reference
+REVIEW DRAFT. Not a label, Safety Data Sheet or application recommendation.
+
+Liquid Nitrogen and Phosphorus.
+Agri-Vive 12.18.0 supplies Phosphorus with Nitrogen in a liquid fertiliser.
+Its staged analysis describes a grade with very little Potassium, for a requirement that is centred on the other two Nutrients.
+
+Overview
+A requirement for Phosphorus can also call for Nitrogen, without a substantial Potassium addition. Agri-Vive 12.18.0 provides that combination in a liquid grade. Its proportions differ from an NPK feed with a larger Potassium component, so the choice should follow what the soil and crop need.
+Include the Nitrogen supplied with the Phosphorus when reviewing the planned application. The crop’s development, available soil nutrition and previous inputs help the agronomist work out whether these proportions suit the farm. Use the complete analysis to calculate the contribution, rather than relying on the grade name alone.
+
+Composition source: dashboard staging. Basis: % w/v
+These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.
+Nitrogen (N): 12.4046
+Phosphorus (P): 18.2134
+Potassium (K): 0.0456227
+Sulphur (S): 0.00257912
+Calcium (Ca): 0.00211812
+Magnesium (Mg): 0.000348866
+Boron (B): 0.000311488
+Iron (Fe): 0.000560678
+Carbon (Carbon): 3.2522
+
+Application
+Set the application method and timing with the agronomist. The amount supplied must be considered alongside the rest of the crop’s Nitrogen and Phosphorus nutrition.
+Confirm the current product label, crop-specific recommendation, mixing and handling directions with the team.
+
+Price, pack availability, codes and document revisions require confirmation. Nothing has been ordered or approved.
+Prepared 6 October 2026 from the local website review register.

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liquid Prescription Blends - Hybrid-Ag</title>
+<meta name="description" content="Custom Hybrid-Ag liquid prescription blends informed by leaf testing, DSA and agronomic interpretation, with formulation and application agreed for your crop.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/testing-detail.css?v=dedc84104f">
+<link rel="stylesheet" href="css/pages/prescription-blends.css?v=1321afad0c">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/service-refinements.css?v=63c0fac8e0">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/services-liquid-prescription-blends.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Liquid Prescription Blends - Hybrid-Ag">
+<meta property="og:description" content="Custom Hybrid-Ag liquid prescription blends informed by leaf testing, DSA and agronomic interpretation, with formulation and application agreed for your crop.">
+<meta property="og:url" content="https://www.hybridag.com.au/services-liquid-prescription-blends.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Liquid Prescription Blends - Hybrid-Ag">
+<meta name="twitter:description" content="Custom Hybrid-Ag liquid prescription blends informed by leaf testing, DSA and agronomic interpretation, with formulation and application agreed for your crop.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<!-- /SEO:auto -->
+</head>
+<body data-page="services" class="service-refined liquid-prescription-refined">
+<div id="site-header"></div>
+<main>
+  <header class="testing-detail-hero page-cover page-cover--photo" data-home-field>
+    <img class="testing-detail-hero__image" src="assets/photos/responsive/leaf-testing-crop-foliage-1800.webp" width="1800" height="2400" sizes="100vw" srcset="assets/photos/responsive/leaf-testing-crop-foliage-480.webp 480w, assets/photos/responsive/leaf-testing-crop-foliage-768.webp 768w, assets/photos/responsive/leaf-testing-crop-foliage-1200.webp 1200w, assets/photos/responsive/leaf-testing-crop-foliage-1800.webp 1800w" alt="Green crop leaves with water droplets" fetchpriority="high" decoding="async">
+    <div class="testing-detail-hero__shade" aria-hidden="true"></div>
+    <div class="wrap testing-detail-hero__inner page-cover__inner">
+      <span class="eyebrow">Liquid prescription blends</span>
+      <h1>Liquid nutrition prescribed for your crop.</h1>
+      <p>Leaf testing and DSA help us understand the crop’s Nutrient status. Hybrid-Ag uses the results and your growing conditions to formulate a liquid prescription blend where one is needed.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="soil-test.html?test=leaf">Organise leaf testing</a>
+        <a class="btn testing-detail-hero__secondary" href="#liquid-prescription-process">How we develop a prescription</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="testing-detail-intro" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--orange">Test. Don’t guess.</span><h2>Start with what the crop needs.</h2></div>
+        <p>A standard liquid product has a fixed analysis. It may be suitable, but the crop’s requirements may call for a different formulation. A liquid prescription blend lets us work from the recommendation rather than choose a product first.</p>
+      </div>
+      <p class="liquid-prescription-intro__body">This approach can be discussed for Broadacre, horticulture, viticulture and small crops. The crop, stage of growth and intended application matter more than a fixed recipe. Soil and water results, recent applications and what you are seeing in the crop help the agronomist interpret the plant data.</p>
+    </div>
+  </section>
+
+  <section class="testing-detail-split" id="plant-results" data-reveal data-home-field>
+    <div class="testing-detail-split__image"><img src="assets/photos/responsive/dsa-crop-sampling-1800.webp" width="1800" height="2400" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/dsa-crop-sampling-480.webp 480w, assets/photos/responsive/dsa-crop-sampling-768.webp 768w, assets/photos/responsive/dsa-crop-sampling-1200.webp 1200w, assets/photos/responsive/dsa-crop-sampling-1800.webp 1800w" alt="A bare hand holding leaves beside the crop canopy" loading="lazy" decoding="async"></div>
+    <div class="testing-detail-split__copy">
+      <span class="eyebrow eyebrow--berry">From leaf testing to a recommendation</span>
+      <h2>A result needs to be read with the crop.</h2>
+      <p>Standard tissue testing and Differential Sap Analysis measure different material. With DSA, young and old leaves collected together are analysed separately, giving the agronomist two results to compare rather than one combined sample.</p>
+      <p>The difference between them needs interpretation. Crop stage, growth, water, root conditions and recent inputs can affect the result. A higher or lower figure on its own is not a formula for the next blend.</p>
+      <p>We discuss what the results support, what needs further investigation and whether a liquid prescription is appropriate. Further testing may be useful before changing the recommendation.</p>
+      <div class="cta-row"><a class="btn btn--teal" href="services-differential-sap-analysis.html">Understand DSA</a><a class="btn btn--outline" href="services-leaf-tissue-testing.html">Compare leaf tests</a></div>
+    </div>
+  </section>
+
+  <section class="testing-detail-method" id="liquid-prescription-process" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow">Developing the blend</span><h2>From plant results to a liquid prescription.</h2></div>
+        <p>The recommendation and the formulation are separate steps. First we work through the crop’s requirements. Then we consider how to supply the recommended nutrition through a suitable Hybrid-Ag liquid blend.</p>
+      </div>
+      <div class="testing-detail-method__grid testing-detail-method__grid--four">
+        <div><span>01</span><strong>Sample</strong><h3>Establish a useful reference.</h3><p>Confirm the crop, sampled area and test. Keep the date, stage and recent application history with the original report.</p></div>
+        <div><span>02</span><strong>Interpret</strong><h3>Work through the requirement.</h3><p>Review the plant results alongside growing conditions and any relevant soil or water information. Identify what the evidence supports addressing.</p></div>
+        <div><span>03</span><strong>Formulate</strong><h3>Prepare the liquid prescription.</h3><p>Select suitable Hybrid-Ag liquid products and proportions for the agreed requirement. The intended application and equipment are part of that decision.</p></div>
+        <div><span>04</span><strong>Confirm</strong><h3>Agree on the application.</h3><p>Confirm the blend-specific directions, rate, dilution, timing and supply with the team before use. These details belong to the prescription, not a general recipe.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prescription-formats" id="liquid-application" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--orange">Planning the application</span><h2>The formulation needs to suit the delivery method.</h2></div>
+        <p>Discuss whether you intend to apply nutrition as a foliar spray or through fertigation. A liquid format does not make every blend suitable for both. The team needs to confirm the particular formulation and its directions.</p>
+      </div>
+      <div class="prescription-formats__grid">
+        <article><span class="prescription-formats__number">01</span><div><span class="eyebrow">Foliar application</span><h3>Plan the spray with the prescription.</h3><p>Tell us your equipment, planned water volume and application timing. Water quality and the crop’s condition need to be considered before the rate, dilution and application are confirmed.</p></div></article>
+        <article><span class="prescription-formats__number">02</span><div><span class="eyebrow eyebrow--berry">Fertigation</span><h3>Work with the irrigation system.</h3><p>Bring the water report and details of the irrigation and injection system. The proposed blend needs to be assessed for that water source, delivery system and intended application.</p></div></article>
+      </div>
+      <p class="prescription-formats__note">Do not assume a custom blend can be combined with another product or used through a different system. Confirm mixing, compatibility, storage and handling directions for the supplied prescription with the team.</p>
+    </div>
+  </section>
+
+  <section class="testing-detail-context" data-reveal data-home-field>
+    <div class="wrap testing-detail-context__inner">
+      <div><span class="eyebrow eyebrow--berry">The next conversation</span><h2>Bring your results and the application details.</h2><p>You can start with reports you already have. We will explain what they can tell us and whether more information is needed before a blend is recommended.</p></div>
+      <div class="testing-detail-context__list">
+        <div><span>01</span><div><strong>The original reports</strong><p>Include laboratory methods, units and reference ranges. For DSA, keep the young and old results separately identified.</p></div></div>
+        <div><span>02</span><div><strong>The crop and its history</strong><p>Tell us the crop, variety, area and growth stage, along with recent inputs, irrigation and any changes you have noticed.</p></div></div>
+        <div><span>03</span><div><strong>How you plan to apply it</strong><p>Discuss the delivery method, equipment and water source. Bring a water report if you have one.</p></div></div>
+        <div><span>04</span><div><strong>What is practical for the farm</strong><p>Discuss the area to treat, timing and budget so the recommendation can be worked through before supply.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-split liquid-prescription-review" data-reveal data-home-field>
+    <div class="testing-detail-split__copy">
+      <span class="eyebrow">Reviewing the recommendation</span>
+      <h2>Keep the next decision connected to the last.</h2>
+      <p>Keep the prescription and application details with the test report. They give the team a reference when reviewing later results and deciding whether the recommendation should change.</p>
+      <p>Repeat samples need to be collected on a comparable basis. Changes in growth stage, weather, water or other inputs can affect the comparison, so a change in the test result should not automatically be attributed to the blend.</p>
+      <a class="btn btn--teal" href="resource-sampling-context.html">Keep a useful test history</a>
+    </div>
+    <div class="testing-detail-split__image"><img src="assets/photos/responsive/leaf-testing-field-samples-1200.webp" width="1280" height="720" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/leaf-testing-field-samples-480.webp 480w, assets/photos/responsive/leaf-testing-field-samples-768.webp 768w, assets/photos/responsive/leaf-testing-field-samples-1200.webp 1200w, assets/photos/responsive/leaf-testing-field-samples-1280.webp 1280w" alt="Crop and root samples beside sample bags on a ute tailgate" loading="lazy" decoding="async"></div>
+  </section>
+
+  <section class="testing-detail-cta" data-reveal data-home-field>
+    <div class="wrap testing-detail-cta__inner">
+      <div><span class="eyebrow">Start with your crop</span><h2>Discuss a liquid prescription with the team.</h2></div>
+      <div class="cta-row"><a class="btn testing-detail-cta__primary" href="soil-test.html?test=sap">Discuss DSA testing</a><a class="btn testing-detail-cta__secondary" href="contact.html?callback=team&amp;prescription=liquid#contact-form">Talk to an agronomist</a></div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

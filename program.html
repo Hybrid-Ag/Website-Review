@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crop Nutrition Programs — Hybrid-Ag</title>
+<meta name="description" content="Crop nutrition programs and prescription blends informed by testing, crop requirements and the conditions on your farm.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/programs.css?v=37ee7897a6">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/program.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Crop Nutrition Programs — Hybrid-Ag">
+<meta property="og:description" content="Crop nutrition programs and prescription blends informed by testing, crop requirements and the conditions on your farm.">
+<meta property="og:url" content="https://www.hybridag.com.au/program.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crop Nutrition Programs — Hybrid-Ag">
+<meta name="twitter:description" content="Crop nutrition programs and prescription blends informed by testing, crop requirements and the conditions on your farm.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="sectors">
+<div id="site-header"></div>
+
+<main>
+  <header class="programs-hero page-cover page-cover--photo">
+    <div class="programs-hero__mosaic" aria-hidden="true">
+      <img src="assets/photos/responsive/orchard-block-1800.webp" decoding="async" height="909" width="1920" sizes="100vw" srcset="assets/photos/responsive/orchard-block-480.webp 480w, assets/photos/responsive/orchard-block-768.webp 768w, assets/photos/responsive/orchard-block-1200.webp 1200w, assets/photos/responsive/orchard-block-1800.webp 1800w" alt="">
+      <img src="assets/photos/responsive/veg-crop-1800.webp" decoding="async" height="1280" width="1920" sizes="100vw" srcset="assets/photos/responsive/veg-crop-480.webp 480w, assets/photos/responsive/veg-crop-768.webp 768w, assets/photos/responsive/veg-crop-1200.webp 1200w, assets/photos/responsive/veg-crop-1800.webp 1800w" alt="">
+      <img src="assets/photos/responsive/cereal-1800.webp" decoding="async" height="1280" width="1920" sizes="100vw" srcset="assets/photos/responsive/cereal-480.webp 480w, assets/photos/responsive/cereal-768.webp 768w, assets/photos/responsive/cereal-1200.webp 1200w, assets/photos/responsive/cereal-1800.webp 1800w" alt="">
+      <img src="assets/photos/responsive/vine-rows-1739.webp" decoding="async" height="1149" width="1739" sizes="100vw" srcset="assets/photos/responsive/vine-rows-480.webp 480w, assets/photos/responsive/vine-rows-768.webp 768w, assets/photos/responsive/vine-rows-1200.webp 1200w, assets/photos/responsive/vine-rows-1739.webp 1739w" alt="">
+    </div>
+    <div class="programs-hero__shade" aria-hidden="true"></div>
+    <div class="wrap programs-hero__inner page-cover__inner">
+      <span class="eyebrow">Crop nutrition programs</span>
+      <h1>Crop nutrition suited to your farm.</h1>
+      <p>Hybrid-Ag uses the available tests and crop history to develop a nutrition plan for your paddock or block. Prescription blends are considered alongside the timing and practicalities of application, with recommendations reviewed as the season progresses.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="soil-test.html?test=not-sure">Start with testing</a>
+        <a class="btn programs-hero__secondary" href="#program-method">See how a program is built</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="programs-intro" id="program-method" data-reveal>
+    <div class="wrap programs-heading">
+      <div>
+        <span class="eyebrow eyebrow--orange">From result to action</span>
+        <h2>Put the test results to use.</h2>
+      </div>
+      <div class="programs-intro__copy">
+        <p>Recommendations take account of the crop, soil conditions, growth stage and production target, including what is practical on the farm.</p>
+        <p>New results and field observations help the team review the plan through the season.</p>
+      </div>
+    </div>
+    <div class="wrap programs-method" role="list">
+      <article role="listitem"><span>01</span><strong>Position</strong><h3>Where are we now?</h3><p>Establish the crop, stage, production target and current soil, plant, water and produce evidence.</p></article>
+      <article role="listitem"><span>02</span><strong>Pattern</strong><h3>How did we get here?</h3><p>Compare changes in test results with seasonal conditions, crop history, previous applications and the crop’s response.</p></article>
+      <article role="listitem"><span>03</span><strong>Plan</strong><h3>What should happen next?</h3><p>Prioritise the next practical action, separate it from later work and define what should be checked again.</p></article>
+    </div>
+    <a class="wrap programs-audit-path" href="nutrient-audit.html"><span><span class="eyebrow eyebrow--berry">Already have reports?</span><strong>Review your existing results with a Nutrient Audit.</strong></span><span class="programs-audit-path__action">Explore the Nutrient Audit</span></a>
+  </section>
+
+  <section class="programs-system" id="evidence-layers" data-reveal>
+    <div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="wrap programs-heading programs-heading--dark">
+      <div>
+        <span class="eyebrow">The information behind the recommendations</span>
+        <h2>Review the results together.</h2>
+      </div>
+      <p>A test result needs context. Soil conditions, crop stage, water and previous crop performance all help the team interpret it before recommending inputs.</p>
+    </div>
+    <div class="wrap programs-system__grid">
+      <article><span>Soil and roots</span><h3>Soil conditions</h3><p>Mineral balance, structure, Carbon, biology, depth and the root zone.</p></article>
+      <article><span>Plant and crop</span><h3>Plant results</h3><p>Leaf, tissue and differential sap results considered alongside crop stage, growth, crop load and Nutrient demand.</p></article>
+      <article><span>Water and delivery</span><h3>Application conditions</h3><p>Water quality, irrigation, fertigation, foliar conditions, equipment and practical application constraints.</p></article>
+      <article><span>Produce and outcome</span><h3>Harvest results</h3><p>Yield, grade, quality, Nutrient removals and the specification required by the customer or processor.</p></article>
+    </div>
+  </section>
+
+  <section class="programs-layers" id="program-structure" data-reveal>
+    <div class="wrap programs-heading">
+      <div>
+        <span class="eyebrow eyebrow--berry">What the program contains</span>
+        <h2>From soil requirements to seasonal applications.</h2>
+      </div>
+      <p>The plan sets out the recommendations and the reasons for them, with opportunities to review the crop’s response.</p>
+    </div>
+    <div class="wrap programs-layers__grid">
+      <article>
+        <span class="programs-layers__num">01</span>
+        <div><strong>Foundation</strong><h3>Build from the soil requirement.</h3><p>Representative soil testing establishes the starting position. Where testing identifies a soil requirement, Hybrid-Ag can calculate the total elemental requirement in kilograms per hectare and use that calculation to help develop a prescription for the nominated area.</p><a href="services-prescription-blends.html">Explore prescription blends</a></div>
+      </article>
+      <article>
+        <span class="programs-layers__num">02</span>
+        <div><strong>In season</strong><h3>Match applications to crop requirements.</h3><p>Crop stage, plant results, water and growing conditions guide each recommendation. Product, form, placement and timing are selected for the identified requirement.</p><a href="services-testing.html">Explore testing and interpretation</a></div>
+      </article>
+      <article>
+        <span class="programs-layers__num">03</span>
+        <div><strong>Feedback</strong><h3>Review the response.</h3><p>Repeat samples, crop observations and harvest results help assess the response. The team reviews the findings and adjusts its recommendations where needed.</p><a href="services-differential-sap-analysis.html">See differential sap analysis</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="programs-deliver" data-reveal>
+    <div class="programs-deliver__image">
+      <img src="assets/photos/responsive/human-support-team-1800.webp" height="1455" width="2048" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/human-support-team-480.webp 480w, assets/photos/responsive/human-support-team-768.webp 768w, assets/photos/responsive/human-support-team-1200.webp 1200w, assets/photos/responsive/human-support-team-1800.webp 1800w" alt="Hybrid-Ag agronomy and support team outdoors" loading="lazy" decoding="async">
+    </div>
+    <div class="programs-deliver__copy">
+      <span class="eyebrow eyebrow--orange">Your recommendations</span>
+      <h2>Clear recommendations for the farm.</h2>
+      <p>The recommendations include the sampling details and explain any follow-up needed. The format depends on the work required.</p>
+      <dl>
+        <div><dt>Testing strategy</dt><dd>What to sample, where, when and what question the sample needs to answer.</dd></div>
+        <div><dt>Prioritised recommendations</dt><dd>What needs attention now and what can wait until a later stage or season.</dd></div>
+        <div><dt>Application planning</dt><dd>The blend format and application method, taking account of area, equipment, water and delivery arrangements.</dd></div>
+        <div><dt>Review points</dt><dd>The observations or repeat tests used to assess crop response.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="programs-sectors" id="sector-programs" data-reveal>
+    <div class="wrap programs-heading">
+      <div>
+        <span class="eyebrow eyebrow--orange">Programs by cropping system</span>
+        <h2>Programs for different growing systems.</h2>
+      </div>
+      <p>Testing and recommendations are adapted to the crop’s growth, the production system and market requirements.</p>
+    </div>
+    <div class="programs-sectors__grid">
+      <a href="horticulture.html"><img src="assets/photos/responsive/orchard-block-1800.webp" height="909" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/orchard-block-480.webp 480w, assets/photos/responsive/orchard-block-768.webp 768w, assets/photos/responsive/orchard-block-1200.webp 1200w, assets/photos/responsive/orchard-block-1800.webp 1800w" alt="Rows in a horticultural block" loading="lazy" decoding="async"><span>Blocks</span><strong>Horticulture</strong><small>Marketable fruit, pack-out, grade, condition and shelf life.</small></a>
+      <a href="small-crop.html"><img src="assets/photos/responsive/veg-crop-1800.webp" height="1280" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/veg-crop-480.webp 480w, assets/photos/responsive/veg-crop-768.webp 768w, assets/photos/responsive/veg-crop-1200.webp 1200w, assets/photos/responsive/veg-crop-1800.webp 1800w" alt="Commercial vegetable crop rows" loading="lazy" decoding="async"><span>Paddocks or blocks</span><strong>Small Crop</strong><small>Marketable yield, specification, uniformity, timing and quality.</small></a>
+      <a href="broadacre.html"><img src="assets/photos/responsive/cereal-1800.webp" height="1280" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/cereal-480.webp 480w, assets/photos/responsive/cereal-768.webp 768w, assets/photos/responsive/cereal-1200.webp 1200w, assets/photos/responsive/cereal-1800.webp 1800w" alt="Broadacre cereal crop in the paddock" loading="lazy" decoding="async"><span>Paddocks</span><strong>Broadacre &amp; Pasture</strong><small>Yield, grain quality, Nutrient efficiency and rotation position.</small></a>
+      <a href="viticulture.html"><img src="assets/photos/responsive/vine-rows-1739.webp" height="1149" width="1739" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/vine-rows-480.webp 480w, assets/photos/responsive/vine-rows-768.webp 768w, assets/photos/responsive/vine-rows-1200.webp 1200w, assets/photos/responsive/vine-rows-1739.webp 1739w" alt="Vine rows in a viticulture block" loading="lazy" decoding="async"><span>Blocks</span><strong>Viticulture</strong><small>Crop and canopy, maturity, specification, condition and harvest timing.</small></a>
+    </div>
+  </section>
+
+  <section class="programs-cherry" id="cherry-program" data-reveal>
+    <div class="programs-cherry__image"><img src="assets/photos/responsive/cherry-orchard-933.webp" height="1400" width="933" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/cherry-orchard-480.webp 480w, assets/photos/responsive/cherry-orchard-768.webp 768w, assets/photos/responsive/cherry-orchard-933.webp 933w" alt="Cherries growing in an orchard block" loading="lazy" decoding="async"></div>
+    <div class="programs-cherry__copy">
+      <span class="eyebrow eyebrow--berry">Featured horticulture program</span>
+      <h2>The Cherry Nutrition Program.</h2>
+      <p>Our most developed crop program covers post-harvest, dormancy, flowering, set, fruit development and harvest. It uses block information to guide decisions at each stage.</p>
+      <div class="programs-cherry__links">
+        <a class="btn btn--teal" href="program-cherries.html">Explore the Cherry Program</a>
+        <a href="sectors-cherries.html">Read about cherry nutrition</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="programs-cherry" id="apple-program" data-reveal>
+    <div class="programs-cherry__image"><img src="assets/photos/responsive/fruit-on-tree-1800.webp" height="1280" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/fruit-on-tree-480.webp 480w, assets/photos/responsive/fruit-on-tree-768.webp 768w, assets/photos/responsive/fruit-on-tree-1200.webp 1200w, assets/photos/responsive/fruit-on-tree-1800.webp 1800w" alt="Red apples growing in an orchard block" loading="lazy" decoding="async"></div>
+    <div class="programs-cherry__copy">
+      <span class="eyebrow eyebrow--berry">Sample horticulture program</span>
+      <h2>The Apple Nutrition Program.</h2>
+      <p>The Apple Playbook includes a sample program for Pink Lady apples. Use it as a discussion point with the team; products, rates and timing need to suit the orchard.</p>
+      <div class="programs-cherry__links">
+        <a class="btn btn--teal" href="program-apples.html">Explore the Apple Program</a>
+        <a href="sectors-apples.html">Read about apple nutrition</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="programs-cycle" id="review-cycle" data-reveal>
+    <div class="wrap programs-heading">
+      <div>
+        <span class="eyebrow eyebrow--orange">Reviewing the program</span>
+        <h2>Review the plan as the crop develops.</h2>
+      </div>
+      <p>Crop observations and follow-up tests help the team assess the recommendations and decide whether anything needs to change.</p>
+    </div>
+    <div class="wrap programs-cycle__track" role="list">
+      <div role="listitem"><span>01</span><strong>Benchmark</strong><p>Review the current results and crop conditions.</p></div>
+      <div role="listitem"><span>02</span><strong>Build</strong><p>Decide which requirements to address.</p></div>
+      <div role="listitem"><span>03</span><strong>Monitor</strong><p>Review crop response and repeat the relevant tests.</p></div>
+      <div role="listitem"><span>04</span><strong>Review</strong><p>Review the results and adjust the next plan.</p></div>
+    </div>
+  </section>
+
+  <section class="programs-cta" data-reveal>
+    <div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="wrap programs-cta__inner">
+      <div><span class="eyebrow">Discuss your crop</span><h2>Tell us about the crop and its stage, what you need to understand and any results you already have.</h2></div>
+      <div class="cta-row"><a class="btn programs-cta__primary" href="soil-test.html?test=not-sure">Request testing</a><a class="btn programs-cta__secondary" href="contact.html">Talk to the team</a></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

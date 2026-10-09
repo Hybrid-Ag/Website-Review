@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bruce Armstrong — Hybrid-Ag</title>
+<meta name="description" content="Bruce Armstrong is a senior nutritional agronomist working with broadacre growers across Southern NSW. Contact Bruce about soil and plant nutrition.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/team-profile-refinements.css?v=4550c00e91">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/team-bruce-armstrong.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bruce Armstrong — Hybrid-Ag">
+<meta property="og:description" content="Bruce Armstrong is a senior nutritional agronomist working with broadacre growers across Southern NSW. Contact Bruce about soil and plant nutrition.">
+<meta property="og:url" content="https://www.hybridag.com.au/team-bruce-armstrong.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bruce Armstrong — Hybrid-Ag">
+<meta name="twitter:description" content="Bruce Armstrong is a senior nutritional agronomist working with broadacre growers across Southern NSW. Contact Bruce about soil and plant nutrition.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="team" class="team-profile-refined">
+<div id="site-header"></div>
+
+<main>
+  <header class="hero page-cover page-cover--photo profile-hero" data-home-field>
+    <img class="profile-hero__image" src="assets/photos/responsive/paddock-green-1800.webp" width="1800" height="1198" sizes="100vw" srcset="assets/photos/responsive/paddock-green-480.webp 480w, assets/photos/responsive/paddock-green-768.webp 768w, assets/photos/responsive/paddock-green-1200.webp 1200w, assets/photos/responsive/paddock-green-1800.webp 1800w" alt="" decoding="async" fetchpriority="high">
+    <div class="profile-hero__shade" aria-hidden="true"></div>
+    <div class="wrap hero-inner page-cover__inner">
+      <div class="profile-intro">
+        <span class="eyebrow">Senior Nutritional Agronomist</span>
+        <h1>Bruce Armstrong</h1>
+        <p class="sub">Bruce Armstrong is a senior nutritional agronomist working with broadacre growers in Southern NSW. He brings decades of experience in soil and plant nutrition to his work in the paddock.</p>
+      </div>
+
+    </div>
+  </header>
+
+  <nav class="profile-back" aria-label="Team navigation"><div class="wrap"><a href="team.html#broadacre-team">&larr; Back to the team</a></div></nav>
+
+  <section class="section profile-biography" data-reveal data-home-field>
+    <div class="wrap profile-biography__inner">
+      <div class="profile-portrait"><img src="assets/team/responsive/bruce-armstrong-portrait-690.webp" loading="lazy" decoding="async" height="1035" width="690" sizes="(max-width: 720px) min(360px, calc(100vw - 48px)), (max-width: 980px) 300px, 360px" srcset="assets/team/responsive/bruce-armstrong-portrait-480.webp 480w, assets/team/responsive/bruce-armstrong-portrait-690.webp 690w" alt="Bruce Armstrong — Hybrid-Ag agronomist"></div>
+      <div class="profile-biography__copy">
+        <span class="eyebrow eyebrow--orange">About Bruce</span>
+      <h2 class="h2 measure-20">Experience in soil and plant nutrition.</h2>
+      <div class="measure-prose" style="margin-top:18px">
+        <p class="lead" style="font-style:normal">Bruce starts by listening to the grower and observing the paddock. He uses test results to help assess what needs attention.</p>
+        <p class="lead" style="margin-top:18px">His experience includes irrigated crops and pasture, as well as broadacre farming systems.</p>
+        <p class="lead" style="font-style:normal;margin-top:18px">Bruce recalls helping a grower better understand soil health, particularly the role of Calcium. Explaining the reasoning behind his advice is an important part of his approach.</p>
+      </div>
+        <div class="profile-media">
+          <a href="https://www.youtube.com/watch?v=K2p6dhirnDE" target="_blank" rel="noopener">Nitrogen use efficiency webinar &nearr;</a>
+        </div>
+        <div class="profile-areas">
+          <span class="eyebrow eyebrow--berry">Areas of work</span>
+      <h3 class="h2 measure-22">Broadacre soil and plant nutrition.</h3>
+      <div class="cta-row mt-28" style="flex-wrap:wrap">
+        <span class="badge">Broadacre</span>
+        <span class="badge">Soil nutrition</span>
+        <span class="badge">Plant nutrition</span>
+        <span class="badge">Southern NSW</span>
+        <span class="badge">Programs</span>
+      </div>
+      <p class="muted" style="font-style:italic;margin-top:22px;max-width:58ch">Soil and plant nutrition advice for broadacre growers across Southern NSW.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section profile-story" data-reveal data-home-field>
+    <div class="wrap profile-story__inner">
+      <div class="profile-story__image"><img loading="lazy" src="assets/team/responsive/bruce-armstrong-field-1800.webp" decoding="async" height="1280" width="1920" sizes="(max-width: 720px) min(360px, calc(100vw - 48px)), (max-width: 980px) 300px, 360px" srcset="assets/team/responsive/bruce-armstrong-field-480.webp 480w, assets/team/responsive/bruce-armstrong-field-768.webp 768w, assets/team/responsive/bruce-armstrong-field-1200.webp 1200w, assets/team/responsive/bruce-armstrong-field-1800.webp 1800w" alt="Bruce Armstrong — beyond the field, family and farming"></div>
+      <div>
+        <span class="eyebrow">Beyond the field</span>
+        <h2 class="h2" style="max-width:18ch">Family and farming.</h2>
+        <p class="lead" style="margin-top:22px;max-width:52ch">Outside his agronomy work, Bruce spends time with his family and works on the land. Family, faith and farming are important to him, and he regards primary production as both a responsibility and a privilege.</p>
+        <p class="lead" style="margin-top:18px;max-width:52ch">Bruce also shares his experience beyond paddock visits. He joined James White for a Hybrid-Ag webinar on Nitrogen use efficiency, covering foliar nutrition, sap testing and soil biology. A link to the recording is available on this page.</p>
+        <p class="quote-by">Bruce Armstrong &middot; Southern NSW</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-cream profile-resources" data-reveal data-home-field>
+    <div class="wrap">
+      <span class="eyebrow eyebrow--orange">Resources</span>
+      <h2 class="h2">Useful places to start.</h2>
+      <div class="grid grid-3" style="margin-top:40px;text-align:left">
+        <a class="card" href="resource-testing-layers.html"><div class="card-accent"></div><div class="card-img"><img src="assets/photos/responsive/soil-rootzone-1200.webp" height="2400" width="1800" sizes="(max-width: 620px) calc(100vw - 48px), (max-width: 1020px) calc((100vw - 72px) / 2), 384px" srcset="assets/photos/responsive/soil-rootzone-480.webp 480w, assets/photos/responsive/soil-rootzone-768.webp 768w, assets/photos/responsive/soil-rootzone-1200.webp 1200w, assets/photos/responsive/soil-rootzone-1800.webp 1800w" alt="Fine roots and soil in a close-up of the root zone" loading="lazy" decoding="async"></div><div class="card-body"><span class="meta">Understand your results</span><h3>Choosing the right test</h3><p>Understand what each test measures and when it may be useful.</p><span class="card-link">Read</span></div></a>
+        <a class="card" href="resource-position-pattern-plan.html"><div class="card-accent card-accent--orange"></div><div class="card-img"><img src="assets/photos/responsive/testing-interpretation-orchard-1200.webp" height="3024" width="4032" sizes="(max-width: 620px) calc(100vw - 48px), (max-width: 1020px) calc((100vw - 72px) / 2), 384px" srcset="assets/photos/responsive/testing-interpretation-orchard-480.webp 480w, assets/photos/responsive/testing-interpretation-orchard-768.webp 768w, assets/photos/responsive/testing-interpretation-orchard-1200.webp 1200w, assets/photos/responsive/testing-interpretation-orchard-1800.webp 1800w" alt="A man using a handheld instrument beside a pear tree" loading="lazy" decoding="async"></div><div class="card-body"><span class="meta">Planning crop nutrition</span><h3>Position. Pattern. Plan.</h3><p>Use current and previous results to discuss what to do next.</p><span class="card-link">Read</span></div></a>
+        <a class="card" href="resource-sampling-context.html"><div class="card-accent card-accent--berry"></div><div class="card-img"><img src="assets/photos/responsive/leaf-testing-field-samples-1200.webp" height="720" width="1280" sizes="(max-width: 620px) calc(100vw - 48px), (max-width: 1020px) calc((100vw - 72px) / 2), 384px" srcset="assets/photos/responsive/leaf-testing-field-samples-480.webp 480w, assets/photos/responsive/leaf-testing-field-samples-768.webp 768w, assets/photos/responsive/leaf-testing-field-samples-1200.webp 1200w, assets/photos/responsive/leaf-testing-field-samples-1280.webp 1280w" alt="Crop and root samples beside sample bags on a ute tailgate" loading="lazy" decoding="async"></div><div class="card-body"><span class="meta">Sampling records</span><h3>Make every sample a useful reference.</h3><p>Keep the original report and sample details together as a useful reference for future crop nutrition decisions.</p><span class="card-link">Read</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-teal profile-contact" data-reveal data-home-field>
+    <div class="wrap band-inner center">
+      <h2 class="h2" style="color:#fff;max-width:22ch;margin-inline:auto">Discuss your soil and crop nutrition with Bruce.</h2>
+      <p class="sub" style="color:#eafffd;margin:14px auto 0">Send your soil or tissue results, or get in touch with a question about your paddock.</p>
+      <div class="cta-row cta-center">
+        <a class="btn btn--white" href="contact.html?callback=bruce-armstrong#contact-form">Request a call with Bruce &rarr;</a>
+        <a class="btn btn--outline" href="tel:+61357228000">(03) 5722 8000</a>
+      </div>
+      <div class="socials" aria-label="Bruce Armstrong social profiles"><a href="https://www.linkedin.com/in/bruce-armstrong-37199465" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

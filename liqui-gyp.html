@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liqui-Gyp &mdash; Hybrid-Ag</title>
+<meta name="description" content="Liqui-Gyp micronised liquid gypsum information from Hybrid-Ag. Discuss soil conditions, prescription requirements and application.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/product-detail.css?v=1343326ae7">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/liqui-gyp.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="product">
+<meta property="og:title" content="Liqui-Gyp — Hybrid-Ag">
+<meta property="og:description" content="Liqui-Gyp micronised liquid gypsum information from Hybrid-Ag. Discuss soil conditions, prescription requirements and application.">
+<meta property="og:url" content="https://www.hybridag.com.au/liqui-gyp.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/products/liqui-gyp.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Liqui-Gyp — Hybrid-Ag">
+<meta name="twitter:description" content="Liqui-Gyp micronised liquid gypsum information from Hybrid-Ag. Discuss soil conditions, prescription requirements and application.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/products/liqui-gyp.webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Liqui-Gyp","description":"Liqui-Gyp micronised liquid gypsum information from Hybrid-Ag. Discuss soil conditions, prescription requirements and application.","brand":{"@type":"Brand","name":"Hybrid-Ag"},"image":"https://www.hybridag.com.au/assets/products/liqui-gyp.webp","url":"https://www.hybridag.com.au/liqui-gyp.html"}</script>
+<!-- /SEO:auto -->
+</head>
+<body data-page="shop" data-product-detail data-product-slug="liqui-gyp">
+<a class="skip-link" href="#main">Skip to content</a><div id="site-header"></div>
+<main id="main" tabindex="-1">
+  <header class="product-hero" data-home-field><div class="product-wrap">
+    <nav class="product-crumb" aria-label="Breadcrumb"><a href="shop.html">Our products</a><span aria-hidden="true">/</span><span>Liqui-Gyp</span></nav>
+    <div class="product-grid">
+      <div class="product-media"><figure class="product-gallery">
+        <div class="product-gallery-stage"><span id="product-photo-label">Existing pack photograph</span><img data-product-photo src="assets/products/variants/liqui-gyp/20l.webp?v=83695cfecd" alt="Liqui-Gyp existing packaging; current revision to confirm" width="1200" height="1200" fetchpriority="high"><button class="product-gallery-zoom" type="button" data-product-zoom aria-label="Enlarge Liqui-Gyp pack photograph">⤢</button></div>
+        <figcaption class="product-note" id="product-photo-note">Existing product packaging. Confirm the current label, pack availability and supply with the team.</figcaption>
+      </figure><div class="product-intro"><p>Liqui-Gyp supplies Calcium and Sulphur in a micronised gypsum suspension.</p><p>The staged material describes fertigation use in a root-zone recommendation, including where excess Sodium forms part of the soil-management problem.</p></div></div>
+      <div class="product-purchase"><span class="product-kicker">Hybrid-Ag · Product information</span><h1>Liqui-Gyp</h1><p class="product-descriptor">Micronised liquid Calcium and Sulphur.</p>
+        <div class="product-pack-panel" id="buy-picker" data-slug="liqui-gyp"><div class="product-pack-fields">
+          <div><label for="product-pack">Pack size</label><select id="product-pack" aria-describedby="product-pack-note"><option value="1L" data-code="LQGY-1" data-product-id="25385">1 L</option><option value="5L" data-code="LQGY-5" data-product-id="25381">5 L</option><option value="20L" data-code="LQGY-20" data-product-id="25384" selected>20 L</option><option value="200L" data-code="LQGY-200" data-product-id="25382">200 L</option><option value="1000L" data-code="LQGY-1000" data-product-id="25383">1,000 L</option><option value="Bulk" data-code="LQGY-BLK" data-product-id="25386">Bulk</option></select></div>
+          <div><label for="product-quantity" id="product-quantity-label">Quantity</label><div class="qty"><button type="button" aria-label="Decrease quantity">−</button><input id="product-quantity" type="number" min="1" max="999999" step="1" value="1" required aria-label="Quantity" aria-describedby="product-quantity-help"><button type="button" aria-label="Increase quantity">+</button></div></div>
+        </div><div class="product-price-row" aria-live="polite" aria-atomic="true"><strong id="product-price">Price on enquiry</strong><div class="product-price-meta"><span id="product-unit-price">Confirm current pricing with the team</span><span>AUD ex GST · <span id="product-code">Code to confirm</span></span></div></div>
+        <p class="product-note" id="product-pack-note">Indicative cached list pricing for this preview, not a current quote. Confirm your price and supply with the team.</p>
+        <div class="product-selection"><p id="product-summary" role="status" aria-live="polite">Select a pack to review pricing and quantity.</p><span id="product-selection-total"></span></div><span class="sr-only" id="product-quantity-help">Enter a whole number of packs. Bulk and packs without a confirmed unit are enquiry-only. The review cart cannot submit an order.</span></div>
+        <div class="product-actions product-buy-actions"><button class="product-button" type="button" id="product-add-to-cart" data-add-to-cart disabled>Add to cart</button><a class="product-button product-button--outline" href="contact.html?product=liqui-gyp#contact-form">Talk to an agronomist</a></div>
+        <noscript><p class="product-note">Enable JavaScript to review pack pricing and the preview cart, or contact the team for pricing and advice.</p></noscript>
+        <p class="product-note product-approval-note">Working product draft. Product details, application guidance and documents remain subject to technical review before publication.</p>
+      </div>
+    </div>
+  </div></header>
+  <nav class="product-tabs" aria-label="Product information"><div class="product-wrap"><a href="#overview" aria-current="location">Overview</a><a href="#specification">Analysis</a><a href="#application">Application</a><a href="#documents">Documents</a></div></nav>
+  <section class="product-section" id="overview" data-home-field><div class="product-wrap product-split"><div><span class="product-kicker">Crop nutrition</span><h2>Consider the soil as well as the Nutrient supply.</h2><div class="product-copy"><p>Liqui-Gyp supplies Calcium and Sulphur together in a micronised gypsum suspension. Its fine particles provide a liquid option for fertigation, including where excess Sodium forms part of the root-zone problem.</p><p>Soil structure and water movement matter when assessing an excess-Sodium issue. The soil results help the agronomist review those conditions alongside the Calcium and Sulphur requirement, rather than recommending a gypsum product from the Calcium content alone. The suspension, delivery system and wider soil-management plan need to be considered together.</p><p>This product may be suitable for what your crop needs now. As always, test, don’t guess. Your results help us work out whether it is appropriate, or whether a liquid, dry or granular prescription blend would better address specific Nutrient shortages or imbalances.</p></div><a class="product-link" href="services-testing.html#prescription-pathways">Explore prescription blends <span aria-hidden="true">↗</span></a></div>
+    <figure class="product-overview-photo"><img src="assets/photos/responsive/leaf-testing-crop-foliage-1200.webp" alt="Green crop leaves with water droplets" width="1800" height="2400" loading="lazy" decoding="async"><figcaption class="product-note">Crop photography from the Hybrid-Ag library. Not a trial or treatment result for Liqui-Gyp.</figcaption></figure></div></section>
+  <section class="product-section product-rule" id="specification"><div class="product-wrap product-split product-split--top"><div><span class="product-kicker">Product analysis</span><h2>A fuller picture of the product.</h2><p class="product-copy">The dashboard’s Product Analysis is the composition reference for this draft. The recorded figures and basis are shown where a product-specific source is available.</p><div class="product-source-notice" id="product-analysis-status"><strong>Staged reference · not approved for publication</strong><p>These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.</p></div><p class="product-note">Basis: % w/v. Product formulation and application directions are separate checks. A staged figure does not establish a suitable rate or crop response.</p></div><div><table class="product-analysis" aria-describedby="product-analysis-status"><caption>Liqui-Gyp · staged analysis, review only</caption><thead><tr><th scope="col">Nutrient / constituent</th><th scope="col">% w/v</th></tr></thead><tbody><tr><th scope="row">Potassium <span>K</span></th><td>0.051</td></tr><tr><th scope="row">Sulphur <span>S</span></th><td>13.041</td></tr><tr><th scope="row">Calcium <span>Ca</span></th><td>16.296</td></tr><tr class="product-constituent"><th scope="row">Carbon <span>C</span><small>Additional constituent</small></th><td>0.224</td></tr></tbody></table><p class="product-note">Zero entries are not declarations of absence. Display rounding does not imply measurement accuracy. Carbon is listed separately from mineral Nutrients.</p></div></div>
+    <div class="product-wrap product-accordions product-source-details"><details><summary>Product information still to confirm</summary><div class="product-copy"><p>This page uses the master dashboard staging record for this named product, with existing pack photography and cached catalogue pricing. Staged content does not establish current stock, a customer price, a released label revision or approval to apply the product.</p><p>Application directions, compatibility and document revisions still need their separate release checks.</p></div></details></div></section>
+  <section class="product-section product-rule" id="application"><div class="product-wrap product-split product-split--top"><div><span class="product-kicker">Using Liqui-Gyp</span><h2>Start with the crop and the application.</h2><div class="product-copy"><p>Review the intended fertigation method and root-zone conditions with the team. Confirm preparation, equipment suitability and current directions for the suspension.</p><p>Bring the test results you already have and tell us how you apply products. The team can review the requirement and the current directions with you.</p></div><a class="product-link" href="services-leaf-tissue-testing.html">Explore plant testing <span aria-hidden="true">↗</span></a></div>
+    <div class="product-accordions"><details open><summary>Choosing the application</summary><div class="product-copy"><p>The method needs to suit this product, your equipment and the crop. A pack size or a composition table does not establish how the product should be applied.</p><p>Confirm the crop stage, growing conditions and application method with the agronomist before settling on a rate.</p></div></details><details><summary>Rates and timing</summary><div class="product-copy"><p>Application rates, water volume, timing and repeat applications need the current product directions and a crop-specific recommendation. No application calculator is enabled in this draft.</p><p>Historical and staged rate references are retained in the internal product review register. They have not been turned into directions for every crop or application method.</p></div></details><details><summary>Mixing and compatibility</summary><div class="product-copy"><p>Use the current Liqui-Gyp label and advice from the team. Compatibility must be checked for the products and application method involved; do not assume that different Hybrid-Ag products can be mixed.</p></div></details><details><summary>Handling and storage</summary><div class="product-copy"><p>Ask for the current label and Safety Data Sheet before handling the product. Follow the product-specific storage, transport and handling directions rather than a general instruction copied from another product.</p></div></details></div></div></section>
+  <section class="product-section product-rule" id="documents"><div class="product-wrap"><div class="product-reading-heading"><div><span class="product-kicker">Product documents</span><h2>The details, in one place.</h2></div><p class="product-copy">Download the working reference for review. Ask the team for current product directions and safety documents.</p></div><div class="product-docs">
+    <article class="product-doc"><span class="product-kicker">Review reference</span><h3>Working product sheet</h3><p>The draft product summary and staged analysis, with the outstanding review checks. Not a label, SDS or recommendation.</p><a class="product-link" href="assets/downloads/product-review/liqui-gyp.txt" download>Download review sheet <span aria-hidden="true">↓</span></a></article>
+    <article class="product-doc"><span class="product-kicker">Directions</span><h3>Current product label</h3><p>Ask for the current Liqui-Gyp label. Existing pack photography does not establish its released revision.</p><a class="product-link" href="contact.html?product=liqui-gyp#contact-form">Request product label <span aria-hidden="true">↗</span></a></article>
+    <article class="product-doc"><span class="product-kicker">Safety reference</span><h3>Safety Data Sheet</h3><p>Ask the team to confirm the current document for this product before handling it.</p><a class="product-link" href="contact.html?product=liqui-gyp#contact-form">Request current SDS <span aria-hidden="true">↗</span></a></article>
+  </div></div></section>
+  <section class="product-close" data-home-field><div class="product-wrap"><h2>Discuss Liqui-Gyp for your crop.</h2><p class="product-copy">Tell us what you are growing and what you want to achieve. We can discuss a prescription blend, whether Liqui-Gyp is appropriate, and pricing and supply.</p><div class="product-actions"><a class="product-button" href="contact.html?product=liqui-gyp#contact-form">Talk to the team</a><a class="product-button product-button--outline" href="soil-test.html">Organise testing</a></div></div></section>
+</main><div id="site-footer"></div>
+<dialog class="product-zoom" id="product-zoom" aria-label="Liqui-Gyp packaging photograph"><button type="button" data-product-zoom-close>Close image</button><img src="assets/products/variants/liqui-gyp/20l.webp?v=83695cfecd" alt="Liqui-Gyp existing packaging" width="1200" height="1200"><p class="product-note">Existing pack photography only. Confirm the label revision, directions and current pack availability with the team.</p></dialog>
+
+<script src="js/data/products.js?v=c9d410f4d8"></script><script src="js/data/product-variants.js?v=0738616808"></script><script src="js/components.js?v=fe49b5e90c"></script><script src="js/product-detail.js?v=d7b71e16fa"></script><script src="js/cart.js?v=df334d2d7d"></script><script src="js/main.js?v=2da7219a0b"></script>
+</body></html>

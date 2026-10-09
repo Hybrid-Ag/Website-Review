@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Differential Sap Analysis - Hybrid-Ag</title>
+<meta name="description" content="Differential sap analysis compares young and old tissue collected together. Crop stage, field conditions and repeat samples help the team interpret the results.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/testing-detail.css?v=dedc84104f">
+<link rel="stylesheet" href="css/pages/differential-sap.css?v=01b84d7192">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/service-refinements.css?v=63c0fac8e0">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/services-differential-sap-analysis.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Differential Sap Analysis - Hybrid-Ag">
+<meta property="og:description" content="Differential sap analysis compares young and old tissue collected together. Crop stage, field conditions and repeat samples help the team interpret the results.">
+<meta property="og:url" content="https://www.hybridag.com.au/services-differential-sap-analysis.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Differential Sap Analysis - Hybrid-Ag">
+<meta name="twitter:description" content="Differential sap analysis compares young and old tissue collected together. Crop stage, field conditions and repeat samples help the team interpret the results.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="services" class="service-refined">
+<div id="site-header"></div>
+
+<main>
+  <header class="testing-detail-hero testing-detail-hero--sap dsa-hero page-cover page-cover--photo" data-home-field>
+    <img class="testing-detail-hero__image" src="assets/photos/responsive/differential-sap-testing-hero-1672.webp" decoding="async" height="941" width="1672" sizes="100vw" srcset="assets/photos/responsive/differential-sap-testing-hero-480.webp 480w, assets/photos/responsive/differential-sap-testing-hero-768.webp 768w, assets/photos/responsive/differential-sap-testing-hero-1200.webp 1200w, assets/photos/responsive/differential-sap-testing-hero-1672.webp 1672w" alt="Young and old leaf samples kept separate for paired plant analysis" fetchpriority="high">
+    <div class="testing-detail-hero__shade" aria-hidden="true"></div>
+    <div class="wrap testing-detail-hero__inner page-cover__inner">
+      <span class="eyebrow">Differential sap analysis</span>
+      <h1>Differential Sap Analysis.</h1>
+      <p>Young and old tissue are collected from the same crop and area at the same time, then measured separately. Comparing the results helps the agronomist investigate differences between tissue ages. Repeat samples can show how those differences change.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="soil-test.html?test=sap">Request differential sap analysis</a>
+        <a class="btn testing-detail-hero__secondary" href="#paired-read">How paired samples are compared</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="testing-detail-intro" id="paired-read" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--orange">Comparing the samples</span><h2>Keep young and old tissue separate.</h2></div>
+        <p>DSA uses separate young and old tissue samples, collected and labelled as a pair. The results can be compared with each other and with later samples taken on the same basis.</p>
+      </div>
+      <div class="testing-detail-intro__grid">
+        <article><span>01</span><strong>Position</strong><p>What was measured separately in the defined young and old tissue at this crop stage?</p></article>
+        <article><span>02</span><strong>Differential</strong><p>What differences between the two tissue ages need investigating?</p></article>
+        <article><span>03</span><strong>Changes over time</strong><p>How have the results changed since the previous comparable pair was sampled?</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="dsa-report" data-reveal data-home-field>
+    <div class="wrap dsa-report__inner">
+      <div class="dsa-report__mark" aria-label="Two tissue ages, one sampling event">
+        <div><strong>2</strong><span>tissue ages</span></div>
+        <div><strong>1</strong><span>sampling event</span></div>
+      </div>
+      <div class="dsa-report__copy">
+        <span class="eyebrow">What the report may include</span>
+        <h2>Each result stays matched to its tissue sample.</h2>
+        <p>The team confirms the laboratory tests and crop reference for each request. Results remain identified by crop, variety, paddock or block, sample date and tissue age.</p>
+        <div class="dsa-report__groups">
+          <article><span>01</span><div><strong>Sugars, pH and EC</strong><p>Method-specific indicators read with crop stage, light, water, temperature and recent conditions.</p></div></article>
+          <article><span>02</span><div><strong>Nitrogen measurements</strong><p>Ammonium, nitrate, Nitrogen in nitrate and total Nitrogen can be reported as distinct measurements.</p></div></article>
+          <article><span>03</span><div><strong>Major and secondary elements</strong><p>Potassium, Calcium, Magnesium, Sulphur and Phosphorus, with related measures such as the K/Ca relationship.</p></div></article>
+          <article><span>04</span><div><strong>Trace and other elements</strong><p>Silicon, Iron, Manganese, Zinc, Boron, Copper, Molybdenum and other laboratory-reported elements or ions.</p></div></article>
+        </div>
+        <p class="dsa-report__note">More reported measurements do not automatically provide a recommendation. The agronomist considers which results matter to the crop and the issue being investigated.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="dsa-comparison" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--berry">Comparing testing methods</span><h2>Standard tissue testing and DSA measure different things.</h2></div>
+        <p>Standard tissue testing and Differential Sap Analysis use different sampling and laboratory methods. They can complement one another when both are needed to investigate the crop issue.</p>
+      </div>
+      <div class="dsa-comparison__grid">
+        <article>
+          <span>01</span><strong>Standard tissue testing</strong>
+          <h3>What was measured in the defined plant part?</h3>
+          <dl><div><dt>Sample</dt><dd>The crop-specific tissue or plant part required by the laboratory.</dd></div><div><dt>Method</dt><dd>Nutrient concentrations in dried plant material, reported on a dry-matter basis.</dd></div><div><dt>Strength</dt><dd>Assessing the sampled tissue against a suitable crop and stage reference, or comparing consistently collected samples.</dd></div></dl>
+        </article>
+        <article>
+          <span>02</span><strong>Differential sap analysis</strong>
+          <h3>How do young and old tissue sampled together compare?</h3>
+          <dl><div><dt>Sample</dt><dd>Crop-specific young and old leaves, collected together and kept separate.</dd></div><div><dt>Method</dt><dd>Nutrients in extracted leaf fluid, with each leaf age reported separately.</dd></div><div><dt>Strength</dt><dd>The two results, their relationship and changes across comparable repeat pairs.</dd></div></dl>
+        </article>
+      </div>
+      <div class="dsa-comparison__together"><strong>Different methods and reference values.</strong><p>Dry tissue and sap results are not directly interchangeable. Their sampling protocols, units and crop references differ. Neither establishes cause by itself; soil, water, crop growth and field observations remain part of the interpretation.</p></div>
+    </div>
+  </section>
+
+  <section class="testing-detail-split" data-reveal data-home-field>
+    <div class="testing-detail-split__image"><img src="assets/photos/responsive/dsa-crop-sampling-1800.webp" height="2400" width="1800" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/dsa-crop-sampling-480.webp 480w, assets/photos/responsive/dsa-crop-sampling-768.webp 768w, assets/photos/responsive/dsa-crop-sampling-1200.webp 1200w, assets/photos/responsive/dsa-crop-sampling-1800.webp 1800w" alt="A bare hand holding leaves beside the crop canopy" style="object-position:50% 62%" loading="lazy" decoding="async"></div>
+    <div class="testing-detail-split__copy">
+      <span class="eyebrow eyebrow--orange">Interpreting the difference</span>
+      <h2>A difference needs interpretation.</h2>
+      <p>Whether the young-tissue result is higher, lower or similar to the old-tissue result, there can be more than one explanation. Mobility and allocation may be relevant, but so can growth dilution, root conditions, water, crop stage, stress, recent inputs and sampling consistency.</p>
+      <dl>
+        <div><dt>The levels</dt><dd>Read each tissue result against its method, crop reference and sampled stage.</dd></div>
+        <div><dt>The relationship</dt><dd>A difference between young and old tissue needs investigation before its cause can be identified.</dd></div>
+        <div><dt>The context</dt><dd>Check the pair alongside crop demand, recent conditions, management and other test results.</dd></div>
+        <div><dt>The decision</dt><dd>A difference between two results does not determine a product recommendation. The agronomist reviews the wider crop information first.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="dsa-trend" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--orange">Following changes over time</span><h2>Repeat samples can show what has changed.</h2></div>
+        <p>The first DSA provides results for a pair of samples at a particular crop stage. A comparable repeat pair can show whether the difference between young and old tissue has changed.</p>
+      </div>
+      <div class="dsa-trend__grid">
+        <article><span>01</span><strong>Baseline pair</strong><p>Record the crop, variety, area, stage, date, recent conditions and the tissue age of each sample.</p></article>
+        <article><span>02</span><strong>Between samples</strong><p>Record any applications, other work or further investigations between samples, and why those decisions were made.</p></article>
+        <article><span>03</span><strong>Repeat pair</strong><p>Follow the current crop protocol at the next agreed sampling time so the results can be compared.</p></article>
+        <article><span>04</span><strong>Review the pattern</strong><p>Compare the new results with crop response, weather, water and other tests, including relevant harvest or quality records.</p></article>
+      </div>
+      <p class="dsa-trend__note">Record any changes in tissue, variety, area, stage or handling. These can affect the comparison between tests.</p>
+    </div>
+  </section>
+
+  <section class="testing-detail-method" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow">The Hybrid-Ag approach</span><h2>Position. Pattern. Plan.</h2></div>
+        <p>DSA is an important part of Hybrid-Ag’s prescription approach. Paired results and repeat samples are interpreted alongside what was happening in the crop, before deciding whether a nutrition recommendation should change.</p>
+      </div>
+      <div class="testing-detail-method__grid">
+        <div><span>01</span><strong>Position</strong><h3>What does each tissue age show now?</h3><p>Establish the crop, variety, area, stage, young result, old result and the method-specific reference.</p></div>
+        <div><span>02</span><strong>Pattern</strong><h3>What may explain the difference?</h3><p>Compare the difference between the tissue samples and any repeat tests with crop demand, crop load, water, weather, applications and field observations.</p></div>
+        <div><span>03</span><strong>Plan</strong><h3>What should happen next?</h3><p>Decide whether the results justify a change, need further investigation or should be checked at the next agreed sampling time.</p></div>
+      </div>
+      <a class="btn testing-detail-method__action" href="services-liquid-prescription-blends.html">Explore liquid prescription blends</a>
+    </div>
+  </section>
+
+  <section class="dsa-workflow" data-reveal data-home-field>
+    <div class="wrap dsa-workflow__inner">
+      <div><span class="eyebrow eyebrow--orange">Sampling and results</span><h2>From sampling instructions to interpretation.</h2><p>The team confirms the sampling instructions and helps interpret the results. Young and old samples remain separately identified throughout.</p></div>
+      <div class="dsa-workflow__list">
+        <div><span>01</span><div><strong>Confirm the question and protocol</strong><p>The team confirms the crop, variety, area, stage and current tissue instructions before sampling.</p></div></div>
+        <div><span>02</span><div><strong>Prepare the paired sampling kit</strong><p>Separate bags and labels are prepared for the young and old tissue collected together.</p></div></div>
+        <div><span>03</span><div><strong>Collect and identify separately</strong><p>Collect young and old tissue from the same representative area, keeping each sample separately identified during handling.</p></div></div>
+        <div><span>04</span><div><strong>Laboratory analysis</strong><p>The specialist laboratory reports the young and old samples separately under the relevant method and crop reference.</p></div></div>
+        <div><span>05</span><div><strong>Discuss the results</strong><p>Hybrid-Ag discusses the paired results and any changes over time with the grower before agreeing on the next step.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-cta" data-reveal data-home-field>
+    <div class="wrap testing-detail-cta__inner">
+      <div><span class="eyebrow">Start with the matched pair</span><h2>Ask about Differential Sap Analysis for your crop.</h2></div>
+      <div class="cta-row">
+        <a class="btn testing-detail-cta__primary" href="soil-test.html?test=sap">Request differential sap analysis</a>
+        <a class="btn testing-detail-cta__secondary" href="services-leaf-tissue-testing.html#compare-tests">Compare the testing methods</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

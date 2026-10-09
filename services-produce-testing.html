@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Produce Testing and Nutrient Removal - Hybrid-Ag</title>
+<meta name="description" content="Produce testing helps assess Nutrients removed at harvest using crop composition, dry matter and yield, alongside relevant quality records.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/testing-detail.css?v=dedc84104f">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/service-refinements.css?v=63c0fac8e0">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/services-produce-testing.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Produce Testing and Nutrient Removal - Hybrid-Ag">
+<meta property="og:description" content="Produce testing helps assess Nutrients removed at harvest using crop composition, dry matter and yield, alongside relevant quality records.">
+<meta property="og:url" content="https://www.hybridag.com.au/services-produce-testing.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Produce Testing and Nutrient Removal - Hybrid-Ag">
+<meta name="twitter:description" content="Produce testing helps assess Nutrients removed at harvest using crop composition, dry matter and yield, alongside relevant quality records.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="services" class="service-refined">
+<div id="site-header"></div>
+
+<main>
+  <header class="testing-detail-hero testing-detail-hero--produce page-cover page-cover--photo" data-home-field>
+    <div class="testing-detail-hero__mosaic" aria-hidden="true">
+      <img src="assets/photos/responsive/cherries-1800.webp" decoding="async" height="1280" width="1920" sizes="(max-width: 620px) 50vw, 25vw" srcset="assets/photos/responsive/cherries-480.webp 480w, assets/photos/responsive/cherries-768.webp 768w, assets/photos/responsive/cherries-1200.webp 1200w, assets/photos/responsive/cherries-1800.webp 1800w" alt="">
+      <img src="assets/photos/responsive/cereal-1800.webp" decoding="async" height="1280" width="1920" sizes="(max-width: 620px) 50vw, 25vw" srcset="assets/photos/responsive/cereal-480.webp 480w, assets/photos/responsive/cereal-768.webp 768w, assets/photos/responsive/cereal-1200.webp 1200w, assets/photos/responsive/cereal-1800.webp 1800w" alt="">
+      <img src="assets/photos/responsive/veg-crop-1800.webp" decoding="async" height="1280" width="1920" sizes="(max-width: 620px) 50vw, 25vw" srcset="assets/photos/responsive/veg-crop-480.webp 480w, assets/photos/responsive/veg-crop-768.webp 768w, assets/photos/responsive/veg-crop-1200.webp 1200w, assets/photos/responsive/veg-crop-1800.webp 1800w" alt="">
+      <img src="assets/photos/responsive/grapes-1800.webp" decoding="async" height="1281" width="1920" sizes="(max-width: 620px) 50vw, 25vw" srcset="assets/photos/responsive/grapes-480.webp 480w, assets/photos/responsive/grapes-768.webp 768w, assets/photos/responsive/grapes-1200.webp 1200w, assets/photos/responsive/grapes-1800.webp 1800w" alt="">
+    </div>
+    <div class="testing-detail-hero__shade" aria-hidden="true"></div>
+    <div class="wrap testing-detail-hero__inner page-cover__inner">
+      <span class="eyebrow">Produce testing and interpretation</span>
+      <h1>Produce testing and Nutrient removal.</h1>
+      <p>Produce testing measures the composition of the harvested crop. Read alongside dry matter, yield and quality figures, it helps the team assess Nutrient removal and inform crop nutrition planning.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="soil-test.html?test=produce">Request produce testing</a>
+        <a class="btn testing-detail-hero__secondary" href="#produce-read">What the results can show</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="testing-detail-intro" id="produce-read" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--orange">At harvest</span><h2>Understand what was removed at harvest.</h2></div>
+        <p>Produce results can inform planning for the following season. The sample and harvest figures need to be traceable to the paddock or block they represent.</p>
+      </div>
+      <div class="testing-detail-intro__grid">
+        <article><span>01</span><strong>Sample composition</strong><p>Measure the Nutrient concentrations present in a representative produce sample.</p></article>
+        <article><span>02</span><strong>Harvest context</strong><p>Record the crop, variety, harvest stage, area and yield, including the dry matter or moisture basis used.</p></article>
+        <article><span>03</span><strong>Production outcome</strong><p>Review Nutrient removals alongside grade, pack-out and the relevant processor, winery or market specification.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-signals" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--berry">Interpreting the results</span><h2>Read the sample alongside harvest records.</h2></div>
+        <p>A laboratory concentration alone is not a removal figure or a fertiliser recommendation. Calculating removals also requires the harvested volume, units and relevant crop details.</p>
+      </div>
+      <div class="testing-detail-signals__grid">
+        <article><span>01</span><h3>Representative produce</h3><p>The sample needs to represent the crop, variety and harvest unit being discussed rather than an isolated piece of produce.</p></article>
+        <article><span>02</span><h3>Dry matter or moisture</h3><p>Water content changes how concentration and harvested mass relate. The relevant basis needs to stay clear.</p></article>
+        <article><span>03</span><h3>Yield and area</h3><p>Harvest volume, units and the paddock or block area connect sample composition to the amount removed.</p></article>
+        <article><span>04</span><h3>Nutrient removals</h3><p>Calculated removals describe Nutrients exported with the harvested crop. They do not automatically equal the next input requirement.</p></article>
+        <article><span>05</span><h3>Quality measures</h3><p>Grade, pack-out, composition, maturity and processor records help relate the test results to the quality of the harvested crop.</p></article>
+        <article><span>06</span><h3>Other test results and crop records</h3><p>Soil, plant and water results, together with seasonal conditions and crop history, help explain the harvest results.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-split" data-reveal data-home-field>
+    <div class="testing-detail-split__image"><img src="assets/photos/responsive/fruit-on-tree-1800.webp" height="1280" width="1920" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/fruit-on-tree-480.webp 480w, assets/photos/responsive/fruit-on-tree-768.webp 768w, assets/photos/responsive/fruit-on-tree-1200.webp 1200w, assets/photos/responsive/fruit-on-tree-1800.webp 1800w" alt="Apples developing in an orchard block" loading="lazy" decoding="async"></div>
+    <div class="testing-detail-split__copy">
+      <span class="eyebrow eyebrow--orange">Across cropping systems</span>
+      <h2>Match the interpretation to the crop.</h2>
+      <p>The material sampled and the quality measures differ between crops. Comparisons need the correct crop details, units and production records.</p>
+      <dl>
+        <div><dt>Fruit and nuts</dt><dd>Connect composition and removal to yield, pack-out, grade, maturity and post-harvest condition.</dd></div>
+        <div><dt>Grain and oilseed</dt><dd>Connect harvested yield and composition to paddock history, quality specification and Nutrient export.</dd></div>
+        <div><dt>Vegetables and roots</dt><dd>Connect marketable harvest, grade, uniformity and crop-specific quality to the paddock or block.</dd></div>
+        <div><dt>Grapes</dt><dd>Connect fruit composition, yield and removals to the block, harvest timing and winery or market specification.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="testing-detail-method" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow">The Hybrid-Ag approach</span><h2>Position. Pattern. Plan.</h2></div>
+        <p>Harvest results are reviewed alongside the season that produced them and any further information needed for the next recommendation.</p>
+      </div>
+      <div class="testing-detail-method__grid">
+        <div><span>01</span><strong>Position</strong><h3>What left at harvest?</h3><p>Establish the crop, sample, area, yield, composition and commercial measures for the paddock or block.</p></div>
+        <div><span>02</span><strong>Pattern</strong><h3>What helps explain the harvest results?</h3><p>Review the result alongside soil, plant and water tests, crop stage, seasonal conditions, inputs and previous harvests.</p></div>
+        <div><span>03</span><strong>Plan</strong><h3>What changes next?</h3><p>Use the results to guide the next review and identify any further testing or records needed.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-context" data-reveal data-home-field>
+    <div class="wrap testing-detail-context__inner">
+      <div><span class="eyebrow eyebrow--orange">Before sampling</span><h2>Trace the sample back to the crop.</h2></div>
+      <div class="testing-detail-context__list">
+        <div><span>01</span><div><strong>Crop and variety</strong><p>Name the harvested crop, variety or relevant plant material and the production system.</p></div></div>
+        <div><span>02</span><div><strong>Paddock or block</strong><p>Record where the sample came from, the harvest date or stage and how the sample was selected.</p></div></div>
+        <div><span>03</span><div><strong>Yield and units</strong><p>Bring the harvested quantity, area and units so calculations are tied to the correct basis.</p></div></div>
+        <div><span>04</span><div><strong>Harvest and market records</strong><p>Include relevant grade, pack-out and processor, winery or market specifications.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-cta" data-reveal data-home-field>
+    <div class="wrap testing-detail-cta__inner">
+      <div><span class="eyebrow">Start with the harvested crop</span><h2>Discuss produce testing for your crop.</h2></div>
+      <div class="cta-row">
+        <a class="btn testing-detail-cta__primary" href="soil-test.html?test=produce">Request produce testing</a>
+        <a class="btn testing-detail-cta__secondary" href="services-testing.html">Compare test types</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

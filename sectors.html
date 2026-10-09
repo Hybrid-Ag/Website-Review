@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sectors — Hybrid-Ag</title>
+<meta name="description" content="Explore Hybrid-Ag nutrition support for Horticulture, Small Crop, Broadacre and Pasture, and Viticulture, with advice suited to each growing system.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/sectors.css?v=464da55205">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/sectors.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sectors — Hybrid-Ag">
+<meta property="og:description" content="Explore Hybrid-Ag nutrition support for Horticulture, Small Crop, Broadacre and Pasture, and Viticulture, with advice suited to each growing system.">
+<meta property="og:url" content="https://www.hybridag.com.au/sectors.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sectors — Hybrid-Ag">
+<meta name="twitter:description" content="Explore Hybrid-Ag nutrition support for Horticulture, Small Crop, Broadacre and Pasture, and Viticulture, with advice suited to each growing system.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="sectors">
+<div id="site-header"></div>
+
+<main>
+  <header class="sectors-hero page-cover page-cover--photo">
+    <div class="sectors-hero__media" role="img" aria-label="Apple orchard, irrigated small-crop rows, broadacre canola and grape vines">
+      <img src="assets/banners/market-sectors/horticulture-960.webp" width="960" height="1280" sizes="(max-width: 1040px) 50vw, 25vw" srcset="assets/banners/market-sectors/horticulture-320.webp 320w, assets/banners/market-sectors/horticulture-480.webp 480w, assets/banners/market-sectors/horticulture-768.webp 768w, assets/banners/market-sectors/horticulture-960.webp 960w" alt="" fetchpriority="high" decoding="async">
+      <img src="assets/banners/market-sectors/small-crop-960.webp" width="960" height="1280" sizes="(max-width: 1040px) 50vw, 25vw" srcset="assets/banners/market-sectors/small-crop-320.webp 320w, assets/banners/market-sectors/small-crop-480.webp 480w, assets/banners/market-sectors/small-crop-768.webp 768w, assets/banners/market-sectors/small-crop-960.webp 960w" alt="" decoding="async">
+      <img src="assets/banners/market-sectors/broadacre-960.webp" width="960" height="1280" sizes="(max-width: 1040px) 50vw, 25vw" srcset="assets/banners/market-sectors/broadacre-320.webp 320w, assets/banners/market-sectors/broadacre-480.webp 480w, assets/banners/market-sectors/broadacre-768.webp 768w, assets/banners/market-sectors/broadacre-960.webp 960w" alt="" decoding="async">
+      <img src="assets/banners/market-sectors/viticulture-960.webp" width="960" height="1280" sizes="(max-width: 1040px) 50vw, 25vw" srcset="assets/banners/market-sectors/viticulture-320.webp 320w, assets/banners/market-sectors/viticulture-480.webp 480w, assets/banners/market-sectors/viticulture-768.webp 768w, assets/banners/market-sectors/viticulture-960.webp 960w" alt="" decoding="async">
+    </div>
+    <div class="sectors-hero__shade" aria-hidden="true"></div>
+    <div class="wrap sectors-hero__inner page-cover__inner">
+      <span class="eyebrow">Sectors</span>
+      <h1>Precision nutrition for your growing system.</h1>
+      <p>A prescription blend needs to suit the soil and the crop being grown. Hybrid-Ag considers the test results, growing conditions and production requirements when making recommendations across these sectors.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="#choose-sector">Choose your system</a>
+        <a class="btn sectors-hero__secondary" href="soil-test.html">Request testing</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="sector-choose" id="choose-sector" data-reveal>
+    <div class="wrap sector-heading">
+      <div>
+        <span class="eyebrow eyebrow--orange">Choose your system</span>
+        <h2>Find support for your growing system.</h2>
+      </div>
+      <p>Each sector has different crop stages, testing needs and market requirements. Choose a sector below for information about your crop.</p>
+    </div>
+
+    <div class="wrap sector-system-grid">
+      <article class="sector-system sector-system--horticulture">
+        <a class="sector-system__media" href="horticulture.html" aria-label="Explore Horticulture">
+          <img src="assets/photos/responsive/fruit-on-tree-1800.webp" height="1280" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/fruit-on-tree-480.webp 480w, assets/photos/responsive/fruit-on-tree-768.webp 768w, assets/photos/responsive/fruit-on-tree-1200.webp 1200w, assets/photos/responsive/fruit-on-tree-1800.webp 1800w" alt="Apples growing in a horticulture block" loading="lazy" decoding="async">
+        </a>
+        <div class="sector-system__body">
+          <div class="sector-system__meta"><span>01</span><span>Tree and berry crops</span></div>
+          <h3><a href="horticulture.html">Horticulture</a></h3>
+          <p>Nutrition for tree and berry crops through budburst, flowering, fruit development, harvest and post-harvest.</p>
+          <dl>
+            <div><dt>Production priorities</dt><dd>Marketable yield, pack-out and grade, fruit quality, and condition through storage or shelf life.</dd></div>
+            <div><dt>Crops covered</dt><dd>Dedicated Apple and Cherry guides are available, with sample nutrition programs to review with the team.</dd></div>
+          </dl>
+          <div class="sector-system__links">
+            <a href="horticulture.html">Explore Horticulture</a>
+            <a href="sectors-cherries.html">Read about cherry nutrition</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="sector-system sector-system--small">
+        <a class="sector-system__media" href="small-crop.html" aria-label="Explore Small Crop">
+          <img src="assets/photos/responsive/veg-crop-1800.webp" height="1280" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/veg-crop-480.webp 480w, assets/photos/responsive/veg-crop-768.webp 768w, assets/photos/responsive/veg-crop-1200.webp 1200w, assets/photos/responsive/veg-crop-1800.webp 1800w" alt="Healthy leafy vegetables in a fast-cycle crop" loading="lazy" decoding="async">
+        </a>
+        <div class="sector-system__body">
+          <div class="sector-system__meta"><span>02</span><span>Vegetable crops</span></div>
+          <h3><a href="small-crop.html">Small Crop</a></h3>
+          <p>Review short-cycle crops during growth and use the harvest results when planning the next planting.</p>
+          <dl>
+            <div><dt>Production priorities</dt><dd>Marketable yield, customer specification, uniformity and timing, and crop-specific quality or holding measures.</dd></div>
+            <div><dt>Crops covered</dt><dd>Leafy greens and herbs, brassicas, roots and alliums, potatoes and other tuber crops.</dd></div>
+          </dl>
+          <div class="sector-system__links">
+            <a href="small-crop.html">Explore Small Crop</a>
+            <a href="soil-test.html?sector=small-crop">Request Small Crop testing</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="sector-system sector-system--broadacre">
+        <a class="sector-system__media" href="broadacre.html" aria-label="Explore Broadacre and Pasture">
+          <img src="assets/photos/responsive/cereal-1800.webp" height="1280" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/cereal-480.webp 480w, assets/photos/responsive/cereal-768.webp 768w, assets/photos/responsive/cereal-1200.webp 1200w, assets/photos/responsive/cereal-1800.webp 1800w" alt="Mature cereal crop across a broadacre paddock" loading="lazy" decoding="async">
+        </a>
+        <div class="sector-system__body">
+          <div class="sector-system__meta"><span>03</span><span>Cropping and pasture</span></div>
+          <h3><a href="broadacre.html">Broadacre &amp; Pasture</a></h3>
+          <p>Recommendations account for seasonal conditions, rotation history, paddock zones and representative testing.</p>
+          <dl>
+            <div><dt>Production priorities</dt><dd>Establishment and uniformity, yield and crop quality, input efficiency, and usable pasture growth and persistence.</dd></div>
+            <div><dt>Crops covered</dt><dd>Cereals, oilseeds, pulses, lucerne and mixed pasture systems.</dd></div>
+          </dl>
+          <div class="sector-system__links">
+            <a href="broadacre.html">Explore Broadacre &amp; Pasture</a>
+            <a href="soil-test.html?sector=broadacre">Request Broadacre testing</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="sector-system sector-system--viticulture">
+        <a class="sector-system__media" href="viticulture.html" aria-label="Explore Viticulture">
+          <img src="assets/photos/responsive/grapes-1800.webp" height="1281" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/grapes-480.webp 480w, assets/photos/responsive/grapes-768.webp 768w, assets/photos/responsive/grapes-1200.webp 1200w, assets/photos/responsive/grapes-1800.webp 1800w" alt="Wine grapes ripening in a vineyard block" loading="lazy" decoding="async">
+        </a>
+        <div class="sector-system__body">
+          <div class="sector-system__meta"><span>04</span><span>Vineyards</span></div>
+          <h3><a href="viticulture.html">Viticulture</a></h3>
+          <p>Vineyard advice takes account of variety and rootstock, region, crop load and seasonal conditions, as well as winery or market requirements.</p>
+          <dl>
+            <div><dt>Production priorities</dt><dd>Crop and canopy, yield and specification, fruit maturity and composition, condition and harvest timing.</dd></div>
+            <div><dt>Crops covered</dt><dd>Wine and table grapes, with recommendations suited to the intended destination for the fruit.</dd></div>
+          </dl>
+          <div class="sector-system__links">
+            <a href="viticulture.html">Explore Viticulture</a>
+            <a href="soil-test.html?sector=viticulture">Request Viticulture testing</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sector-method" data-reveal>
+    <div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="wrap sector-heading sector-method__heading">
+      <div>
+        <span class="eyebrow">The Hybrid-Ag approach</span>
+        <h2>Position. Pattern. Plan.</h2>
+      </div>
+      <p>These questions help the team understand the growing system and make recommendations from the available information.</p>
+    </div>
+    <div class="wrap sector-method__grid">
+      <article><span>01</span><strong>Position</strong><h3>Where are you now?</h3><p>Start with the crop, its growth stage and location, current conditions and any test results you have.</p></article>
+      <article><span>02</span><strong>Pattern</strong><h3>How did you get here?</h3><p>Compare previous results and applications with changes in the crop and growing conditions.</p></article>
+      <article><span>03</span><strong>Plan</strong><h3>What should happen next?</h3><p>Agree on the next practical step and how its effects will be assessed.</p></article>
+    </div>
+    <div class="wrap sector-method__action"><a class="btn btn--teal" href="about.html#approach">Explore the Hybrid-Ag approach</a></div>
+  </section>
+
+  <section class="sector-start" data-reveal>
+    <div class="wrap sector-heading">
+      <div>
+        <span class="eyebrow eyebrow--berry">Not sure where to begin?</span>
+        <h2>Tell us what you need help with.</h2>
+      </div>
+      <p>You do not need to diagnose the issue or choose a laboratory test before making contact. Tell us about the crop and share any results you already have.</p>
+    </div>
+    <div class="wrap sector-start__grid">
+      <article><span>01</span><h3>Tell us about the crop</h3><p>Share the sector, crop or variety, paddock or block, production system and current stage.</p></article>
+      <article><span>02</span><h3>Bring what you have</h3><p>Previous tests, field observations, water information, photos, crop history or harvest results all add context.</p></article>
+      <article><span>03</span><h3>Agree on the next step</h3><p>A team member reviews your question and helps determine whether you need sampling, testing or advice on existing results.</p></article>
+    </div>
+    <div class="wrap sector-start__action cta-row">
+      <a class="btn btn--teal" href="soil-test.html">Request testing</a>
+      <a class="btn sector-start__secondary" href="nutrient-audit.html">Bring existing results</a>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

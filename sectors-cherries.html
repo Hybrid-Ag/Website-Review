@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cherries — Hybrid-Ag</title>
+<meta name="description" content="Cherry nutrition advice based on growth stage, block history and soil, water, plant and fruit results.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/cherries.css?v=799e6cfd11">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/sectors-cherries.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cherries — Hybrid-Ag">
+<meta property="og:description" content="Cherry nutrition advice based on growth stage, block history and soil, water, plant and fruit results.">
+<meta property="og:url" content="https://www.hybridag.com.au/sectors-cherries.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cherries — Hybrid-Ag">
+<meta name="twitter:description" content="Cherry nutrition advice based on growth stage, block history and soil, water, plant and fruit results.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="sectors">
+<div id="site-header"></div>
+
+<main>
+  <header class="cherry-hero page-cover page-cover--photo">
+    <img class="cherry-hero__image" src="assets/photos/responsive/cherries-1800.webp" decoding="async" height="1280" width="1920" sizes="100vw" srcset="assets/photos/responsive/cherries-480.webp 480w, assets/photos/responsive/cherries-768.webp 768w, assets/photos/responsive/cherries-1200.webp 1200w, assets/photos/responsive/cherries-1800.webp 1800w" alt="Fresh cherries ready for market" fetchpriority="high">
+    <div class="cherry-hero__shade" aria-hidden="true"></div>
+    <div class="wrap cherry-hero__inner page-cover__inner">
+      <a class="cherry-crumb" href="horticulture.html"><span>Horticulture</span><span aria-hidden="true">/</span> Cherries</a>
+      <h1>Cherry nutrition, stage by stage.</h1>
+      <p>Cherry nutrition is considered across the season, from post-harvest and dormancy through flowering, set and fruit development. Hybrid-Ag uses the available tests and block history to guide prescription blends and recommendations at each stage.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="request-cherry-audit.html">Request a cherry audit</a>
+        <a class="btn cherry-hero__secondary" href="program-cherries.html">Explore the Cherry Program</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="cherry-score" data-reveal>
+    <div class="wrap cherry-heading">
+      <div>
+        <span class="eyebrow eyebrow--orange">Production priorities</span>
+        <h2>What are the requirements for this crop?</h2>
+      </div>
+      <p>The team reviews these measures alongside yield, taking account of variety, crop load, market requirements and seasonal conditions.</p>
+    </div>
+    <div class="wrap cherry-score__grid">
+      <article><span>01</span><h3>Set and crop load</h3><p>How the block is carrying fruit and what that means for the stages still ahead.</p></article>
+      <article><span>02</span><h3>Size and uniformity</h3><p>Fruit development viewed across the block rather than through a single average.</p></article>
+      <article><span>03</span><h3>Firmness and condition</h3><p>The physical quality of the fruit at harvest, packing and through to sale.</p></article>
+      <article><span>04</span><h3>Pack-out and shelf life</h3><p>The share of fruit meeting specification and how well it holds after harvest.</p></article>
+    </div>
+  </section>
+
+  <section class="cherry-season" data-reveal>
+    <div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="wrap cherry-heading">
+      <div>
+        <span class="eyebrow">Across the season</span>
+        <h2>Use the harvest results to plan ahead.</h2>
+      </div>
+      <p>Growth stage affects how a result is interpreted. Recommendations account for what is happening in the block rather than following a fixed calendar date.</p>
+    </div>
+    <div class="wrap cherry-season__grid" role="list">
+      <article role="listitem"><span>01</span><h3>Post-harvest</h3><p>Review what the fruit and block showed, then consider the reserves and conditions carrying into next season.</p></article>
+      <article role="listitem"><span>02</span><h3>Senescence and dormancy</h3><p>Review the season&rsquo;s results, soil conditions and tree health as leaves senesce and the trees enter dormancy.</p></article>
+      <article role="listitem"><span>03</span><h3>Bud and flower</h3><p>Early growth draws on the tree’s stored reserves as flowering begins.</p></article>
+      <article role="listitem"><span>04</span><h3>Set and cell division</h3><p>Review crop load and early fruit development during set and cell division.</p></article>
+      <article role="listitem"><span>05</span><h3>Expansion and ripening</h3><p>Water, uptake, canopy and crop load are interpreted against development and the target market.</p></article>
+      <article role="listitem"><span>06</span><h3>Harvest and review</h3><p>Use pack-out, quality and condition data when planning for the next season.</p></article>
+    </div>
+  </section>
+
+  <section class="cherry-method" data-reveal>
+    <div class="wrap">
+      <div class="cherry-heading">
+        <div>
+          <span class="eyebrow eyebrow--berry">The Hybrid-Ag approach</span>
+          <h2>Position. Pattern. Plan.</h2>
+        </div>
+        <p>These questions help the team relate test results to the block and its current growth stage.</p>
+      </div>
+      <div class="cherry-method__grid">
+        <article><span>01</span><strong>Position</strong><h3>Where is this block now?</h3><p>Crop stage, variety, crop load, recent conditions and the soil, water, plant or fruit evidence available today.</p></article>
+        <article><span>02</span><strong>Pattern</strong><h3>How did it get here?</h3><p>Previous test results, post-harvest condition, changes through the season and application history.</p></article>
+        <article><span>03</span><strong>Plan</strong><h3>What should happen next?</h3><p>Agree on what needs attention now, what can wait and what needs checking.</p></article>
+      </div>
+      <div class="cherry-layers">
+        <div><strong>Soil and roots</strong><p>Soil and root-zone conditions that affect Nutrient access and uptake.</p></div>
+        <div><strong>Water</strong><p>Quality and delivery across irrigation, fertigation and foliar work.</p></div>
+        <div><strong>Leaf and sap</strong><p>Plant test results interpreted against stage, growth and crop load.</p></div>
+        <div><strong>Fruit and removals</strong><p>What the harvest showed and what left the block with the crop.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cherry-playbook" data-reveal>
+    <div class="wrap cherry-playbook__inner">
+      <div class="cherry-playbook__copy">
+        <span class="eyebrow eyebrow--orange">Grower to grower</span>
+        <h2>The Cherry Nutrition Playbook.</h2>
+        <p>The playbook explains cherry growth and testing through the season, providing background for nutrition decisions at each stage.</p>
+        <a class="btn btn--teal" href="assets/cherry-nutrition-playbook.pdf">Read the playbook</a>
+        <p class="muted" data-booklet-review-note><small>Review draft: visitors will provide their contact details to receive this booklet when the website launches. Downloads remain open here while the website is being reviewed.</small></p>
+      </div>
+      <a class="cherry-playbook__cover" href="assets/cherry-nutrition-playbook.pdf" aria-label="Open The Cherry Nutrition Playbook PDF">
+        <img src="assets/playbook-cover.jpg" alt="Cover of The Cherry Nutrition Playbook" loading="lazy" decoding="async">
+      </a>
+    </div>
+  </section>
+
+  <section class="cherry-team" data-reveal>
+    <div class="cherry-team__image"><img src="assets/photos/responsive/cherry-team-market-1400.webp" height="981" width="1400" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/cherry-team-market-480.webp 480w, assets/photos/responsive/cherry-team-market-768.webp 768w, assets/photos/responsive/cherry-team-market-1200.webp 1200w, assets/photos/responsive/cherry-team-market-1400.webp 1400w" alt="The cherry team with Smiths Fruit cherries at Sydney Markets" loading="lazy" decoding="async"></div>
+    <div class="cherry-team__copy">
+      <span class="eyebrow eyebrow--berry">Horticulture team</span>
+      <h2>Advice informed by orchard experience.</h2>
+      <p>Andrew Smith leads Hybrid-Ag&rsquo;s cherry work with both grower and agronomic experience. The wider team considers field observations, tests and seasonal conditions alongside fruit quality after harvest.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="team-andrew-smith.html">Meet Andrew Smith</a>
+        <a class="btn cherry-team__secondary" href="horticulture.html">Back to Horticulture</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cherry-cta" data-reveal>
+    <div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="wrap cherry-cta__inner">
+      <div>
+        <span class="eyebrow">Discuss your cherry block</span>
+        <h2>Tell us about your cherry block and share any test results.</h2>
+      </div>
+      <div class="cta-row">
+        <a class="btn cherry-cta__primary" href="request-cherry-audit.html">Request a cherry audit</a>
+        <a class="btn cherry-cta__secondary" href="contact.html">Talk to the team</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

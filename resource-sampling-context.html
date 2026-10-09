@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sampling Records for Future Decisions - Hybrid-Ag</title>
+<meta name="description" content="Keep sample details and original test reports together as a useful reference for future comparisons and crop nutrition decisions.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/resource-guide.css?v=d22eeb9772">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Make every sample a useful reference.","description":"Keep sample details and original test reports together as a useful reference for future comparisons and crop nutrition decisions.","image":"https://www.hybridag.com.au/assets/photos/leaf.jpg","mainEntityOfPage":"https://www.hybridag.com.au/resource-sampling-context.html","publisher":{"@type":"Organization","name":"Hybrid-Ag","logo":{"@type":"ImageObject","url":"https://www.hybridag.com.au/assets/hybrid-ag-logo.png"}}}</script>
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/resource-sampling-context.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sampling Records for Future Decisions - Hybrid-Ag">
+<meta property="og:description" content="Keep sample details and original test reports together as a useful reference for future comparisons and crop nutrition decisions.">
+<meta property="og:url" content="https://www.hybridag.com.au/resource-sampling-context.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sampling Records for Future Decisions - Hybrid-Ag">
+<meta name="twitter:description" content="Keep sample details and original test reports together as a useful reference for future comparisons and crop nutrition decisions.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body class="resource-refined" data-page="resources">
+<div id="site-header"></div>
+
+<main>
+  <header class="guide-hero page-cover page-cover--photo" data-home-field>
+    <img class="guide-hero__image" src="assets/photos/responsive/leaf-1600.webp" decoding="async" height="1200" width="1600" sizes="100vw" srcset="assets/photos/responsive/leaf-480.webp 480w, assets/photos/responsive/leaf-768.webp 768w, assets/photos/responsive/leaf-1200.webp 1200w, assets/photos/responsive/leaf-1600.webp 1600w" alt="Crop leaf" fetchpriority="high">
+    <div class="guide-hero__shade" aria-hidden="true"></div>
+    <div class="wrap guide-hero__inner page-cover__inner">
+      <a class="guide-hero__back" href="knowledge-center.html">Resources</a>
+      <span class="eyebrow">Sampling records</span>
+      <h1>Make every sample a useful reference.</h1>
+      <p>Record where and when the sample was taken, what was sampled and how it was handled, and keep those details with the original test report. That gives you and the team a reference for reviewing changes over time and deciding what to do next.</p>
+      <div class="cta-row"><a class="btn btn--teal" href="#sample-details">See the sample details</a><a class="btn guide-hero__secondary" href="soil-test.html?test=not-sure">Ask about sampling</a></div>
+    </div>
+  </header>
+
+  <section class="guide-intro" data-reveal data-home-field>
+    <div class="wrap guide-intro__grid">
+      <div><span class="eyebrow eyebrow--orange">Before sampling</span><h2>Decide what the sample represents.</h2></div>
+      <div class="guide-intro__copy">
+        <p>Before collecting anything, decide which area the result needs to describe and what you want to investigate. That might be an orchard block, a paddock zone, a group of vines or a vegetable crop at a particular growth stage.</p>
+        <p>Areas with different soils, drainage or management history may need separate samples. Mixing them can hide a difference you wanted to understand. Arrange the current kit and confirm the instructions for your crop and test with the team before sampling.</p>
+        <div class="guide-intro__note"><strong>Confirm the exact method with the team.</strong><p>This guide explains which details to record with the sample. It does not replace crop-specific laboratory or agronomic sampling instructions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-blocks" id="sample-details" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="guide-heading">
+        <div><span class="eyebrow eyebrow--berry">Sample details</span><h2>Record what you will need when you return to the result.</h2></div>
+        <p>Keep these details with the original report so they are available when you need to review it. They help with interpretation and comparison, but cannot make up for a sample that does not represent the area being tested.</p>
+      </div>
+      <div class="guide-blocks__grid">
+        <article><span>01</span><h3>Place</h3><p>Record the paddock, block, row or defined zone. Keep unusual areas separate unless the purpose is to sample the whole paddock or block.</p></article>
+        <article><span>02</span><h3>Material</h3><p>Identify exactly what was sampled: soil depth or layer, plant tissue, water source or harvested produce. For differential sap, keep the young and old material separately labelled.</p></article>
+        <article><span>03</span><h3>Timing and stage</h3><p>Record the date, crop stage and recent conditions. Plant and produce results need the biological stage as well as the calendar date.</p></article>
+        <article><span>04</span><h3>Comparison</h3><p>Use consistent locations, tissue, stage, timing and method when comparing results over time or between areas.</p></article>
+        <article><span>05</span><h3>Handling and delivery</h3><p>Match the sample identity on the bag and submission form. Follow the current collection, storage and delivery instructions so the sample reaches the laboratory in the intended condition.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-band" data-reveal>
+    <div class="wrap">
+      <div class="guide-heading">
+        <div><span class="eyebrow">Identify the sampled area</span><h2>Use a clear paddock or block reference.</h2></div>
+        <p>Use a location name or number that makes the source of the sample easy to identify, whichever cropping system you work in.</p>
+      </div>
+      <div class="guide-band__grid guide-band__grid--four">
+        <div><span>01</span><strong>Horticulture</strong><h3>Block</h3><p>Keep crop, variety or rootstock, crop load, stage and block identity with the sample.</p></div>
+        <div><span>02</span><strong>Small Crop</strong><h3>Paddock or block</h3><p>Record the paddock or block reference with crop, variety, rotation and growth stage.</p></div>
+        <div><span>03</span><strong>Broadacre</strong><h3>Paddock</h3><p>Identify different paddock zones and record sampling points that can be used again.</p></div>
+        <div><span>04</span><strong>Viticulture</strong><h3>Block</h3><p>Record variety or rootstock, production target, crop load, growth stage and block history with the result.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-split" data-reveal data-home-field>
+    <div class="guide-split__image"><img src="assets/photos/responsive/orchard-block-1800.webp" height="909" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/orchard-block-480.webp 480w, assets/photos/responsive/orchard-block-768.webp 768w, assets/photos/responsive/orchard-block-1200.webp 1200w, assets/photos/responsive/orchard-block-1800.webp 1800w" alt="Rows in a horticultural block" loading="lazy" decoding="async"></div>
+    <div class="guide-split__copy">
+      <span class="eyebrow eyebrow--orange">Keeping your records</span>
+      <h2>Keep your sampling history together.</h2>
+      <p>Store the original report with its sample details under a consistent paddock or block reference. Keep earlier reports too, rather than rely on the latest figures alone.</p>
+      <p>A different sampling depth, leaf age, growth stage or laboratory method can affect the figures. Keep those details so the agronomist can check whether two results can reasonably be compared.</p>
+      <p>Record relevant changes in weather, irrigation and recent applications too. Bring that history to the discussion. The team can use it when considering Nutrient requirements and a prescription blend, and return to it when reviewing later results.</p>
+      <a class="btn btn--teal" href="soil-test.html?test=not-sure">Confirm a sampling approach</a>
+    </div>
+  </section>
+
+  <section class="guide-related" data-reveal data-home-field>
+    <div class="wrap">
+      <span class="eyebrow eyebrow--berry">Keep going</span>
+      <h2>Related resources.</h2>
+      <div class="guide-related__grid">
+        <a href="resource-testing-layers.html"><span>Understand your results</span><h3>What each test can tell you.</h3><p>Choose a test for the issue being investigated and understand its limits.</p><strong>Read the guide</strong></a>
+        <a href="resource-position-pattern-plan.html"><span>Decision framework</span><h3>Position. Pattern. Plan.</h3><p>Review the current results and crop history before deciding what to do next.</p><strong>Read the guide</strong></a>
+        <a href="services-testing.html"><span>Testing services</span><h3>Compare the test types.</h3><p>Discuss what you need to investigate, then confirm the sampling instructions with the team.</p><strong>Explore testing</strong></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-cta" data-reveal>
+    <div class="wrap guide-cta__inner">
+      <div><span class="eyebrow">Before you collect</span><h2>Check the sampling instructions with the team.</h2></div>
+      <div class="cta-row"><a class="btn guide-cta__primary" href="soil-test.html?test=not-sure">Ask the team</a><a class="btn guide-cta__secondary" href="knowledge-center.html">Back to Resources</a></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

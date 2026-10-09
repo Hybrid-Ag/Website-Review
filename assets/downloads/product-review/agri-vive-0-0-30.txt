@@ -1,0 +1,29 @@
+Agri-Vive 0.0.30 | Hybrid-Ag working product reference
+REVIEW DRAFT. Not a label, Safety Data Sheet or application recommendation.
+
+Liquid Potassium nutrition.
+Agri-Vive 0.0.30 supplies Potassium in a liquid formulation, with heptonate and fulvic compounds.
+Consider it where the crop needs additional Potassium, allowing for the nutrition already supplied by the soil and other applications.
+
+Overview
+A crop can need additional Potassium without a substantial Nitrogen addition. Agri-Vive 0.0.30 gives the team a concentrated liquid Potassium option to assess against that requirement, including when fruit or grain is filling. The amount already available from the soil and earlier applications remains part of the recommendation.
+The formulation includes heptonate and fulvic compounds. Foliar and watered-in methods are described in the product material, but they deliver the application differently. Choose the method for the crop and equipment, then compare the complete product analysis with the nutrition needed.
+
+Composition source: dashboard staging. Basis: % w/v
+These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.
+Nitrogen (N): 0.00311488
+Phosphorus (P): 0.00279093
+Potassium (K): 30.3533
+Sulphur (S): 0.00515824
+Calcium (Ca): 0.00423623
+Magnesium (Mg): 0.000697732
+Boron (B): 0.000622975
+Iron (Fe): 0.00112136
+Carbon (Carbon): 2.45117
+
+Application
+Foliar spraying and root-zone delivery have their own rate and water requirements. Tell the team which method you intend to use so the current directions and the crop’s Potassium requirement can be reviewed together.
+Confirm the current product label, crop-specific recommendation, mixing and handling directions with the team.
+
+Price, pack availability, codes and document revisions require confirmation. Nothing has been ordered or approved.
+Prepared 6 October 2026 from the local website review register.

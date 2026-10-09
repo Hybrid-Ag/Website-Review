@@ -1,0 +1,162 @@
+/* Shared page-centred covers, including the homepage. Product buyboxes retain
+   their transactional layout. Existing content and media are preserved. */
+.page-cover{
+  --cover-title-size:64px;
+  --cover-body-size:17px;
+  --cover-space:64px;
+  --cover-min-height:clamp(440px,58svh,560px);
+  /* Keep the accepted About starting line, independent of each page's copy
+     length. This is an alignment reference, not a fixed content height. */
+  --cover-reference-height:330px;
+  --cover-copy-top:max(var(--cover-space),calc((var(--cover-min-height) - var(--cover-reference-height))/2));
+  --cover-label-gap:var(--intro-label-gap);
+  --cover-text-gap:var(--intro-text-gap);
+  --cover-action-gap:var(--intro-action-gap);
+  --cover-action-ink:var(--ink);
+  text-align:center;
+}
+
+/* One centred introduction on the full page axis. Auto height allows longer
+   headings and wrapped controls to grow without clipping. */
+:is(main.page-cover,main>.page-cover) .page-cover__inner{
+  width:calc(100% - 48px);
+  max-width:var(--maxw);
+  margin-inline:auto;
+  padding:var(--cover-copy-top) 0 var(--cover-space);
+  min-height:var(--cover-min-height);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+main>.page-cover .page-cover__inner.split{padding:0;gap:0;align-items:center}
+main>.page-cover .page-cover__inner.split>div:first-child{
+  width:100%;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  padding:var(--cover-copy-top) 0 var(--cover-space);
+}
+main>.page-cover .page-cover__inner.split>.media{
+  width:100%;
+  max-width:680px;
+  margin:0 auto var(--cover-space);
+}
+main>.page-cover .page-cover__inner.split>.media--portrait{max-width:360px}
+main>.page-cover.search-page__intro{padding:0}
+:is(main.page-cover,main>.page-cover).page-cover--photo{
+  height:auto;
+  min-height:var(--cover-min-height);
+  align-items:center;
+  --cover-action-ink:var(--white);
+}
+
+/* About uses the same over-image composition and height as the other photo covers. */
+main>.b2-hero.page-cover{position:relative;isolation:isolate;overflow:hidden;background:var(--dark);color:var(--white)}
+main>.b2-hero.page-cover .b2-hero__image{position:absolute;inset:0;z-index:0;width:100%;max-width:none;height:100%;min-height:0;margin:0}
+main>.b2-hero.page-cover .b2-hero__image img{position:static;display:block;width:100%;height:100%;object-fit:cover;object-position:center 77%}
+main>.b2-hero.page-cover .b2-hero__shade{position:absolute;inset:0;z-index:1;pointer-events:none}
+main>.b2-hero.page-cover .b2-hero__copy{position:relative;z-index:2}
+main>.b2-hero.page-cover :is(h1,p,.concept-kicker){color:var(--white)}
+
+:is(main.page-cover,main>.page-cover) h1{
+  width:100%;
+  max-width:28ch;
+  margin:0 auto;
+  font-family:var(--font-display);
+  font-size:var(--cover-title-size);
+  font-weight:400;
+  line-height:.96;
+  letter-spacing:var(--tracking-display);
+  overflow-wrap:break-word;
+}
+:is(main.page-cover,main>.page-cover) :is(.eyebrow,.concept-kicker){
+  display:block;
+  margin:0 0 var(--cover-label-gap);
+  font-family:var(--font-display);
+  font-size:12px;
+  font-weight:400;
+  line-height:1.55;
+  letter-spacing:var(--tracking-caps);
+  text-transform:uppercase;
+}
+:is(main.page-cover,main>.page-cover) p:not(.audit-hero__lead,.not-found__code,.page-cover__meta,.home-hero__lockup){
+  max-width:58ch;
+  margin:var(--cover-text-gap) auto 0;
+  font-family:var(--font-body);
+  font-size:var(--cover-body-size);
+  font-style:normal;
+  line-height:1.62;
+}
+:is(main.page-cover,main>.page-cover) .cta-row{
+  margin-top:var(--cover-action-gap);
+  gap:12px 16px;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+:is(main.page-cover,main>.page-cover) .cta-row>:is(.btn,.pill){
+  height:auto;
+  min-height:44px;
+  max-width:100%;
+  padding:11px 22px;
+  justify-content:center;
+  border:1px solid transparent;
+  border-radius:var(--r-btn);
+  background:var(--teal-dk);
+  color:var(--white);
+  font-size:12px;
+  line-height:1.5;
+  text-align:center;
+  white-space:normal;
+  transform:none;
+}
+:is(main.page-cover,main>.page-cover) .cta-row>:is(.btn,.pill):hover{background:var(--teal-ui-hover)}
+:is(main.page-cover,main>.page-cover) .cta-row>:is(.btn,.pill)~:is(.btn,.pill){
+  border-color:var(--cover-action-ink);
+  background:transparent;
+  color:var(--cover-action-ink);
+}
+:is(main.page-cover,main>.page-cover) .cta-row>:is(.btn,.pill)~:is(.btn,.pill):hover{
+  background:var(--cover-action-ink);
+  color:var(--cream);
+}
+:is(main.page-cover,main>.page-cover).page-cover--photo .cta-row>:is(.btn,.pill)~:is(.btn,.pill):hover{color:var(--ink)}
+:is(main.page-cover,main>.page-cover).page-cover--photo :is(a,button):focus-visible{outline-color:var(--white)}
+
+/* Keep the audit's explanatory display line and the 404 status separate from
+   the body introduction. Breadcrumbs, article metadata and forms stay intact. */
+main>.page-cover .audit-hero__lead{margin:var(--cover-text-gap) auto 0;font-size:30px;line-height:1.1}
+main.page-cover .not-found__code{margin:0 0 var(--cover-label-gap)}
+main>.page-cover .page-cover__meta{margin:var(--cover-text-gap) 0 0;font-size:14px;line-height:1.55}
+main>.page-cover :is(.cherry-crumb,.cherry-program-crumb){
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin:0 0 var(--cover-label-gap);
+  font-size:12px;
+  line-height:1.55;
+  letter-spacing:var(--tracking-caps);
+}
+main>.page-cover .socials{justify-content:center}
+main>.page-cover .search-page-form{width:100%;margin-inline:auto}
+main>.page-cover .guide-hero__back{align-self:center}
+main>.page-cover .home-hero__lockup{max-width:38ch;margin:var(--cover-text-gap) auto 0;font-size:28px;line-height:1.2}
+main>.page-cover h1 span{margin-inline:auto}
+main>.page-cover h1 span:first-child:after{left:calc(50% - 32px);transform-origin:center}
+/* Centred copy needs an even veil, not the former left-weighted gradient. */
+:is(main.page-cover,main>.page-cover).page-cover--photo :is([class$="__shade"],.home-hero__shade){background:rgba(18,19,18,.64)}
+
+@media(max-width:900px){
+  .page-cover{--cover-title-size:50px;--cover-space:56px;--cover-min-height:clamp(420px,56svh,500px);--cover-reference-height:303px}
+}
+@media(max-width:637px){.page-cover{--cover-reference-height:331px}}
+@media(max-width:560px){.page-cover{--cover-reference-height:387px}}
+@media(max-width:520px){
+  .page-cover{--cover-title-size:40px;--cover-body-size:16px;--cover-space:44px;--cover-min-height:0px}
+  :is(main.page-cover,main>.page-cover) .cta-row{align-items:stretch;flex-direction:column}
+  :is(main.page-cover,main>.page-cover) .cta-row>:is(.btn,.pill){width:100%}
+  main>.page-cover .audit-hero__lead{font-size:26px}
+  main>.page-cover .home-hero__lockup{font-size:24px}
+}

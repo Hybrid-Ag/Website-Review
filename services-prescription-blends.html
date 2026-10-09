@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dry and Granular Prescription Blends - Hybrid-Ag</title>
+<meta name="description" content="Dry and granular Hybrid-Ag prescription blends, informed by soil testing and formulated for your crop, soil requirements and application equipment.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/testing-detail.css?v=dedc84104f">
+<link rel="stylesheet" href="css/pages/prescription-blends.css?v=1321afad0c">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/service-refinements.css?v=63c0fac8e0">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/services-prescription-blends.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dry and Granular Prescription Blends - Hybrid-Ag">
+<meta property="og:description" content="Dry and granular Hybrid-Ag prescription blends, informed by soil testing and formulated for your crop, soil requirements and application equipment.">
+<meta property="og:url" content="https://www.hybridag.com.au/services-prescription-blends.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dry and Granular Prescription Blends - Hybrid-Ag">
+<meta name="twitter:description" content="Dry and granular Hybrid-Ag prescription blends, informed by soil testing and formulated for your crop, soil requirements and application equipment.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="services" class="service-refined">
+<div id="site-header"></div>
+
+<main>
+  <header class="testing-detail-hero prescription-hero page-cover page-cover--photo" data-home-field>
+    <img class="testing-detail-hero__image" src="assets/photos/responsive/post-harvest-orchard-canopy-1800.webp" decoding="async" height="1350" width="1800" sizes="100vw" srcset="assets/photos/responsive/post-harvest-orchard-canopy-480.webp 480w, assets/photos/responsive/post-harvest-orchard-canopy-768.webp 768w, assets/photos/responsive/post-harvest-orchard-canopy-1200.webp 1200w, assets/photos/responsive/post-harvest-orchard-canopy-1800.webp 1800w" alt="Leafy trellised orchard rows" fetchpriority="high">
+    <div class="testing-detail-hero__shade" aria-hidden="true"></div>
+    <div class="wrap testing-detail-hero__inner page-cover__inner">
+      <span class="eyebrow">Dry and granular prescription blends</span>
+      <h1>Prescription blends for your crop and soil.</h1>
+      <p>Hybrid-Ag makes dry and granular prescription blends informed by soil testing. Your crop requirements, budget and application equipment help shape the recommendation.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="soil-test.html?test=soil">Start with soil testing</a>
+        <a class="btn testing-detail-hero__secondary" href="#blend-formats">Explore blend options</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="testing-detail-intro" id="from-test-to-blend" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--orange">From test results to a prescription</span><h2>A blend formulated for your crop and soil.</h2></div>
+        <p>Test results give the team a starting point. Your crop, growing conditions and the way you apply nutrition are part of the discussion before the blend is formulated.</p>
+      </div>
+      <div class="testing-detail-intro__grid">
+        <article><span>01</span><strong>Measure</strong><p>Record the sampled paddock, block or zone, sampling depth and method, crop and production history with the result.</p></article>
+        <article><span>02</span><strong>Interpret</strong><p>Review the results alongside crop requirements, previous applications and growing conditions.</p></article>
+        <article><span>03</span><strong>Prescribe</strong><p>Discuss the blend format, Nutrient requirements and application details with the team.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="prescription-kg" data-reveal data-home-field>
+    <div class="wrap prescription-kg__inner">
+      <div class="prescription-kg__mark" aria-label="Kilograms per hectare">kg<span>/ha</span></div>
+      <div class="prescription-kg__copy">
+        <span class="eyebrow">Calculating the soil requirement</span>
+        <h2>Total kilograms per hectare of each element needed to balance the soil.</h2>
+        <p>For a soil prescription, these calculations help the team select Nutrient sources and check the proposed application rate. The full soil requirement is not automatically the amount to apply in one season.</p>
+        <div class="prescription-kg__distinction">
+          <div><strong>The full requirement</strong><p>The calculated Nutrient requirement for working towards soil balance.</p></div>
+          <div><strong>The plan for the season</strong><p>Considers crop demand, history, budget, equipment and what is practical to address now.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prescription-compare" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--berry">Prescription blends and standard products</span><h2>A standard product or a blend for your farm.</h2></div>
+        <p>A standard Hybrid-Ag product has a fixed analysis. A prescription blend is formulated around the requirements identified for your crop and soil.</p>
+      </div>
+      <div class="prescription-compare__table" role="table" aria-label="Comparison of standard Hybrid-Ag products and prescription blends">
+        <div class="prescription-compare__head" role="row">
+          <span role="columnheader">Decision point</span>
+          <strong role="columnheader">Standard Hybrid-Ag product</strong>
+          <strong role="columnheader">Hybrid-Ag prescription blend</strong>
+        </div>
+        <div role="row"><span role="rowheader">Starting point</span><p role="cell">A product with a pre-set analysis.</p><p role="cell">The crop and soil requirements, informed by test results and agronomic advice.</p></div>
+        <div role="row"><span role="rowheader">Product fit</span><p role="cell">The application rate and nutrition plan are based on the available analysis.</p><p role="cell">The formulation and blend format are selected for the identified requirement and planned application.</p></div>
+        <div role="row"><span role="rowheader">Area</span><p role="cell">A standard product may be used across areas with different soil conditions.</p><p role="cell">The prescription is prepared for the nominated paddock, block or zone and the intended application.</p></div>
+        <div role="row"><span role="rowheader">Time horizon</span><p role="cell">Timing and rate still need to suit the crop and season.</p><p role="cell">Where soil correction is needed, the requirement can be staged and reviewed across seasons rather than addressed in one application.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-method prescription-process" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow">Dry and granular soil prescriptions</span><h2>From the soil calculation to a blend.</h2></div>
+        <p>The agronomist considers the soil calculation alongside the crop, budget and practical limits of the operation. That discussion shapes the prescription for the season.</p>
+      </div>
+      <div class="testing-detail-method__grid">
+        <div><span>01</span><strong>Calculate</strong><h3>Calculate the Nutrient requirement.</h3><p>Use the soil results to calculate each relevant elemental requirement in kg/ha for the sampled area.</p></div>
+        <div><span>02</span><strong>Prescribe</strong><h3>Formulate the blend.</h3><p>Select compatible sources, dry or granular format and a practical spread rate, then check the kg/ha supplied by the proposed blend.</p></div>
+        <div><span>03</span><strong>Manufacture</strong><h3>Manufacture the prescription.</h3><p>Scale the prescription to the nominated hectares, retain the blend sheet and source batches, then mix and check it before dispatch.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prescription-formats" id="blend-formats" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--orange">Choosing a blend format</span><h2>Choose a format that suits the application.</h2></div>
+        <p>The choice between dry and granular supply depends on the prescription and how you will apply it. The formulation and application details need to suit the crop and soil requirements, as well as your equipment.</p>
+      </div>
+      <div class="prescription-formats__grid">
+        <article>
+          <span class="prescription-formats__number">01</span>
+          <div><span class="eyebrow">Dry prescription blend</span><h3>For bulk soil application.</h3><p>Selected dry sources and screened powders can be combined in a prescription blend where they suit the spreading equipment and planned application.</p></div>
+        </article>
+        <article>
+          <span class="prescription-formats__number">02</span>
+          <div><span class="eyebrow eyebrow--berry">Granular prescription blend</span><h3>Where granules suit the application.</h3><p>Compatible granular or prilled sources can be selected where flow, machinery or placement makes a granular format more practical for the operation.</p></div>
+        </article>
+      </div>
+      <p class="prescription-formats__note">The exact materials, proportions and application rate are confirmed for the current recommendation and intended application. They are not universal formulas.</p>
+    </div>
+  </section>
+
+  <section class="testing-detail-split prescription-factory" id="dry-blend-preparation" data-reveal data-home-field>
+    <div class="testing-detail-split__image"><img src="assets/photos/responsive/prescription-orchard-rows-1800.webp" height="1350" width="1800" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/prescription-orchard-rows-480.webp 480w, assets/photos/responsive/prescription-orchard-rows-768.webp 768w, assets/photos/responsive/prescription-orchard-rows-1200.webp 1200w, assets/photos/responsive/prescription-orchard-rows-1800.webp 1800w" alt="Tractor between rows of orchard trees beneath a blue sky" loading="lazy" decoding="async"></div>
+    <div class="testing-detail-split__copy">
+      <span class="eyebrow eyebrow--orange">Dry-blend preparation</span>
+      <h2>The blend sheet follows the job through production.</h2>
+      <p>For dry prescription blends, Hybrid-Ag uses the blend sheet during production and checks the finished blend before dispatch.</p>
+      <dl>
+        <div><dt>Trace</dt><dd>Source batches are recorded against the blend sheet.</dd></div>
+        <div><dt>Prepare</dt><dd>Ingredients are weighed and powders are screened where required.</dd></div>
+        <div><dt>Mix</dt><dd>Materials are distributed and combined for an even physical blend.</dd></div>
+        <div><dt>Check</dt><dd>The finished blend is physically reviewed before bagging or dispatch.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="prescription-staging" data-reveal data-home-field>
+    <div class="wrap prescription-staging__inner">
+      <div>
+        <span class="eyebrow eyebrow--berry">Planning across seasons</span>
+        <h2>The work may need to be staged over several seasons.</h2>
+        <p>The full calculated requirement may not be practical to address in one season. The work can be staged, with further testing and crop observations informing the next recommendation.</p>
+      </div>
+      <div class="prescription-staging__list">
+        <div><span>01</span><p><strong>Review the soil test.</strong> Use the current soil test to calculate the elemental requirement and discuss what the grower needs to address.</p></div>
+        <div><span>02</span><p><strong>Plan for the season.</strong> Consider crop demand, removal, prior inputs, budget, equipment and operational limits.</p></div>
+        <div><span>03</span><p><strong>Confirm the application.</strong> Confirm the selected blend, application rate, hectares and practical application plan.</p></div>
+        <div><span>04</span><p><strong>Retest and refine.</strong> Compare results taken on the same basis, then review the next recommendation alongside crop response.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-cta" data-reveal data-home-field>
+    <div class="wrap testing-detail-cta__inner">
+      <div><span class="eyebrow">Start with representative soil data</span><h2>Discuss a prescription for your paddock or block.</h2></div>
+      <div class="cta-row">
+        <a class="btn testing-detail-cta__primary" href="soil-test.html?test=soil">Request soil testing</a>
+        <a class="btn testing-detail-cta__secondary" href="services-soil-testing.html">Explore soil testing</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

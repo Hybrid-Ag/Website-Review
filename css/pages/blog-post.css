@@ -1,0 +1,10 @@
+/* Blog post — readable prose column */
+.prose{max-width:65ch;margin-inline:auto}
+.prose p{font-size:17px;line-height:1.7;color:var(--body);margin-top:20px}
+.prose p:first-child{margin-top:0}
+.prose .quote{margin:34px auto;max-width:none}
+.prose figure{margin:34px 0 8px}
+.prose figcaption{font-family:var(--font-body);font-style:italic;color:var(--body);font-size:13.5px;margin-top:10px;text-align:center}
+.author{display:flex;gap:20px;align-items:center;max-width:65ch;margin-inline:auto}
+.author .author-avatar{flex:0 0 64px;height:64px;border-radius:50%;background:var(--placeholder);display:grid;place-items:center;color:var(--body);font-family:var(--font-display);font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;text-align:center;line-height:1.1}
+.author .author-meta{flex:1}

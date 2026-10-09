@@ -1,0 +1,46 @@
+/* Apple chapters share the Cherry templates; these refinements are Apple-only. */
+.apple-page #site-footer>.stripe{display:none}
+.apple-page :is(.cherry-score,.cherry-method,.cherry-season,.cherry-playbook,.cherry-program-principle,.cherry-program-interactive,.cherry-program-playbook){padding-block:clamp(52px,6vw,88px)}
+.apple-page :is(.cherry-heading h2,.cherry-playbook h2,.cherry-team h2,.cherry-cta h2,.cherry-program-principle h2,.cherry-program-interactive h2,.cherry-program-evidence h2,.cherry-program-playbook h2,.programs-cta h2){font-size:clamp(36px,3.6vw,52px);line-height:1.08;max-width:20ch}
+.apple-page :is(.cherry-heading,.cherry-program-interactive__heading,.cherry-program-principle__inner){gap:clamp(28px,5vw,72px)}
+.apple-page :is(.cherry-score__grid,.cherry-season__grid,.cherry-method__grid){margin-top:36px}
+.apple-page .cherry-season__grid article{min-height:0;padding:26px}
+.apple-page .cherry-method__grid article{padding:28px}
+.apple-page :is(.cherry-playbook__inner,.cherry-program-playbook__inner){grid-template-columns:minmax(0,1fr) minmax(260px,.54fr);gap:clamp(40px,7vw,96px)}
+.apple-page :is(.cherry-playbook__cover,.cherry-program-playbook__cover){width:min(100%,320px)}
+.apple-page .cherry-playbook__copy .btn{margin-top:0}
+.apple-page :is(.cherry-playbook,.cherry-program-playbook) .cta-row{margin-top:26px}
+.apple-page .apple-secondary{border:1px solid #76736e;background:transparent;color:var(--ink)}
+.apple-page .apple-secondary:hover{background:var(--white);border-color:var(--ink)}
+.apple-page .apple-file-note{font-size:13px;line-height:1.6;margin-top:18px;color:var(--body)}
+.apple-page .apple-text-link{display:inline-block;margin-top:18px;text-decoration:underline;text-underline-offset:4px}
+.apple-page .apple-season-link{margin-top:32px}
+.apple-page .apple-orchard{grid-template-columns:repeat(2,minmax(0,1fr));min-height:0}
+.apple-page .apple-orchard>div{position:relative;z-index:1;min-width:0}
+.apple-page .apple-orchard :is(.cherry-team__image,.cherry-program-evidence__image){min-height:540px;overflow:hidden}
+.apple-page .apple-orchard img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.apple-page .apple-orchard :is(.cherry-team__copy,.cherry-program-evidence__copy){padding:clamp(36px,4.5vw,72px)}
+.apple-page .apple-orchard .cta-row{margin-top:26px}
+.apple-page :is(.cherry-cta__inner,.programs-cta__inner){padding-block:clamp(48px,6vw,76px)}
+.apple-page .programs-cta__inner>div>p{max-width:48ch;margin-top:20px;color:var(--on-dark);line-height:1.65}
+.apple-page .apple-source-note{max-width:92ch;margin-top:20px;padding:20px 24px;border-left:2px solid var(--teal);background:var(--cream);color:var(--body);font-size:14px;line-height:1.65}
+.apple-page .apple-source-note a{display:inline-block;margin-top:10px;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.apple-page .apple-source-note p{margin:0}
+@media(max-width:900px){
+  .apple-page .apple-orchard{grid-template-columns:minmax(0,1fr)}
+  .apple-page .apple-orchard :is(.cherry-team__image,.cherry-program-evidence__image){width:100%;height:auto;min-height:0;aspect-ratio:1.65}
+  .apple-page :is(.cherry-playbook__inner,.cherry-program-playbook__inner){grid-template-columns:1fr;gap:36px}
+  .apple-page :is(.cherry-playbook__cover,.cherry-program-playbook__cover){width:min(70vw,300px)}
+}
+@media(max-width:620px){
+  .apple-page .cherry-season__grid article{padding:24px 0}
+  .apple-page .cherry-method__grid article{padding:24px}
+  .apple-page .apple-orchard :is(.cherry-team__copy,.cherry-program-evidence__copy){padding:40px 24px}
+  .apple-page .apple-source-note{padding:16px}
+  .apple-page .cherry-program-interactive__stats{grid-template-columns:repeat(2,1fr)}
+  .apple-page :is(.cherry-playbook,.cherry-program-playbook) .cta-row{align-items:stretch;flex-direction:column}
+  .apple-page :is(.cherry-playbook,.cherry-program-playbook) .btn{justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .apple-page :is(.cherry-playbook__cover,.cherry-program-playbook__cover){transition:none;transform:none}
+}

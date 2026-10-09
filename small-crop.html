@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Small Crop Precision Nutrition — Hybrid-Ag</title>
+<meta name="description" content="Nutrition support for fast-cycle vegetable crops, using crop stage, soil, water and plant results to guide practical recommendations.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/small-crop.css?v=eb4931847d">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/segment-refinements.css?v=830f50d657">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/small-crop.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Small Crop Precision Nutrition — Hybrid-Ag">
+<meta property="og:description" content="Nutrition support for fast-cycle vegetable crops, using crop stage, soil, water and plant results to guide practical recommendations.">
+<meta property="og:url" content="https://www.hybridag.com.au/small-crop.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Small Crop Precision Nutrition — Hybrid-Ag">
+<meta name="twitter:description" content="Nutrition support for fast-cycle vegetable crops, using crop stage, soil, water and plant results to guide practical recommendations.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body class="segment-refined" data-page="sectors">
+<div id="site-header"></div>
+
+<main>
+  <header class="small-hero page-cover page-cover--photo" data-home-field>
+    <img class="small-hero__image" src="assets/photos/responsive/veg-crop-1800.webp" decoding="async" height="1280" width="1920" sizes="100vw" srcset="assets/photos/responsive/veg-crop-480.webp 480w, assets/photos/responsive/veg-crop-768.webp 768w, assets/photos/responsive/veg-crop-1200.webp 1200w, assets/photos/responsive/veg-crop-1800.webp 1800w" alt="Rows of healthy leafy vegetables" fetchpriority="high">
+    <div class="small-hero__shade" aria-hidden="true"></div>
+    <div class="wrap small-hero__inner page-cover__inner">
+      <span class="eyebrow">Small Crop</span>
+      <h1>Precision nutrition for fast-cycle crops.</h1>
+      <p>Short crop cycles leave less time to assess a problem and respond. Hybrid-Ag reviews test results and field observations with the crop’s stage and market requirements, using those findings to guide prescription blends and other nutrition decisions.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="soil-test.html?sector=small-crop">Request Small Crop testing</a>
+        <a class="btn small-hero__secondary" href="#crop-cycle">Explore the crop cycle</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="small-growth" data-reveal data-home-field>
+    <div class="wrap small-heading">
+      <div>
+        <span class="eyebrow eyebrow--orange">Learning between plantings</span>
+        <h2>Use each crop’s results when planning the next.</h2>
+      </div>
+      <p>Short crop cycles provide frequent opportunities to compare results. Reviewing the test data alongside what happened during the crop helps the team decide what needs attention now and what to reconsider before the next planting.</p>
+    </div>
+    <div class="wrap small-growth__grid">
+      <article><span>01</span><h3>Review starting conditions</h3><p>Review the crop, production system, starting conditions, market target and results already available.</p></article>
+      <article><span>02</span><h3>Observe the crop</h3><p>Connect crop stage, field observations and representative testing during the growing cycle.</p></article>
+      <article><span>03</span><h3>Review the harvest results</h3><p>Compare harvest, pack or processor information with what happened through the crop.</p></article>
+      <article><span>04</span><h3>Plan the next planting</h3><p>Use the findings when planning the next planting.</p></article>
+    </div>
+  </section>
+
+  <section class="small-score" data-reveal data-home-field>
+    <div class="wrap small-heading">
+      <div>
+        <span class="eyebrow eyebrow--berry">Harvest and market requirements</span>
+        <h2>Look at what meets the customer’s specification.</h2>
+      </div>
+      <p>Harvested weight is one measure. Saleable yield, grade and quality also matter, with the requirements varying by crop and customer.</p>
+    </div>
+    <div class="wrap small-score__grid">
+      <article><span>01</span><h3>Marketable yield</h3><p>The saleable portion of the crop, not simply everything harvested from the paddock or block.</p></article>
+      <article><span>02</span><h3>Grade and specification</h3><p>Retailer, market or processor requirements interpreted alongside the crop&rsquo;s intended destination.</p></article>
+      <article><span>03</span><h3>Uniformity and timing</h3><p>How evenly the crop develops and whether it will be ready for the planned harvest.</p></article>
+      <article><span>04</span><h3>Quality and holding</h3><p>The crop-specific measures that matter after harvest, through packing, processing, storage or shelf life.</p></article>
+    </div>
+  </section>
+
+  <section class="small-families" data-reveal data-home-field>
+    <div class="wrap small-heading">
+      <div>
+        <span class="eyebrow">Crop families</span>
+        <h2>Support for different crop types.</h2>
+      </div>
+      <p>Testing and recommendations take account of how the crop grows, its current stage and what the customer requires.</p>
+    </div>
+    <div class="wrap small-families__grid">
+      <article><span>Leaf</span><h3>Leafy greens and herbs</h3><p>Spinach, lettuce, rocket, mizuna, tatsoi, chard, kale, herbs and microgreens.</p></article>
+      <article><span>Head</span><h3>Brassicas</h3><p>Broccoli, cauliflower and cabbage, where formation, uniformity and harvest specification inform the recommendations.</p></article>
+      <article><span>Root</span><h3>Roots and alliums</h3><p>For carrots and onions, consider establishment and crop development through to harvest and the required market grade.</p></article>
+      <article><span>Tuber</span><h3>Potatoes and tuber crops</h3><p>Consider saleable size and quality alongside processor or market requirements.</p></article>
+    </div>
+  </section>
+
+  <section class="small-cycle" id="crop-cycle" data-reveal data-home-field>
+    <div class="wrap small-heading">
+      <div>
+        <span class="eyebrow">Across the crop cycle</span>
+        <h2>Plan around the crop’s growth stage.</h2>
+      </div>
+      <p>Cycle length changes with crop, season and production system. Recommendations account for the actual growth stage and production requirements of each planting.</p>
+    </div>
+    <div class="wrap small-cycle__grid" role="list">
+      <article role="listitem"><span>01</span><h3>Before planting</h3><p>Set the crop and market target, review rotation and previous results, and establish the soil and water context for the paddock or block.</p></article>
+      <article role="listitem"><span>02</span><h3>Establishment</h3><p>Check emergence or transplant establishment, root-zone conditions and how evenly the crop begins.</p></article>
+      <article role="listitem"><span>03</span><h3>Vegetative growth</h3><p>Assess canopy or leaf development and plant results against the crop’s current requirements.</p></article>
+      <article role="listitem"><span>04</span><h3>Crop formation</h3><p>Review leaf, head, root or tuber development against the crop’s intended use.</p></article>
+      <article role="listitem"><span>05</span><h3>Finish and harvest</h3><p>Review marketable yield, uniformity, quality and harvest timing against the required specification.</p></article>
+      <article role="listitem"><span>06</span><h3>Review and reset</h3><p>Review the harvest results and what changed during the season before planning the next crop.</p></article>
+    </div>
+  </section>
+
+  <section class="small-loop" data-reveal data-home-field>
+    <div class="small-loop__image"><img src="assets/photos/responsive/small-crop-potato-field-1200.webp" height="1600" width="1200" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/small-crop-potato-field-480.webp 480w, assets/photos/responsive/small-crop-potato-field-768.webp 768w, assets/photos/responsive/small-crop-potato-field-1200.webp 1200w" alt="Rows of potatoes in a commercial Australian crop" loading="lazy" decoding="async"></div>
+    <div class="small-loop__copy">
+      <span class="eyebrow eyebrow--orange">Reviewing the crop</span>
+      <h2>What can the last crop tell us?</h2>
+      <p>Hybrid-Ag reviews starting conditions, crop observations and harvest results together. These help explain the crop’s response and inform recommendations for the next planting.</p>
+      <dl>
+        <div><dt>Starting conditions</dt><dd>Crop, variety, rotation, production system, soil, water and the intended destination.</dd></div>
+        <div><dt>Plant response</dt><dd>Stage, field observations, representative sampling and the timing behind each result.</dd></div>
+        <div><dt>Commercial outcome</dt><dd>Harvest, pack, market or processor information interpreted against the original target.</dd></div>
+        <div><dt>Next planting</dt><dd>What is worth repeating, what needs another comparison and what should change next planting.</dd></div>
+      </dl>
+      <a class="btn btn--teal" href="services-testing.html">Explore testing and interpretation</a>
+    </div>
+  </section>
+
+  <section class="small-method" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="small-heading">
+        <div>
+          <span class="eyebrow">The Hybrid-Ag approach</span>
+          <h2>Position. Pattern. Plan.</h2>
+        </div>
+        <p>These questions help us review the results for the crop, production system and market requirements.</p>
+      </div>
+      <div class="small-method__grid">
+        <article><span>01</span><strong>Position</strong><h3>Where is this crop now?</h3><p>Establish the crop and variety, paddock or block, production system, stage, market target and the evidence available.</p></article>
+        <article><span>02</span><strong>Pattern</strong><h3>How did it get here?</h3><p>Review the previous crop and rotation, test dates and applications alongside weather, field observations and harvest results.</p></article>
+        <article><span>03</span><strong>Plan</strong><h3>What should happen next?</h3><p>Agree on what needs attention now, what needs checking and what to consider for the next planting.</p></article>
+      </div>
+      <div class="small-layers" aria-label="Information used to plan small-crop nutrition">
+        <div><strong>Crop</strong><p>Family, variety, system, stage and market target.</p></div>
+        <div><strong>Soil</strong><p>Physical, mineral and biological conditions.</p></div>
+        <div><strong>Water</strong><p>Water quality, source and planned use.</p></div>
+        <div><strong>Plant</strong><p>Leaf, sap, crop observations and sample timing.</p></div>
+        <div><strong>Produce</strong><p>Yield, grade, specification and quality.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="small-team" data-reveal data-home-field>
+    <div class="small-team__image"><img src="assets/team/responsive/hamilton-rowe-portrait-1200.webp" height="1800" width="1200" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/team/responsive/hamilton-rowe-portrait-480.webp 480w, assets/team/responsive/hamilton-rowe-portrait-768.webp 768w, assets/team/responsive/hamilton-rowe-portrait-1200.webp 1200w" alt="Hamilton Rowe of Hybrid-Ag" loading="lazy" decoding="async"></div>
+    <div class="small-team__copy">
+      <span class="eyebrow eyebrow--berry">Small Crop support</span>
+      <h2>Advice that takes account of the operation.</h2>
+      <p>Hamilton Rowe is working directly with commercial small-crop operators to understand crop schedules, decision points and the measures that matter at harvest. The wider Hybrid-Ag team considers those requirements alongside the tests and field observations when making recommendations.</p>
+      <p>A result from one paddock or block needs to be considered in its own context before it is applied elsewhere.</p>
+      <a class="btn btn--teal" href="contact.html">Talk to the Small Crop team</a>
+    </div>
+  </section>
+
+  <section class="small-cta" data-reveal data-home-field>
+    <div class="wrap small-cta__inner">
+      <div>
+        <span class="eyebrow">Discuss your crop</span>
+        <h2>Talk to us about your crop.</h2>
+        <p>Tell us what you grow and what you need help with.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn small-cta__primary" href="soil-test.html?sector=small-crop">Request Small Crop testing</a>
+        <a class="btn small-cta__secondary" href="contact.html">Talk to the team</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

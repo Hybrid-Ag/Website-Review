@@ -1,0 +1,76 @@
+/* Hybrid Ag — web tokens, reconciled to the 2020 core identity and 2026 Brand Book. */
+@font-face{font-family:'Alternate Gothic No2 D';src:url('../assets/fonts/alternate-gothic-no2-d-regular.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'Alternate Gothic No2 D';src:url('../assets/fonts/alternate-gothic-no2-d-regular.woff2') format('woff2');font-style:normal;font-weight:500;font-display:swap}
+@font-face{font-family:'Alternate Gothic No2 D';src:url('../assets/fonts/alternate-gothic-no2-d-regular.woff2') format('woff2');font-style:normal;font-weight:600;font-display:swap}
+@font-face{font-family:'Alternate Gothic No2 D';src:url('../assets/fonts/alternate-gothic-no2-d-regular.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap}
+@font-face{font-family:'Proxima Nova';src:url('../assets/fonts/proxima-nova-regular.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'Proxima Nova';src:url('../assets/fonts/proxima-nova-regular.woff2') format('woff2');font-style:normal;font-weight:500;font-display:swap}
+@font-face{font-family:'Proxima Nova';src:url('../assets/fonts/proxima-nova-regular-italic.woff2') format('woff2');font-style:italic;font-weight:400;font-display:swap}
+@font-face{font-family:'Proxima Nova';src:url('../assets/fonts/proxima-nova-bold.woff2') format('woff2');font-style:normal;font-weight:600;font-display:swap}
+@font-face{font-family:'Proxima Nova';src:url('../assets/fonts/proxima-nova-bold.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap}
+:root{
+  /* Brand palette */
+  --teal:#018d8a;
+  --teal-dk:#017572;
+  --teal-ui-hover:#0f625e;
+  --orange:#dc6800;
+  --orange-dk:#b65300;
+  --orange-ui-hover:#9e4c13;
+  --berry:#8a4f7d;
+  --cream:#f7f6f4;
+  --cream-dk:#eae5df;
+  --placeholder:#eae5df;
+  --dark:#121312;
+  --dark-2:#1d1f1c;       /* lighter dark for cards on the dark band */
+  --ink:#1a1714;
+  --clay:#b0a595;
+  --body:#625e57;
+  --hairline:#d7d1ca;
+  --white:#ffffff;
+  --on-dark:#e7e3da;      /* body text on dark/teal bands */
+  --on-dark-dim:#cfcabf;  /* dimmer text on dark cards */
+  --tint-teal:#eafffd;    /* pale teal for copy on the teal band */
+  /* Aliases (kept so page CSS that references these resolves to the canonical token) */
+  --line:#d7d1ca;         /* = --hairline */
+  --paper:#ffffff;        /* = --white */
+  --muted:#625e57;        /* = --body */
+
+  /* Typography */
+  --font-display:'Alternate Gothic No2 D','Arial Narrow','Helvetica Neue Condensed',sans-serif;
+  --font-body:'Proxima Nova','Helvetica Neue',Arial,sans-serif;
+  --tracking-display:.012em;
+  --tracking-caps:.16em;
+  --tracking-ui:.1em;
+  --fs-h1:50px;
+  --fs-h2:30px;
+  --fs-h2-sm:26px;
+  --fs-h3:18px;
+  --fs-eyebrow:12px;
+  --fs-sub:17px;
+  --fs-body:15px;
+  --fs-sm:14px;
+  --fs-cap:12.5px;
+  --fs-cta:11px;
+
+  /* Layout */
+  --maxw:1200px;
+  --gutter:120px;
+  --nav-h:90px;
+  /* Introductory text stacks: compact, consistent across page types. */
+  --intro-label-gap:8px;
+  --intro-text-gap:8px;
+  --intro-action-gap:20px;
+
+  /* Shape */
+  --r-card:8px;
+  --r-pill:23px;
+  --r-btn:4px;
+
+  /* Motion */
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --t-fast:.18s;
+  --t:.32s;
+}
+@media (max-width:900px){
+  :root{ --fs-h1:34px; --fs-h2:24px; }
+}

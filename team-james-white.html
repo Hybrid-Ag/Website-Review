@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>James White — Hybrid-Ag</title>
+<meta name="description" content="James White is a Hybrid-Ag broadacre agronomist in North East Victoria. Contact James about soil and plant test results or your crop nutrition.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/team-profile-refinements.css?v=4550c00e91">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/team-james-white.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="James White — Hybrid-Ag">
+<meta property="og:description" content="James White is a Hybrid-Ag broadacre agronomist in North East Victoria. Contact James about soil and plant test results or your crop nutrition.">
+<meta property="og:url" content="https://www.hybridag.com.au/team-james-white.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="James White — Hybrid-Ag">
+<meta name="twitter:description" content="James White is a Hybrid-Ag broadacre agronomist in North East Victoria. Contact James about soil and plant test results or your crop nutrition.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="team" class="team-profile-refined">
+<div id="site-header"></div>
+
+<main>
+  <header class="hero page-cover page-cover--photo profile-hero" data-home-field>
+    <img class="profile-hero__image" src="assets/photos/responsive/cereal-1800.webp" width="1800" height="1200" sizes="100vw" srcset="assets/photos/responsive/cereal-480.webp 480w, assets/photos/responsive/cereal-768.webp 768w, assets/photos/responsive/cereal-1200.webp 1200w, assets/photos/responsive/cereal-1800.webp 1800w" alt="" decoding="async" fetchpriority="high">
+    <div class="profile-hero__shade" aria-hidden="true"></div>
+    <div class="wrap hero-inner page-cover__inner">
+      <div class="profile-intro">
+        <span class="eyebrow">Nutritional Agronomist</span>
+        <h1>James White</h1>
+        <p class="sub">James White is a nutritional agronomist working with broadacre growers in the North East. His experience includes livestock and cropping systems, with an interest in soil and pasture health.</p>
+      </div>
+
+    </div>
+  </header>
+
+  <nav class="profile-back" aria-label="Team navigation"><div class="wrap"><a href="team.html#broadacre-team">&larr; Back to the team</a></div></nav>
+
+  <section class="section profile-biography" data-reveal data-home-field>
+    <div class="wrap profile-biography__inner">
+      <div class="profile-portrait"><img src="assets/team/responsive/james-white-portrait-690.webp" loading="lazy" decoding="async" height="1035" width="690" sizes="(max-width: 720px) min(360px, calc(100vw - 48px)), (max-width: 980px) 300px, 360px" srcset="assets/team/responsive/james-white-portrait-480.webp 480w, assets/team/responsive/james-white-portrait-690.webp 690w" alt="James White — Hybrid-Ag agronomist"></div>
+      <div class="profile-biography__copy">
+        <span class="eyebrow eyebrow--orange">About James</span>
+      <h2 class="h2 measure-20">Experience with cropping and livestock.</h2>
+      <div class="measure-prose" style="margin-top:18px">
+        <p class="lead" style="font-style:normal">Known to many growers as Jimmy, James works with livestock and cropping farms. He considers the needs of the farm business alongside soil condition and crop production.</p>
+      </div>
+        <div class="profile-media">
+          <a href="https://www.youtube.com/watch?v=UOGgA1R0FS8" target="_blank" rel="noopener">Dry-season broadacre nutrition &nearr;</a>
+          <a href="https://www.youtube.com/watch?v=Xnt9IXQzUY4" target="_blank" rel="noopener">Dry-season pasture management &nearr;</a>
+          <a href="https://www.youtube.com/watch?v=K2p6dhirnDE" target="_blank" rel="noopener">Nitrogen use efficiency webinar &nearr;</a>
+          <a href="https://www.instagram.com/p/DZ7JEY3S59r/" target="_blank" rel="noopener">Marcus Oldham leadership program &nearr;</a>
+        </div>
+        <div class="profile-areas">
+          <span class="eyebrow eyebrow--berry">Areas of work</span>
+      <h3 class="h2 measure-22">Grain crops, oilseeds and pasture.</h3>
+      <div class="cta-row mt-28" style="flex-wrap:wrap">
+        <span class="badge">Broadacre</span>
+        <span class="badge">Pasture</span>
+        <span class="badge">Soil testing</span>
+        <span class="badge">Programs</span>
+      </div>
+      <p class="muted" style="font-style:italic;margin-top:22px;max-width:58ch">Nutrition advice for grain, oilseed and pasture, based on soil and plant testing and observations in the paddock.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section profile-story" data-reveal data-home-field>
+    <div class="wrap profile-story__inner">
+      <figure class="profile-story__image"><img loading="lazy" src="assets/team/responsive/james-white-crop-1353.webp" decoding="async" height="1803" width="1353" sizes="(max-width: 720px) min(360px, calc(100vw - 48px)), (max-width: 980px) 300px, 360px" srcset="assets/team/responsive/james-white-crop-480.webp 480w, assets/team/responsive/james-white-crop-768.webp 768w, assets/team/responsive/james-white-crop-1200.webp 1200w, assets/team/responsive/james-white-crop-1353.webp 1353w" alt="Two people holding tall flowering plants in a yellow-flowering crop"><figcaption>In the field.</figcaption></figure>
+      <div>
+        <span class="eyebrow">In and beyond the field</span>
+        <h2 class="h2" style="max-width:18ch">Work on the farm, and further afield.</h2>
+        <p class="lead" style="margin-top:22px;max-width:52ch">James&rsquo;s agronomy work includes fertiliser planning and longer-term rotations, but farming is an interest outside work too. He enjoys time on a tractor and working with stock. He has also travelled through growing regions in Italy, France, the Netherlands, Switzerland and the UK to see how farming differs from place to place.</p>
+        <p class="lead" style="margin-top:18px;max-width:52ch">He is a member of the Riverina Ag Network and has taken part in the Marcus Oldham Rural Leadership Program, spending a week with people from across Australian agriculture discussing leadership and how they work with others.</p>
+        <p class="lead" style="margin-top:18px;max-width:52ch">James has also helped a student experience agronomy on farm. During his Horizon Scholarship placement, Marcus Attard spent days soil sampling with James and fellow Hybrid-Ag agronomist Alex Grant. Marcus described the time in the paddock as a chance to ask questions and learn about production systems across the Riverina.</p>
+        <p class="quote-by">James White &middot; North East VIC</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-cream profile-resources" data-reveal data-home-field>
+    <div class="wrap">
+      <span class="eyebrow eyebrow--orange">Resources</span>
+      <h2 class="h2">Useful places to start.</h2>
+      <div class="grid grid-3" style="margin-top:40px;text-align:left">
+        <a class="card" href="resource-testing-layers.html"><div class="card-accent"></div><div class="card-img"><img src="assets/photos/responsive/soil-rootzone-1200.webp" height="2400" width="1800" sizes="(max-width: 620px) calc(100vw - 48px), (max-width: 1020px) calc((100vw - 72px) / 2), 384px" srcset="assets/photos/responsive/soil-rootzone-480.webp 480w, assets/photos/responsive/soil-rootzone-768.webp 768w, assets/photos/responsive/soil-rootzone-1200.webp 1200w, assets/photos/responsive/soil-rootzone-1800.webp 1800w" alt="Fine roots and soil in a close-up of the root zone" loading="lazy" decoding="async"></div><div class="card-body"><span class="meta">Understand your results</span><h3>Choosing the right test</h3><p>Understand what each test measures and when it may be useful.</p><span class="card-link">Read</span></div></a>
+        <a class="card" href="resource-position-pattern-plan.html"><div class="card-accent card-accent--orange"></div><div class="card-img"><img src="assets/photos/responsive/testing-interpretation-orchard-1200.webp" height="3024" width="4032" sizes="(max-width: 620px) calc(100vw - 48px), (max-width: 1020px) calc((100vw - 72px) / 2), 384px" srcset="assets/photos/responsive/testing-interpretation-orchard-480.webp 480w, assets/photos/responsive/testing-interpretation-orchard-768.webp 768w, assets/photos/responsive/testing-interpretation-orchard-1200.webp 1200w, assets/photos/responsive/testing-interpretation-orchard-1800.webp 1800w" alt="A man using a handheld instrument beside a pear tree" loading="lazy" decoding="async"></div><div class="card-body"><span class="meta">Planning crop nutrition</span><h3>Position. Pattern. Plan.</h3><p>Use current and previous results to discuss what to do next.</p><span class="card-link">Read</span></div></a>
+        <a class="card" href="resource-sampling-context.html"><div class="card-accent card-accent--berry"></div><div class="card-img"><img src="assets/photos/responsive/leaf-testing-field-samples-1200.webp" height="720" width="1280" sizes="(max-width: 620px) calc(100vw - 48px), (max-width: 1020px) calc((100vw - 72px) / 2), 384px" srcset="assets/photos/responsive/leaf-testing-field-samples-480.webp 480w, assets/photos/responsive/leaf-testing-field-samples-768.webp 768w, assets/photos/responsive/leaf-testing-field-samples-1200.webp 1200w, assets/photos/responsive/leaf-testing-field-samples-1280.webp 1280w" alt="Crop and root samples beside sample bags on a ute tailgate" loading="lazy" decoding="async"></div><div class="card-body"><span class="meta">Sampling records</span><h3>Make every sample a useful reference.</h3><p>Keep the original report and sample details together as a useful reference for future crop nutrition decisions.</p><span class="card-link">Read</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-teal profile-contact" data-reveal data-home-field>
+    <div class="wrap band-inner center">
+      <h2 class="h2" style="color:#fff;max-width:22ch;margin-inline:auto">Discuss your paddock nutrition with James.</h2>
+      <p class="sub" style="color:#eafffd;margin:14px auto 0">Send your test results or get in touch with a question about your crop.</p>
+      <div class="cta-row cta-center">
+        <a class="btn btn--white" href="contact.html?callback=james-white#contact-form">Request a call with James &rarr;</a>
+        <a class="btn btn--outline" href="tel:+61357228000">(03) 5722 8000</a>
+      </div>
+      <div class="socials" aria-label="James White social profiles"><a href="https://www.linkedin.com/in/james-white-4bb674255/" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/jimmytheagro" target="_blank" rel="noopener">X</a></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+Agri-Vive 22.5.6 | Hybrid-Ag working product reference
+REVIEW DRAFT. Not a label, Safety Data Sheet or application recommendation.
+
+A Nitrogen-led liquid NPK grade.
+Agri-Vive 22.5.6 supplies Nitrogen with smaller Phosphorus and Potassium contributions in a liquid fertiliser.
+It can be assessed where Nitrogen is the main requirement and the crop also needs the other Nutrients carried in the grade.
+
+Overview
+Agri-Vive 22.5.6 is a Nitrogen-led liquid grade with smaller Phosphorus and Potassium contributions. It is considered when Nitrogen is the main requirement and the other Nutrients supplied are also needed. This is different from choosing a grade with similar amounts of each major Nutrient.
+The planned application needs to account for more than its Nitrogen content. Compare the full analysis with the nutrition already available and the demand of the growing crop. That helps the team decide whether this fixed combination is appropriate or whether a prescription should supply different proportions.
+
+Composition source: dashboard staging. Basis: % w/v
+These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.
+Nitrogen (N): 22.2831
+Phosphorus (P): 5.21997
+Potassium (K): 6.17503
+Sulphur (S): 0.00515824
+Calcium (Ca): 0.00423623
+Magnesium (Mg): 0.000697732
+Boron (B): 0.000622975
+Iron (Fe): 0.00112136
+Carbon (Carbon): 2.65978
+
+Application
+Match the method and timing to the crop recommendation. Review the planned Nitrogen amount and the additional Nutrients before setting the product rate.
+Confirm the current product label, crop-specific recommendation, mixing and handling directions with the team.
+
+Price, pack availability, codes and document revisions require confirmation. Nothing has been ordered or approved.
+Prepared 6 October 2026 from the local website review register.

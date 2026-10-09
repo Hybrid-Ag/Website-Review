@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Viticulture — Hybrid-Ag</title>
+<meta name="description" content="Vineyard nutrition based on block conditions, soil, water, plant and fruit results, and the requirements of the winery or market.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/viticulture.css?v=bbfc2c5693">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/segment-refinements.css?v=830f50d657">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/viticulture.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Viticulture — Hybrid-Ag">
+<meta property="og:description" content="Vineyard nutrition based on block conditions, soil, water, plant and fruit results, and the requirements of the winery or market.">
+<meta property="og:url" content="https://www.hybridag.com.au/viticulture.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Viticulture — Hybrid-Ag">
+<meta name="twitter:description" content="Vineyard nutrition based on block conditions, soil, water, plant and fruit results, and the requirements of the winery or market.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body class="segment-refined" data-page="sectors">
+<div id="site-header"></div>
+
+<main>
+  <header class="viti-hero page-cover page-cover--photo" data-home-field>
+    <img class="viti-hero__image" src="assets/photos/responsive/grapes-1800.webp" decoding="async" height="1281" width="1920" sizes="100vw" srcset="assets/photos/responsive/grapes-480.webp 480w, assets/photos/responsive/grapes-768.webp 768w, assets/photos/responsive/grapes-1200.webp 1200w, assets/photos/responsive/grapes-1800.webp 1800w" alt="Wine grapes ripening on the vine" fetchpriority="high">
+    <div class="viti-hero__shade" aria-hidden="true"></div>
+    <div class="wrap viti-hero__inner page-cover__inner">
+      <span class="eyebrow">Viticulture</span>
+      <h1>Precision nutrition for viticulture.</h1>
+      <p>Variety, site conditions and crop load affect a vineyard’s nutrition requirements. Hybrid-Ag uses block history and available soil, plant and fruit results to guide prescription blends and recommendations for the season.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="soil-test.html?sector=viticulture">Request Viticulture testing</a>
+        <a class="btn viti-hero__secondary" href="#seasonal-windows">Explore the season</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="viti-score" data-reveal data-home-field>
+    <div class="wrap viti-heading">
+      <div>
+        <span class="eyebrow eyebrow--orange">Production priorities</span>
+        <h2>Work towards the required fruit specification.</h2>
+      </div>
+      <p>Yield is considered alongside canopy growth, fruit composition and condition. Harvest timing and the requirements of the winery or market also inform the recommendations.</p>
+    </div>
+    <div class="wrap viti-score__grid">
+      <article><span>01</span><h3>Crop and canopy</h3><p>Crop load and canopy growth, considered against the block&rsquo;s production target.</p></article>
+      <article><span>02</span><h3>Yield and specification</h3><p>Crop volume interpreted alongside variety, region, production target and the requirements of the winery or market.</p></article>
+      <article><span>03</span><h3>Maturity and composition</h3><p>Sugars, acidity, colour, flavour and aroma development, and other fruit measures read at the relevant stage.</p></article>
+      <article><span>04</span><h3>Fruit condition and timing</h3><p>Berry and bunch condition, uniformity and progress towards the planned harvest.</p></article>
+    </div>
+  </section>
+
+  <section class="viti-context" data-reveal data-home-field>
+    <div class="wrap viti-heading">
+      <div>
+        <span class="eyebrow eyebrow--berry">Understanding the block</span>
+        <h2>Recommendations need the block’s history.</h2>
+      </div>
+      <p>A general program is a starting point. The details below help the team assess what is appropriate for a particular block.</p>
+    </div>
+    <div class="wrap viti-context__grid">
+      <article><span>01</span><h3>Production target</h3><p>Wine or table grapes, the destination for the fruit and the quality or market specification being targeted.</p></article>
+      <article><span>02</span><h3>Vine characteristics</h3><p>Variety, clone, rootstock, vine age, vigour and training system all change how the same result should be interpreted.</p></article>
+      <article><span>03</span><h3>Site and resources</h3><p>Region, soil, rooting environment, water source and delivery system shape what is available to the vine.</p></article>
+      <article><span>04</span><h3>Season and history</h3><p>Weather, crop load, previous tests, input history and what the fruit showed last season help explain the current results.</p></article>
+    </div>
+  </section>
+
+  <section class="viti-read" data-reveal data-home-field>
+    <div class="viti-read__image viti-read__image--grape-row"><img src="assets/photos/responsive/vineyard-ripe-grape-row-1800.webp" height="1203" width="1800" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/vineyard-ripe-grape-row-480.webp 480w, assets/photos/responsive/vineyard-ripe-grape-row-768.webp 768w, assets/photos/responsive/vineyard-ripe-grape-row-1200.webp 1200w, assets/photos/responsive/vineyard-ripe-grape-row-1800.webp 1800w" alt="Ripe grape clusters running along a productive vineyard row" loading="lazy" decoding="async"></div>
+    <div class="viti-read__copy">
+      <span class="eyebrow eyebrow--orange">Testing and vineyard records</span>
+      <h2>Put the test results in context.</h2>
+      <p>We review soil conditions alongside plant results, growth stage and fruit requirements. No single test gives a complete assessment of the vineyard.</p>
+      <dl>
+        <div><dt>Soil and root zone</dt><dd>Soil structure, mineral balance and biological activity, including differences across the block that may affect Nutrient access.</dd></div>
+        <div><dt>Water</dt><dd>Water source and quality, and how it is used for irrigation, fertigation and foliar applications.</dd></div>
+        <div><dt>Leaf and sap</dt><dd>Plant test results considered alongside sample timing and tissue, growth stage, vigour and crop load.</dd></div>
+        <div><dt>Fruit and production data</dt><dd>Yield, fruit composition, condition, removals and winery or market feedback connected back to the block.</dd></div>
+      </dl>
+      <a class="btn btn--teal" href="services-testing.html">Explore testing and interpretation</a>
+    </div>
+  </section>
+
+  <section class="viti-season" id="seasonal-windows" data-reveal data-home-field>
+    <div class="wrap viti-heading">
+      <div>
+        <span class="eyebrow">Across the season</span>
+        <h2>Follow the growth stage of the vines.</h2>
+      </div>
+      <p>Canopy, root, inflorescence and berry development overlap. The program follows the block&rsquo;s real growth stage, using modified E-L references where useful, rather than assuming every region or variety moves together.</p>
+    </div>
+    <div class="wrap viti-season__grid" role="list">
+      <article role="listitem"><span>01</span><h3>Post-harvest</h3><p>Review yield, fruit results and vine condition when planning post-harvest nutrition and testing for the next season.</p></article>
+      <article role="listitem"><span>02</span><h3>Dormancy and soil planning</h3><p>Review soil and root-zone conditions, differences across the block, water and longer-term priorities before growth resumes.</p></article>
+      <article role="listitem"><span>03</span><h3>Budburst to flowering</h3><p>Stored reserves, root activity, rapid shoot growth and canopy development overlap. Interpret results with the growth stage, vigour and site conditions in mind.</p></article>
+      <article role="listitem"><span>04</span><h3>Flowering and fruit set</h3><p>Assess inflorescence development, cap fall and fruit set alongside growing conditions, the production target and current block results.</p></article>
+      <article role="listitem"><span>05</span><h3>Berry growth and bunch closure</h3><p>Cell division gives way to expansion while canopy demand continues. Plant data and field observations are read against the actual stage.</p></article>
+      <article role="listitem"><span>06</span><h3>Veraison to harvest</h3><p>Review ripening, fruit composition and condition against the harvest target while the vine continues towards cane maturity.</p></article>
+    </div>
+  </section>
+
+  <section class="viti-method" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="viti-heading">
+        <div>
+          <span class="eyebrow">The Hybrid-Ag approach</span>
+          <h2>Position. Pattern. Plan.</h2>
+        </div>
+        <p>These questions help us relate the results to the block, production target and season.</p>
+      </div>
+      <div class="viti-method__grid">
+        <article><span>01</span><strong>Position</strong><h3>Where is the block now?</h3><p>Establish variety and rootstock, production target, crop load, current growth stage and the soil, water, plant and fruit evidence available.</p></article>
+        <article><span>02</span><strong>Pattern</strong><h3>How did it get here?</h3><p>Compare previous tests and sample dates with changes through the season, application history and fruit results.</p></article>
+        <article><span>03</span><strong>Plan</strong><h3>What should happen next?</h3><p>Agree on what needs attention now, what can wait until a later stage and what needs checking.</p></article>
+      </div>
+      <div class="viti-layers" aria-label="Information used to plan vineyard nutrition">
+        <div><strong>Block</strong><p>Variety, region, production target and stage.</p></div>
+        <div><strong>Soil</strong><p>Root-zone structure, mineral balance, Carbon and biology.</p></div>
+        <div><strong>Water</strong><p>Water quality, source and planned use.</p></div>
+        <div><strong>Plant</strong><p>Leaf, sap, canopy, vigour and crop load.</p></div>
+        <div><strong>Fruit</strong><p>Yield, composition, condition and destination.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="viti-team" data-reveal data-home-field>
+    <div class="viti-team__image"><img src="assets/photos/responsive/vineyard-valley-landscape-1800.webp" height="1200" width="1800" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/vineyard-valley-landscape-480.webp 480w, assets/photos/responsive/vineyard-valley-landscape-768.webp 768w, assets/photos/responsive/vineyard-valley-landscape-1200.webp 1200w, assets/photos/responsive/vineyard-valley-landscape-1800.webp 1800w" alt="Vineyard rows stretching across a productive valley" loading="lazy" decoding="async"></div>
+    <div class="viti-team__copy">
+      <span class="eyebrow eyebrow--berry">Viticulture support</span>
+      <h2>Speak with the regional team.</h2>
+      <p>Nathan Strawbridge works across Viticulture and Horticulture in South Australia and western Victoria, including McLaren Vale, the Adelaide Hills, the Barossa and the Riverland. The wider team helps interpret the tests and field observations, taking account of what is practical in the block.</p>
+      <div class="viti-team__links">
+        <a class="btn btn--teal" href="team-nathan-strawbridge.html">Meet Nathan Strawbridge</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="viti-cta" data-reveal data-home-field>
+    <div class="wrap viti-cta__inner">
+      <div>
+        <span class="eyebrow">Discuss your vineyard</span>
+        <h2>Talk to us about your vineyard.</h2>
+        <p>Tell us about the block and its current stage, and share any results you already have.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn viti-cta__primary" href="soil-test.html?sector=viticulture">Request Viticulture testing</a>
+        <a class="btn viti-cta__secondary" href="contact.html">Talk to the team</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

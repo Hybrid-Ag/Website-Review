@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Each Test Can Tell You - Hybrid-Ag</title>
+<meta name="description" content="A practical guide to the different questions answered by soil, leaf and tissue, differential sap, water and produce testing.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/resource-guide.css?v=d22eeb9772">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What each test can tell you","description":"A practical guide to soil, leaf and tissue, differential sap, water and produce testing questions.","image":"https://www.hybridag.com.au/assets/photos/field-day.webp","mainEntityOfPage":"https://www.hybridag.com.au/resource-testing-layers.html","publisher":{"@type":"Organization","name":"Hybrid-Ag","logo":{"@type":"ImageObject","url":"https://www.hybridag.com.au/assets/hybrid-ag-logo.png"}}}</script>
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/resource-testing-layers.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="What Each Test Can Tell You - Hybrid-Ag">
+<meta property="og:description" content="A practical guide to the different questions answered by soil, leaf and tissue, differential sap, water and produce testing.">
+<meta property="og:url" content="https://www.hybridag.com.au/resource-testing-layers.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What Each Test Can Tell You - Hybrid-Ag">
+<meta name="twitter:description" content="A practical guide to the different questions answered by soil, leaf and tissue, differential sap, water and produce testing.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body class="resource-refined" data-page="resources">
+<div id="site-header"></div>
+
+<main>
+  <header class="guide-hero page-cover page-cover--photo" data-home-field>
+    <img class="guide-hero__image" src="assets/photos/responsive/field-day-1800.webp" decoding="async" height="1280" width="1920" sizes="100vw" srcset="assets/photos/responsive/field-day-480.webp 480w, assets/photos/responsive/field-day-768.webp 768w, assets/photos/responsive/field-day-1200.webp 1200w, assets/photos/responsive/field-day-1800.webp 1800w" alt="Rows of a crop in the field" fetchpriority="high">
+    <div class="guide-hero__shade" aria-hidden="true"></div>
+    <div class="wrap guide-hero__inner page-cover__inner">
+      <a class="guide-hero__back" href="knowledge-center.html">Resources</a>
+      <span class="eyebrow">Understand your results</span>
+      <h1>What each test can tell you.</h1>
+      <p>Start with what you need to understand about your crop. This guide explains what each test measures and how the results can inform a nutrition recommendation.</p>
+      <div class="cta-row"><a class="btn btn--teal" href="#test-types">Compare the tests</a><a class="btn guide-hero__secondary" href="soil-test.html?test=not-sure">Ask about testing</a></div>
+    </div>
+  </header>
+
+  <section class="guide-intro" data-reveal data-home-field>
+    <div class="wrap guide-intro__grid">
+      <div><span class="eyebrow eyebrow--orange">Making sense of a report</span><h2>A test report should help you make a decision.</h2></div>
+      <div class="guide-intro__copy">
+        <p>A report full of numbers is only useful if you understand what they mean for your farm. A soil test helps describe the soil sampled. A plant test measures the plant material collected. Water and produce tests answer different questions again.</p>
+        <p>The results need to be read alongside what is happening in the paddock or block. Your crop history, previous applications and observations help the agronomist work out what the results mean and whether a prescription blend or further testing is appropriate.</p>
+        <div class="guide-intro__note"><strong>A result represents the sample taken.</strong><p>Interpret the result alongside paddock or block details, crop stage and earlier tests before deciding what to do.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-blocks" id="test-types" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="guide-heading">
+        <div><span class="eyebrow eyebrow--berry">The test types</span><h2>What does each test measure?</h2></div>
+        <p>Choose a test for a specific purpose. The team can help confirm which sample is needed.</p>
+      </div>
+      <div class="guide-blocks__grid">
+        <article><span>01</span><h3>Soil</h3><p>Helps assess the sampled soil, including pH, Carbon and Nutrient levels where selected. Keep the sampling depth and laboratory method with the result. A soil test does not show by itself what reached the plant.</p><a href="services-soil-testing.html">Explore soil testing</a></article>
+        <article><span>02</span><h3>Leaf and tissue</h3><p>Shows what is present in the sampled plant material. Record crop stage, tissue choice, recent conditions and sampling method so the result can be interpreted.</p><a href="services-leaf-tissue-testing.html">Explore leaf and tissue testing</a></article>
+        <article><span>03</span><h3>Differential sap</h3><p>Uses separately labelled young and old tissue collected together. The paired results can be compared with each other and with repeat samples. A difference does not establish its cause or predict the crop’s response.</p><a href="services-differential-sap-analysis.html">Explore differential sap analysis</a></article>
+        <article><span>04</span><h3>Water</h3><p>Assesses the quality of water used for sprays, fertigation or irrigation. Results need to be interpreted for the intended use.</p><a href="services-water-testing.html">Explore water testing</a></article>
+        <article><span>05</span><h3>Produce</h3><p>Measures the harvested crop. Composition, dry matter, yield and area help assess Nutrient removal. The amount removed at harvest is not automatically the amount of fertiliser needed next season.</p><a href="services-produce-testing.html">Explore produce testing</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-band" data-reveal>
+    <div class="wrap">
+      <div class="guide-heading">
+        <div><span class="eyebrow">Prescription blends</span><h2>From your results to a blend for your farm.</h2></div>
+        <p>The next step is to work out what your soil and crop need. This is rarely straightforward. The test results inform the recommendation, but your budget, application equipment and timing are part of the discussion.</p>
+      </div>
+      <div class="guide-band__grid guide-band__grid--four">
+        <div><span>01</span><h3>Plan</h3><p>Discuss the crop, area, what you want to achieve and the practical limits of the farm.</p></div>
+        <div><span>02</span><h3>Analyse</h3><p>Review the reports and sampling details you already have. Ask whether any further testing would help.</p></div>
+        <div><span>03</span><h3>Prescribe</h3><p>Work through the Nutrient requirements and a practical recommendation with the agronomist. Some soil requirements may need to be addressed over more than one season.</p></div>
+        <div><span>04</span><h3>Supply</h3><p>Discuss the prescription blend, application and supply arrangements with the team.</p></div>
+      </div>
+      <a class="btn guide-band__action" href="services-testing.html#prescription-pathways">Explore prescription blends</a>
+    </div>
+  </section>
+
+  <section class="guide-split" data-reveal data-home-field>
+    <div class="guide-split__image"><img src="assets/photos/responsive/paddock-green-1800.webp" height="1278" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/paddock-green-480.webp 480w, assets/photos/responsive/paddock-green-768.webp 768w, assets/photos/responsive/paddock-green-1200.webp 1200w, assets/photos/responsive/paddock-green-1800.webp 1800w" alt="Green crop paddock" loading="lazy" decoding="async"></div>
+    <div class="guide-split__copy">
+      <span class="eyebrow eyebrow--orange">Use what already exists</span>
+      <h2>You can bring reports from other providers.</h2>
+      <p>Bring the original report, not just a photo of selected figures. Include the units, laboratory methods, reference ranges and any sampling details you have.</p>
+      <p>Tell us what you wanted the test to help with and what has happened since. Earlier reports can help us compare the results. The team will explain what can be interpreted and whether more information is needed.</p>
+      <a class="btn btn--teal" href="soil-test.html?test=existing">Bring existing results</a>
+    </div>
+  </section>
+
+  <section class="guide-related" data-reveal data-home-field>
+    <div class="wrap">
+      <span class="eyebrow eyebrow--berry">Keep going</span>
+      <h2>Related resources.</h2>
+      <div class="guide-related__grid">
+        <a href="resource-position-pattern-plan.html"><span>Decision framework</span><h3>Position. Pattern. Plan.</h3><p>Review the current results and crop history before deciding what to do next.</p><strong>Read the guide</strong></a>
+        <a href="resource-sampling-context.html"><span>Sampling records</span><h3>Make every sample a useful reference.</h3><p>Keep the original report and sample details together as a useful reference for future crop nutrition decisions.</p><strong>Read the guide</strong></a>
+        <a href="services-testing.html"><span>Testing services</span><h3>Compare the test types.</h3><p>Discuss the crop issue and choose a suitable test with the team.</p><strong>Explore testing</strong></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-cta" data-reveal>
+    <div class="wrap guide-cta__inner">
+      <div><span class="eyebrow">Choose the question first</span><h2>Not sure which test you need?</h2></div>
+      <div class="cta-row"><a class="btn guide-cta__primary" href="soil-test.html?test=not-sure">Ask the team</a><a class="btn guide-cta__secondary" href="knowledge-center.html">Back to Resources</a></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

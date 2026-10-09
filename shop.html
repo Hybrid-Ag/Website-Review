@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop — Hybrid-Ag</title>
+<meta name="description" content="Browse Hybrid-Ag products or talk to the team about a prescription blend for your crop and soil requirements.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/shop.css?v=97b738c7e0">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/shop.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shop — Hybrid-Ag">
+<meta property="og:description" content="Browse Hybrid-Ag products or talk to the team about a prescription blend for your crop and soil requirements.">
+<meta property="og:url" content="https://www.hybridag.com.au/shop.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shop — Hybrid-Ag">
+<meta name="twitter:description" content="Browse Hybrid-Ag products or talk to the team about a prescription blend for your crop and soil requirements.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="shop">
+<div id="site-header"></div>
+
+<main>
+  <!-- HERO -->
+  <header class="hero hero--short page-cover">
+    <div class="wrap hero-inner page-cover__inner">
+      <span class="eyebrow">Shop</span>
+      <h1>Hybrid-Ag products and prescription blends.</h1>
+      <p class="sub">Start with what your crop and soil need. Talk to the team about a custom or prescription blend, or browse the Hybrid-Ag range below.</p>
+      <div class="cta-row mt-28">
+        <a class="pill" href="soil-test.html">Request testing &rarr;</a>
+        <a class="pill pill--ghost" href="program.html">Explore crop nutrition programs</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- FILTER + PRODUCT GRID -->
+  <section class="section section--tight" data-reveal>
+    <div class="wrap">
+      <span class="eyebrow">The Range</span>
+      <h2 class="h2" style="max-width:24ch">Browse the product range.</h2>
+      <div class="shop-tools">
+        <label class="shop-control" for="shopSearch"><span>Search products</span><input id="shopSearch" type="search" autocomplete="off" placeholder="Product name"></label>
+        <label class="shop-control" for="shopCategory"><span>Category</span><select id="shopCategory"><option value="all">All categories</option></select></label>
+        <p class="shop-count" id="shopCount" aria-live="polite"></p>
+      </div>
+      <div class="grid grid-4 shop-grid" id="shopGrid"></div>
+      <p class="shop-empty" id="shopEmpty" hidden>No products match that search. Try another name or category.</p>
+      <p class="muted italic mt-14" style="max-width:62ch">Prices are shown where available. Contact the team to confirm pack sizes and pricing, or to discuss which products are suitable for your requirements.</p>
+    </div>
+  </section>
+
+  <!-- NOT SURE WHAT YOU NEED (no dead-end) -->
+  <section class="testing-band">
+    <div class="wrap">
+      <h3>Not sure what you need? Ask us about testing.</h3>
+      <a class="pill pill--teal" href="soil-test.html">Request testing &rarr;</a>
+    </div>
+  </section>
+
+  <!-- HOW THE RANGE WORKS -->
+  <section class="section band-cream" data-reveal>
+    <div class="wrap">
+      <span class="eyebrow eyebrow--orange">How the range works</span>
+      <h2 class="h2" style="max-width:22ch">Plan the nutrition for your farm.</h2>
+      <div class="grid grid-3" style="margin-top:40px">
+        <div class="card"><div class="card-accent"></div><div class="card-body"><h3>Review the results</h3><p>Consider the available tests alongside crop conditions and the history of the paddock or block.</p></div></div>
+        <div class="card"><div class="card-accent card-accent--orange"></div><div class="card-body"><h3>Discuss the prescription</h3><p>Work with an agronomist on a blend for the identified Nutrient requirements and relevant Hybrid-Ag products.</p></div></div>
+        <div class="card"><div class="card-accent card-accent--berry"></div><div class="card-body"><h3>Review progress</h3><p>Agree what to review and when, taking crop observations and further testing into account.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA BAND -->
+  <section class="band band-teal" data-reveal>
+    <div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="wrap band-inner center">
+      <h2 class="h2" style="color:#fff;max-width:24ch;margin-inline:auto">Need help choosing?</h2>
+      <p class="sub" style="color:#eafffd;margin:14px auto 0;max-width:56ch">Tell us about your crop and any results you already have. We can discuss a prescription blend or suitable products with you.</p>
+      <div class="cta-row cta-center">
+        <a class="pill" href="soil-test.html">Request testing &rarr;</a>
+        <a class="pill pill--ghost-light" href="contact.html">Talk to the team</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/data/product-variants.js?v=0738616808"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/shop.js?v=ce936681d5"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

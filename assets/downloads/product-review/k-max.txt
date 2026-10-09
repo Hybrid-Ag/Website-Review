@@ -1,0 +1,29 @@
+K-Max | Hybrid-Ag working product reference
+REVIEW DRAFT. Not a label, Safety Data Sheet or application recommendation.
+
+Concentrated liquid Potassium.
+K-Max is a liquid Potassium fertiliser with fulvic and other complexing compounds.
+The staged material includes fertigation, foliar and Broadacre liquid-injection contexts, where the crop requires additional Potassium.
+
+Overview
+K-Max provides concentrated Potassium in a liquid formulation with fulvic and other complexing compounds. It gives the team a targeted option to assess when the crop requires additional Potassium, with the full contribution compared against soil supply and previous applications.
+The material describes more than one way to deliver it: fertigation or foliar use, and liquid injection in Broadacre cropping. These methods have different placement and preparation requirements. Discuss the crop and equipment before choosing between them; a statement about liquid injection does not establish seed-contact safety or compatibility for a particular setup.
+
+Composition source: dashboard staging. Basis: % w/v
+These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.
+Nitrogen (N): 0.0024919
+Phosphorus (P): 0.00223274
+Potassium (K): 26.4606
+Sulphur (S): 0.00412659
+Calcium (Ca): 0.00338899
+Magnesium (Mg): 0.000558186
+Boron (B): 0.00049838
+Iron (Fe): 0.000897084
+Carbon (Carbon): 1.30838
+
+Application
+Tell the team whether the intended use is foliar, irrigation or liquid injection. Confirm the current method-specific directions and suitability; a rate for one method cannot establish the safety of another.
+Confirm the current product label, crop-specific recommendation, mixing and handling directions with the team.
+
+Price, pack availability, codes and document revisions require confirmation. Nothing has been ordered or approved.
+Prepared 6 October 2026 from the local website review register.

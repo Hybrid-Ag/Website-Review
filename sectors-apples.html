@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apple Nutrition — Hybrid-Ag</title>
+<meta name="description" content="Apple nutrition, from soil to storage. Explore Hybrid-Ag’s Apple Nutrition Playbook, sample Pink Lady program and prescription approach for your orchard.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/cherries.css?v=799e6cfd11">
+<link rel="stylesheet" href="css/pages/apples.css?v=7ff56d9fe6">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="canonical" href="https://www.hybridag.com.au/sectors-apples.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Apple Nutrition — Hybrid-Ag">
+<meta property="og:description" content="Apple nutrition, from soil to storage. Explore Hybrid-Ag’s Apple Nutrition Playbook, sample Pink Lady program and prescription approach for your orchard.">
+<meta property="og:url" content="https://www.hybridag.com.au/sectors-apples.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apple Nutrition — Hybrid-Ag">
+<meta name="twitter:description" content="Apple nutrition, from soil to storage. Explore Hybrid-Ag’s Apple Nutrition Playbook, sample Pink Lady program and prescription approach for your orchard.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+</head>
+<body data-page="sectors" class="apple-page">
+<div id="site-header"></div>
+<main>
+  <header class="cherry-hero page-cover page-cover--photo" data-home-field="dark">
+    <img class="cherry-hero__image" src="assets/photos/responsive/fruit-on-tree-1800.webp" width="1920" height="1280" sizes="100vw" srcset="assets/photos/responsive/fruit-on-tree-480.webp 480w, assets/photos/responsive/fruit-on-tree-768.webp 768w, assets/photos/responsive/fruit-on-tree-1200.webp 1200w, assets/photos/responsive/fruit-on-tree-1800.webp 1800w" alt="Red apples growing on the tree" fetchpriority="high" decoding="async">
+    <div class="cherry-hero__shade" aria-hidden="true"></div>
+    <div class="wrap cherry-hero__inner page-cover__inner">
+      <a class="cherry-crumb" href="horticulture.html"><span>Horticulture</span><span aria-hidden="true">/</span> Apples</a>
+      <h1>Apple nutrition, from soil to storage.</h1>
+      <p>Fruit size is only part of the result. Condition at harvest, storage performance and pack-out matter too. Hybrid-Ag uses your block’s history and test results to guide custom prescription blends and nutrition decisions through the season.</p>
+      <div class="cta-row"><a class="btn btn--teal" href="contact.html?program=apples">Discuss your apple block</a><a class="btn cherry-hero__secondary" href="program-apples.html">Explore the Apple Program</a></div>
+    </div>
+  </header>
+
+  <section class="cherry-score" data-reveal data-home-field="light">
+    <div class="wrap cherry-heading">
+      <div><span class="eyebrow eyebrow--orange">Production priorities</span><h2>What does this crop need to achieve?</h2></div>
+      <p>The Apple Playbook looks beyond tonnes per hectare. Variety, crop load and the market you supply help define the result you are working towards.</p>
+    </div>
+    <div class="wrap cherry-score__grid">
+      <article><span>01</span><h3>Crop load and size</h3><p>Fruit numbers and size distribution considered alongside tree growth and the crop the block can carry.</p></article>
+      <article><span>02</span><h3>Colour and maturity</h3><p>Colour assessed with other maturity measures, rather than used on its own to judge harvest readiness.</p></article>
+      <article><span>03</span><h3>Fruit condition</h3><p>Firmness, finish and issues such as bitter pit considered in the context of the whole season.</p></article>
+      <article><span>04</span><h3>Storage and pack-out</h3><p>The fruit that meets specification after harvest, including what grading and storage results tell us about the block.</p></article>
+    </div>
+  </section>
+
+  <section class="cherry-playbook" id="apple-playbook" data-reveal data-home-field="light">
+    <div class="wrap cherry-playbook__inner">
+      <div class="cherry-playbook__copy">
+        <span class="eyebrow eyebrow--orange">The Apple Nutrition Playbook</span>
+        <h2>A closer look at the apple season.</h2>
+        <p>The playbook brings soil and water into the same discussion as crop load, tree growth and fruit quality. It follows the season from post-harvest through to the next crop, with a sample Pink Lady nutrition program to review with the team.</p>
+        <p>Read it alongside your own block records. The sample is a starting point for discussion, not a prescription for every orchard.</p>
+        <div class="cta-row"><a class="btn btn--teal" href="assets/apple-nutrition-playbook.pdf">Open the playbook</a><a class="btn apple-secondary" href="assets/apple-nutrition-playbook.pdf" download="Hybrid-Ag-Apple-Nutrition-Playbook.pdf">Download PDF</a></div>
+        <p class="apple-file-note">56 pages · PDF · 25.8 MB.</p>
+        <p class="muted" data-booklet-review-note><small>Review draft: visitors will provide their contact details to receive this booklet when the website launches. Downloads remain open here while the website is being reviewed.</small></p>
+      </div>
+      <a class="cherry-playbook__cover" href="assets/apple-nutrition-playbook.pdf" aria-label="Open the Apple Nutrition Playbook PDF"><img src="assets/apple-playbook-cover.jpg" width="839" height="1191" alt="Cover of the Apple Nutrition Playbook" loading="lazy" decoding="async"></a>
+    </div>
+  </section>
+
+  <section class="cherry-team apple-orchard" data-reveal data-home-field="light">
+    <div class="cherry-team__image"><img src="assets/photos/responsive/about-food-quality-orchard-1080.webp" width="1080" height="566" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/about-food-quality-orchard-480.webp 480w, assets/photos/responsive/about-food-quality-orchard-768.webp 768w, assets/photos/responsive/about-food-quality-orchard-1080.webp 1080w" alt="Apple trees carrying red fruit beneath orchard netting" loading="lazy" decoding="async"></div>
+    <div class="cherry-team__copy">
+      <span class="eyebrow eyebrow--berry">Understanding fruit condition</span>
+      <h2>Bitter pit needs a wider look.</h2>
+      <p>A fruit Calcium result is one part of the investigation. The playbook brings variety and rootstock, crop load, water movement, harvest maturity and storage into the same review.</p>
+      <p>That wider picture helps the team decide what needs checking before changing a product or rate. Existing test results and what you have seen in the block are useful places to start.</p>
+      <div class="cta-row"><a class="btn btn--teal" href="contact.html?program=apples">Discuss your results</a><a class="btn apple-secondary" href="assets/apple-nutrition-playbook.pdf#page=22">Read the booklet chapter</a></div>
+    </div>
+  </section>
+
+  <section class="cherry-season" data-reveal data-home-field="dark">
+    <div class="wrap cherry-heading">
+      <div><span class="eyebrow">Across the season</span><h2>Each season informs the next.</h2></div>
+      <p>The booklet describes six broad periods of development. Actual growth stage and block conditions guide the timing; a calendar month alone does not.</p>
+    </div>
+    <div class="wrap cherry-season__grid" role="list">
+      <article role="listitem"><span>01</span><h3>Post-harvest</h3><p>Review the crop removed, pack-out and remaining canopy when considering the post-harvest prescription.</p></article>
+      <article role="listitem"><span>02</span><h3>Senescence and dormancy</h3><p>Bring soil results and the season’s history into planning as the trees move towards dormancy.</p></article>
+      <article role="listitem"><span>03</span><h3>Bud development and flowering</h3><p>Assess spring development against stored reserves, conditions and the crop the block is expected to carry.</p></article>
+      <article role="listitem"><span>04</span><h3>Fruit set and cell division</h3><p>Revisit crop load and early fruit development alongside the available plant results.</p></article>
+      <article role="listitem"><span>05</span><h3>Fruit expansion and fill</h3><p>Consider ongoing fruit growth with canopy condition, water supply and the block’s nutrition results.</p></article>
+      <article role="listitem"><span>06</span><h3>Maturation and pre-harvest</h3><p>Assess colour and maturity with fruit condition and the intended storage and market requirements.</p></article>
+    </div>
+    <div class="wrap apple-season-link"><a class="btn cherry-hero__secondary" href="program-apples.html">Explore the sample Pink Lady program</a></div>
+  </section>
+
+  <section class="cherry-method" data-reveal data-home-field="light">
+    <div class="wrap">
+      <div class="cherry-heading"><div><span class="eyebrow eyebrow--berry">The Hybrid-Ag approach</span><h2>Position. Pattern. Plan.</h2></div><p>The playbook uses these questions to connect the evidence with a practical recommendation. Custom prescription blends begin with the requirements of the block.</p></div>
+      <div class="cherry-method__grid">
+        <article><span>01</span><strong>Position</strong><h3>Where is the block now?</h3><p>Variety, rootstock, growth stage, crop load and the test results available today.</p></article>
+        <article><span>02</span><strong>Pattern</strong><h3>What has changed?</h3><p>Previous results and applications, seasonal conditions, and what harvest and storage showed.</p></article>
+        <article><span>03</span><strong>Plan</strong><h3>What needs to happen next?</h3><p>A prescription suited to the block, the application equipment and your budget, with any further testing agreed with the team.</p></article>
+      </div>
+      <div class="cherry-layers">
+        <div><strong>Soil and roots</strong><p>Soil results read with root-zone conditions and the history of the block.</p></div>
+        <div><strong>Water</strong><p>Irrigation and application water considered alongside the proposed inputs.</p></div>
+        <div><strong>Leaf and sap</strong><p>Plant results interpreted against sampling context and actual crop development.</p></div>
+        <div><strong>Fruit and harvest</strong><p>Fruit quality, crop removals and pack-out used to inform the next review.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cherry-cta" data-reveal data-home-field="dark">
+    <div class="wrap cherry-cta__inner">
+      <div><span class="eyebrow">Discuss your apple block</span><h2>Start with the block and the results you have.</h2></div>
+      <div class="cta-row"><a class="btn cherry-cta__primary" href="contact.html?program=apples">Talk to the team</a><a class="btn cherry-cta__secondary" href="soil-test.html?sector=horticulture&amp;crop=Apples">Organise testing</a></div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Customer Account - Hybrid-Ag</title>
+<meta name="description" content="Sign in, link an existing Hybrid-Ag customer account, or create a new Cash Only or Credit account.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/account-application.css?v=4ccdc3ae23">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/account-application.html">
+
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Customer Account - Hybrid-Ag">
+<meta property="og:description" content="Sign in, link an existing Hybrid-Ag customer account, or create a new Cash Only or Credit account.">
+<meta property="og:url" content="https://www.hybridag.com.au/account-application.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Customer Account - Hybrid-Ag">
+<meta name="twitter:description" content="Sign in, link an existing Hybrid-Ag customer account, or create a new Cash Only or Credit account.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="account">
+<div id="site-header"></div>
+
+<main>
+<aside class="wrap" data-pages-review-notice role="note" aria-label="Public review notice" style="margin:20px auto;padding:16px;border:1px solid #b65300;background:#fff1df;color:#1a1714">
+<strong>Public website review.</strong> Forms, sign-in and ordering are previews. Nothing is sent to Hybrid-Ag. Use the team's contact details for a real enquiry.
+</aside>
+  <header class="hero hero--short account-hero page-cover page-cover--photo" data-home-field>
+    <div class="account-hero__media" aria-hidden="true">
+      <img src="assets/banners/market-sectors/horticulture-960.webp" width="960" height="1280" sizes="(max-width: 1040px) 50vw, 25vw" srcset="assets/banners/market-sectors/horticulture-320.webp 320w, assets/banners/market-sectors/horticulture-480.webp 480w, assets/banners/market-sectors/horticulture-768.webp 768w, assets/banners/market-sectors/horticulture-960.webp 960w" alt="" fetchpriority="high" decoding="async">
+      <img src="assets/banners/market-sectors/small-crop-960.webp" width="960" height="1280" sizes="(max-width: 1040px) 50vw, 25vw" srcset="assets/banners/market-sectors/small-crop-320.webp 320w, assets/banners/market-sectors/small-crop-480.webp 480w, assets/banners/market-sectors/small-crop-768.webp 768w, assets/banners/market-sectors/small-crop-960.webp 960w" alt="" decoding="async">
+      <img src="assets/banners/market-sectors/broadacre-960.webp" width="960" height="1280" sizes="(max-width: 1040px) 50vw, 25vw" srcset="assets/banners/market-sectors/broadacre-320.webp 320w, assets/banners/market-sectors/broadacre-480.webp 480w, assets/banners/market-sectors/broadacre-768.webp 768w, assets/banners/market-sectors/broadacre-960.webp 960w" alt="" decoding="async">
+      <img src="assets/banners/market-sectors/viticulture-960.webp" width="960" height="1280" sizes="(max-width: 1040px) 50vw, 25vw" srcset="assets/banners/market-sectors/viticulture-320.webp 320w, assets/banners/market-sectors/viticulture-480.webp 480w, assets/banners/market-sectors/viticulture-768.webp 768w, assets/banners/market-sectors/viticulture-960.webp 960w" alt="" decoding="async">
+    </div>
+    <div class="account-hero__shade" aria-hidden="true"></div>
+    <div class="wrap hero-inner page-cover__inner">
+      <span class="eyebrow">Customer account</span>
+      <h1>Your customer account.</h1>
+      <p class="sub">Existing customers can connect the account they already use. New customers create their business profile once, then reuse it at checkout.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="#account-root">Continue to your account</a>
+        <a class="btn btn--ghost" href="tel:+61357228000">Call the office</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section account-shell">
+    <div class="wrap" id="account-root">
+      <div class="account-loading" data-account-loading>Checking your account...</div>
+
+      <div data-account-portal hidden>
+        <div class="account-userbar">
+          <div><span>Signed in as</span><strong data-user-name></strong><small data-user-email></small></div>
+          <button class="btn btn--quiet" type="button" data-sign-out>Sign out</button>
+        </div>
+
+        <section class="account-saved" aria-labelledby="saved-heading">
+          <div class="account-heading">
+            <div><span class="eyebrow">Saved accounts</span><h2 id="saved-heading">Your Hybrid-Ag businesses.</h2></div>
+            <a class="btn btn--teal" href="order.html" data-return-checkout hidden>Return to checkout</a>
+          </div>
+          <div class="account-list" data-account-list></div>
+        </section>
+
+        <section class="account-start" data-account-start>
+          <span class="eyebrow eyebrow--orange">Set up this login</span>
+          <h2>Are you already a Hybrid-Ag customer?</h2>
+          <div class="account-paths">
+            <button class="account-path account-path--teal" type="button" data-open-link>
+              <span>Existing customer</span><strong>Connect my Hybrid-Ag account</strong><small>We check whether your verified Google email matches your customer account. If it does not, you can request a connection.</small>
+            </button>
+            <button class="account-path account-path--orange" type="button" data-open-application>
+              <span>New customer</span><strong>Create a new account</strong><small>Choose Cash Only or Credit. Credit-only information appears only if you request credit terms.</small>
+            </button>
+          </div>
+        </section>
+
+        <section class="account-panel" data-link-panel hidden>
+          <button class="account-back" type="button" data-close-panel>&larr; Back to account options</button>
+          <span class="eyebrow">Existing customer</span>
+          <h2>Connect the account you already use.</h2>
+          <p>For customer privacy, we do not display or search the full customer database. Enter either detail below and our accounts team will confirm the link to your verified email.</p>
+          <form class="account-link-form" data-link-form novalidate>
+            <div class="form-row">
+              <div class="field-group"><label for="link-account-number">Hybrid-Ag account number <span>Optional</span></label><input class="field" id="link-account-number" name="account_number" autocomplete="off"></div>
+              <div class="field-group"><label for="link-business-name">Business or trading name <span>Optional</span></label><input class="field" id="link-business-name" name="business_name" autocomplete="organization"></div>
+            </div>
+            <div class="account-honeypot" aria-hidden="true"><label for="link-website">Website</label><input id="link-website" name="website" tabindex="-1" autocomplete="off"></div>
+            <p class="form-err" data-link-error role="alert" hidden></p>
+            <button class="btn btn--teal" type="submit">Request account connection</button>
+          </form>
+        </section>
+
+        <section class="account-panel account-panel--application" data-application-panel hidden>
+          <button class="account-back" type="button" data-close-panel>&larr; Back to account options</button>
+          <span class="eyebrow eyebrow--orange">New customer</span>
+          <h2>Create your Hybrid-Ag account.</h2>
+          <p class="account-panel__lead">Use Google to sign in, then provide the business and trading details we need for orders and invoicing.</p>
+
+          <ol class="application-progress" data-application-progress aria-label="Account application progress"></ol>
+          <form class="customer-application" data-customer-application novalidate>
+            <section class="application-step" data-app-step="account">
+              <fieldset><legend>How would you like to trade?</legend>
+                <div class="account-type-options">
+                  <label class="account-type account-type--teal"><input type="radio" name="account_type" value="cash" checked><span><strong>Cash Only</strong><small>Payment is required before delivery. No credit application is needed.</small></span></label>
+                  <label class="account-type account-type--orange"><input type="radio" name="account_type" value="credit"><span><strong>Credit</strong><small>Apply to pay by invoice. Credit assessment details are required.</small></span></label>
+                </div>
+              </fieldset>
+              <div class="application-actions application-actions--end"><button class="btn btn--teal" type="button" data-app-next>Business details</button></div>
+            </section>
+
+            <section class="application-step" data-app-step="business" hidden>
+              <fieldset><legend>Business identity</legend>
+                <div class="form-row"><div class="field-group"><label for="app-legal-name">Full legal business name</label><input class="field" id="app-legal-name" name="legal_name" autocomplete="organization" required></div><div class="field-group"><label for="app-trading-name">Trading name <span>Optional if the same</span></label><input class="field" id="app-trading-name" name="trading_name" autocomplete="organization"></div></div>
+                <div class="form-row"><div class="field-group"><label for="app-structure">Business structure</label><select class="field" id="app-structure" name="business_structure" required><option value="">Select</option><option value="proprietary">Proprietary company</option><option value="sole_trader">Sole trader</option><option value="trust">Trust</option><option value="partnership">Partnership</option></select></div><div class="field-group"><label for="app-abn">ABN</label><input class="field" id="app-abn" name="abn" inputmode="numeric" maxlength="14" required></div></div>
+                <div class="field-group" data-acn-field hidden><label for="app-acn">ACN</label><input class="field" id="app-acn" name="acn" inputmode="numeric" maxlength="11"></div>
+              </fieldset>
+              <div class="application-actions"><button class="btn btn--quiet" type="button" data-app-back>Back</button><button class="btn btn--teal" type="button" data-app-next>Contact and addresses</button></div>
+            </section>
+
+            <section class="application-step" data-app-step="contact" hidden>
+              <fieldset><legend>Primary contact</legend>
+                <div class="form-row"><div class="field-group"><label for="app-contact-name">Contact name</label><input class="field" id="app-contact-name" name="contact_name" autocomplete="name" required></div><div class="field-group"><label for="app-contact-phone">Phone</label><input class="field" id="app-contact-phone" name="contact_phone" type="tel" autocomplete="tel" required></div></div>
+                <div class="field-group"><label for="app-contact-email">Business email</label><input class="field" id="app-contact-email" name="contact_email" type="email" autocomplete="email" required></div>
+              </fieldset>
+              <fieldset><legend>Trading address</legend>
+                <div class="field-group"><label for="trading-line1">Address line 1</label><input class="field" id="trading-line1" name="trading_line1" autocomplete="address-line1" required></div>
+                <div class="field-group"><label for="trading-line2">Address line 2 <span>Optional</span></label><input class="field" id="trading-line2" name="trading_line2" autocomplete="address-line2"></div>
+                <div class="form-row form-row--address"><div class="field-group"><label for="trading-suburb">Suburb / town</label><input class="field" id="trading-suburb" name="trading_suburb" autocomplete="address-level2" required></div><div class="field-group"><label for="trading-state">State</label><select class="field" id="trading-state" name="trading_state" required><option value="">Select</option><option>ACT</option><option>NSW</option><option>NT</option><option>QLD</option><option>SA</option><option>TAS</option><option>VIC</option><option>WA</option></select></div><div class="field-group"><label for="trading-postcode">Postcode</label><input class="field" id="trading-postcode" name="trading_postcode" inputmode="numeric" maxlength="4" required></div></div>
+              </fieldset>
+              <label class="application-check"><input type="checkbox" name="delivery_same" checked><span>Delivery address is the same as the trading address</span></label>
+              <fieldset data-delivery-address hidden><legend>Delivery address</legend>
+                <div class="field-group"><label for="delivery-line1">Address line 1</label><input class="field" id="delivery-line1" name="delivery_line1" autocomplete="shipping address-line1"></div>
+                <div class="field-group"><label for="delivery-line2">Address line 2 <span>Optional</span></label><input class="field" id="delivery-line2" name="delivery_line2" autocomplete="shipping address-line2"></div>
+                <div class="form-row form-row--address"><div class="field-group"><label for="delivery-suburb">Suburb / town</label><input class="field" id="delivery-suburb" name="delivery_suburb"></div><div class="field-group"><label for="delivery-state">State</label><select class="field" id="delivery-state" name="delivery_state"><option value="">Select</option><option>ACT</option><option>NSW</option><option>NT</option><option>QLD</option><option>SA</option><option>TAS</option><option>VIC</option><option>WA</option></select></div><div class="field-group"><label for="delivery-postcode">Postcode</label><input class="field" id="delivery-postcode" name="delivery_postcode" inputmode="numeric" maxlength="4"></div></div>
+              </fieldset>
+              <div class="application-actions"><button class="btn btn--quiet" type="button" data-app-back>Back</button><button class="btn btn--teal" type="button" data-app-next>Continue</button></div>
+            </section>
+
+            <section class="application-step" data-app-step="credit" hidden>
+              <div class="credit-intro"><span>Credit application</span><strong>These details are only required to pay by invoice.</strong><p>They reflect the existing Hybrid-Ag credit process. Licence images and structure-specific documents are requested after submission.</p></div>
+              <fieldset><legend>Credit request</legend><div class="form-row"><div class="field-group"><label for="credit-monthly">Estimated monthly purchases</label><div class="money-field"><span>$</span><input class="field" id="credit-monthly" name="estimated_monthly_purchases" inputmode="decimal" data-credit-required></div></div><div class="field-group"><label for="credit-limit">Credit limit required</label><div class="money-field"><span>$</span><input class="field" id="credit-limit" name="credit_limit_required" inputmode="decimal" data-credit-required></div></div></div></fieldset>
+              <fieldset><legend>Accounts payable</legend><div class="form-row"><div class="field-group"><label for="ap-name">Contact name</label><input class="field" id="ap-name" name="ap_name" data-credit-required></div><div class="field-group"><label for="ap-phone">Phone</label><input class="field" id="ap-phone" name="ap_phone" type="tel" data-credit-required></div></div><div class="field-group"><label for="ap-email">Email</label><input class="field" id="ap-email" name="ap_email" type="email" data-credit-required></div></fieldset>
+              <fieldset><legend>Bank details</legend><div class="form-row form-row--bank"><div class="field-group"><label for="bank-name">Bank</label><input class="field" id="bank-name" name="bank_name" data-credit-required></div><div class="field-group"><label for="bank-bsb">BSB</label><input class="field" id="bank-bsb" name="bank_bsb" inputmode="numeric" data-credit-required></div><div class="field-group"><label for="bank-account">Account number</label><input class="field" id="bank-account" name="bank_account_number" inputmode="numeric" data-credit-required></div></div></fieldset>
+              <fieldset><legend>Primary director, owner or trustee</legend><div class="form-row"><div class="field-group"><label for="director-name">Full name</label><input class="field" id="director-name" name="director_name" data-credit-required></div><div class="field-group"><label for="director-dob">Date of birth</label><input class="field" id="director-dob" name="director_dob" type="date" data-credit-required></div></div><div class="field-group"><label for="director-address">Residential address</label><input class="field" id="director-address" name="director_address" data-credit-required></div><div class="field-group"><label for="director-licence">Driver's licence number</label><input class="field" id="director-licence" name="director_licence" data-credit-required></div></fieldset>
+              <fieldset><legend>Three trade references</legend><p class="fieldset-note">Suppliers you have traded with on credit for at least six months.</p><div class="trade-reference-grid">
+                <div class="trade-reference"><strong>Reference 1</strong><input class="field" name="ref_1_company" placeholder="Company" aria-label="Reference 1 company" data-credit-required><input class="field" name="ref_1_name" placeholder="Contact name" aria-label="Reference 1 contact name" data-credit-required><input class="field" name="ref_1_email" type="email" placeholder="Email" aria-label="Reference 1 email" data-credit-required><input class="field" name="ref_1_phone" placeholder="Phone" aria-label="Reference 1 phone" data-credit-required></div>
+                <div class="trade-reference"><strong>Reference 2</strong><input class="field" name="ref_2_company" placeholder="Company" aria-label="Reference 2 company" data-credit-required><input class="field" name="ref_2_name" placeholder="Contact name" aria-label="Reference 2 contact name" data-credit-required><input class="field" name="ref_2_email" type="email" placeholder="Email" aria-label="Reference 2 email" data-credit-required><input class="field" name="ref_2_phone" placeholder="Phone" aria-label="Reference 2 phone" data-credit-required></div>
+                <div class="trade-reference"><strong>Reference 3</strong><input class="field" name="ref_3_company" placeholder="Company" aria-label="Reference 3 company" data-credit-required><input class="field" name="ref_3_name" placeholder="Contact name" aria-label="Reference 3 contact name" data-credit-required><input class="field" name="ref_3_email" type="email" placeholder="Email" aria-label="Reference 3 email" data-credit-required><input class="field" name="ref_3_phone" placeholder="Phone" aria-label="Reference 3 phone" data-credit-required></div>
+              </div></fieldset>
+              <fieldset><legend>Director's / guarantor's guarantee</legend><div class="form-row"><div class="field-group"><label for="guarantor-name">Guarantor name</label><input class="field" id="guarantor-name" name="guarantor_name" data-credit-required></div><div class="field-group"><label for="guarantor-signature">Digital signature</label><input class="field" id="guarantor-signature" name="guarantor_signature" placeholder="Type full name" data-credit-required></div></div><div class="form-row"><div class="field-group"><label for="witness-name">Witness name</label><input class="field" id="witness-name" name="witness_name" data-credit-required></div><div class="field-group"><label for="witness-signature">Witness signature</label><input class="field" id="witness-signature" name="witness_signature" placeholder="Type full name" data-credit-required></div></div><div class="field-group"><label for="witness-address">Witness address</label><input class="field" id="witness-address" name="witness_address" data-credit-required></div></fieldset>
+              <div class="application-actions"><button class="btn btn--quiet" type="button" data-app-back>Back</button><button class="btn btn--teal" type="button" data-app-next>Review application</button></div>
+            </section>
+
+            <section class="application-step" data-app-step="review" hidden>
+              <div class="application-review" data-application-review></div>
+              <div class="field-group"><label for="app-signatory">Authorised signatory</label><input class="field" id="app-signatory" name="authorised_signatory" required></div>
+              <label class="application-check application-check--terms"><input type="checkbox" name="terms_accepted" required><span>I certify the information is correct, I am authorised to act for the applicant, and I accept Hybrid-Ag's <a href="terms.html" target="_blank" rel="noopener">trading terms</a> and <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a>. Credit applications remain subject to approval and the current credit terms and guarantee.</span></label>
+              <div class="account-honeypot" aria-hidden="true"><label for="application-website">Website</label><input id="application-website" name="website" tabindex="-1" autocomplete="off"></div>
+              <p class="form-err" data-application-error role="alert" hidden></p>
+              <div class="application-actions"><button class="btn btn--quiet" type="button" data-app-back>Back</button><button class="btn btn--teal" type="submit" data-application-submit>Submit account application</button></div>
+            </section>
+          </form>
+        </section>
+
+        <section class="account-complete" data-account-complete hidden></section>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-band account-help"><div class="wrap"><h3>Need help setting up your account?</h3><a class="pill pill--teal" href="tel:+61357228000">Call (03) 5722 8000</a></div></section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/customer-auth.js?v=1d04439703"></script>
+<script src="js/account-application.js?v=227a02e990"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

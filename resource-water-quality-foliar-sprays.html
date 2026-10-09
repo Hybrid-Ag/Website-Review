@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Water Quality and Foliar Sprays - Hybrid-Ag</title>
+<meta name="description" content="An Australian guide to pH, alkalinity, hardness and conductivity when assessing water for foliar sprays.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/resource-guide.css?v=d22eeb9772">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Water quality and foliar sprays","description":"A practical Australian guide to water quality for foliar spray decisions.","image":"https://www.hybridag.com.au/assets/photos/water-testing-hero.jpg","mainEntityOfPage":"https://www.hybridag.com.au/resource-water-quality-foliar-sprays.html","publisher":{"@type":"Organization","name":"Hybrid-Ag","logo":{"@type":"ImageObject","url":"https://www.hybridag.com.au/assets/hybrid-ag-logo.png"}}}</script>
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/resource-water-quality-foliar-sprays.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Water Quality and Foliar Sprays - Hybrid-Ag">
+<meta property="og:description" content="An Australian guide to pH, alkalinity, hardness and conductivity when assessing water for foliar sprays.">
+<meta property="og:url" content="https://www.hybridag.com.au/resource-water-quality-foliar-sprays.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Water Quality and Foliar Sprays - Hybrid-Ag">
+<meta name="twitter:description" content="An Australian guide to pH, alkalinity, hardness and conductivity when assessing water for foliar sprays.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body class="resource-refined" data-page="resources">
+<div id="site-header"></div>
+
+<main>
+  <header class="guide-hero page-cover page-cover--photo" data-home-field>
+    <img class="guide-hero__image" src="assets/photos/responsive/water-testing-hero-1800.webp" decoding="async" height="868" width="1812" sizes="100vw" srcset="assets/photos/responsive/water-testing-hero-480.webp 480w, assets/photos/responsive/water-testing-hero-768.webp 768w, assets/photos/responsive/water-testing-hero-1200.webp 1200w, assets/photos/responsive/water-testing-hero-1800.webp 1800w" alt="Water being collected for testing before use in a crop" fetchpriority="high">
+    <div class="guide-hero__shade" aria-hidden="true"></div>
+    <div class="wrap guide-hero__inner page-cover__inner">
+      <a class="guide-hero__back" href="knowledge-center.html">Resources</a>
+      <span class="eyebrow">Water quality and foliar sprays</span>
+      <h1>Water is part of every foliar spray.</h1>
+      <p>Before preparing a foliar prescription, check the water you will use. A water report helps the team assess it alongside the crop&rsquo;s Nutrient requirements and current product directions.</p>
+      <div class="cta-row"><a class="btn btn--teal" href="#water-measures">Understand the measures</a><a class="btn guide-hero__secondary" href="soil-test.html?test=water">Request water testing</a></div>
+    </div>
+  </header>
+
+  <section class="guide-intro" data-home-field data-reveal>
+    <div class="wrap guide-intro__grid">
+      <div><span class="eyebrow eyebrow--orange">Before mixing</span><h2>Water quality can affect a spray mix.</h2></div>
+      <div class="guide-intro__copy">
+        <p>Dissolved minerals, suspended material and treatment residues can affect the way a foliar mix behaves. The source water needs to be considered with the intended Hybrid-Ag products, whether they form a prescription blend or are applied separately.</p>
+        <p>Send the team the full water report, including the sample date and reporting units. Explain where the water comes from, any treatment it receives and which crop and application you are considering. A hardness result alone cannot establish whether a mix is suitable.</p>
+        <div class="guide-intro__note"><strong>pH and alkalinity are not the same measurement.</strong><p>pH shows how acidic or alkaline the water is when tested. Alkalinity measures its capacity to neutralise acid. Hardness mainly reflects dissolved Calcium and Magnesium.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-blocks" id="water-measures" data-home-field data-reveal>
+    <div class="wrap">
+      <div class="guide-heading">
+        <div><span class="eyebrow eyebrow--berry">Reading a water report</span><h2>Know what each measure represents.</h2></div>
+        <p>Interpret each measurement for the intended use. No single number gives a complete assessment of water quality.</p>
+      </div>
+      <div class="guide-blocks__grid">
+        <article><span>01</span><h3>pH</h3><p>How acidic or alkaline the sample is when tested. The reading can change after treatment or mixing, but it does not tell you the water&rsquo;s capacity to neutralise acid.</p></article>
+        <article><span>02</span><h3>Alkalinity and bicarbonate</h3><p>Alkalinity describes the water&rsquo;s capacity to neutralise acid and resist pH change. Bicarbonate may also be reported separately, so check which result and reporting basis you are reading.</p></article>
+        <article><span>03</span><h3>Total hardness</h3><p>Commonly reflects dissolved Calcium and Magnesium. Ask for the reporting basis so one result can be compared with another.</p></article>
+        <article><span>04</span><h3>EC and dissolved salts</h3><p>Electrical conductivity indicates the combined contribution of dissolved salts. It does not identify the individual salts or elements behind the reading.</p></article>
+        <article><span>05</span><h3>Specific constituents</h3><p>Sodium, chloride, Boron, Iron, Manganese and other measured elements may matter differently for sprays, fertigation and irrigation.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-band" data-reveal>
+    <div class="wrap">
+      <div class="guide-heading">
+        <div><span class="eyebrow">Australian reporting units</span><h2>Check the units before comparing results.</h2></div>
+        <p>Overseas guidance may use grains per gallon, Fahrenheit or gallons per acre. Check the units and reporting basis before comparing those figures with an Australian laboratory report.</p>
+      </div>
+      <p class="guide-table-scroll-hint" id="water-units-scroll">Scroll across to compare the units and reporting notes.</p>
+      <div class="guide-table-wrap" role="region" tabindex="0" aria-label="Water report units" aria-describedby="water-units-scroll">
+        <table class="guide-table">
+          <caption>Common units on Australian water reports</caption>
+          <thead><tr><th scope="col">Measurement</th><th scope="col">Reporting unit</th><th scope="col">What to check</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Hardness and alkalinity</th><td>mg/L as CaCO<sub>3</sub></td><td>Keep the reporting basis attached. Bicarbonate may be listed separately as mg/L HCO<sub>3</sub>.</td></tr>
+            <tr><th scope="row">Conductivity</th><td>dS/m or &micro;S/cm</td><td>1 dS/m = 1 mS/cm = 1,000 &micro;S/cm.</td></tr>
+            <tr><th scope="row">Individual constituents</th><td>mg/L</td><td>Keep the constituent&rsquo;s name with its value, such as Sodium, chloride, Boron, Iron or Manganese.</td></tr>
+            <tr><th scope="row">pH and SAR</th><td>Reported without a physical unit</td><td>These are different measures. Sodium adsorption ratio (SAR) is interpreted for irrigation and soil conditions; it is not a general test of foliar suitability.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-split" data-home-field data-reveal>
+    <div class="guide-split__image"><img src="assets/photos/responsive/paddock-green-1800.webp" height="1278" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/paddock-green-480.webp 480w, assets/photos/responsive/paddock-green-768.webp 768w, assets/photos/responsive/paddock-green-1200.webp 1200w, assets/photos/responsive/paddock-green-1800.webp 1800w" alt="Irrigated crop paddock" loading="lazy" decoding="async"></div>
+    <div class="guide-split__copy">
+      <span class="eyebrow eyebrow--orange">Checking treated water</span>
+      <h2>Test the water after treatment.</h2>
+      <p>Different treatments change different properties of the water. The treatment name alone does not tell you whether the water is suitable. Test it where it fills the spray tank or irrigation system.</p>
+      <div class="guide-split__list">
+        <div><strong>Filtration</strong><p>May remove suspended material without removing dissolved hardness or alkalinity. Check the system specification and the treated result.</p></div>
+        <div><strong>Softening</strong><p>Exchanges ions rather than simply removing everything dissolved. Review Sodium, chloride, hardness and the intended use.</p></div>
+        <div><strong>Acidification</strong><p>Changes pH and may neutralise part of the alkalinity. A lower pH reading does not prove that hardness or buffering has disappeared.</p></div>
+        <div><strong>Reverse osmosis</strong><p>Can reduce dissolved salts, but the output depends on feed water, membrane condition, recovery and maintenance. Verify the water produced.</p></div>
+      </div>
+      <a class="btn btn--teal" href="soil-test.html?test=water">Request water testing</a>
+    </div>
+  </section>
+
+  <section class="guide-intro" data-home-field data-reveal>
+    <div class="wrap guide-intro__grid">
+      <div><span class="eyebrow eyebrow--berry">Before the foliar mix</span><h2>Use the report with the product directions.</h2></div>
+      <div class="guide-intro__copy">
+        <p>Arrange the current sampling instructions with the team before collecting water. Identify the bore, dam, river, tank, mains supply or blend, and sample the water that actually fills the spray unit. Keep the source and treatment details with the report so a later result can be compared properly.</p>
+        <p>For a proposed foliar prescription, the team also needs to know the crop, intended products, equipment and application conditions. Mixing order, compatibility, pH adjustment and water-conditioning requirements must follow the current Australian label and product-specific technical advice.</p>
+        <p>Review whether another test is needed when the source or treatment changes, including seasonal changes to the supply. A previous report describes the sample tested, not every future tank fill.</p>
+        <div class="guide-intro__note"><strong>A jar check is not proof of crop safety.</strong><p>It does not prove product compatibility or show how the crop will respond. Follow the current label and the team&rsquo;s technical advice.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-source" data-home-field data-reveal>
+    <div class="wrap guide-source__inner">
+      <div><span class="eyebrow eyebrow--orange">Source material</span><h2>About this guide.</h2></div>
+      <p>This guide draws on Advancing Eco Agriculture founder <a href="https://advancingecoag.com/about-john-kempf/">John Kempf</a>&rsquo;s educational presentation, <cite>Water Quality &amp; How to Design Foliar Sprays</cite>, alongside Hybrid-Ag&rsquo;s laboratory reference material. AEA&rsquo;s examples use US units and general working guidelines; they are not product-specific Hybrid-Ag recommendations. This guide uses common Australian reporting units. Decisions about a Hybrid-Ag prescription or product still require the current label, crop details and advice from the team.</p>
+    </div>
+  </section>
+
+  <section class="guide-related" data-home-field data-reveal>
+    <div class="wrap">
+      <span class="eyebrow eyebrow--berry">Keep going</span>
+      <h2>Related resources.</h2>
+      <div class="guide-related__grid">
+        <a href="services-water-testing.html"><span>Testing service</span><h3>Water testing and interpretation.</h3><p>Interpret water results for sprays, irrigation or fertigation and the delivery system being used.</p><strong>Explore water testing</strong></a>
+        <a href="resource-testing-layers.html"><span>Understand your results</span><h3>What each test can tell you.</h3><p>Understand what soil, plant, water and produce tests can and cannot show.</p><strong>Read the guide</strong></a>
+        <a href="resource-sampling-context.html"><span>Sampling records</span><h3>Make every sample a useful reference.</h3><p>Keep the original report and sample details together as a useful reference for future crop nutrition decisions.</p><strong>Read the guide</strong></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-cta" data-reveal>
+    <div class="wrap guide-cta__inner">
+      <div><span class="eyebrow">Start with the source water</span><h2>Ask about testing your spray water.</h2></div>
+      <div class="cta-row"><a class="btn guide-cta__primary" href="soil-test.html?test=water">Request water testing</a><a class="btn guide-cta__secondary" href="knowledge-center.html">Back to Resources</a></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

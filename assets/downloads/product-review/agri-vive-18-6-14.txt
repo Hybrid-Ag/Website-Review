@@ -1,0 +1,24 @@
+Agri-Vive 18.6.14 | Hybrid-Ag working product reference
+REVIEW DRAFT. Not a label, Safety Data Sheet or application recommendation.
+
+Liquid NPK for a combined requirement.
+Agri-Vive 18.6.14 combines Nitrogen, Phosphorus and Potassium in one liquid fertiliser.
+The staged grade is an option where Nitrogen and Potassium are required together, with Phosphorus also supplied in the application.
+
+Overview
+Agri-Vive 18.6.14 supplies Nitrogen and Potassium together, with Phosphorus in the same liquid application. It offers a fixed grade to assess when the crop’s requirements include that combination. The amounts of all three Nutrients need to be reviewed, even if one of them prompted the discussion.
+A combined feed can be useful where its proportions match the crop. Soil and plant results, previous inputs and the nutrition still required help establish that match. If the crop needs a different balance, the recommendation can be tailored rather than increasing every Nutrient in the grade to meet the shortage of one.
+
+Composition source: dashboard staging. Basis: % w/v
+These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.
+Nitrogen (N): 18.4
+Phosphorus (P): 6.69974
+Potassium (K): 14.174
+Carbon (Carbon): 0.132026
+
+Application
+Discuss the crop’s demand and your application equipment with the team. Method and timing need to be chosen for the crop, not inferred from the product name.
+Confirm the current product label, crop-specific recommendation, mixing and handling directions with the team.
+
+Price, pack availability, codes and document revisions require confirmation. Nothing has been ordered or approved.
+Prepared 6 October 2026 from the local website review register.

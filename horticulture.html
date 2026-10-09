@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horticulture — Hybrid-Ag</title>
+<meta name="description" content="Horticultural nutrition informed by soil, water, plant and fruit tests, with recommendations suited to the block and crop stage.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/horticulture.css?v=88dc522c2e">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/segment-refinements.css?v=830f50d657">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/horticulture.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Horticulture — Hybrid-Ag">
+<meta property="og:description" content="Horticultural nutrition informed by soil, water, plant and fruit tests, with recommendations suited to the block and crop stage.">
+<meta property="og:url" content="https://www.hybridag.com.au/horticulture.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Horticulture — Hybrid-Ag">
+<meta name="twitter:description" content="Horticultural nutrition informed by soil, water, plant and fruit tests, with recommendations suited to the block and crop stage.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body class="segment-refined" data-page="sectors">
+<div id="site-header"></div>
+
+<main>
+  <header class="hort-hero page-cover page-cover--photo" data-home-field>
+    <img class="hort-hero__image" src="assets/photos/responsive/fruit-on-tree-1800.webp" decoding="async" height="1280" width="1920" sizes="100vw" srcset="assets/photos/responsive/fruit-on-tree-480.webp 480w, assets/photos/responsive/fruit-on-tree-768.webp 768w, assets/photos/responsive/fruit-on-tree-1200.webp 1200w, assets/photos/responsive/fruit-on-tree-1800.webp 1800w" alt="Apples growing on the tree in a horticulture block" fetchpriority="high">
+    <div class="hort-hero__shade" aria-hidden="true"></div>
+    <div class="wrap hort-hero__inner page-cover__inner">
+      <span class="eyebrow">Horticulture</span>
+      <h1>Precision nutrition for horticulture.</h1>
+      <p>Fruit quality and pack-out matter alongside yield. Hybrid-Ag reviews soil, water, plant and fruit results with the block’s history to guide prescription blends and nutrition decisions through the season.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="soil-test.html?sector=horticulture">Request horticulture testing</a>
+        <a class="btn hort-hero__secondary" href="#crop-chapters">Explore the crops</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hort-score" data-reveal data-home-field>
+    <div class="wrap hort-score__heading">
+      <div>
+        <span class="eyebrow eyebrow--orange">Fruit quality and market requirements</span>
+        <h2>Consider what can be packed and sold.</h2>
+      </div>
+      <p>A harvest result includes the quantity picked, the grades achieved and how the fruit holds through storage and sale.</p>
+    </div>
+    <div class="wrap hort-score__grid">
+      <div><span>01</span><strong>Marketable yield</strong><p>The portion of the crop that reaches the intended market rather than harvested weight alone.</p></div>
+      <div><span>02</span><strong>Pack-out and grade</strong><p>Uniformity, defects and the share of fruit that meets the specification the block is targeting.</p></div>
+      <div><span>03</span><strong>Fruit quality</strong><p>Size, firmness, colour, sugars and condition interpreted against crop, variety and stage.</p></div>
+      <div><span>04</span><strong>Storage and shelf life</strong><p>How fruit condition holds after harvest, through storage and sale.</p></div>
+    </div>
+  </section>
+
+  <section class="hort-crops" id="crop-chapters" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="hort-crops__heading">
+        <div>
+          <span class="eyebrow eyebrow--berry">Crop-specific support</span>
+          <h2>Advice suited to the crop.</h2>
+        </div>
+        <p>Each crop has different growth stages and production requirements. The pages below explain how these shape the testing and nutrition work.</p>
+      </div>
+      <div class="hort-chapters">
+        <article class="hort-chapter">
+          <div class="hort-chapter__image"><img src="assets/photos/responsive/cherries-1800.webp" height="1280" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/cherries-480.webp 480w, assets/photos/responsive/cherries-768.webp 768w, assets/photos/responsive/cherries-1200.webp 1200w, assets/photos/responsive/cherries-1800.webp 1800w" alt="Market-ready cherries showing the crop quality target" loading="lazy" decoding="async"></div>
+          <div class="hort-chapter__body">
+            <span class="hort-chapter__status">Cherry nutrition</span>
+            <h3>Cherries</h3>
+            <p>The cherry guide covers post-harvest reserves and dormancy, bud and flower development, set and cell division, then fruit development and harvest.</p>
+            <div class="hort-chapter__links"><a href="program-cherries.html">Explore the Cherry Program</a><a href="sectors-cherries.html">Read about cherry nutrition</a></div>
+          </div>
+        </article>
+        <article class="hort-chapter hort-chapter--apple">
+          <div class="hort-chapter__image"><img src="assets/photos/responsive/fruit-on-tree-1800.webp" height="1280" width="1920" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/fruit-on-tree-480.webp 480w, assets/photos/responsive/fruit-on-tree-768.webp 768w, assets/photos/responsive/fruit-on-tree-1200.webp 1200w, assets/photos/responsive/fruit-on-tree-1800.webp 1800w" alt="Red apples growing in an orchard block" loading="lazy" decoding="async"></div>
+          <div class="hort-chapter__body">
+            <span class="hort-chapter__status">Apple nutrition</span>
+            <h3>Apples</h3>
+            <p>The Apple Playbook covers soil and water, crop load, fruit quality, storage and pack-out, with a sample Pink Lady nutrition program to review with the team.</p>
+            <div class="hort-chapter__links"><a href="program-apples.html">Explore the Apple Program</a><a href="sectors-apples.html">Read about apple nutrition</a></div>
+          </div>
+        </article>
+      </div>
+      <div class="hort-crops__more">
+        <strong>Across the sector</strong>
+        <span>Stone fruit &middot; Berries &middot; Other tree crops</span>
+        <p>Testing and recommendations are adapted to the crop, variety and region, taking account of the block and its quality requirements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="hort-season" data-reveal data-home-field>
+    <div class="wrap hort-season__heading">
+      <div>
+        <span class="eyebrow">Across the season</span>
+        <h2>Plan from post-harvest through to picking.</h2>
+      </div>
+      <p>Growth stage affects how a test result is interpreted. Recommendations follow the stage of the trees in the block rather than a fixed calendar date.</p>
+    </div>
+    <div class="wrap hort-season__grid" role="list">
+      <article role="listitem"><span>01</span><h3>Post-harvest</h3><p>The current crop is off. Review what the block showed and begin rebuilding the reserves that support the next season.</p></article>
+      <article role="listitem"><span>02</span><h3>Senescence and dormancy</h3><p>Nutrients move to storage, leaves shut down and the tree transitions through rest and chill.</p></article>
+      <article role="listitem"><span>03</span><h3>Bud and flower</h3><p>Stored reserves support early growth before the canopy is fully working and flowering becomes the immediate focus.</p></article>
+      <article role="listitem"><span>04</span><h3>Set and cell division</h3><p>Fruit number and the early cell framework are established in a narrow window where crop load matters.</p></article>
+      <article role="listitem"><span>05</span><h3>Expansion and fill</h3><p>Canopy, roots, water and Nutrient movement support fruit growth while the next crop is also taking shape.</p></article>
+      <article role="listitem"><span>06</span><h3>Ripening and harvest</h3><p>Colour, sugars, firmness and condition are read against crop load, variety and the target market specification.</p></article>
+    </div>
+  </section>
+
+  <section class="hort-method" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="hort-method__heading">
+        <div>
+          <span class="eyebrow">The Hybrid-Ag approach</span>
+          <h2>Position. Pattern. Plan.</h2>
+        </div>
+        <p>These questions help us relate the available results to the crop, block and season.</p>
+      </div>
+      <div class="hort-method__grid">
+        <div><span>01</span><strong>Position</strong><h3>Where is the block now?</h3><p>Establish the crop, variety or rootstock, stage, crop load and current soil, plant, water and fruit evidence.</p></div>
+        <div><span>02</span><strong>Pattern</strong><h3>How did it get here?</h3><p>Review previous tests and applications, changes through the season, and fruit quality and tree condition after harvest.</p></div>
+        <div><span>03</span><strong>Plan</strong><h3>What should happen next?</h3><p>Agree on what needs attention now, what can wait until a later stage and what needs checking.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hort-read" data-reveal data-home-field>
+    <div class="hort-read__image"><img src="assets/photos/responsive/orchard-block-1800.webp" height="909" width="1920" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/orchard-block-480.webp 480w, assets/photos/responsive/orchard-block-768.webp 768w, assets/photos/responsive/orchard-block-1200.webp 1200w, assets/photos/responsive/orchard-block-1800.webp 1800w" alt="Productive rows in a horticulture block" loading="lazy" decoding="async"></div>
+    <div class="hort-read__copy">
+      <span class="eyebrow eyebrow--orange">Testing and block information</span>
+      <h2>Review more than the harvest result.</h2>
+      <p>Conditions throughout the season help explain a harvest result. We consider the available tests and block records before recommending inputs.</p>
+      <dl>
+        <div><dt>Soil and roots</dt><dd>Soil structure, mineral balance, Carbon, biology and the root zone.</dd></div>
+        <div><dt>Water</dt><dd>Quality and delivery conditions affecting irrigation, fertigation and foliar work.</dd></div>
+        <div><dt>Leaf and sap</dt><dd>Plant test results considered alongside growth stage, crop load and Nutrient demand.</dd></div>
+        <div><dt>Fruit and removals</dt><dd>Pack-out, quality, yield and what leaves the block with the crop.</dd></div>
+      </dl>
+      <a class="btn btn--teal" href="services-testing.html">Explore testing and interpretation</a>
+    </div>
+  </section>
+
+  <section class="hort-team" data-reveal data-home-field>
+    <div class="hort-team__copy">
+      <span class="eyebrow eyebrow--berry">Horticulture team</span>
+      <h2>Advice informed by orchard experience.</h2>
+      <p>Andrew Smith leads Hybrid-Ag&rsquo;s horticulture work and brings experience from his own orchard to his agronomic advice. The wider team helps interpret test results and plan applications for the block.</p>
+      <a class="btn btn--teal" href="team.html">Meet the horticulture team</a>
+    </div>
+    <div class="hort-team__image"><img src="assets/team/responsive/andrew-smith-field-772.webp" height="515" width="772" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/team/responsive/andrew-smith-field-480.webp 480w, assets/team/responsive/andrew-smith-field-768.webp 768w, assets/team/responsive/andrew-smith-field-772.webp 772w" alt="Andrew Smith with cherries in the Smiths Fruit packing shed" loading="lazy" decoding="async"></div>
+  </section>
+
+  <section class="hort-cta" data-reveal data-home-field>
+    <div class="wrap hort-cta__inner">
+      <div>
+        <span class="eyebrow">Discuss your block</span>
+        <h2>Talk to us about your crop.</h2>
+        <p>Tell us what you are growing and share any results you already have.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn hort-cta__primary" href="soil-test.html?sector=horticulture">Request horticulture testing</a>
+        <a class="btn hort-cta__secondary" href="contact.html">Talk to the team</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search Hybrid-Ag</title>
+<meta name="description" content="Find Hybrid-Ag testing services, crop programs, agronomy resources, products and people.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/search.css?v=8844aa7b22">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/search.html">
+
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Search Hybrid-Ag">
+<meta property="og:description" content="Find Hybrid-Ag testing services, crop programs, agronomy resources, products and people.">
+<meta property="og:url" content="https://www.hybridag.com.au/search.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Search Hybrid-Ag">
+<meta name="twitter:description" content="Find Hybrid-Ag testing services, crop programs, agronomy resources, products and people.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="resources">
+<div id="site-header"></div>
+
+<main class="search-page" data-site-search-page>
+<aside class="wrap" data-pages-review-notice role="note" aria-label="Public review notice" style="margin:20px auto;padding:16px;border:1px solid #b65300;background:#fff1df;color:#1a1714">
+<strong>Public website review.</strong> Forms, sign-in and ordering are previews. Nothing is sent to Hybrid-Ag. Use the team's contact details for a real enquiry.
+</aside>
+  <header class="search-page__intro page-cover">
+    <div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="wrap page-cover__inner">
+      <span class="eyebrow">Hybrid-Ag Finder</span>
+      <h1>What are you looking for?</h1>
+      <p>Find testing services, crop programs, resources, products or a member of the team.</p>
+      <form class="search-page-form" id="searchPageForm" role="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4 4"></path></svg>
+        <label for="searchPageInput">Search Hybrid-Ag</label>
+        <input id="searchPageInput" type="search" autocomplete="off" spellcheck="false" placeholder="Try soil testing, DSA, cherries or a product name" aria-controls="searchPageResults">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+  <section class="search-page__body">
+    <div class="wrap">
+      <p class="search-page__summary" id="searchPageSummary" aria-live="polite"></p>
+      <div class="search-page-results" id="searchPageResults"></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/data/search-index.js?v=a43df82534"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/search.js?v=7818a27de4"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

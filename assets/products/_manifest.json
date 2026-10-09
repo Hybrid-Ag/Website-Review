@@ -1,0 +1,670 @@
+[
+ {
+  "id": 28104,
+  "name": "Agri-Vive 0.0.30",
+  "slug": "agri-vive-0-0-30",
+  "href": "agri-vive-0-0-30.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28105,
+  "name": "Agri-Vive 0.0.30 (NOP Organic)",
+  "slug": "agri-vive-0-0-30-organic",
+  "href": "agri-vive-0-0-30-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28106,
+  "name": "Agri-Vive 10.10.10",
+  "slug": "agri-vive-10-10-10",
+  "href": "agri-vive-10-10-10.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28107,
+  "name": "Agri-Vive 12.18.0",
+  "slug": "agri-vive-12-18-0",
+  "href": "agri-vive-12-18-0.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28086,
+  "name": "Agri-Vive 18.6.14",
+  "slug": "agri-vive-18-6-14",
+  "href": "agri-vive-18-6-14.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28108,
+  "name": "Agri-Vive 22.5.6",
+  "slug": "agri-vive-22-5-6",
+  "href": "agri-vive-22-5-6.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28109,
+  "name": "Agri-Vive 3.14.32",
+  "slug": "agri-vive-3-14-32",
+  "href": "agri-vive-3-14-32.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28111,
+  "name": "Agri-Vive Post Harvest Boost",
+  "slug": "agri-vive-post-harvest-boost",
+  "href": "agri-vive-post-harvest-boost.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28113,
+  "name": "Agri-Vive RF",
+  "slug": "agri-vive-rf",
+  "href": "agri-vive-rf.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28114,
+  "name": "Amino Plex",
+  "slug": "amino-plex",
+  "href": "amino-plex.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28115,
+  "name": "Amplify",
+  "slug": "amplify",
+  "href": "amplify.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28116,
+  "name": "Bio-Sea Black",
+  "slug": "bio-sea-black",
+  "href": "bio-sea-black.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28117,
+  "name": "Bio-Sea Black Organic",
+  "slug": "bio-sea-black-organic",
+  "href": "bio-sea-black-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28118,
+  "name": "Bio-Sea FKF",
+  "slug": "bio-sea-fkf",
+  "href": "bio-sea-fkf.html",
+  "has_analysis": true,
+  "handbuilt": true
+ },
+ {
+  "id": 28119,
+  "name": "Bio-Sea FKF Organic",
+  "slug": "bio-sea-fkf-organic",
+  "href": "bio-sea-fkf-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28120,
+  "name": "Bio-Sea Fish",
+  "slug": "bio-sea-fish",
+  "href": "bio-sea-fish.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28121,
+  "name": "Bio-Sea Soil Activator",
+  "slug": "bio-sea-soil-activator",
+  "href": "bio-sea-soil-activator.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28122,
+  "name": "Cell-Ex",
+  "slug": "cell-ex",
+  "href": "cell-ex.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28123,
+  "name": "Eco-Gibb",
+  "slug": "eco-gibb",
+  "href": "eco-gibb.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28125,
+  "name": "Frost-Ex",
+  "slug": "frost-ex",
+  "href": "frost-ex.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28126,
+  "name": "Fruitify",
+  "slug": "fruitify",
+  "href": "fruitify.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28127,
+  "name": "Fulvix",
+  "slug": "fulvix",
+  "href": "fulvix.html",
+  "has_analysis": false
+ },
+ {
+  "id": 28128,
+  "name": "Green-Tee 10.0.10",
+  "slug": "green-tee-10-0-10",
+  "href": "green-tee-10-0-10.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28129,
+  "name": "Green-Tee 12.0.10 + Fe",
+  "slug": "green-tee-12-0-10-plus-fe",
+  "href": "green-tee-12-0-10-plus-fe.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28130,
+  "name": "Green-Tee Colour Max",
+  "slug": "green-tee-colour-max",
+  "href": "green-tee-colour-max.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28131,
+  "name": "Green-Tee Conditioner",
+  "slug": "green-tee-conditioner",
+  "href": "green-tee-conditioner.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28132,
+  "name": "Green-Tee Nitro",
+  "slug": "green-tee-nitro",
+  "href": "green-tee-nitro.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28133,
+  "name": "Humix",
+  "slug": "humix",
+  "href": "humix.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28134,
+  "name": "IronMan",
+  "slug": "ironman",
+  "href": "ironman.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28135,
+  "name": "K-Max",
+  "slug": "k-max",
+  "href": "k-max.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28136,
+  "name": "K-Max (NOP Organic)",
+  "slug": "k-max-organic",
+  "href": "k-max-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28137,
+  "name": "Liqui-Cal",
+  "slug": "liqui-cal",
+  "href": "liqui-cal.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28138,
+  "name": "Liqui-Cal Organic",
+  "slug": "liqui-cal-organic",
+  "href": "liqui-cal-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28139,
+  "name": "Liqui-Gyp",
+  "slug": "liqui-gyp",
+  "href": "liqui-gyp.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28140,
+  "name": "Liqui-Gyp Organic",
+  "slug": "liqui-gyp-organic",
+  "href": "liqui-gyp-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28141,
+  "name": "Liqui-Phos",
+  "slug": "liqui-phos",
+  "href": "liqui-phos.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28142,
+  "name": "Liqui-Phos Organic",
+  "slug": "liqui-phos-organic",
+  "href": "liqui-phos-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28143,
+  "name": "Magnify",
+  "slug": "magnify",
+  "href": "magnify.html",
+  "has_analysis": false
+ },
+ {
+  "id": 28144,
+  "name": "Mycro-Feast",
+  "slug": "mycro-feast",
+  "href": "mycro-feast.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28145,
+  "name": "Mycro-Start",
+  "slug": "mycro-start",
+  "href": "mycro-start.html",
+  "has_analysis": false
+ },
+ {
+  "id": 28146,
+  "name": "Mycro-Tec Lockout Liquid",
+  "slug": "mycro-tec-lockout-liquid",
+  "href": "mycro-tec-lockout-liquid.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28147,
+  "name": "Mycro-Tec Lockout Powder",
+  "slug": "mycro-tec-lockout-powder",
+  "href": "mycro-tec-lockout-powder.html",
+  "has_analysis": false
+ },
+ {
+  "id": 28148,
+  "name": "Mycro-Tec SP",
+  "slug": "mycro-tec-sp",
+  "href": "mycro-tec-sp.html",
+  "has_analysis": false
+ },
+ {
+  "id": 28149,
+  "name": "Mycro-Tec Strepto",
+  "slug": "mycro-tec-strepto",
+  "href": "mycro-tec-strepto.html",
+  "has_analysis": false
+ },
+ {
+  "id": 28150,
+  "name": "Mycro-Tec VAM",
+  "slug": "mycro-tec-vam",
+  "href": "mycro-tec-vam.html",
+  "has_analysis": false
+ },
+ {
+  "id": 28151,
+  "name": "N-Hance",
+  "slug": "n-hance",
+  "href": "n-hance.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28152,
+  "name": "Nitro Iron",
+  "slug": "nitro-iron",
+  "href": "nitro-iron.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28153,
+  "name": "Nitro Iron Green Up",
+  "slug": "nitro-iron-green-up",
+  "href": "nitro-iron-green-up.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28098,
+  "name": "Nutri-Core CN",
+  "slug": "nutri-core-cn",
+  "href": "nutri-core-cn.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28154,
+  "name": "Nutri-Core Multi-N",
+  "slug": "nutri-core-multi-n",
+  "href": "nutri-core-multi-n.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28155,
+  "name": "Nutri-Core NP",
+  "slug": "nutri-core-np",
+  "href": "nutri-core-np.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28156,
+  "name": "Nutri-Core SA",
+  "slug": "nutri-core-sa",
+  "href": "nutri-core-sa.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28157,
+  "name": "Opti-Cal",
+  "slug": "opti-cal",
+  "href": "opti-cal.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28158,
+  "name": "Opti-Cal Organic",
+  "slug": "opti-cal-organic",
+  "href": "opti-cal-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28159,
+  "name": "Opti-Mag",
+  "slug": "opti-mag",
+  "href": "opti-mag.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28160,
+  "name": "Opti-Trace BMZ",
+  "slug": "opti-trace-bmz",
+  "href": "opti-trace-bmz.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28161,
+  "name": "Opti-Trace BMZ Organic",
+  "slug": "opti-trace-bmz-organic",
+  "href": "opti-trace-bmz-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28162,
+  "name": "Opti-Trace Bio-Check",
+  "slug": "opti-trace-bio-check",
+  "href": "opti-trace-bio-check.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28163,
+  "name": "Opti-Trace Bio-Check Organic",
+  "slug": "opti-trace-bio-check-organic",
+  "href": "opti-trace-bio-check-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28164,
+  "name": "Opti-Trace Boron",
+  "slug": "opti-trace-boron",
+  "href": "opti-trace-boron.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28165,
+  "name": "Opti-Trace Boron Organic",
+  "slug": "opti-trace-boron-organic",
+  "href": "opti-trace-boron-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28166,
+  "name": "Opti-Trace BudMax",
+  "slug": "opti-trace-budmax",
+  "href": "opti-trace-budmax.html",
+  "has_analysis": true,
+  "handbuilt": true
+ },
+ {
+  "id": 28167,
+  "name": "Opti-Trace BudMax Organic",
+  "slug": "opti-trace-budmax-organic",
+  "href": "opti-trace-budmax-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28168,
+  "name": "Opti-Trace Cobalt",
+  "slug": "opti-trace-cobalt",
+  "href": "opti-trace-cobalt.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28169,
+  "name": "Opti-Trace Cobalt Organic",
+  "slug": "opti-trace-cobalt-organic",
+  "href": "opti-trace-cobalt-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28170,
+  "name": "Opti-Trace Complete",
+  "slug": "opti-trace-complete",
+  "href": "opti-trace-complete.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28171,
+  "name": "Opti-Trace Copper",
+  "slug": "opti-trace-copper",
+  "href": "opti-trace-copper.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28172,
+  "name": "Opti-Trace Copper Organic",
+  "slug": "opti-trace-copper-organic",
+  "href": "opti-trace-copper-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28173,
+  "name": "Opti-Trace Iron",
+  "slug": "opti-trace-iron",
+  "href": "opti-trace-iron.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28174,
+  "name": "Opti-Trace Iron Organic",
+  "slug": "opti-trace-iron-organic",
+  "href": "opti-trace-iron-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28175,
+  "name": "Opti-Trace Manganese",
+  "slug": "opti-trace-manganese",
+  "href": "opti-trace-manganese.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28176,
+  "name": "Opti-Trace Manganese Organic",
+  "slug": "opti-trace-manganese-organic",
+  "href": "opti-trace-manganese-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28177,
+  "name": "Opti-Trace Max",
+  "slug": "opti-trace-max",
+  "href": "opti-trace-max.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28179,
+  "name": "Opti-Trace Moly",
+  "slug": "opti-trace-moly",
+  "href": "opti-trace-moly.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28180,
+  "name": "Opti-Trace Moly Organic",
+  "slug": "opti-trace-moly-organic",
+  "href": "opti-trace-moly-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28181,
+  "name": "Opti-Trace Zinc",
+  "slug": "opti-trace-zinc",
+  "href": "opti-trace-zinc.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28182,
+  "name": "Opti-Trace Zinc Organic",
+  "slug": "opti-trace-zinc-organic",
+  "href": "opti-trace-zinc-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28184,
+  "name": "Pearl Array Z",
+  "slug": "pearl-array-z",
+  "href": "pearl-array-z.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28185,
+  "name": "Pearl Boost",
+  "slug": "pearl-boost",
+  "href": "pearl-boost.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28186,
+  "name": "Pearl Boost Organic",
+  "slug": "pearl-boost-organic",
+  "href": "pearl-boost-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28187,
+  "name": "Pearl Fusion",
+  "slug": "pearl-fusion",
+  "href": "pearl-fusion.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28188,
+  "name": "Pearl Surge",
+  "slug": "pearl-surge",
+  "href": "pearl-surge.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28189,
+  "name": "Power-Cal",
+  "slug": "product",
+  "href": "product.html",
+  "has_analysis": true,
+  "handbuilt": true
+ },
+ {
+  "id": 28190,
+  "name": "Power-Cal Organic",
+  "slug": "power-cal-organic",
+  "href": "power-cal-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28191,
+  "name": "Power-Mag",
+  "slug": "power-mag",
+  "href": "power-mag.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28192,
+  "name": "Power-N",
+  "slug": "power-n",
+  "href": "power-n.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28193,
+  "name": "Precede",
+  "slug": "precede",
+  "href": "precede.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28194,
+  "name": "Protex B",
+  "slug": "protex-b",
+  "href": "protex-b.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28195,
+  "name": "Protex B Organic",
+  "slug": "protex-b-organic",
+  "href": "protex-b-organic.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28196,
+  "name": "Protex Blue",
+  "slug": "protex-blue",
+  "href": "protex-blue.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28197,
+  "name": "Protex Mg S",
+  "slug": "protex-mg-s",
+  "href": "protex-mg-s.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28198,
+  "name": "ReLeaf",
+  "slug": "releaf",
+  "href": "releaf.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28102,
+  "name": "Reprieve",
+  "slug": "reprieve",
+  "href": "reprieve.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28199,
+  "name": "ToNik",
+  "slug": "tonik",
+  "href": "tonik.html",
+  "has_analysis": true
+ },
+ {
+  "id": 28200,
+  "name": "Tsunami Complete",
+  "slug": "tsunami-complete",
+  "href": "tsunami-complete.html",
+  "has_analysis": true
+ }
+]

@@ -1,0 +1,125 @@
+/* product.html — Power-Cal® detail. Minimal additions only; compose components.css elsewhere. */
+
+/* Buy box — sits beside the gallery in the top split */
+.buybox{
+  background:var(--paper,#fff);
+  border:1px solid var(--line);
+  border-radius:var(--r-card);
+  padding:30px 32px 32px;
+  align-self:start;
+}
+.buybox .price{font-size:30px;margin-top:6px}
+.buybox h1{--fs-h2:clamp(32px,3vw,44px);font-size:var(--fs-h2);max-width:none;line-height:1.05}
+.buybox .price-note{font-size:12.5px;font-style:italic;color:var(--muted);margin-top:2px}
+
+/* Quantity stepper */
+.qty{display:flex;align-items:center;gap:0;margin:22px 0 6px;width:fit-content;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.qty button{
+  width:42px;height:42px;border:0;background:transparent;cursor:pointer;
+  font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--ink);line-height:1;
+}
+.qty button:hover{background:var(--cream)}
+.qty input{
+  width:48px;height:42px;border:0;text-align:center;
+  font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--ink);
+  border-left:1px solid var(--line);border-right:1px solid var(--line);
+}
+.qty-label{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--font-display);font-weight:500;color:var(--muted);display:block;margin-top:18px}
+
+/* Spec table */
+.spec{width:100%;border-collapse:collapse;margin-top:8px;font-size:var(--fs-body)}
+.spec th,.spec td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.spec th{
+  width:30%;font-family:var(--font-display);font-weight:500;
+  text-transform:uppercase;letter-spacing:1.2px;font-size:12.5px;color:var(--teal);white-space:nowrap;
+}
+.spec tr:last-child th,.spec tr:last-child td{border-bottom:0}
+.spec td{color:var(--ink)}
+
+/* Gallery thumbnails — stay a compact 3-across row on every width (don't stack full-width) */
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+
+/* Odoo pack imagery: primary template image plus true per-volume overrides. */
+.product-pack-media{background:#fff;border:1px solid var(--hairline)}
+.media.product-pack-media>img{
+  object-fit:contain;object-position:center;padding:0 0 34px;background:#fff;
+}
+.product-pack-caption{
+  position:absolute;inset:auto 0 0;padding:9px 12px;border-top:1px solid var(--hairline);
+  background:rgba(255,255,255,.94);color:var(--ink);font-family:var(--font-display);
+  font-size:12px;line-height:1.2;letter-spacing:0;text-align:center;text-transform:uppercase;
+}
+.product-pack-caption.is-representative{color:var(--body);background:rgba(247,243,237,.96)}
+.thumbs.product-pack-thumbs{grid-template-columns:repeat(auto-fill,minmax(88px,112px));justify-content:start}
+.product-pack-thumb{
+  position:relative;min-width:0;aspect-ratio:1;border:1px solid var(--hairline);border-radius:6px;
+  overflow:hidden;background:#fff;padding:7px 7px 27px;cursor:pointer;
+}
+.product-pack-thumb:hover{border-color:var(--teal)}
+.product-pack-thumb:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.product-pack-thumb.is-active{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+.product-pack-thumb img{width:100%;height:100%;object-fit:contain;display:block}
+.product-pack-thumb span{
+  position:absolute;inset:auto 0 0;padding:6px;border-top:1px solid var(--hairline);
+  background:var(--cream);color:var(--ink);font-family:var(--font-display);
+  font-size:11px;line-height:1;letter-spacing:0;text-align:center;text-transform:uppercase;
+}
+
+/* Volume selector + live pricing (data: js/data/product-variants.js from Odoo) */
+#buy-picker .qty-label{margin-top:0}
+.vols{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px}
+.vol{font-family:var(--font-display);font-weight:500;font-size:13px;letter-spacing:.4px;
+  padding:8px 14px;border:1px solid var(--hairline);border-radius:var(--r-pill);background:var(--white);
+  color:var(--ink);cursor:pointer;transition:border-color var(--t-fast),background var(--t-fast),color var(--t-fast)}
+.vol:hover{border-color:var(--teal)}
+.vol.is-active{background:var(--teal);border-color:var(--teal);color:#fff}
+.vol-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:10px;margin-top:14px}
+.vol-price .price{font-size:32px;margin:0}
+.vol-meta{font-size:12.5px;color:var(--body)}
+.vol-all-t{display:inline-flex;align-items:center;min-height:32px;background:none;border:0;padding:6px 0;margin-top:6px;cursor:pointer;
+  font-family:var(--font-display);font-weight:500;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--teal)}
+.vol-all{margin-top:12px;border-top:1px solid var(--hairline);padding-top:10px}
+.volt{width:100%;border-collapse:collapse;font-size:14px}
+.volt th,.volt td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--hairline)}
+.volt thead th{font-family:var(--font-display);font-weight:500;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--body)}
+.volt tbody th{font-family:var(--font-body);font-weight:600;color:var(--ink)}
+.volt tbody td{color:var(--ink)}
+.volt tr:last-child th,.volt tr:last-child td{border-bottom:0}
+
+/* Benefit checklist (ported product features) */
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ticks li{position:relative;padding-left:28px;color:var(--ink);font-size:var(--fs-body);line-height:1.5}
+.ticks li::before{content:"";position:absolute;left:0;top:3px;width:16px;height:16px;border-radius:50%;
+  background:var(--teal);
+  -webkit-mask:no-repeat center/12px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E");
+  mask:no-repeat center/12px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E")}
+
+/* Composition chips — analysis %w/v straight off the brochure/label */
+.compo{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.compo .el{border:1px solid var(--hairline);border-radius:var(--r-card);padding:12px 16px;min-width:96px;background:var(--white)}
+.compo .el b{display:block;font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--ink);line-height:1}
+.compo .el span{display:block;font-size:12px;color:var(--body);margin-top:4px;letter-spacing:.3px}
+
+/* Rate table — application by market segment (mirrors the product brochure) */
+.rate{width:100%;border-collapse:collapse;margin-top:8px;font-size:var(--fs-body)}
+.rate th,.rate td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--hairline);vertical-align:top}
+.rate thead th{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:1.2px;font-size:11.5px;color:var(--teal);white-space:nowrap}
+.rate tbody th{font-family:var(--font-body);font-weight:600;color:var(--ink)}
+.rate td{color:var(--ink)}
+.rate .num{font-family:var(--font-display);font-weight:700;color:var(--teal)}
+.rate .when{color:var(--body);font-style:italic}
+.rate tr:last-child th,.rate tr:last-child td{border-bottom:0}
+
+@media(max-width:720px){
+  .spec th{width:42%}
+  /* spec table stacks like the rate table so long values never clip/overflow */
+  .spec tr{display:block;border-bottom:1px solid var(--hairline);padding:6px 0}
+  .spec th,.spec td{display:block;width:auto;white-space:normal;padding:3px 4px;border:0}
+  .spec th{font-size:12.5px;margin-bottom:2px}
+  .rate .num,.rate .when,.rate tbody th{white-space:normal}
+  .buybox{padding:24px}
+  .rate thead{display:none}
+  .rate tr{display:block;border-bottom:1px solid var(--hairline);padding:8px 0}
+  .rate tbody th,.rate td{display:block;padding:3px 4px;border:0}
+  .rate tbody th{font-size:16px;margin-bottom:2px}
+}

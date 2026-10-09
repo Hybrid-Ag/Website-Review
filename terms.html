@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Service — Hybrid-Ag</title>
+<meta name="description" content="The terms and conditions of sale that apply to goods and services supplied by Hybrid-Ag Pty Ltd.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/terms.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Terms of Service — Hybrid-Ag">
+<meta property="og:description" content="The terms and conditions of sale that apply to goods and services supplied by Hybrid-Ag Pty Ltd.">
+<meta property="og:url" content="https://www.hybridag.com.au/terms.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Terms of Service — Hybrid-Ag">
+<meta name="twitter:description" content="The terms and conditions of sale that apply to goods and services supplied by Hybrid-Ag Pty Ltd.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="">
+<div id="site-header"></div>
+
+<main>
+  <!-- TEMPLATE - review with Nathan / legal before publishing -->
+
+  <!-- HERO -->
+  <header class="hero hero--short page-cover">
+    <div class="wrap hero-inner page-cover__inner">
+      <span class="eyebrow">Legal</span>
+      <h1>Terms of Service</h1>
+      <p class="sub">The terms and conditions of sale that apply to goods and services supplied by Hybrid Ag Pty Ltd.</p>
+      <p class="muted page-cover__meta">Last updated: July 2026</p>
+    </div>
+  </header>
+
+  <!-- POLICY BODY -->
+  <section class="section" data-reveal>
+    <div class="wrap legal">
+
+      <h2 class="h2">1. Interpretation</h2>
+      <p class="sub">In these Terms and Conditions of Sale, "the Company" means Hybrid Ag Pty Ltd; "the Buyer" means the person or company purchasing the goods; and "the Goods" means the materials and/or services subject to the contract between the Buyer and the Company.</p>
+
+      <h2 class="h2" style="margin-top:44px">2. General</h2>
+      <p class="sub">2.1 Unless otherwise agreed in writing, every order, sale, quotation and contract placed with the Company is subject to these Terms and Conditions of Sale to the extent that they are applicable. They are deemed to be agreed and accepted by all parties involved and override any standard terms and conditions stipulated, incorporated or referred to in the Buyer's order.</p>
+      <p class="sub">2.2 These Conditions of Sale are governed by the laws applicable in Victoria, and the Buyer submits to the jurisdiction of the Victorian Courts and Tribunals.</p>
+      <p class="sub">2.3 If any clause or part of these Terms and Conditions of Sale — not being of a fundamental nature — is held to be illegal or unenforceable, the legality, validity and enforceability of the remainder is not affected.</p>
+
+      <h2 class="h2" style="margin-top:44px">3. Price</h2>
+      <p class="sub">3.1 The Buyer shall pay the price of the Goods stated in the invoice, which will be the price ruling at the date of delivery or collection ("Price").</p>
+      <p class="sub">3.2 The Buyer shall pay GST at the rate specified on the invoice.</p>
+      <p class="sub">3.3 Unless otherwise agreed in writing, the Price is exclusive of packaging costs, freight charges, delivery costs, bank charges and any other charges notified by the Company to the Buyer. Where incurred, these costs are payable by the Buyer ("Price Additions").</p>
+      <p class="sub">3.4 If the cost to the Company of supplying goods not yet delivered is increased materially by any dispute or cause, and the parties cannot agree on how the increase is to be borne, the Company may cancel the contract without liability in respect of the undelivered goods.</p>
+      <p class="sub">3.5 Where delivery of the Goods is to be made by instalments, each delivery is treated as a separate contract. Failure, suspension or delay in any delivery, or a defect in the Goods delivered, does not vitiate the contract as to other deliveries.</p>
+
+      <h2 class="h2" style="margin-top:44px">4. Delivery</h2>
+      <p class="sub">4.1 All delivery dates are estimates only. The Company is not liable in damages for any delay, nor is the Buyer entitled to refuse to accept delivery, except where a delay of an unreasonable length has occurred due to circumstances within the Company's control.</p>
+      <p class="sub">4.2 The following circumstances are deemed not to be within the Company's control: acts of God, war, riots, civil commotions, strikes, lockouts, trade disputes, fires, breakdowns, interruptions of transport, government action, and delay in delivery by the Company's suppliers.</p>
+
+      <h2 class="h2" style="margin-top:44px">5. Terms of Payment</h2>
+      <p class="sub">5.1 The Buyer shall pay the Price and Price Additions ("Total Price including GST") before the 25th day of the month following the month of invoice ("due date"). Unless otherwise stated on the invoice, this is deemed the due date. Any payment plans, agreed and approved in advance, are charged at a rate of 10% per annum unless stated otherwise.</p>
+      <p class="sub">5.2 If the Buyer does not pay the full Total Price on or before the due date, the Company may charge interest on the outstanding balance from the due date until the full amount is paid.</p>
+      <p class="sub">5.2a Such interest is charged based on the Bank Bill Swap Rate (BBSW) as published on the AFMA (Australian Financial Markets Association) website, plus a margin of 10% per annum. The BBSW is updated on the 1st of each month and is the operational interest charged for that month.</p>
+      <p class="sub">5.3 All expenses incurred by the Company in collecting overdue payment from the Buyer — including debt collection agency, legal and court fees — are payable by the Buyer to the Company as a debt due forthwith upon demand.</p>
+      <p class="sub">5.4 The Buyer shall send all amounts due under these Terms and Conditions of Sale to the address of the Company printed on the front of the invoice, or deposit directly into the Company's bank account, details of which are printed on the front of the invoice.</p>
+      <p class="sub">5.5 If the Buyer fails to make any payment on the due date, becomes bankrupt, enters into liquidation (other than for the purposes of amalgamation or reconstruction), makes any composition arrangement with creditors, or has a receiver appointed to its undertaking, property or assets, the Company may withhold or cancel further deliveries.</p>
+
+      <h2 class="h2" style="margin-top:44px">6. Acceptance of Goods</h2>
+      <p class="sub">6.1 The Buyer shall inspect, or is deemed to have inspected, the Goods upon delivery. Where the Goods supplied are not in accordance with the contract, the Buyer shall give notice in writing within 48 hours of receipt. The Company will, at its option:</p>
+      <p class="sub">(a) credit the Buyer with the price; or</p>
+      <p class="sub">(b) replace the same.</p>
+      <p class="sub">If no complaint is received in that time, the Buyer accepts that the Goods are in good condition. All other warranties or conditions as to the Goods or their fitness for any purpose are excluded, except where such exclusion is prohibited by statute. Slight changes to product composition do not constitute sufficient ground for complaint.</p>
+
+      <h2 class="h2" style="margin-top:44px">7. Returns</h2>
+      <p class="sub">7.1 The Buyer may only return goods to the Company for credit if the prior written approval of the Company for the return has been obtained, and the freight costs on the return have been paid by the Buyer.</p>
+      <p class="sub">7.2 If the Buyer returns the Goods otherwise than in accordance with clause 7.1, the Company may, at its sole discretion, accept the return and grant a credit to the Buyer. If the Company does not accept the return, it may hold the goods on the Buyer's behalf at the Buyer's expense until arrangements satisfactory to the Company are made by the Buyer for their disposal.</p>
+
+      <h2 class="h2" style="margin-top:44px">8. Cancellation</h2>
+      <p class="sub">No order for Goods placed by the Buyer and accepted by the Company may be cancelled or deferred without the prior written consent of the Company. In the case of custom-blended goods ordered by the Buyer, no order may be cancelled after the Company has scheduled manufacture of such goods, or has purchased the materials required for their manufacture.</p>
+
+      <h2 class="h2" style="margin-top:44px">9. Title and Risk</h2>
+      <p class="sub">9.1 The Company and the Buyer agree that ownership of the Goods does not pass until the Buyer has paid the Company all amounts owing for the particular Goods, and has met all other obligations due by the Buyer to the Company in respect of all contracts between the parties.</p>
+      <p class="sub">9.2 Receipt by the Company of any form of payment other than cash is not deemed to be payment until that form of payment has been honoured, cleared or recognised. Until then, the Company's ownership or rights in respect of the Goods continue.</p>
+      <p class="sub">9.3 It is further agreed that, where practicable, the Goods are kept separate and identifiable until the Company has received payment and all other obligations are met; the Company has the right to stop the Goods in transit whether or not delivery has been made; the Buyer shall not deal with the money of the Company in any way adverse to the Company; the Buyer shall not charge the Goods nor grant any interest in the Goods while they remain the property of the Company; the Company may issue proceedings to recover the Price of the Goods sold notwithstanding that ownership may not have passed; and, until ownership passes, if the Goods are converted into other products, the Company will be the owner of the end products.</p>
+
+      <h2 class="h2" style="margin-top:44px">10. Personal Property Securities Act 2009 ("PPSA")</h2>
+      <p class="sub">10.1 In this clause, "financing statement", "financing change statement" and "security interest" have the meanings given to them by the PPSA; and "security agreement" means the security agreement under the PPSA created between the Buyer and the Company by these terms and conditions.</p>
+      <p class="sub">10.2 Upon assenting to these terms and conditions in writing, the Buyer acknowledges and agrees that these terms and conditions constitute a security agreement for the purposes of the PPSA, and create a security interest in all Goods previously supplied by the Company to the Buyer (if any) and all Goods that will be supplied in the future by the Company to the Buyer.</p>
+      <p class="sub">10.3 The Buyer undertakes to promptly sign any further documents and provide any further information the Company may reasonably require to register a financing statement or financing change statement on the Personal Property Securities Register, to register any other document required by the PPSA, or to correct a defect in a statement. The Buyer further undertakes to indemnify and, upon demand, reimburse the Company for all expenses incurred in registering or releasing any such interest; not to register a financing change statement in respect of a security interest without the Company's prior written consent; not to register, or permit to be registered, a financing statement or financing change statement in relation to the Goods in favour of a third party without the Company's prior written consent; and to immediately advise the Company of any material change in its business that would change the nature of proceeds derived from sales of the Goods.</p>
+      <p class="sub">10.4 The Company and the Buyer agree that sections 96, 115 and 125 of the PPSA do not apply to the security agreement created by these Terms and Conditions.</p>
+      <p class="sub">10.5 The Buyer waives its rights to receive notices under sections 94, 118, 121(4), 130, 132(3)(d) and 132(4) of the PPSA.</p>
+      <p class="sub">10.6 The Buyer waives its rights as a grantor and/or a debtor under sections 142 and 143 of the PPSA.</p>
+      <p class="sub">10.7 Unless otherwise agreed in writing by the Company, the Buyer waives its rights to receive a verification statement in accordance with section 157 of the PPSA.</p>
+      <p class="sub">10.8 The Buyer unconditionally ratifies any actions taken by the Company under clause 9.3.</p>
+
+      <h2 class="h2" style="margin-top:44px">11. Security and Charge</h2>
+      <p class="sub">11.1 Despite anything to the contrary contained herein, or any other rights the Company may have, where the Buyer and/or the Guarantor (if any) is the owner of land, realty or any other asset capable of being charged, both the Buyer and/or the Guarantor agree to mortgage and/or charge all of their joint and/or several interest in that land, realty or other asset to the Company or the Company's nominee, to secure all amounts and other monetary obligations payable under these terms.</p>
+      <p class="sub">Should the Company elect to proceed in any manner in accordance with this clause, the Buyer and/or Guarantor shall indemnify the Company against all its costs and disbursements, including legal costs on a solicitor-and-own-client basis. The Buyer and/or the Guarantor (if any) agree to irrevocably nominate, constitute and appoint the Company or the Company's nominee as their true and lawful attorney to perform all necessary acts to give effect to the provisions of this clause.</p>
+
+      <h2 class="h2" style="margin-top:44px">12. Buyer's Statutory Rights</h2>
+      <p class="sub">These Terms and Conditions of Sale do not exclude, limit, restrict or modify the rights, entitlements and remedies conferred upon the Buyer, or the liabilities imposed upon the Company, by any Commonwealth or Victorian legislation that renders void or prohibits such exclusion, limitation, restriction or modification. Subject to this, all excludable conditions and warranties are excluded.</p>
+
+      <h2 class="h2" style="margin-top:44px">Contact</h2>
+      <p class="sub">Hybrid Ag Pty Ltd, 52 Buckler Rd, Wangaratta VIC 3677. Phone (03) 5722 8000.</p>
+
+    </div>
+  </section>
+
+  <!-- BACK LINK -->
+  <section class="section section--tight" data-reveal>
+    <div class="wrap legal">
+      <a class="pill" href="contact.html">Questions? Contact us &rarr;</a>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

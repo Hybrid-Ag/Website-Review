@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | Hybrid-Ag</title>
+  <meta name="description" content="Page not found. Return to the Hybrid-Ag homepage, request testing or contact the team for help.">
+  <link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+  <link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+  <link rel="stylesheet" href="css/pages/not-found.css?v=5ded40b57a">
+  <link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/404.html">
+
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Page Not Found | Hybrid-Ag">
+<meta property="og:description" content="Page not found. Return to the Hybrid-Ag homepage, request testing or contact the team for help.">
+<meta property="og:url" content="https://www.hybridag.com.au/404.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Page Not Found | Hybrid-Ag">
+<meta name="twitter:description" content="Page not found. Return to the Hybrid-Ag homepage, request testing or contact the team for help.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body>
+<div id="site-header"></div>
+
+<main class="not-found page-cover page-cover--photo">
+  <img class="not-found__image" src="assets/photos/responsive/orchard-block-1800.webp" srcset="assets/photos/responsive/orchard-block-480.webp 480w, assets/photos/responsive/orchard-block-768.webp 768w, assets/photos/responsive/orchard-block-1200.webp 1200w, assets/photos/responsive/orchard-block-1800.webp 1800w" sizes="100vw" width="1920" height="909" alt="Productive orchard rows through a growing block" fetchpriority="high" decoding="async">
+  <div class="not-found__shade" aria-hidden="true"></div>
+  <div class="wrap not-found__content page-cover__inner">
+    <span class="eyebrow">Hybrid-Ag</span>
+    <p class="not-found__code">404</p>
+    <h1>That page isn't here.</h1>
+    <p>We couldn&rsquo;t find that page. Return to the homepage, request testing or call the team for help.</p>
+    <div class="cta-row">
+      <a class="btn btn--teal" href="index.html">Return home</a>
+      <a class="btn not-found__secondary" href="soil-test.html">Request testing</a>
+      <a class="not-found__call" href="tel:+61357228000">(03) 5722 8000</a>
+    </div>
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

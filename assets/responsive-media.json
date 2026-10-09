@@ -1,0 +1,3017 @@
+{
+  "schema_version": 1,
+  "assets": {
+    "assets/photos/prescription-orchard-rows.jpg": {
+      "source": "assets/photos/prescription-orchard-rows.jpg",
+      "width": 1800,
+      "height": 1350,
+      "source_bytes": 687849,
+      "variants": {
+        "webp": [
+          {"path": "assets/photos/responsive/prescription-orchard-rows-480.webp", "width": 480, "height": 360, "bytes": 43786},
+          {"path": "assets/photos/responsive/prescription-orchard-rows-768.webp", "width": 768, "height": 576, "bytes": 101996},
+          {"path": "assets/photos/responsive/prescription-orchard-rows-1200.webp", "width": 1200, "height": 900, "bytes": 223964},
+          {"path": "assets/photos/responsive/prescription-orchard-rows-1800.webp", "width": 1800, "height": 1350, "bytes": 442352}
+        ],
+        "avif": [
+          {"path": "assets/photos/responsive/prescription-orchard-rows-480.avif", "width": 480, "height": 360, "bytes": 22338},
+          {"path": "assets/photos/responsive/prescription-orchard-rows-768.avif", "width": 768, "height": 576, "bytes": 54058},
+          {"path": "assets/photos/responsive/prescription-orchard-rows-1200.avif", "width": 1200, "height": 900, "bytes": 120947},
+          {"path": "assets/photos/responsive/prescription-orchard-rows-1800.avif", "width": 1800, "height": 1350, "bytes": 240952}
+        ]
+      }
+    },
+    "assets/photos/prescription-dry-materials.jpg": {
+      "source": "assets/photos/prescription-dry-materials.jpg",
+      "width": 1800,
+      "height": 1202,
+      "source_bytes": 405020,
+      "variants": {
+        "webp": [
+          {"path": "assets/photos/responsive/prescription-dry-materials-480.webp", "width": 480, "height": 321, "bytes": 18834},
+          {"path": "assets/photos/responsive/prescription-dry-materials-768.webp", "width": 768, "height": 513, "bytes": 43080},
+          {"path": "assets/photos/responsive/prescription-dry-materials-1200.webp", "width": 1200, "height": 801, "bytes": 88884},
+          {"path": "assets/photos/responsive/prescription-dry-materials-1800.webp", "width": 1800, "height": 1202, "bytes": 170670}
+        ],
+        "avif": [
+          {"path": "assets/photos/responsive/prescription-dry-materials-480.avif", "width": 480, "height": 321, "bytes": 12617},
+          {"path": "assets/photos/responsive/prescription-dry-materials-768.avif", "width": 768, "height": 513, "bytes": 28693},
+          {"path": "assets/photos/responsive/prescription-dry-materials-1200.avif", "width": 1200, "height": 801, "bytes": 62381},
+          {"path": "assets/photos/responsive/prescription-dry-materials-1800.avif", "width": 1800, "height": 1202, "bytes": 123377}
+        ]
+      }
+    },
+    "assets/photos/water-irrigation-aerial.jpg": {
+      "source": "assets/photos/water-irrigation-aerial.jpg",
+      "width": 1800,
+      "height": 1200,
+      "source_bytes": 908298,
+      "variants": {
+        "webp": [
+          {"path": "assets/photos/responsive/water-irrigation-aerial-480.webp", "width": 480, "height": 320, "bytes": 46142},
+          {"path": "assets/photos/responsive/water-irrigation-aerial-768.webp", "width": 768, "height": 512, "bytes": 127040},
+          {"path": "assets/photos/responsive/water-irrigation-aerial-1200.webp", "width": 1200, "height": 800, "bytes": 324228},
+          {"path": "assets/photos/responsive/water-irrigation-aerial-1800.webp", "width": 1800, "height": 1200, "bytes": 710976}
+        ],
+        "avif": [
+          {"path": "assets/photos/responsive/water-irrigation-aerial-480.avif", "width": 480, "height": 320, "bytes": 20669},
+          {"path": "assets/photos/responsive/water-irrigation-aerial-768.avif", "width": 768, "height": 512, "bytes": 62517},
+          {"path": "assets/photos/responsive/water-irrigation-aerial-1200.avif", "width": 1200, "height": 800, "bytes": 164100},
+          {"path": "assets/photos/responsive/water-irrigation-aerial-1800.avif", "width": 1800, "height": 1200, "bytes": 358478}
+        ]
+      }
+    },
+    "assets/photos/dsa-crop-sampling.jpg": {
+      "source": "assets/photos/dsa-crop-sampling.jpg",
+      "width": 1800,
+      "height": 2400,
+      "source_bytes": 450415,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/dsa-crop-sampling-480.webp",
+            "width": 480,
+            "height": 640,
+            "bytes": 24376
+          },
+          {
+            "path": "assets/photos/responsive/dsa-crop-sampling-768.webp",
+            "width": 768,
+            "height": 1024,
+            "bytes": 43522
+          },
+          {
+            "path": "assets/photos/responsive/dsa-crop-sampling-1200.webp",
+            "width": 1200,
+            "height": 1600,
+            "bytes": 74856
+          },
+          {
+            "path": "assets/photos/responsive/dsa-crop-sampling-1800.webp",
+            "width": 1800,
+            "height": 2400,
+            "bytes": 127442
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/dsa-crop-sampling-480.avif",
+            "width": 480,
+            "height": 640,
+            "bytes": 16773
+          },
+          {
+            "path": "assets/photos/responsive/dsa-crop-sampling-768.avif",
+            "width": 768,
+            "height": 1024,
+            "bytes": 29719
+          },
+          {
+            "path": "assets/photos/responsive/dsa-crop-sampling-1200.avif",
+            "width": 1200,
+            "height": 1600,
+            "bytes": 52698
+          },
+          {
+            "path": "assets/photos/responsive/dsa-crop-sampling-1800.avif",
+            "width": 1800,
+            "height": 2400,
+            "bytes": 93722
+          }
+        ]
+      }
+    },
+    "assets/photos/post-harvest-orchard-canopy.jpg": {
+      "source": "assets/photos/post-harvest-orchard-canopy.jpg",
+      "width": 1800,
+      "height": 1350,
+      "source_bytes": 1073887,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/post-harvest-orchard-canopy-480.webp",
+            "width": 480,
+            "height": 360,
+            "bytes": 72440
+          },
+          {
+            "path": "assets/photos/responsive/post-harvest-orchard-canopy-768.webp",
+            "width": 768,
+            "height": 576,
+            "bytes": 176732
+          },
+          {
+            "path": "assets/photos/responsive/post-harvest-orchard-canopy-1200.webp",
+            "width": 1200,
+            "height": 900,
+            "bytes": 397424
+          },
+          {
+            "path": "assets/photos/responsive/post-harvest-orchard-canopy-1800.webp",
+            "width": 1800,
+            "height": 1350,
+            "bytes": 797518
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/post-harvest-orchard-canopy-480.avif",
+            "width": 480,
+            "height": 360,
+            "bytes": 36820
+          },
+          {
+            "path": "assets/photos/responsive/post-harvest-orchard-canopy-768.avif",
+            "width": 768,
+            "height": 576,
+            "bytes": 93891
+          },
+          {
+            "path": "assets/photos/responsive/post-harvest-orchard-canopy-1200.avif",
+            "width": 1200,
+            "height": 900,
+            "bytes": 212988
+          },
+          {
+            "path": "assets/photos/responsive/post-harvest-orchard-canopy-1800.avif",
+            "width": 1800,
+            "height": 1350,
+            "bytes": 421391
+          }
+        ]
+      }
+    },
+    "assets/photos/post-harvest-apples.jpg": {
+      "source": "assets/photos/post-harvest-apples.jpg",
+      "width": 4000,
+      "height": 3000,
+      "source_bytes": 3936757,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/post-harvest-apples-480.webp",
+            "width": 480,
+            "height": 360,
+            "bytes": 51462
+          },
+          {
+            "path": "assets/photos/responsive/post-harvest-apples-768.webp",
+            "width": 768,
+            "height": 576,
+            "bytes": 111422
+          },
+          {
+            "path": "assets/photos/responsive/post-harvest-apples-1200.webp",
+            "width": 1200,
+            "height": 900,
+            "bytes": 224456
+          },
+          {
+            "path": "assets/photos/responsive/post-harvest-apples-1800.webp",
+            "width": 1800,
+            "height": 1350,
+            "bytes": 410884
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/post-harvest-apples-480.avif",
+            "width": 480,
+            "height": 360,
+            "bytes": 26913
+          },
+          {
+            "path": "assets/photos/responsive/post-harvest-apples-768.avif",
+            "width": 768,
+            "height": 576,
+            "bytes": 59125
+          },
+          {
+            "path": "assets/photos/responsive/post-harvest-apples-1200.avif",
+            "width": 1200,
+            "height": 900,
+            "bytes": 125798
+          },
+          {
+            "path": "assets/photos/responsive/post-harvest-apples-1800.avif",
+            "width": 1800,
+            "height": 1350,
+            "bytes": 241353
+          }
+        ]
+      }
+    },
+    "assets/photos/about-food-quality-orchard.png": {
+      "source": "assets/photos/about-food-quality-orchard.png",
+      "width": 1080,
+      "height": 566,
+      "source_bytes": 1504409,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/about-food-quality-orchard-480.webp",
+            "width": 480,
+            "height": 252,
+            "bytes": 45334
+          },
+          {
+            "path": "assets/photos/responsive/about-food-quality-orchard-768.webp",
+            "width": 768,
+            "height": 402,
+            "bytes": 113468
+          },
+          {
+            "path": "assets/photos/responsive/about-food-quality-orchard-1080.webp",
+            "width": 1080,
+            "height": 566,
+            "bytes": 202666
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/about-food-quality-orchard-480.avif",
+            "width": 480,
+            "height": 252,
+            "bytes": 23962
+          },
+          {
+            "path": "assets/photos/responsive/about-food-quality-orchard-768.avif",
+            "width": 768,
+            "height": 402,
+            "bytes": 59379
+          },
+          {
+            "path": "assets/photos/responsive/about-food-quality-orchard-1080.avif",
+            "width": 1080,
+            "height": 566,
+            "bytes": 105804
+          }
+        ]
+      }
+    },
+    "assets/photos/soil-rootzone.jpg": {
+      "source": "assets/photos/soil-rootzone.jpg",
+      "width": 1800,
+      "height": 2400,
+      "source_bytes": 1427797,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/soil-rootzone-480.webp",
+            "width": 480,
+            "height": 640,
+            "bytes": 103716
+          },
+          {
+            "path": "assets/photos/responsive/soil-rootzone-768.webp",
+            "width": 768,
+            "height": 1024,
+            "bytes": 218078
+          },
+          {
+            "path": "assets/photos/responsive/soil-rootzone-1200.webp",
+            "width": 1200,
+            "height": 1600,
+            "bytes": 439418
+          },
+          {
+            "path": "assets/photos/responsive/soil-rootzone-1800.webp",
+            "width": 1800,
+            "height": 2400,
+            "bytes": 839218
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/soil-rootzone-480.avif",
+            "width": 480,
+            "height": 640,
+            "bytes": 53615
+          },
+          {
+            "path": "assets/photos/responsive/soil-rootzone-768.avif",
+            "width": 768,
+            "height": 1024,
+            "bytes": 115054
+          },
+          {
+            "path": "assets/photos/responsive/soil-rootzone-1200.avif",
+            "width": 1200,
+            "height": 1600,
+            "bytes": 237456
+          },
+          {
+            "path": "assets/photos/responsive/soil-rootzone-1800.avif",
+            "width": 1800,
+            "height": 2400,
+            "bytes": 452438
+          }
+        ]
+      }
+    },
+    "assets/photos/about-orchard-blossom.jpg": {
+      "source": "assets/photos/about-orchard-blossom.jpg",
+      "width": 4032,
+      "height": 3024,
+      "source_bytes": 7712014,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/about-orchard-blossom-480.webp",
+            "width": 480,
+            "height": 360,
+            "bytes": 50956
+          },
+          {
+            "path": "assets/photos/responsive/about-orchard-blossom-768.webp",
+            "width": 768,
+            "height": 576,
+            "bytes": 126152
+          },
+          {
+            "path": "assets/photos/responsive/about-orchard-blossom-1200.webp",
+            "width": 1200,
+            "height": 900,
+            "bytes": 309540
+          },
+          {
+            "path": "assets/photos/responsive/about-orchard-blossom-1800.webp",
+            "width": 1800,
+            "height": 1350,
+            "bytes": 673598
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/about-orchard-blossom-480.avif",
+            "width": 480,
+            "height": 360,
+            "bytes": 27938
+          },
+          {
+            "path": "assets/photos/responsive/about-orchard-blossom-768.avif",
+            "width": 768,
+            "height": 576,
+            "bytes": 74149
+          },
+          {
+            "path": "assets/photos/responsive/about-orchard-blossom-1200.avif",
+            "width": 1200,
+            "height": 900,
+            "bytes": 180614
+          },
+          {
+            "path": "assets/photos/responsive/about-orchard-blossom-1800.avif",
+            "width": 1800,
+            "height": 1350,
+            "bytes": 392207
+          }
+        ]
+      }
+    },
+    "assets/photos/cereal.jpg": {
+      "source": "assets/photos/cereal.jpg",
+      "width": 1920,
+      "height": 1280,
+      "source_bytes": 500611,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/cereal-480.webp",
+            "width": 480,
+            "height": 320,
+            "bytes": 40286
+          },
+          {
+            "path": "assets/photos/responsive/cereal-768.webp",
+            "width": 768,
+            "height": 512,
+            "bytes": 87090
+          },
+          {
+            "path": "assets/photos/responsive/cereal-1200.webp",
+            "width": 1200,
+            "height": 800,
+            "bytes": 181308
+          },
+          {
+            "path": "assets/photos/responsive/cereal-1800.webp",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 337964
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/cereal-480.avif",
+            "width": 480,
+            "height": 320,
+            "bytes": 19738
+          },
+          {
+            "path": "assets/photos/responsive/cereal-768.avif",
+            "width": 768,
+            "height": 512,
+            "bytes": 42193
+          },
+          {
+            "path": "assets/photos/responsive/cereal-1200.avif",
+            "width": 1200,
+            "height": 800,
+            "bytes": 87334
+          },
+          {
+            "path": "assets/photos/responsive/cereal-1800.avif",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 179922
+          }
+        ]
+      }
+    },
+    "assets/photos/cherries.jpg": {
+      "source": "assets/photos/cherries.jpg",
+      "width": 1920,
+      "height": 1280,
+      "source_bytes": 287164,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/cherries-480.webp",
+            "width": 480,
+            "height": 320,
+            "bytes": 29804
+          },
+          {
+            "path": "assets/photos/responsive/cherries-768.webp",
+            "width": 768,
+            "height": 512,
+            "bytes": 53806
+          },
+          {
+            "path": "assets/photos/responsive/cherries-1200.webp",
+            "width": 1200,
+            "height": 800,
+            "bytes": 96146
+          },
+          {
+            "path": "assets/photos/responsive/cherries-1800.webp",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 161996
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/cherries-480.avif",
+            "width": 480,
+            "height": 320,
+            "bytes": 15722
+          },
+          {
+            "path": "assets/photos/responsive/cherries-768.avif",
+            "width": 768,
+            "height": 512,
+            "bytes": 30548
+          },
+          {
+            "path": "assets/photos/responsive/cherries-1200.avif",
+            "width": 1200,
+            "height": 800,
+            "bytes": 59561
+          },
+          {
+            "path": "assets/photos/responsive/cherries-1800.avif",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 106354
+          }
+        ]
+      }
+    },
+    "assets/photos/cherry-branch.jpg": {
+      "source": "assets/photos/cherry-branch.jpg",
+      "width": 1050,
+      "height": 1400,
+      "source_bytes": 221149,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/cherry-branch-480.webp",
+            "width": 480,
+            "height": 640,
+            "bytes": 28022
+          },
+          {
+            "path": "assets/photos/responsive/cherry-branch-768.webp",
+            "width": 768,
+            "height": 1024,
+            "bytes": 52904
+          },
+          {
+            "path": "assets/photos/responsive/cherry-branch-1050.webp",
+            "width": 1050,
+            "height": 1400,
+            "bytes": 81528
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/cherry-branch-480.avif",
+            "width": 480,
+            "height": 640,
+            "bytes": 15551
+          },
+          {
+            "path": "assets/photos/responsive/cherry-branch-768.avif",
+            "width": 768,
+            "height": 1024,
+            "bytes": 30281
+          },
+          {
+            "path": "assets/photos/responsive/cherry-branch-1050.avif",
+            "width": 1050,
+            "height": 1400,
+            "bytes": 47130
+          }
+        ]
+      }
+    },
+    "assets/photos/cherry-fruit-on-tree.jpg": {
+      "source": "assets/photos/cherry-fruit-on-tree.jpg",
+      "width": 768,
+      "height": 1376,
+      "source_bytes": 414559,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/cherry-fruit-on-tree-480.webp",
+            "width": 480,
+            "height": 860,
+            "bytes": 74014
+          },
+          {
+            "path": "assets/photos/responsive/cherry-fruit-on-tree-768.webp",
+            "width": 768,
+            "height": 1376,
+            "bytes": 140446
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/cherry-fruit-on-tree-480.avif",
+            "width": 480,
+            "height": 860,
+            "bytes": 42419
+          },
+          {
+            "path": "assets/photos/responsive/cherry-fruit-on-tree-768.avif",
+            "width": 768,
+            "height": 1376,
+            "bytes": 84913
+          }
+        ]
+      }
+    },
+    "assets/photos/cherry-orchard.jpg": {
+      "source": "assets/photos/cherry-orchard.jpg",
+      "width": 933,
+      "height": 1400,
+      "source_bytes": 178930,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/cherry-orchard-480.webp",
+            "width": 480,
+            "height": 720,
+            "bytes": 25708
+          },
+          {
+            "path": "assets/photos/responsive/cherry-orchard-768.webp",
+            "width": 768,
+            "height": 1152,
+            "bytes": 46274
+          },
+          {
+            "path": "assets/photos/responsive/cherry-orchard-933.webp",
+            "width": 933,
+            "height": 1400,
+            "bytes": 61126
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/cherry-orchard-480.avif",
+            "width": 480,
+            "height": 720,
+            "bytes": 14743
+          },
+          {
+            "path": "assets/photos/responsive/cherry-orchard-768.avif",
+            "width": 768,
+            "height": 1152,
+            "bytes": 26366
+          },
+          {
+            "path": "assets/photos/responsive/cherry-orchard-933.avif",
+            "width": 933,
+            "height": 1400,
+            "bytes": 35163
+          }
+        ]
+      }
+    },
+    "assets/photos/cherry-program-evidence.jpg": {
+      "source": "assets/photos/cherry-program-evidence.jpg",
+      "width": 3200,
+      "height": 2067,
+      "source_bytes": 1904446,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/cherry-program-evidence-480.webp",
+            "width": 480,
+            "height": 310,
+            "bytes": 50100
+          },
+          {
+            "path": "assets/photos/responsive/cherry-program-evidence-768.webp",
+            "width": 768,
+            "height": 496,
+            "bytes": 98010
+          },
+          {
+            "path": "assets/photos/responsive/cherry-program-evidence-1200.webp",
+            "width": 1200,
+            "height": 775,
+            "bytes": 177220
+          },
+          {
+            "path": "assets/photos/responsive/cherry-program-evidence-1800.webp",
+            "width": 1800,
+            "height": 1163,
+            "bytes": 296630
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/cherry-program-evidence-480.avif",
+            "width": 480,
+            "height": 310,
+            "bytes": 26779
+          },
+          {
+            "path": "assets/photos/responsive/cherry-program-evidence-768.avif",
+            "width": 768,
+            "height": 496,
+            "bytes": 53932
+          },
+          {
+            "path": "assets/photos/responsive/cherry-program-evidence-1200.avif",
+            "width": 1200,
+            "height": 775,
+            "bytes": 102848
+          },
+          {
+            "path": "assets/photos/responsive/cherry-program-evidence-1800.avif",
+            "width": 1800,
+            "height": 1163,
+            "bytes": 182233
+          }
+        ]
+      }
+    },
+    "assets/photos/cherry-program-hero.jpg": {
+      "source": "assets/photos/cherry-program-hero.jpg",
+      "width": 3200,
+      "height": 2133,
+      "source_bytes": 2346986,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/cherry-program-hero-480.webp",
+            "width": 480,
+            "height": 320,
+            "bytes": 42600
+          },
+          {
+            "path": "assets/photos/responsive/cherry-program-hero-768.webp",
+            "width": 768,
+            "height": 512,
+            "bytes": 85244
+          },
+          {
+            "path": "assets/photos/responsive/cherry-program-hero-1200.webp",
+            "width": 1200,
+            "height": 800,
+            "bytes": 157356
+          },
+          {
+            "path": "assets/photos/responsive/cherry-program-hero-1800.webp",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 272526
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/cherry-program-hero-480.avif",
+            "width": 480,
+            "height": 320,
+            "bytes": 24744
+          },
+          {
+            "path": "assets/photos/responsive/cherry-program-hero-768.avif",
+            "width": 768,
+            "height": 512,
+            "bytes": 50203
+          },
+          {
+            "path": "assets/photos/responsive/cherry-program-hero-1200.avif",
+            "width": 1200,
+            "height": 800,
+            "bytes": 94523
+          },
+          {
+            "path": "assets/photos/responsive/cherry-program-hero-1800.avif",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 169430
+          }
+        ]
+      }
+    },
+    "assets/photos/cherry-team-market.jpg": {
+      "source": "assets/photos/cherry-team-market.jpg",
+      "width": 1400,
+      "height": 981,
+      "source_bytes": 393413,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/cherry-team-market-480.webp",
+            "width": 480,
+            "height": 336,
+            "bytes": 41700
+          },
+          {
+            "path": "assets/photos/responsive/cherry-team-market-768.webp",
+            "width": 768,
+            "height": 538,
+            "bytes": 76508
+          },
+          {
+            "path": "assets/photos/responsive/cherry-team-market-1200.webp",
+            "width": 1200,
+            "height": 841,
+            "bytes": 128268
+          },
+          {
+            "path": "assets/photos/responsive/cherry-team-market-1400.webp",
+            "width": 1400,
+            "height": 981,
+            "bytes": 161554
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/cherry-team-market-480.avif",
+            "width": 480,
+            "height": 336,
+            "bytes": 21687
+          },
+          {
+            "path": "assets/photos/responsive/cherry-team-market-768.avif",
+            "width": 768,
+            "height": 538,
+            "bytes": 42138
+          },
+          {
+            "path": "assets/photos/responsive/cherry-team-market-1200.avif",
+            "width": 1200,
+            "height": 841,
+            "bytes": 76270
+          },
+          {
+            "path": "assets/photos/responsive/cherry-team-market-1400.avif",
+            "width": 1400,
+            "height": 981,
+            "bytes": 97027
+          }
+        ]
+      }
+    },
+    "assets/photos/differential-sap-testing-hero.jpg": {
+      "source": "assets/photos/differential-sap-testing-hero.jpg",
+      "width": 1672,
+      "height": 941,
+      "source_bytes": 310310,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/differential-sap-testing-hero-480.webp",
+            "width": 480,
+            "height": 270,
+            "bytes": 15880
+          },
+          {
+            "path": "assets/photos/responsive/differential-sap-testing-hero-768.webp",
+            "width": 768,
+            "height": 432,
+            "bytes": 28970
+          },
+          {
+            "path": "assets/photos/responsive/differential-sap-testing-hero-1200.webp",
+            "width": 1200,
+            "height": 675,
+            "bytes": 53386
+          },
+          {
+            "path": "assets/photos/responsive/differential-sap-testing-hero-1672.webp",
+            "width": 1672,
+            "height": 941,
+            "bytes": 83086
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/differential-sap-testing-hero-480.avif",
+            "width": 480,
+            "height": 270,
+            "bytes": 9292
+          },
+          {
+            "path": "assets/photos/responsive/differential-sap-testing-hero-768.avif",
+            "width": 768,
+            "height": 432,
+            "bytes": 17767
+          },
+          {
+            "path": "assets/photos/responsive/differential-sap-testing-hero-1200.avif",
+            "width": 1200,
+            "height": 675,
+            "bytes": 34538
+          },
+          {
+            "path": "assets/photos/responsive/differential-sap-testing-hero-1672.avif",
+            "width": 1672,
+            "height": 941,
+            "bytes": 54457
+          }
+        ]
+      }
+    },
+    "assets/photos/field-day.webp": {
+      "source": "assets/photos/field-day.webp",
+      "width": 1920,
+      "height": 1280,
+      "source_bytes": 592512,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/field-day-480.webp",
+            "width": 480,
+            "height": 320,
+            "bytes": 54714
+          },
+          {
+            "path": "assets/photos/responsive/field-day-768.webp",
+            "width": 768,
+            "height": 512,
+            "bytes": 133816
+          },
+          {
+            "path": "assets/photos/responsive/field-day-1200.webp",
+            "width": 1200,
+            "height": 800,
+            "bytes": 303812
+          },
+          {
+            "path": "assets/photos/responsive/field-day-1800.webp",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 602286
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/field-day-480.avif",
+            "width": 480,
+            "height": 320,
+            "bytes": 30317
+          },
+          {
+            "path": "assets/photos/responsive/field-day-768.avif",
+            "width": 768,
+            "height": 512,
+            "bytes": 76687
+          },
+          {
+            "path": "assets/photos/responsive/field-day-1200.avif",
+            "width": 1200,
+            "height": 800,
+            "bytes": 172005
+          },
+          {
+            "path": "assets/photos/responsive/field-day-1800.avif",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 336639
+          }
+        ]
+      }
+    },
+    "assets/photos/founder-tom-rowe.jpg": {
+      "source": "assets/photos/founder-tom-rowe.jpg",
+      "width": 2482,
+      "height": 3723,
+      "source_bytes": 886482,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/founder-tom-rowe-480.webp",
+            "width": 480,
+            "height": 720,
+            "bytes": 70166
+          },
+          {
+            "path": "assets/photos/responsive/founder-tom-rowe-768.webp",
+            "width": 768,
+            "height": 1152,
+            "bytes": 144544
+          },
+          {
+            "path": "assets/photos/responsive/founder-tom-rowe-1200.webp",
+            "width": 1200,
+            "height": 1800,
+            "bytes": 281592
+          },
+          {
+            "path": "assets/photos/responsive/founder-tom-rowe-1800.webp",
+            "width": 1800,
+            "height": 2700,
+            "bytes": 458900
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/founder-tom-rowe-480.avif",
+            "width": 480,
+            "height": 720,
+            "bytes": 27169
+          },
+          {
+            "path": "assets/photos/responsive/founder-tom-rowe-768.avif",
+            "width": 768,
+            "height": 1152,
+            "bytes": 56211
+          },
+          {
+            "path": "assets/photos/responsive/founder-tom-rowe-1200.avif",
+            "width": 1200,
+            "height": 1800,
+            "bytes": 108056
+          },
+          {
+            "path": "assets/photos/responsive/founder-tom-rowe-1800.avif",
+            "width": 1800,
+            "height": 2700,
+            "bytes": 181023
+          }
+        ]
+      }
+    },
+    "assets/photos/fruit-on-tree.jpg": {
+      "source": "assets/photos/fruit-on-tree.jpg",
+      "width": 1920,
+      "height": 1280,
+      "source_bytes": 242908,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/fruit-on-tree-480.webp",
+            "width": 480,
+            "height": 320,
+            "bytes": 23634
+          },
+          {
+            "path": "assets/photos/responsive/fruit-on-tree-768.webp",
+            "width": 768,
+            "height": 512,
+            "bytes": 43136
+          },
+          {
+            "path": "assets/photos/responsive/fruit-on-tree-1200.webp",
+            "width": 1200,
+            "height": 800,
+            "bytes": 75698
+          },
+          {
+            "path": "assets/photos/responsive/fruit-on-tree-1800.webp",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 127292
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/fruit-on-tree-480.avif",
+            "width": 480,
+            "height": 320,
+            "bytes": 14820
+          },
+          {
+            "path": "assets/photos/responsive/fruit-on-tree-768.avif",
+            "width": 768,
+            "height": 512,
+            "bytes": 28333
+          },
+          {
+            "path": "assets/photos/responsive/fruit-on-tree-1200.avif",
+            "width": 1200,
+            "height": 800,
+            "bytes": 52571
+          },
+          {
+            "path": "assets/photos/responsive/fruit-on-tree-1800.avif",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 91962
+          }
+        ]
+      }
+    },
+    "assets/photos/grapes.jpg": {
+      "source": "assets/photos/grapes.jpg",
+      "width": 1920,
+      "height": 1281,
+      "source_bytes": 291071,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/grapes-480.webp",
+            "width": 480,
+            "height": 320,
+            "bytes": 29342
+          },
+          {
+            "path": "assets/photos/responsive/grapes-768.webp",
+            "width": 768,
+            "height": 512,
+            "bytes": 56200
+          },
+          {
+            "path": "assets/photos/responsive/grapes-1200.webp",
+            "width": 1200,
+            "height": 801,
+            "bytes": 103064
+          },
+          {
+            "path": "assets/photos/responsive/grapes-1800.webp",
+            "width": 1800,
+            "height": 1201,
+            "bytes": 170526
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/grapes-480.avif",
+            "width": 480,
+            "height": 320,
+            "bytes": 16466
+          },
+          {
+            "path": "assets/photos/responsive/grapes-768.avif",
+            "width": 768,
+            "height": 512,
+            "bytes": 34550
+          },
+          {
+            "path": "assets/photos/responsive/grapes-1200.avif",
+            "width": 1200,
+            "height": 801,
+            "bytes": 66463
+          },
+          {
+            "path": "assets/photos/responsive/grapes-1800.avif",
+            "width": 1800,
+            "height": 1201,
+            "bytes": 115807
+          }
+        ]
+      }
+    },
+    "assets/photos/human-support-team.jpg": {
+      "source": "assets/photos/human-support-team.jpg",
+      "width": 2048,
+      "height": 1455,
+      "source_bytes": 3034378,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/human-support-team-480.webp",
+            "width": 480,
+            "height": 341,
+            "bytes": 56380
+          },
+          {
+            "path": "assets/photos/responsive/human-support-team-768.webp",
+            "width": 768,
+            "height": 546,
+            "bytes": 132844
+          },
+          {
+            "path": "assets/photos/responsive/human-support-team-1200.webp",
+            "width": 1200,
+            "height": 853,
+            "bytes": 280164
+          },
+          {
+            "path": "assets/photos/responsive/human-support-team-1800.webp",
+            "width": 1800,
+            "height": 1279,
+            "bytes": 524676
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/human-support-team-480.avif",
+            "width": 480,
+            "height": 341,
+            "bytes": 31400
+          },
+          {
+            "path": "assets/photos/responsive/human-support-team-768.avif",
+            "width": 768,
+            "height": 546,
+            "bytes": 70710
+          },
+          {
+            "path": "assets/photos/responsive/human-support-team-1200.avif",
+            "width": 1200,
+            "height": 853,
+            "bytes": 146035
+          },
+          {
+            "path": "assets/photos/responsive/human-support-team-1800.avif",
+            "width": 1800,
+            "height": 1279,
+            "bytes": 267427
+          }
+        ]
+      }
+    },
+    "assets/photos/leaf-tissue-testing-hero.jpg": {
+      "source": "assets/photos/leaf-tissue-testing-hero.jpg",
+      "width": 2000,
+      "height": 1333,
+      "source_bytes": 453792,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/leaf-tissue-testing-hero-480.webp",
+            "width": 480,
+            "height": 320,
+            "bytes": 21778
+          },
+          {
+            "path": "assets/photos/responsive/leaf-tissue-testing-hero-768.webp",
+            "width": 768,
+            "height": 512,
+            "bytes": 43484
+          },
+          {
+            "path": "assets/photos/responsive/leaf-tissue-testing-hero-1200.webp",
+            "width": 1200,
+            "height": 800,
+            "bytes": 82214
+          },
+          {
+            "path": "assets/photos/responsive/leaf-tissue-testing-hero-1800.webp",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 145920
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/leaf-tissue-testing-hero-480.avif",
+            "width": 480,
+            "height": 320,
+            "bytes": 11911
+          },
+          {
+            "path": "assets/photos/responsive/leaf-tissue-testing-hero-768.avif",
+            "width": 768,
+            "height": 512,
+            "bytes": 24121
+          },
+          {
+            "path": "assets/photos/responsive/leaf-tissue-testing-hero-1200.avif",
+            "width": 1200,
+            "height": 800,
+            "bytes": 46384
+          },
+          {
+            "path": "assets/photos/responsive/leaf-tissue-testing-hero-1800.avif",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 84785
+          }
+        ]
+      }
+    },
+    "assets/photos/leaf.jpg": {
+      "source": "assets/photos/leaf.jpg",
+      "width": 1600,
+      "height": 1200,
+      "source_bytes": 191435,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/leaf-480.webp",
+            "width": 480,
+            "height": 360,
+            "bytes": 16896
+          },
+          {
+            "path": "assets/photos/responsive/leaf-768.webp",
+            "width": 768,
+            "height": 576,
+            "bytes": 31916
+          },
+          {
+            "path": "assets/photos/responsive/leaf-1200.webp",
+            "width": 1200,
+            "height": 900,
+            "bytes": 58082
+          },
+          {
+            "path": "assets/photos/responsive/leaf-1600.webp",
+            "width": 1600,
+            "height": 1200,
+            "bytes": 89578
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/leaf-480.avif",
+            "width": 480,
+            "height": 360,
+            "bytes": 10641
+          },
+          {
+            "path": "assets/photos/responsive/leaf-768.avif",
+            "width": 768,
+            "height": 576,
+            "bytes": 20036
+          },
+          {
+            "path": "assets/photos/responsive/leaf-1200.avif",
+            "width": 1200,
+            "height": 900,
+            "bytes": 38168
+          },
+          {
+            "path": "assets/photos/responsive/leaf-1600.avif",
+            "width": 1600,
+            "height": 1200,
+            "bytes": 59589
+          }
+        ]
+      }
+    },
+    "assets/photos/orchard-block.jpg": {
+      "source": "assets/photos/orchard-block.jpg",
+      "width": 1920,
+      "height": 909,
+      "source_bytes": 524725,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/orchard-block-480.webp",
+            "width": 480,
+            "height": 227,
+            "bytes": 35464
+          },
+          {
+            "path": "assets/photos/responsive/orchard-block-768.webp",
+            "width": 768,
+            "height": 364,
+            "bytes": 89850
+          },
+          {
+            "path": "assets/photos/responsive/orchard-block-1200.webp",
+            "width": 1200,
+            "height": 568,
+            "bytes": 213484
+          },
+          {
+            "path": "assets/photos/responsive/orchard-block-1800.webp",
+            "width": 1800,
+            "height": 852,
+            "bytes": 434482
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/orchard-block-480.avif",
+            "width": 480,
+            "height": 227,
+            "bytes": 17824
+          },
+          {
+            "path": "assets/photos/responsive/orchard-block-768.avif",
+            "width": 768,
+            "height": 364,
+            "bytes": 46164
+          },
+          {
+            "path": "assets/photos/responsive/orchard-block-1200.avif",
+            "width": 1200,
+            "height": 568,
+            "bytes": 111158
+          },
+          {
+            "path": "assets/photos/responsive/orchard-block-1800.avif",
+            "width": 1800,
+            "height": 852,
+            "bytes": 226660
+          }
+        ]
+      }
+    },
+    "assets/photos/paddock-green.jpg": {
+      "source": "assets/photos/paddock-green.jpg",
+      "width": 1920,
+      "height": 1278,
+      "source_bytes": 556440,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/paddock-green-480.webp",
+            "width": 480,
+            "height": 320,
+            "bytes": 33952
+          },
+          {
+            "path": "assets/photos/responsive/paddock-green-768.webp",
+            "width": 768,
+            "height": 511,
+            "bytes": 84972
+          },
+          {
+            "path": "assets/photos/responsive/paddock-green-1200.webp",
+            "width": 1200,
+            "height": 799,
+            "bytes": 199846
+          },
+          {
+            "path": "assets/photos/responsive/paddock-green-1800.webp",
+            "width": 1800,
+            "height": 1198,
+            "bytes": 414298
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/paddock-green-480.avif",
+            "width": 480,
+            "height": 320,
+            "bytes": 17939
+          },
+          {
+            "path": "assets/photos/responsive/paddock-green-768.avif",
+            "width": 768,
+            "height": 511,
+            "bytes": 45170
+          },
+          {
+            "path": "assets/photos/responsive/paddock-green-1200.avif",
+            "width": 1200,
+            "height": 799,
+            "bytes": 107641
+          },
+          {
+            "path": "assets/photos/responsive/paddock-green-1800.avif",
+            "width": 1800,
+            "height": 1198,
+            "bytes": 226117
+          }
+        ]
+      }
+    },
+    "assets/photos/prescription-blends-hero.jpg": {
+      "source": "assets/photos/prescription-blends-hero.jpg",
+      "width": 2200,
+      "height": 1468,
+      "source_bytes": 692034,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/prescription-blends-hero-480.webp",
+            "width": 480,
+            "height": 320,
+            "bytes": 24362
+          },
+          {
+            "path": "assets/photos/responsive/prescription-blends-hero-768.webp",
+            "width": 768,
+            "height": 512,
+            "bytes": 53120
+          },
+          {
+            "path": "assets/photos/responsive/prescription-blends-hero-1200.webp",
+            "width": 1200,
+            "height": 801,
+            "bytes": 104852
+          },
+          {
+            "path": "assets/photos/responsive/prescription-blends-hero-1800.webp",
+            "width": 1800,
+            "height": 1201,
+            "bytes": 179866
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/prescription-blends-hero-480.avif",
+            "width": 480,
+            "height": 320,
+            "bytes": 14214
+          },
+          {
+            "path": "assets/photos/responsive/prescription-blends-hero-768.avif",
+            "width": 768,
+            "height": 512,
+            "bytes": 30491
+          },
+          {
+            "path": "assets/photos/responsive/prescription-blends-hero-1200.avif",
+            "width": 1200,
+            "height": 801,
+            "bytes": 60594
+          },
+          {
+            "path": "assets/photos/responsive/prescription-blends-hero-1800.avif",
+            "width": 1800,
+            "height": 1201,
+            "bytes": 108615
+          }
+        ]
+      }
+    },
+    "assets/photos/prescription-blends-screening.jpg": {
+      "source": "assets/photos/prescription-blends-screening.jpg",
+      "width": 1800,
+      "height": 840,
+      "source_bytes": 575315,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/prescription-blends-screening-480.webp",
+            "width": 480,
+            "height": 224,
+            "bytes": 29966
+          },
+          {
+            "path": "assets/photos/responsive/prescription-blends-screening-768.webp",
+            "width": 768,
+            "height": 358,
+            "bytes": 72818
+          },
+          {
+            "path": "assets/photos/responsive/prescription-blends-screening-1200.webp",
+            "width": 1200,
+            "height": 560,
+            "bytes": 150776
+          },
+          {
+            "path": "assets/photos/responsive/prescription-blends-screening-1800.webp",
+            "width": 1800,
+            "height": 840,
+            "bytes": 270140
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/prescription-blends-screening-480.avif",
+            "width": 480,
+            "height": 224,
+            "bytes": 14026
+          },
+          {
+            "path": "assets/photos/responsive/prescription-blends-screening-768.avif",
+            "width": 768,
+            "height": 358,
+            "bytes": 33874
+          },
+          {
+            "path": "assets/photos/responsive/prescription-blends-screening-1200.avif",
+            "width": 1200,
+            "height": 560,
+            "bytes": 75785
+          },
+          {
+            "path": "assets/photos/responsive/prescription-blends-screening-1800.avif",
+            "width": 1800,
+            "height": 840,
+            "bytes": 143100
+          }
+        ]
+      }
+    },
+    "assets/photos/small-crop-potato-field.jpg": {
+      "source": "assets/photos/small-crop-potato-field.jpg",
+      "width": 1200,
+      "height": 1600,
+      "source_bytes": 782716,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/small-crop-potato-field-480.webp",
+            "width": 480,
+            "height": 640,
+            "bytes": 115132
+          },
+          {
+            "path": "assets/photos/responsive/small-crop-potato-field-768.webp",
+            "width": 768,
+            "height": 1024,
+            "bytes": 277920
+          },
+          {
+            "path": "assets/photos/responsive/small-crop-potato-field-1200.webp",
+            "width": 1200,
+            "height": 1600,
+            "bytes": 644816
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/small-crop-potato-field-480.avif",
+            "width": 480,
+            "height": 640,
+            "bytes": 63846
+          },
+          {
+            "path": "assets/photos/responsive/small-crop-potato-field-768.avif",
+            "width": 768,
+            "height": 1024,
+            "bytes": 156260
+          },
+          {
+            "path": "assets/photos/responsive/small-crop-potato-field-1200.avif",
+            "width": 1200,
+            "height": 1600,
+            "bytes": 354029
+          }
+        ]
+      }
+    },
+    "assets/photos/soil-testing-hero.jpg": {
+      "source": "assets/photos/soil-testing-hero.jpg",
+      "width": 1672,
+      "height": 941,
+      "source_bytes": 431250,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/soil-testing-hero-480.webp",
+            "width": 480,
+            "height": 270,
+            "bytes": 24388
+          },
+          {
+            "path": "assets/photos/responsive/soil-testing-hero-768.webp",
+            "width": 768,
+            "height": 432,
+            "bytes": 49424
+          },
+          {
+            "path": "assets/photos/responsive/soil-testing-hero-1200.webp",
+            "width": 1200,
+            "height": 675,
+            "bytes": 92950
+          },
+          {
+            "path": "assets/photos/responsive/soil-testing-hero-1672.webp",
+            "width": 1672,
+            "height": 941,
+            "bytes": 144120
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/soil-testing-hero-480.avif",
+            "width": 480,
+            "height": 270,
+            "bytes": 13818
+          },
+          {
+            "path": "assets/photos/responsive/soil-testing-hero-768.avif",
+            "width": 768,
+            "height": 432,
+            "bytes": 27689
+          },
+          {
+            "path": "assets/photos/responsive/soil-testing-hero-1200.avif",
+            "width": 1200,
+            "height": 675,
+            "bytes": 54676
+          },
+          {
+            "path": "assets/photos/responsive/soil-testing-hero-1672.avif",
+            "width": 1672,
+            "height": 941,
+            "bytes": 87288
+          }
+        ]
+      }
+    },
+    "assets/photos/team-group.jpg": {
+      "source": "assets/photos/team-group.jpg",
+      "width": 1080,
+      "height": 810,
+      "source_bytes": 79601,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/team-group-480.webp",
+            "width": 480,
+            "height": 360,
+            "bytes": 21164
+          },
+          {
+            "path": "assets/photos/responsive/team-group-768.webp",
+            "width": 768,
+            "height": 576,
+            "bytes": 38488
+          },
+          {
+            "path": "assets/photos/responsive/team-group-1080.webp",
+            "width": 1080,
+            "height": 810,
+            "bytes": 58192
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/team-group-480.avif",
+            "width": 480,
+            "height": 360,
+            "bytes": 13502
+          },
+          {
+            "path": "assets/photos/responsive/team-group-768.avif",
+            "width": 768,
+            "height": 576,
+            "bytes": 25016
+          },
+          {
+            "path": "assets/photos/responsive/team-group-1080.avif",
+            "width": 1080,
+            "height": 810,
+            "bytes": 38806
+          }
+        ]
+      }
+    },
+    "assets/photos/testing-interpretation-orchard.jpg": {
+      "source": "assets/photos/testing-interpretation-orchard.jpg",
+      "width": 4032,
+      "height": 3024,
+      "source_bytes": 4537313,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/testing-interpretation-orchard-480.webp",
+            "width": 480,
+            "height": 360,
+            "bytes": 53444
+          },
+          {
+            "path": "assets/photos/responsive/testing-interpretation-orchard-768.webp",
+            "width": 768,
+            "height": 576,
+            "bytes": 115826
+          },
+          {
+            "path": "assets/photos/responsive/testing-interpretation-orchard-1200.webp",
+            "width": 1200,
+            "height": 900,
+            "bytes": 228038
+          },
+          {
+            "path": "assets/photos/responsive/testing-interpretation-orchard-1800.webp",
+            "width": 1800,
+            "height": 1350,
+            "bytes": 411456
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/testing-interpretation-orchard-480.avif",
+            "width": 480,
+            "height": 360,
+            "bytes": 28590
+          },
+          {
+            "path": "assets/photos/responsive/testing-interpretation-orchard-768.avif",
+            "width": 768,
+            "height": 576,
+            "bytes": 63073
+          },
+          {
+            "path": "assets/photos/responsive/testing-interpretation-orchard-1200.avif",
+            "width": 1200,
+            "height": 900,
+            "bytes": 128010
+          },
+          {
+            "path": "assets/photos/responsive/testing-interpretation-orchard-1800.avif",
+            "width": 1800,
+            "height": 1350,
+            "bytes": 237037
+          }
+        ]
+      }
+    },
+    "assets/photos/tree-rows.jpg": {
+      "source": "assets/photos/tree-rows.jpg",
+      "width": 1200,
+      "height": 793,
+      "source_bytes": 179328,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/tree-rows-480.webp",
+            "width": 480,
+            "height": 317,
+            "bytes": 14054
+          },
+          {
+            "path": "assets/photos/responsive/tree-rows-768.webp",
+            "width": 768,
+            "height": 508,
+            "bytes": 26708
+          },
+          {
+            "path": "assets/photos/responsive/tree-rows-1200.webp",
+            "width": 1200,
+            "height": 793,
+            "bytes": 49272
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/tree-rows-480.avif",
+            "width": 480,
+            "height": 317,
+            "bytes": 11936
+          },
+          {
+            "path": "assets/photos/responsive/tree-rows-768.avif",
+            "width": 768,
+            "height": 508,
+            "bytes": 19835
+          },
+          {
+            "path": "assets/photos/responsive/tree-rows-1200.avif",
+            "width": 1200,
+            "height": 793,
+            "bytes": 33731
+          }
+        ]
+      }
+    },
+    "assets/photos/veg-crop.jpg": {
+      "source": "assets/photos/veg-crop.jpg",
+      "width": 1920,
+      "height": 1280,
+      "source_bytes": 370360,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/veg-crop-480.webp",
+            "width": 480,
+            "height": 320,
+            "bytes": 28100
+          },
+          {
+            "path": "assets/photos/responsive/veg-crop-768.webp",
+            "width": 768,
+            "height": 512,
+            "bytes": 51252
+          },
+          {
+            "path": "assets/photos/responsive/veg-crop-1200.webp",
+            "width": 1200,
+            "height": 800,
+            "bytes": 102042
+          },
+          {
+            "path": "assets/photos/responsive/veg-crop-1800.webp",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 218404
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/veg-crop-480.avif",
+            "width": 480,
+            "height": 320,
+            "bytes": 15130
+          },
+          {
+            "path": "assets/photos/responsive/veg-crop-768.avif",
+            "width": 768,
+            "height": 512,
+            "bytes": 29708
+          },
+          {
+            "path": "assets/photos/responsive/veg-crop-1200.avif",
+            "width": 1200,
+            "height": 800,
+            "bytes": 59129
+          },
+          {
+            "path": "assets/photos/responsive/veg-crop-1800.avif",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 136861
+          }
+        ]
+      }
+    },
+    "assets/photos/vine-rows.jpg": {
+      "source": "assets/photos/vine-rows.jpg",
+      "width": 1739,
+      "height": 1149,
+      "source_bytes": 1413322,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/vine-rows-480.webp",
+            "width": 480,
+            "height": 317,
+            "bytes": 61570
+          },
+          {
+            "path": "assets/photos/responsive/vine-rows-768.webp",
+            "width": 768,
+            "height": 507,
+            "bytes": 159774
+          },
+          {
+            "path": "assets/photos/responsive/vine-rows-1200.webp",
+            "width": 1200,
+            "height": 793,
+            "bytes": 367390
+          },
+          {
+            "path": "assets/photos/responsive/vine-rows-1739.webp",
+            "width": 1739,
+            "height": 1149,
+            "bytes": 680014
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/vine-rows-480.avif",
+            "width": 480,
+            "height": 317,
+            "bytes": 33092
+          },
+          {
+            "path": "assets/photos/responsive/vine-rows-768.avif",
+            "width": 768,
+            "height": 507,
+            "bytes": 81765
+          },
+          {
+            "path": "assets/photos/responsive/vine-rows-1200.avif",
+            "width": 1200,
+            "height": 793,
+            "bytes": 185319
+          },
+          {
+            "path": "assets/photos/responsive/vine-rows-1739.avif",
+            "width": 1739,
+            "height": 1149,
+            "bytes": 335680
+          }
+        ]
+      }
+    },
+    "assets/photos/vineyard-market-segment.jpg": {
+      "source": "assets/photos/vineyard-market-segment.jpg",
+      "width": 900,
+      "height": 1200,
+      "source_bytes": 396421,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/vineyard-market-segment-480.webp",
+            "width": 480,
+            "height": 640,
+            "bytes": 75998
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-market-segment-768.webp",
+            "width": 768,
+            "height": 1024,
+            "bytes": 170254
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-market-segment-900.webp",
+            "width": 900,
+            "height": 1200,
+            "bytes": 231082
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/vineyard-market-segment-480.avif",
+            "width": 480,
+            "height": 640,
+            "bytes": 38940
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-market-segment-768.avif",
+            "width": 768,
+            "height": 1024,
+            "bytes": 88194
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-market-segment-900.avif",
+            "width": 900,
+            "height": 1200,
+            "bytes": 118956
+          }
+        ]
+      }
+    },
+    "assets/photos/vineyard-ripe-grape-row.jpg": {
+      "source": "assets/photos/vineyard-ripe-grape-row.jpg",
+      "width": 2992,
+      "height": 2000,
+      "source_bytes": 1068374,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/vineyard-ripe-grape-row-480.webp",
+            "width": 480,
+            "height": 321,
+            "bytes": 37426
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-ripe-grape-row-768.webp",
+            "width": 768,
+            "height": 513,
+            "bytes": 73970
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-ripe-grape-row-1200.webp",
+            "width": 1200,
+            "height": 802,
+            "bytes": 141164
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-ripe-grape-row-1800.webp",
+            "width": 1800,
+            "height": 1203,
+            "bytes": 292830
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/vineyard-ripe-grape-row-480.avif",
+            "width": 480,
+            "height": 321,
+            "bytes": 19877
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-ripe-grape-row-768.avif",
+            "width": 768,
+            "height": 513,
+            "bytes": 40627
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-ripe-grape-row-1200.avif",
+            "width": 1200,
+            "height": 802,
+            "bytes": 80270
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-ripe-grape-row-1800.avif",
+            "width": 1800,
+            "height": 1203,
+            "bytes": 166775
+          }
+        ]
+      }
+    },
+    "assets/photos/vineyard-valley-landscape.jpg": {
+      "source": "assets/photos/vineyard-valley-landscape.jpg",
+      "width": 3999,
+      "height": 2666,
+      "source_bytes": 2671287,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/vineyard-valley-landscape-480.webp",
+            "width": 480,
+            "height": 320,
+            "bytes": 45920
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-valley-landscape-768.webp",
+            "width": 768,
+            "height": 512,
+            "bytes": 114418
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-valley-landscape-1200.webp",
+            "width": 1200,
+            "height": 800,
+            "bytes": 275154
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-valley-landscape-1800.webp",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 601868
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/vineyard-valley-landscape-480.avif",
+            "width": 480,
+            "height": 320,
+            "bytes": 21850
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-valley-landscape-768.avif",
+            "width": 768,
+            "height": 512,
+            "bytes": 55791
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-valley-landscape-1200.avif",
+            "width": 1200,
+            "height": 800,
+            "bytes": 135048
+          },
+          {
+            "path": "assets/photos/responsive/vineyard-valley-landscape-1800.avif",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 296390
+          }
+        ]
+      }
+    },
+    "assets/photos/water-testing-hero.jpg": {
+      "source": "assets/photos/water-testing-hero.jpg",
+      "width": 1812,
+      "height": 868,
+      "source_bytes": 324923,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/water-testing-hero-480.webp",
+            "width": 480,
+            "height": 230,
+            "bytes": 18928
+          },
+          {
+            "path": "assets/photos/responsive/water-testing-hero-768.webp",
+            "width": 768,
+            "height": 368,
+            "bytes": 36614
+          },
+          {
+            "path": "assets/photos/responsive/water-testing-hero-1200.webp",
+            "width": 1200,
+            "height": 575,
+            "bytes": 68220
+          },
+          {
+            "path": "assets/photos/responsive/water-testing-hero-1800.webp",
+            "width": 1800,
+            "height": 862,
+            "bytes": 115490
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/water-testing-hero-480.avif",
+            "width": 480,
+            "height": 230,
+            "bytes": 10296
+          },
+          {
+            "path": "assets/photos/responsive/water-testing-hero-768.avif",
+            "width": 768,
+            "height": 368,
+            "bytes": 19886
+          },
+          {
+            "path": "assets/photos/responsive/water-testing-hero-1200.avif",
+            "width": 1200,
+            "height": 575,
+            "bytes": 39039
+          },
+          {
+            "path": "assets/photos/responsive/water-testing-hero-1800.avif",
+            "width": 1800,
+            "height": 862,
+            "bytes": 70909
+          }
+        ]
+      }
+    },
+    "assets/team/andrew-smith-field.jpg": {
+      "source": "assets/team/andrew-smith-field.jpg",
+      "width": 772,
+      "height": 515,
+      "source_bytes": 122974,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/andrew-smith-field-480.webp",
+            "width": 480,
+            "height": 320,
+            "bytes": 32334
+          },
+          {
+            "path": "assets/team/responsive/andrew-smith-field-768.webp",
+            "width": 768,
+            "height": 512,
+            "bytes": 59684
+          },
+          {
+            "path": "assets/team/responsive/andrew-smith-field-772.webp",
+            "width": 772,
+            "height": 515,
+            "bytes": 58384
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/andrew-smith-field-480.avif",
+            "width": 480,
+            "height": 320,
+            "bytes": 17594
+          },
+          {
+            "path": "assets/team/responsive/andrew-smith-field-768.avif",
+            "width": 768,
+            "height": 512,
+            "bytes": 33163
+          },
+          {
+            "path": "assets/team/responsive/andrew-smith-field-772.avif",
+            "width": 772,
+            "height": 515,
+            "bytes": 34822
+          }
+        ]
+      }
+    },
+    "assets/team/andrew-smith-portrait.webp": {
+      "source": "assets/team/andrew-smith-portrait.webp",
+      "width": 690,
+      "height": 1035,
+      "source_bytes": 80474,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/andrew-smith-portrait-480.webp",
+            "width": 480,
+            "height": 720,
+            "bytes": 53814
+          },
+          {
+            "path": "assets/team/responsive/andrew-smith-portrait-690.webp",
+            "width": 690,
+            "height": 1035,
+            "bytes": 86648
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/andrew-smith-portrait-480.avif",
+            "width": 480,
+            "height": 720,
+            "bytes": 27212
+          },
+          {
+            "path": "assets/team/responsive/andrew-smith-portrait-690.avif",
+            "width": 690,
+            "height": 1035,
+            "bytes": 48541
+          }
+        ]
+      }
+    },
+    "assets/team/andrew-woodford-field.jpg": {
+      "source": "assets/team/andrew-woodford-field.jpg",
+      "width": 1440,
+      "height": 1920,
+      "source_bytes": 1326060,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/andrew-woodford-field-480.webp",
+            "width": 480,
+            "height": 640,
+            "bytes": 145698
+          },
+          {
+            "path": "assets/team/responsive/andrew-woodford-field-768.webp",
+            "width": 768,
+            "height": 1024,
+            "bytes": 386866
+          },
+          {
+            "path": "assets/team/responsive/andrew-woodford-field-1200.webp",
+            "width": 1200,
+            "height": 1600,
+            "bytes": 937222
+          },
+          {
+            "path": "assets/team/responsive/andrew-woodford-field-1440.webp",
+            "width": 1440,
+            "height": 1920,
+            "bytes": 1344630
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/andrew-woodford-field-480.avif",
+            "width": 480,
+            "height": 640,
+            "bytes": 78227
+          },
+          {
+            "path": "assets/team/responsive/andrew-woodford-field-768.avif",
+            "width": 768,
+            "height": 1024,
+            "bytes": 213717
+          },
+          {
+            "path": "assets/team/responsive/andrew-woodford-field-1200.avif",
+            "width": 1200,
+            "height": 1600,
+            "bytes": 516218
+          },
+          {
+            "path": "assets/team/responsive/andrew-woodford-field-1440.avif",
+            "width": 1440,
+            "height": 1920,
+            "bytes": 770619
+          }
+        ]
+      }
+    },
+    "assets/team/andrew-woodford-portrait.webp": {
+      "source": "assets/team/andrew-woodford-portrait.webp",
+      "width": 690,
+      "height": 1035,
+      "source_bytes": 47992,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/andrew-woodford-portrait-480.webp",
+            "width": 480,
+            "height": 720,
+            "bytes": 28142
+          },
+          {
+            "path": "assets/team/responsive/andrew-woodford-portrait-690.webp",
+            "width": 690,
+            "height": 1035,
+            "bytes": 49106
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/andrew-woodford-portrait-480.avif",
+            "width": 480,
+            "height": 720,
+            "bytes": 19239
+          },
+          {
+            "path": "assets/team/responsive/andrew-woodford-portrait-690.avif",
+            "width": 690,
+            "height": 1035,
+            "bytes": 35830
+          }
+        ]
+      }
+    },
+    "assets/team/bruce-armstrong-field.jpg": {
+      "source": "assets/team/bruce-armstrong-field.jpg",
+      "width": 1920,
+      "height": 1280,
+      "source_bytes": 121210,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/bruce-armstrong-field-480.webp",
+            "width": 480,
+            "height": 320,
+            "bytes": 7878
+          },
+          {
+            "path": "assets/team/responsive/bruce-armstrong-field-768.webp",
+            "width": 768,
+            "height": 512,
+            "bytes": 15748
+          },
+          {
+            "path": "assets/team/responsive/bruce-armstrong-field-1200.webp",
+            "width": 1200,
+            "height": 800,
+            "bytes": 29772
+          },
+          {
+            "path": "assets/team/responsive/bruce-armstrong-field-1800.webp",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 54034
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/bruce-armstrong-field-480.avif",
+            "width": 480,
+            "height": 320,
+            "bytes": 5635
+          },
+          {
+            "path": "assets/team/responsive/bruce-armstrong-field-768.avif",
+            "width": 768,
+            "height": 512,
+            "bytes": 10725
+          },
+          {
+            "path": "assets/team/responsive/bruce-armstrong-field-1200.avif",
+            "width": 1200,
+            "height": 800,
+            "bytes": 20851
+          },
+          {
+            "path": "assets/team/responsive/bruce-armstrong-field-1800.avif",
+            "width": 1800,
+            "height": 1200,
+            "bytes": 38222
+          }
+        ]
+      }
+    },
+    "assets/team/bruce-armstrong-portrait.webp": {
+      "source": "assets/team/bruce-armstrong-portrait.webp",
+      "width": 690,
+      "height": 1035,
+      "source_bytes": 91018,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/bruce-armstrong-portrait-480.webp",
+            "width": 480,
+            "height": 720,
+            "bytes": 63746
+          },
+          {
+            "path": "assets/team/responsive/bruce-armstrong-portrait-690.webp",
+            "width": 690,
+            "height": 1035,
+            "bytes": 99356
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/bruce-armstrong-portrait-480.avif",
+            "width": 480,
+            "height": 720,
+            "bytes": 28441
+          },
+          {
+            "path": "assets/team/responsive/bruce-armstrong-portrait-690.avif",
+            "width": 690,
+            "height": 1035,
+            "bytes": 59089
+          }
+        ]
+      }
+    },
+    "assets/team/chelsea-hall-field.jpg": {
+      "source": "assets/team/chelsea-hall-field.jpg",
+      "width": 1650,
+      "height": 2270,
+      "source_bytes": 606064,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/chelsea-hall-field-480.webp",
+            "width": 480,
+            "height": 660,
+            "bytes": 44210
+          },
+          {
+            "path": "assets/team/responsive/chelsea-hall-field-768.webp",
+            "width": 768,
+            "height": 1057,
+            "bytes": 91900
+          },
+          {
+            "path": "assets/team/responsive/chelsea-hall-field-1200.webp",
+            "width": 1200,
+            "height": 1651,
+            "bytes": 166534
+          },
+          {
+            "path": "assets/team/responsive/chelsea-hall-field-1650.webp",
+            "width": 1650,
+            "height": 2270,
+            "bytes": 251724
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/chelsea-hall-field-480.avif",
+            "width": 480,
+            "height": 660,
+            "bytes": 20428
+          },
+          {
+            "path": "assets/team/responsive/chelsea-hall-field-768.avif",
+            "width": 768,
+            "height": 1057,
+            "bytes": 41715
+          },
+          {
+            "path": "assets/team/responsive/chelsea-hall-field-1200.avif",
+            "width": 1200,
+            "height": 1651,
+            "bytes": 76838
+          },
+          {
+            "path": "assets/team/responsive/chelsea-hall-field-1650.avif",
+            "width": 1650,
+            "height": 2270,
+            "bytes": 115941
+          }
+        ]
+      }
+    },
+    "assets/team/chelsea-hall-portrait.webp": {
+      "source": "assets/team/chelsea-hall-portrait.webp",
+      "width": 690,
+      "height": 1035,
+      "source_bytes": 78948,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/chelsea-hall-portrait-480.webp",
+            "width": 480,
+            "height": 720,
+            "bytes": 54032
+          },
+          {
+            "path": "assets/team/responsive/chelsea-hall-portrait-690.webp",
+            "width": 690,
+            "height": 1035,
+            "bytes": 86368
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/chelsea-hall-portrait-480.avif",
+            "width": 480,
+            "height": 720,
+            "bytes": 24145
+          },
+          {
+            "path": "assets/team/responsive/chelsea-hall-portrait-690.avif",
+            "width": 690,
+            "height": 1035,
+            "bytes": 44234
+          }
+        ]
+      }
+    },
+    "assets/team/hamilton-rowe-portrait.jpg": {
+      "source": "assets/team/hamilton-rowe-portrait.jpg",
+      "width": 1200,
+      "height": 1800,
+      "source_bytes": 409049,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/hamilton-rowe-portrait-480.webp",
+            "width": 480,
+            "height": 720,
+            "bytes": 44046
+          },
+          {
+            "path": "assets/team/responsive/hamilton-rowe-portrait-768.webp",
+            "width": 768,
+            "height": 1152,
+            "bytes": 101040
+          },
+          {
+            "path": "assets/team/responsive/hamilton-rowe-portrait-1200.webp",
+            "width": 1200,
+            "height": 1800,
+            "bytes": 177178
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/hamilton-rowe-portrait-480.avif",
+            "width": 480,
+            "height": 720,
+            "bytes": 21633
+          },
+          {
+            "path": "assets/team/responsive/hamilton-rowe-portrait-768.avif",
+            "width": 768,
+            "height": 1152,
+            "bytes": 45484
+          },
+          {
+            "path": "assets/team/responsive/hamilton-rowe-portrait-1200.avif",
+            "width": 1200,
+            "height": 1800,
+            "bytes": 83391
+          }
+        ]
+      }
+    },
+    "assets/team/james-white-portrait.webp": {
+      "source": "assets/team/james-white-portrait.webp",
+      "width": 690,
+      "height": 1035,
+      "source_bytes": 47756,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/james-white-portrait-480.webp",
+            "width": 480,
+            "height": 720,
+            "bytes": 35766
+          },
+          {
+            "path": "assets/team/responsive/james-white-portrait-690.webp",
+            "width": 690,
+            "height": 1035,
+            "bytes": 52236
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/james-white-portrait-480.avif",
+            "width": 480,
+            "height": 720,
+            "bytes": 20158
+          },
+          {
+            "path": "assets/team/responsive/james-white-portrait-690.avif",
+            "width": 690,
+            "height": 1035,
+            "bytes": 32321
+          }
+        ]
+      }
+    },
+    "assets/team/jamie-granger-field.jpg": {
+      "source": "assets/team/jamie-granger-field.jpg",
+      "width": 1080,
+      "height": 1920,
+      "source_bytes": 496051,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/jamie-granger-field-480.webp",
+            "width": 480,
+            "height": 853,
+            "bytes": 109558
+          },
+          {
+            "path": "assets/team/responsive/jamie-granger-field-768.webp",
+            "width": 768,
+            "height": 1365,
+            "bytes": 255976
+          },
+          {
+            "path": "assets/team/responsive/jamie-granger-field-1080.webp",
+            "width": 1080,
+            "height": 1920,
+            "bytes": 440490
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/jamie-granger-field-480.avif",
+            "width": 480,
+            "height": 853,
+            "bytes": 56042
+          },
+          {
+            "path": "assets/team/responsive/jamie-granger-field-768.avif",
+            "width": 768,
+            "height": 1365,
+            "bytes": 127384
+          },
+          {
+            "path": "assets/team/responsive/jamie-granger-field-1080.avif",
+            "width": 1080,
+            "height": 1920,
+            "bytes": 233501
+          }
+        ]
+      }
+    },
+    "assets/team/jamie-granger-portrait.webp": {
+      "source": "assets/team/jamie-granger-portrait.webp",
+      "width": 690,
+      "height": 1035,
+      "source_bytes": 80282,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/jamie-granger-portrait-480.webp",
+            "width": 480,
+            "height": 720,
+            "bytes": 53634
+          },
+          {
+            "path": "assets/team/responsive/jamie-granger-portrait-690.webp",
+            "width": 690,
+            "height": 1035,
+            "bytes": 87270
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/jamie-granger-portrait-480.avif",
+            "width": 480,
+            "height": 720,
+            "bytes": 24159
+          },
+          {
+            "path": "assets/team/responsive/jamie-granger-portrait-690.avif",
+            "width": 690,
+            "height": 1035,
+            "bytes": 44316
+          }
+        ]
+      }
+    },
+    "assets/team/joshua-hull-field.jpg": {
+      "source": "assets/team/joshua-hull-field.jpg",
+      "width": 1063,
+      "height": 1599,
+      "source_bytes": 485622,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/joshua-hull-field-480.webp",
+            "width": 480,
+            "height": 722,
+            "bytes": 155808
+          },
+          {
+            "path": "assets/team/responsive/joshua-hull-field-768.webp",
+            "width": 768,
+            "height": 1155,
+            "bytes": 345716
+          },
+          {
+            "path": "assets/team/responsive/joshua-hull-field-1063.webp",
+            "width": 1063,
+            "height": 1599,
+            "bytes": 528508
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/joshua-hull-field-480.avif",
+            "width": 480,
+            "height": 722,
+            "bytes": 79945
+          },
+          {
+            "path": "assets/team/responsive/joshua-hull-field-768.avif",
+            "width": 768,
+            "height": 1155,
+            "bytes": 171134
+          },
+          {
+            "path": "assets/team/responsive/joshua-hull-field-1063.avif",
+            "width": 1063,
+            "height": 1599,
+            "bytes": 271414
+          }
+        ]
+      }
+    },
+    "assets/team/joshua-hull-portrait.webp": {
+      "source": "assets/team/joshua-hull-portrait.webp",
+      "width": 690,
+      "height": 1035,
+      "source_bytes": 77510,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/joshua-hull-portrait-480.webp",
+            "width": 480,
+            "height": 720,
+            "bytes": 51172
+          },
+          {
+            "path": "assets/team/responsive/joshua-hull-portrait-690.webp",
+            "width": 690,
+            "height": 1035,
+            "bytes": 84040
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/joshua-hull-portrait-480.avif",
+            "width": 480,
+            "height": 720,
+            "bytes": 23835
+          },
+          {
+            "path": "assets/team/responsive/joshua-hull-portrait-690.avif",
+            "width": 690,
+            "height": 1035,
+            "bytes": 42567
+          }
+        ]
+      }
+    },
+    "assets/team/nathan-strawbridge-field.jpg": {
+      "source": "assets/team/nathan-strawbridge-field.jpg",
+      "width": 2192,
+      "height": 3288,
+      "source_bytes": 583712,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/nathan-strawbridge-field-480.webp",
+            "width": 480,
+            "height": 720,
+            "bytes": 47440
+          },
+          {
+            "path": "assets/team/responsive/nathan-strawbridge-field-768.webp",
+            "width": 768,
+            "height": 1152,
+            "bytes": 117026
+          },
+          {
+            "path": "assets/team/responsive/nathan-strawbridge-field-1200.webp",
+            "width": 1200,
+            "height": 1800,
+            "bytes": 222026
+          },
+          {
+            "path": "assets/team/responsive/nathan-strawbridge-field-1800.webp",
+            "width": 1800,
+            "height": 2700,
+            "bytes": 371072
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/nathan-strawbridge-field-480.avif",
+            "width": 480,
+            "height": 720,
+            "bytes": 23145
+          },
+          {
+            "path": "assets/team/responsive/nathan-strawbridge-field-768.avif",
+            "width": 768,
+            "height": 1152,
+            "bytes": 49987
+          },
+          {
+            "path": "assets/team/responsive/nathan-strawbridge-field-1200.avif",
+            "width": 1200,
+            "height": 1800,
+            "bytes": 96182
+          },
+          {
+            "path": "assets/team/responsive/nathan-strawbridge-field-1800.avif",
+            "width": 1800,
+            "height": 2700,
+            "bytes": 166512
+          }
+        ]
+      }
+    },
+    "assets/team/nathan-strawbridge-portrait.webp": {
+      "source": "assets/team/nathan-strawbridge-portrait.webp",
+      "width": 690,
+      "height": 1035,
+      "source_bytes": 86378,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/team/responsive/nathan-strawbridge-portrait-480.webp",
+            "width": 480,
+            "height": 720,
+            "bytes": 57696
+          },
+          {
+            "path": "assets/team/responsive/nathan-strawbridge-portrait-690.webp",
+            "width": 690,
+            "height": 1035,
+            "bytes": 94420
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/team/responsive/nathan-strawbridge-portrait-480.avif",
+            "width": 480,
+            "height": 720,
+            "bytes": 25621
+          },
+          {
+            "path": "assets/team/responsive/nathan-strawbridge-portrait-690.avif",
+            "width": 690,
+            "height": 1035,
+            "bytes": 46231
+          }
+        ]
+      }
+    },
+    "assets/photos/leaf-testing-crop-foliage.jpg": {
+      "source": "assets/photos/leaf-testing-crop-foliage.jpg",
+      "width": 1800,
+      "height": 2400,
+      "source_bytes": 841974,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/leaf-testing-crop-foliage-480.webp",
+            "width": 480,
+            "height": 640,
+            "bytes": 58196
+          },
+          {
+            "path": "assets/photos/responsive/leaf-testing-crop-foliage-768.webp",
+            "width": 768,
+            "height": 1024,
+            "bytes": 118842
+          },
+          {
+            "path": "assets/photos/responsive/leaf-testing-crop-foliage-1200.webp",
+            "width": 1200,
+            "height": 1600,
+            "bytes": 222260
+          },
+          {
+            "path": "assets/photos/responsive/leaf-testing-crop-foliage-1800.webp",
+            "width": 1800,
+            "height": 2400,
+            "bytes": 396198
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/leaf-testing-crop-foliage-480.avif",
+            "width": 480,
+            "height": 640,
+            "bytes": 34192
+          },
+          {
+            "path": "assets/photos/responsive/leaf-testing-crop-foliage-768.avif",
+            "width": 768,
+            "height": 1024,
+            "bytes": 72161
+          },
+          {
+            "path": "assets/photos/responsive/leaf-testing-crop-foliage-1200.avif",
+            "width": 1200,
+            "height": 1600,
+            "bytes": 143708
+          },
+          {
+            "path": "assets/photos/responsive/leaf-testing-crop-foliage-1800.avif",
+            "width": 1800,
+            "height": 2400,
+            "bytes": 264742
+          }
+        ]
+      }
+    },
+    "assets/photos/leaf-testing-field-samples.jpg": {
+      "source": "assets/photos/leaf-testing-field-samples.jpg",
+      "width": 1280,
+      "height": 720,
+      "source_bytes": 302148,
+      "variants": {
+        "webp": [
+          {
+            "path": "assets/photos/responsive/leaf-testing-field-samples-480.webp",
+            "width": 480,
+            "height": 270,
+            "bytes": 47844
+          },
+          {
+            "path": "assets/photos/responsive/leaf-testing-field-samples-768.webp",
+            "width": 768,
+            "height": 432,
+            "bytes": 118266
+          },
+          {
+            "path": "assets/photos/responsive/leaf-testing-field-samples-1200.webp",
+            "width": 1200,
+            "height": 675,
+            "bytes": 252438
+          },
+          {
+            "path": "assets/photos/responsive/leaf-testing-field-samples-1280.webp",
+            "width": 1280,
+            "height": 720,
+            "bytes": 271740
+          }
+        ],
+        "avif": [
+          {
+            "path": "assets/photos/responsive/leaf-testing-field-samples-480.avif",
+            "width": 480,
+            "height": 270,
+            "bytes": 24266
+          },
+          {
+            "path": "assets/photos/responsive/leaf-testing-field-samples-768.avif",
+            "width": 768,
+            "height": 432,
+            "bytes": 62714
+          },
+          {
+            "path": "assets/photos/responsive/leaf-testing-field-samples-1200.avif",
+            "width": 1200,
+            "height": 675,
+            "bytes": 134763
+          },
+          {
+            "path": "assets/photos/responsive/leaf-testing-field-samples-1280.avif",
+            "width": 1280,
+            "height": 720,
+            "bytes": 151920
+          }
+        ]
+      }
+    }
+  }
+}

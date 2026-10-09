@@ -1,0 +1,29 @@
+Fruitify | Hybrid-Ag working product reference
+REVIEW DRAFT. Not a label, Safety Data Sheet or application recommendation.
+
+Calcium and trace nutrition for fruit crops.
+Fruitify supplies Calcium with Manganese, Iron, Zinc, Boron and Copper in a liquid formulation.
+It is described for developing fruit where the crop requires the Nutrients carried in the product.
+
+Overview
+Fruitify combines Calcium with Manganese, Iron, Zinc, Boron and Copper in a liquid feed. Sugar-alcohol and other complexing compounds are part of the formulation described for developing fruit where those Nutrients are required.
+The fixed combination needs to match more than a Calcium requirement alone. Compare each Nutrient contribution with the crop’s tests, existing applications and fruit load. That helps the team decide whether Fruitify provides an appropriate combination or a prescription should address different shortages and proportions.
+
+Composition source: dashboard staging. Basis: % w/v
+These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.
+Nitrogen (N): 2.15978
+Potassium (K): 0.027455
+Calcium (Ca): 5.08737
+Boron (B): 0.082411
+Zinc (Zn): 0.098346
+Copper (Cu): 0.0867623
+Manganese (Mn): 1.61545
+Iron (Fe): 0.81977
+Carbon (Carbon): 5.15344
+
+Application
+Discuss the intended foliar or fertigation application with the team. Confirm the current method, rate and crop context before application.
+Confirm the current product label, crop-specific recommendation, mixing and handling directions with the team.
+
+Price, pack availability, codes and document revisions require confirmation. Nothing has been ordered or approved.
+Prepared 6 October 2026 from the local website review register.

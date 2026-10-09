@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apple Nutrition Program — Hybrid-Ag</title>
+<meta name="description" content="Explore the representative Pink Lady nutrition program from Hybrid-Ag’s Apple Playbook, with growth stages, sample rates and testing checkpoints.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/program.css?v=3e26ee2d5e">
+<link rel="stylesheet" href="css/pages/programs.css?v=37ee7897a6">
+<link rel="stylesheet" href="css/pages/apples.css?v=7ff56d9fe6">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="canonical" href="https://www.hybridag.com.au/program-apples.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Apple Nutrition Program — Hybrid-Ag">
+<meta property="og:description" content="Explore the representative Pink Lady nutrition program from Hybrid-Ag’s Apple Playbook, with growth stages, sample rates and testing checkpoints.">
+<meta property="og:url" content="https://www.hybridag.com.au/program-apples.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apple Nutrition Program — Hybrid-Ag">
+<meta name="twitter:description" content="Explore the representative Pink Lady nutrition program from Hybrid-Ag’s Apple Playbook, with growth stages, sample rates and testing checkpoints.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+</head>
+<body data-page="sectors" class="cherry-program-page apple-page apple-program-page">
+<div id="site-header"></div>
+<main>
+  <header class="cherry-program-hero page-cover page-cover--photo" data-home-field="dark">
+    <img class="cherry-program-hero__image" src="assets/photos/responsive/fruit-on-tree-1800.webp" width="1920" height="1280" sizes="100vw" srcset="assets/photos/responsive/fruit-on-tree-480.webp 480w, assets/photos/responsive/fruit-on-tree-768.webp 768w, assets/photos/responsive/fruit-on-tree-1200.webp 1200w, assets/photos/responsive/fruit-on-tree-1800.webp 1800w" alt="Red apples growing on the tree" fetchpriority="high" decoding="async">
+    <div class="cherry-program-hero__shade" aria-hidden="true"></div>
+    <div class="wrap cherry-program-hero__inner page-cover__inner">
+      <div class="cherry-program-crumb"><a href="horticulture.html">Horticulture</a><span>/</span><a href="sectors-apples.html">Apples</a><span>/</span><strong>Program</strong></div>
+      <h1>The Apple Nutrition Program.</h1>
+      <p>Explore the representative Pink Lady program from the Apple Nutrition Playbook. It shows how applications and testing are arranged through the season, as a starting point for a prescription suited to your block.</p>
+      <div class="cta-row"><a class="btn btn--teal" href="contact.html?program=apples">Discuss your apple block</a><a class="btn cherry-program-hero__secondary" href="#interactive-program">Explore the sample program</a></div>
+    </div>
+  </header>
+
+  <section class="cherry-program-principle" data-reveal data-home-field="light">
+    <div class="wrap cherry-program-principle__inner">
+      <div><span class="eyebrow eyebrow--orange">A prescription for your orchard</span><h2>The block comes before the product list.</h2></div>
+      <div><p>A sample can help explain the approach, but it cannot account for the conditions in every orchard.</p><p>Your variety and rootstock, crop load, soil and water results, previous applications and budget inform the prescription. The team reviews those details with you before confirming products, rates and timing.</p></div>
+    </div>
+  </section>
+
+  <section class="cherry-program-interactive section" id="interactive-program" data-reveal>
+    <div class="wrap">
+      <div class="cherry-program-interactive__heading">
+        <div><span class="eyebrow eyebrow--berry">Interactive sample · Pink Lady</span><h2>The booklet’s program, stage by stage.</h2></div>
+        <p>Transcribed from pages 46–47 of the Apple Playbook. This website version is a review draft, not approved application guidance for your block.</p>
+      </div>
+      <div class="cherry-program-interactive__stats" aria-label="Apple sample program structure">
+        <div><strong>15</strong><span>stage entries</span></div><div><strong>16</strong><span>product rows</span></div><div><strong>3</strong><span>application pathways</span></div><div><strong>6</strong><span>DSA checkpoints</span></div>
+      </div>
+      <div class="prog-tip"><b class="tip-desk">Explore the sample</b><b class="tip-mob">Tap a stage</b><span class="tip-desk">Hover over a stage, product or rate for an explanation. Select a stage for more detail, or a rate to see that product’s sample entries. Product names open the matching page where available.</span><span class="tip-mob">Tap a growth stage to see the applications and testing shown.</span></div>
+      <div class="matrix-wrap"><div class="matrix" id="matrix"></div></div>
+      <div class="stepper" id="stepper" aria-label="Apple program, stage by stage"></div>
+      <div class="drill" id="drill"></div>
+      <noscript><p class="apple-source-note">The interactive sample needs JavaScript. You can <a href="assets/apple-nutrition-playbook.pdf#page=46">read the complete table on pages 46–47 of the playbook</a> without it.</p></noscript>
+      <p class="cherry-program-interactive__note"><strong>Sample rates are shown in L/ha.</strong> Months reproduce this Pink Lady example, not fixed timing for all orchards. Blank cells are not advice to omit an application or test. DSA means Differential Sap Analysis.</p>
+      <div class="apple-source-note"><p>Product selections, current directions and compatibility require technical confirmation before use. Products shown at the same stage are not necessarily a tank mix. The booklet’s Nutri-Core Soil Activator and Agri-Vive RF references remain flagged for identity confirmation.</p><a href="assets/apple-nutrition-playbook.pdf#page=46">Compare with the original booklet table</a></div>
+    </div>
+  </section>
+
+  <section class="cherry-program-evidence apple-orchard" data-reveal data-home-field="light">
+    <div class="cherry-program-evidence__image"><img src="assets/photos/responsive/about-food-quality-orchard-1080.webp" width="1080" height="566" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/about-food-quality-orchard-480.webp 480w, assets/photos/responsive/about-food-quality-orchard-768.webp 768w, assets/photos/responsive/about-food-quality-orchard-1080.webp 1080w" alt="Rows of apple trees carrying fruit beneath netting" loading="lazy" decoding="async"></div>
+    <div class="cherry-program-evidence__copy">
+      <span class="eyebrow eyebrow--berry">Reviewing the recommendation</span><h2>Use the results in context.</h2>
+      <p>The playbook follows soil, water and plant results through to fruit quality. A result becomes more useful when the team understands the block it came from.</p>
+      <dl><div><dt>The block</dt><dd>Variety and rootstock, crop load, growth stage and the issue you want to understand.</dd></div><div><dt>The history</dt><dd>Previous applications and test results, with harvest, storage and pack-out information where available.</dd></div><div><dt>The next decision</dt><dd>What the evidence supports now, and whether another sample or field assessment is needed before changing the prescription.</dd></div></dl>
+      <div class="cta-row"><a class="btn btn--teal" href="soil-test.html?sector=horticulture&amp;crop=Apples">Organise testing</a><a class="btn apple-secondary" href="services-differential-sap-analysis.html">About DSA testing</a></div>
+    </div>
+  </section>
+
+  <section class="cherry-program-playbook" id="apple-playbook" data-reveal data-home-field="light">
+    <div class="wrap cherry-program-playbook__inner">
+      <div><span class="eyebrow eyebrow--orange">Read the full explanation</span><h2>The Apple Nutrition Playbook.</h2><p>The sample table is one part of the booklet. The wider chapters explain the orchard conditions and seasonal decisions behind it, from crop load and water through to fruit condition and storage.</p><div class="cta-row"><a class="btn btn--teal" href="assets/apple-nutrition-playbook.pdf">Open the playbook</a><a class="btn apple-secondary" href="assets/apple-nutrition-playbook.pdf" download="Hybrid-Ag-Apple-Nutrition-Playbook.pdf">Download PDF</a></div><p class="apple-file-note">56 pages · PDF · 25.8 MB.</p><p class="muted" data-booklet-review-note><small>Review draft: visitors will provide their contact details to receive this booklet when the website launches. Downloads remain open here while the website is being reviewed.</small></p><a class="apple-text-link" href="sectors-apples.html">Read about apple nutrition</a></div>
+      <a href="assets/apple-nutrition-playbook.pdf" class="cherry-program-playbook__cover" aria-label="Open the Apple Nutrition Playbook PDF"><img src="assets/apple-playbook-cover.jpg" width="839" height="1191" alt="Cover of the Apple Nutrition Playbook" loading="lazy" decoding="async"></a>
+    </div>
+  </section>
+
+  <section class="programs-cta" data-reveal data-home-field="dark"><div class="wrap programs-cta__inner"><div><span class="eyebrow">Discuss your apple block</span><h2>Bring the sample back to your orchard.</h2><p>Tell us about the block, what you want to understand and any results you already have.</p></div><div class="cta-row"><a class="btn programs-cta__primary" href="contact.html?program=apples">Talk to the team</a><a class="btn programs-cta__secondary" href="sectors-apples.html">Back to Apples</a></div></div></section>
+</main>
+<div id="site-footer"></div>
+<div class="tooltip" id="tooltip" role="status"></div>
+<div class="popout-backdrop" id="popoutBackdrop"><div class="popout" id="popout"></div></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/data/apple-program.js?v=dbc2e06f4f"></script>
+<script src="js/program.js?v=197688b18f"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request Testing - Hybrid-Ag</title>
+<meta name="description" content="Request soil, leaf and tissue, differential sap, water or produce testing, or bring results you already have.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/testing-request.css?v=60457e0f33">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/service-refinements.css?v=63c0fac8e0">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/soil-test.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Request Testing - Hybrid-Ag">
+<meta property="og:description" content="Request soil, leaf and tissue, differential sap, water or produce testing, or bring results you already have.">
+<meta property="og:url" content="https://www.hybridag.com.au/soil-test.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Request Testing - Hybrid-Ag">
+<meta name="twitter:description" content="Request soil, leaf and tissue, differential sap, water or produce testing, or bring results you already have.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="services" class="service-refined">
+<div id="site-header"></div>
+
+<main>
+<aside class="wrap" data-pages-review-notice role="note" aria-label="Public review notice" style="margin:20px auto;padding:16px;border:1px solid #b65300;background:#fff1df;color:#1a1714">
+<strong>Public website review.</strong> Forms, sign-in and ordering are previews. Nothing is sent to Hybrid-Ag. Use the team's contact details for a real enquiry.
+</aside>
+  <header class="testing-hero page-cover page-cover--photo" data-home-field>
+    <img class="testing-hero__image" src="assets/photos/responsive/field-day-1800.webp" decoding="async" height="1280" width="1920" sizes="100vw" srcset="assets/photos/responsive/field-day-480.webp 480w, assets/photos/responsive/field-day-768.webp 768w, assets/photos/responsive/field-day-1200.webp 1200w, assets/photos/responsive/field-day-1800.webp 1800w" alt="Rows of orchard trees" fetchpriority="high">
+    <div class="testing-hero__shade" aria-hidden="true"></div>
+    <div class="wrap testing-hero__inner page-cover__inner">
+      <span class="eyebrow">Testing and interpretation</span>
+      <h1>Ask about testing for your crop.</h1>
+      <p>Tell us what is happening in your paddock or block and what you need to understand. The team can help you choose a test or review results you already have.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="#request">Request testing</a>
+        <a class="btn testing-hero__call" href="tel:+61357228000">Call (03) 5722 8000</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="testing-intro" aria-label="How the process works" data-home-field>
+    <div class="wrap testing-intro__grid">
+      <div><span>01</span><strong>Choose the starting point</strong><p>Select a test, tell us about existing results or ask the team for help choosing.</p></div>
+      <div><span>02</span><strong>Describe the crop</strong><p>Tell us the crop, location and growth stage, along with any relevant history or test results.</p></div>
+      <div><span>03</span><strong>Talk through the plan</strong><p>The team discusses sampling and interpretation with you before confirming the next step.</p></div>
+    </div>
+  </section>
+
+  <section class="testing-request section" id="request" data-home-field>
+    <div class="wrap testing-request__layout">
+      <div class="testing-request__intro">
+        <span class="eyebrow eyebrow--berry">Request testing</span>
+        <h2 class="h2">Tell us what you need tested.</h2>
+        <p class="sub">You do not need to diagnose the problem before contacting us. Choose the closest option and tell us what you have noticed in the crop. A person will review the request before anything is recommended.</p>
+        <div class="testing-request__help">
+          <strong>Already have test results?</strong>
+          <p>Select <em>Existing results</em> and mention the reports or photos you have. This form does not upload files.</p>
+        </div>
+        <div class="testing-request__handover">
+          <span>What happens next</span>
+          <ol>
+            <li>A team member reviews your request and crop details.</li>
+            <li>The team confirms the test, sample or reports needed with you.</li>
+            <li>The team discusses what the results mean and what to do next.</li>
+          </ol>
+        </div>
+        <a class="testing-request__phone" href="tel:+61357228000">Prefer a conversation? (03) 5722 8000</a>
+      </div>
+
+      <form class="testing-form" data-testing-request method="post" novalidate>
+        <p class="testing-form__privacy" data-form-unavailable>If the online form is unavailable, <a href="mailto:support@hybridag.com.au">email support@hybridag.com.au</a> or call <a href="tel:+61357228000">(03) 5722 8000</a>.</p>
+        <div class="testing-form__top">
+          <p class="testing-form__step" aria-live="polite"><span data-step-current>1</span> of <span data-step-total>4</span></p>
+          <div class="testing-form__progress" aria-hidden="true"><span data-step-progress></span></div>
+        </div>
+        <div class="lead-trap" aria-hidden="true" hidden><label>Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+
+        <fieldset class="testing-form__panel" data-form-step="0">
+          <legend>What would you like help with?</legend>
+          <p class="testing-form__hint">Pick the closest answer. You can change it before finishing.</p>
+          <div class="test-options">
+            <label class="test-option test-option--soil">
+              <input type="radio" name="test_type" value="soil" required>
+              <span class="test-option__swatch" aria-hidden="true"></span>
+              <strong>Soil</strong>
+              <span>Balance, pH, Carbon, cations and Nutrient supply.</span>
+            </label>
+            <label class="test-option test-option--leaf">
+              <input type="radio" name="test_type" value="leaf" required>
+              <span class="test-option__swatch" aria-hidden="true"></span>
+              <strong>Leaf and tissue</strong>
+              <span>Nutrient levels in the sampled plant tissue.</span>
+            </label>
+            <label class="test-option test-option--sap">
+              <input type="radio" name="test_type" value="sap" required>
+              <span class="test-option__swatch" aria-hidden="true"></span>
+              <strong>Differential sap</strong>
+              <span>Young and old tissue collected together and measured separately.</span>
+            </label>
+            <label class="test-option test-option--water">
+              <input type="radio" name="test_type" value="water" required>
+              <span class="test-option__swatch" aria-hidden="true"></span>
+              <strong>Water</strong>
+              <span>Water quality for sprays, irrigation and fertigation.</span>
+            </label>
+            <label class="test-option test-option--produce">
+              <input type="radio" name="test_type" value="produce" required>
+              <span class="test-option__swatch" aria-hidden="true"></span>
+              <strong>Produce</strong>
+              <span>Crop composition, harvest volume and Nutrient removals.</span>
+            </label>
+            <label class="test-option test-option--results">
+              <input type="radio" name="test_type" value="existing" required>
+              <span class="test-option__swatch" aria-hidden="true"></span>
+              <strong>Existing results</strong>
+              <span>I have test results and would like help understanding them.</span>
+            </label>
+            <label class="test-option test-option--unsure">
+              <input type="radio" name="test_type" value="not-sure" required>
+              <span class="test-option__swatch" aria-hidden="true"></span>
+              <strong>Not sure</strong>
+              <span>Ask the team which test is suitable.</span>
+            </label>
+          </div>
+          <p class="testing-form__error" data-step-error role="alert"></p>
+          <div class="testing-form__actions testing-form__actions--end">
+            <button class="btn btn--teal" type="button" data-next disabled>Continue</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="testing-form__panel" data-form-step="1" hidden>
+          <legend>Tell us about your crop.</legend>
+          <p class="testing-form__hint" data-test-explainer>Tell us what you are seeing and where.</p>
+          <div class="testing-fields testing-fields--two">
+            <div>
+              <label for="test-sector">Sector</label>
+              <select class="field" id="test-sector" name="sector" required>
+                <option value="">Choose a sector</option>
+                <option value="horticulture">Horticulture</option>
+                <option value="broadacre">Broadacre</option>
+                <option value="viticulture">Viticulture</option>
+                <option value="small-crop">Small Crop</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="test-crop">Crop</label>
+              <input class="field" id="test-crop" name="crop" type="text" autocomplete="off" placeholder="For example, wheat or cherries" required>
+            </div>
+            <div>
+              <label for="test-region">Region</label>
+              <input class="field" id="test-region" name="region" type="text" autocomplete="address-level2" placeholder="District or valley" required>
+            </div>
+            <div>
+              <label for="test-site" data-site-label>Paddock or block name or number <span>optional</span></label>
+              <input class="field" id="test-site" name="site_name" type="text" placeholder="For example, North paddock or Block 4">
+            </div>
+          </div>
+          <div class="testing-fields">
+            <div>
+              <label for="test-stage">Crop stage or timing <span>optional</span></label>
+              <input class="field" id="test-stage" name="crop_stage" type="text" placeholder="Current stage or planned timing">
+            </div>
+            <div>
+              <label for="test-question">What are you trying to understand?</label>
+              <textarea class="field" id="test-question" name="question" rows="5" placeholder="What changed, what you are seeing, or the decision you need to make" required></textarea>
+            </div>
+            <div>
+              <label for="test-history">What led to this point? <span>optional</span></label>
+              <textarea class="field" id="test-history" name="history" rows="4" placeholder="Previous tests, recent inputs, seasonal conditions or crop response"></textarea>
+            </div>
+          </div>
+          <div class="testing-data">
+            <span class="testing-data__label" id="test-data-label">What information is already available? <span>optional</span></span>
+            <div class="testing-data__options" role="group" aria-labelledby="test-data-label">
+              <label><input type="checkbox" name="available_data" value="Soil results"> Soil results</label>
+              <label><input type="checkbox" name="available_data" value="Leaf or tissue results"> Leaf or tissue results</label>
+              <label><input type="checkbox" name="available_data" value="Differential sap results"> Differential sap results</label>
+              <label><input type="checkbox" name="available_data" value="Water results"> Water results</label>
+              <label><input type="checkbox" name="available_data" value="Produce or yield data"> Produce or yield data</label>
+              <label><input type="checkbox" name="available_data" value="Input or treatment history"> Input or treatment history</label>
+            </div>
+            <p data-attachment-guidance>This form does not upload files. After sending your request, email useful results or photos to <a href="mailto:support@hybridag.com.au">support@hybridag.com.au</a> and include your HAL reference if one is shown.</p>
+          </div>
+          <p class="testing-form__error" data-step-error role="alert"></p>
+          <div class="testing-form__actions">
+            <button class="btn testing-form__back" type="button" data-back disabled>Back</button>
+            <button class="btn btn--teal" type="button" data-next disabled>Continue</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="testing-form__panel" data-form-step="2" hidden>
+          <legend>How should we contact you?</legend>
+          <p class="testing-form__hint">These details are used only to respond to this request.</p>
+          <div class="testing-fields testing-fields--two">
+            <div>
+              <label for="test-name">Name</label>
+              <input class="field" id="test-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="test-business">Farm or business <span>optional</span></label>
+              <input class="field" id="test-business" name="business" type="text" autocomplete="organization">
+            </div>
+            <div>
+              <label for="test-email">Email</label>
+              <input class="field" id="test-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div>
+              <label for="test-phone">Phone</label>
+              <input class="field" id="test-phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+          </div>
+          <div class="contact-choice">
+            <span>Preferred first contact</span>
+            <label><input type="radio" name="contact_preference" value="phone" checked> Phone</label>
+            <label><input type="radio" name="contact_preference" value="email"> Email</label>
+          </div>
+          <p class="testing-form__error" data-step-error role="alert"></p>
+          <div class="testing-form__actions">
+            <button class="btn testing-form__back" type="button" data-back disabled>Back</button>
+            <button class="btn btn--teal" type="button" data-next disabled>Review request</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="testing-form__panel" data-form-step="3" hidden>
+          <legend>Review your request.</legend>
+          <p class="testing-form__hint">Nothing is sent until you use the action below.</p>
+          <dl class="testing-review" data-request-review></dl>
+          <div class="testing-delivery" data-delivery-note>
+            <strong>Your request will open in your email app.</strong>
+            <p>Check the details in your email app. You can attach useful files there before sending.</p>
+          </div>
+          <p class="testing-form__privacy">We use these details to respond to your enquiry and keep its source with the request. See our <a href="privacy.html">privacy policy</a>.</p>
+          <p class="testing-form__status" data-form-status role="status" aria-live="polite" tabindex="-1"></p>
+          <div class="testing-form__actions">
+            <button class="btn testing-form__back" type="button" data-back disabled>Back</button>
+            <button class="btn btn--teal" type="submit" data-submit-request disabled>Open email to send</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </section>
+
+  <section class="testing-layers band band-dark" data-home-field>
+    <div class="wrap testing-layers__inner">
+      <div>
+        <span class="eyebrow">Interpreting your results</span>
+        <h2 class="h2">A result needs to be read alongside the crop.</h2>
+      </div>
+      <p>Hybrid-Ag considers the results alongside soil conditions, crop stage and production history. Where a nutrition requirement is identified, that information helps guide a prescription blend or crop recommendation.</p>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/testing-request.js?v=bcb3f1f671"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

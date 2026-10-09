@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Position, Pattern, Plan - Hybrid-Ag</title>
+<meta name="description" content="How Hybrid-Ag reviews current results and crop history before discussing a nutrition recommendation.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/resource-guide.css?v=d22eeb9772">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Position. Pattern. Plan.","description":"A concise framework for a clearer crop nutrition decision.","image":"https://www.hybridag.com.au/assets/photos/orchard-block.jpg","mainEntityOfPage":"https://www.hybridag.com.au/resource-position-pattern-plan.html","publisher":{"@type":"Organization","name":"Hybrid-Ag","logo":{"@type":"ImageObject","url":"https://www.hybridag.com.au/assets/hybrid-ag-logo.png"}}}</script>
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/resource-position-pattern-plan.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Position, Pattern, Plan - Hybrid-Ag">
+<meta property="og:description" content="How Hybrid-Ag reviews current results and crop history before discussing a nutrition recommendation.">
+<meta property="og:url" content="https://www.hybridag.com.au/resource-position-pattern-plan.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Position, Pattern, Plan - Hybrid-Ag">
+<meta name="twitter:description" content="How Hybrid-Ag reviews current results and crop history before discussing a nutrition recommendation.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body class="resource-refined" data-page="resources">
+<div id="site-header"></div>
+
+<main>
+  <header class="guide-hero page-cover page-cover--photo" data-home-field>
+    <img class="guide-hero__image" src="assets/photos/responsive/orchard-block-1800.webp" decoding="async" height="909" width="1920" sizes="100vw" srcset="assets/photos/responsive/orchard-block-480.webp 480w, assets/photos/responsive/orchard-block-768.webp 768w, assets/photos/responsive/orchard-block-1200.webp 1200w, assets/photos/responsive/orchard-block-1800.webp 1800w" alt="Rows in a horticultural block" fetchpriority="high">
+    <div class="guide-hero__shade" aria-hidden="true"></div>
+    <div class="wrap guide-hero__inner page-cover__inner">
+      <a class="guide-hero__back" href="knowledge-center.html">Resources</a>
+      <span class="eyebrow">Decision framework</span>
+      <h1>Position. Pattern. Plan.</h1>
+      <p>Understand the current results, look at what has happened on the farm and discuss what to do next. These questions help explain a nutrition recommendation.</p>
+      <div class="cta-row"><a class="btn btn--teal" href="#questions">Work through the questions</a><a class="btn guide-hero__secondary" href="soil-test.html?test=existing">Bring existing results</a></div>
+    </div>
+  </header>
+
+  <section class="guide-intro" data-reveal data-home-field>
+    <div class="wrap guide-intro__grid">
+      <div><span class="eyebrow eyebrow--orange">Working through the results</span><h2>What do the results mean for your farm?</h2></div>
+      <div class="guide-intro__copy">
+        <p>A test result needs an explanation. Where was the sample taken? What was growing there? Have the results changed since the last test? The answers can affect what the agronomist recommends.</p>
+        <p>Hybrid-Ag uses Position, Pattern and Plan to work through that information with you. Your knowledge of the farm matters alongside the reports. Together they help the team assess Nutrient requirements and whether a prescription blend is appropriate.</p>
+        <div class="guide-intro__note"><strong>The detail still matters.</strong><p>These questions help organise the information. They do not replace the agronomist's judgement.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-blocks" id="questions" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="guide-heading">
+        <div><span class="eyebrow eyebrow--berry">The three questions</span><h2>Understand how the recommendation was reached.</h2></div>
+        <p>Keep what the test measured separate from what may explain it. Then discuss the proposed action and any information still needed.</p>
+      </div>
+      <div class="guide-blocks__grid">
+        <article><span>01</span><h3>Position</h3><p><strong>Where are you now?</strong> Record the crop, variety, sampled area and growth stage alongside the available tests and field observations. These are the starting facts to review.</p></article>
+        <article><span>02</span><h3>Pattern</h3><p><strong>How did you get here?</strong> Compare previous tests with seasonal conditions, input history, field observations and harvest results to understand what may have changed.</p></article>
+        <article><span>03</span><h3>Plan</h3><p><strong>What should happen next?</strong> Discuss the proposed action and timing, any remaining uncertainty and whether further observations or testing are needed.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-band" data-reveal>
+    <div class="wrap">
+      <div class="guide-heading">
+        <div><span class="eyebrow">Across cropping systems</span><h2>Adapt it to the growing system.</h2></div>
+        <p>The questions are the same, but the crop cycle and production goals differ. Keep the paddock or block details with the results.</p>
+      </div>
+      <div class="guide-band__grid guide-band__grid--four">
+        <div><span>01</span><strong>Horticulture</strong><h3>The block</h3><p>Consider the crop, variety or rootstock, growth stage and crop load alongside water and plant tests and fruit results.</p></div>
+        <div><span>02</span><strong>Small Crop</strong><h3>The paddock or block</h3><p>Follow the fast crop cycle, rotation, marketable harvest, uniformity and customer specification.</p></div>
+        <div><span>03</span><strong>Broadacre</strong><h3>The paddock</h3><p>Consider differences between paddock zones alongside rotation, establishment, seasonal conditions, yield and quality.</p></div>
+        <div><span>04</span><strong>Viticulture</strong><h3>The block</h3><p>Consider variety and rootstock, canopy growth and crop load alongside fruit composition and the required harvest specification.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-split guide-split--team" data-reveal data-home-field>
+    <div class="guide-split__image"><img src="assets/photos/responsive/human-support-team-1800.webp" height="1455" width="2048" sizes="(max-width: 820px) 100vw, 50vw" srcset="assets/photos/responsive/human-support-team-480.webp 480w, assets/photos/responsive/human-support-team-768.webp 768w, assets/photos/responsive/human-support-team-1200.webp 1200w, assets/photos/responsive/human-support-team-1800.webp 1800w" alt="Hybrid-Ag agronomy and support team outdoors" loading="lazy" decoding="async"></div>
+    <div class="guide-split__copy">
+      <span class="eyebrow eyebrow--orange">Working with the team</span>
+      <h2>Advice you can understand and discuss.</h2>
+      <p>A useful recommendation explains what the results show, why an action is being suggested and what is still uncertain. If more information is needed, the agronomist should explain why it would help.</p>
+      <p>A prescription also needs to suit the way you farm. Your budget, equipment and timing matter when deciding what can be done now and what may need to be addressed later.</p>
+      <a class="btn btn--teal" href="about.html#approach">See the Hybrid-Ag approach</a>
+    </div>
+  </section>
+
+  <section class="guide-related" data-reveal data-home-field>
+    <div class="wrap">
+      <span class="eyebrow eyebrow--berry">Keep going</span>
+      <h2>Related resources.</h2>
+      <div class="guide-related__grid">
+        <a href="resource-testing-layers.html"><span>Understand your results</span><h3>What each test can tell you.</h3><p>Understand what soil, plant, water and produce tests can and cannot show.</p><strong>Read the guide</strong></a>
+        <a href="resource-sampling-context.html"><span>Sampling records</span><h3>Make every sample a useful reference.</h3><p>Keep the original report and sample details together as a useful reference for future crop nutrition decisions.</p><strong>Read the guide</strong></a>
+        <a href="services-testing.html"><span>Testing services</span><h3>Compare the test types.</h3><p>Choose the relevant test, or ask the team which one is suitable.</p><strong>Explore testing</strong></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-cta" data-reveal>
+    <div class="wrap guide-cta__inner">
+      <div><span class="eyebrow">Start with Position</span><h2>Discuss what you need to understand about your crop.</h2></div>
+      <div class="cta-row"><a class="btn guide-cta__primary" href="soil-test.html?test=not-sure">Start a testing request</a><a class="btn guide-cta__secondary" href="knowledge-center.html">Back to Resources</a></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

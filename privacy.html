@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Hybrid-Ag</title>
+<meta name="description" content="How Hybrid-Ag collects, uses, stores and protects your personal information, and your rights to access and correct it.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/privacy.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Privacy Policy — Hybrid-Ag">
+<meta property="og:description" content="How Hybrid-Ag collects, uses, stores and protects your personal information, and your rights to access and correct it.">
+<meta property="og:url" content="https://www.hybridag.com.au/privacy.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy Policy — Hybrid-Ag">
+<meta name="twitter:description" content="How Hybrid-Ag collects, uses, stores and protects your personal information, and your rights to access and correct it.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="">
+<div id="site-header"></div>
+
+<!-- TEMPLATE - review with Nathan / legal before publishing -->
+<main>
+  <!-- HERO -->
+  <header class="hero hero--short page-cover">
+    <div class="wrap hero-inner page-cover__inner">
+      <span class="eyebrow">Privacy review draft</span>
+      <h1>Privacy Policy</h1>
+      <p class="sub">How we collect, use, store and protect your personal information — and your rights to access and correct it.</p>
+      <p class="muted page-cover__meta">Owner review draft: 6 October 2026</p>
+    </div>
+  </header>
+
+  <!-- POLICY BODY -->
+  <section class="section" data-reveal>
+    <div class="wrap legal">
+      <p class="lead" role="note" data-privacy-review-draft>This is a review draft for the replacement website, not an approved policy for publication. The business and privacy reviewer still need to confirm the legal statements, service providers, storage arrangements and retention rules below.</p>
+
+      <h2 class="h2">1. About this policy</h2>
+      <p class="sub">Hybrid Ag Pty Ltd ("Hybrid-Ag", "we", "us", "our") is committed to protecting the privacy of personal information we collect from our customers, suppliers and contacts. This policy explains what information we collect, why we collect it, how we use and store it, and your rights to access and correct it.</p>
+      <p class="sub">We handle personal information in accordance with the Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs). ABN 64 169 962 823.</p>
+
+      <h2 class="h2" style="margin-top:44px">2. What personal information we collect</h2>
+      <p class="sub">For a website enquiry, we collect the details you choose to provide, such as your name, contact details, crop, location and the question or information about results you want to discuss. The online enquiry forms do not upload files. If you choose to email reports or photos, these are handled separately through our business email.</p>
+      <p class="sub">In the course of supplying agricultural products and providing credit accounts, we may collect:</p>
+      <ul class="sub">
+        <li><strong>Identity information</strong> — full name, date of birth, residential and business address, driver's licence number and a copy of the licence (front and back).</li>
+        <li><strong>Business information</strong> — business name, trading name, ABN, ACN, business structure (sole trader, partnership, company, trust), trading and delivery addresses.</li>
+        <li><strong>Contact information</strong> — phone and email.</li>
+        <li><strong>Financial information</strong> — bank account details (BSB, account number, bank contact), trade references, estimated monthly purchases, credit limit requested, and transaction and payment history.</li>
+        <li><strong>Director and guarantor information</strong> — the above identity and contact details for company directors, trustees, partners and personal guarantors.</li>
+      </ul>
+      <p class="sub">We collect driver's licence images specifically to verify the identity of directors and guarantors for credit-risk assessment, in line with standard industry practice for trade credit applications.</p>
+
+      <h2 class="h2" style="margin-top:44px">3. How we collect it</h2>
+      <p class="sub">We collect personal information directly from you when you:</p>
+      <ul class="sub">
+        <li>complete a credit account application (online form or manual PDF)</li>
+        <li>place an order, request a quote, or contact us</li>
+        <li>provide trade references or bank details</li>
+        <li>correspond with us by phone, email or in person</li>
+      </ul>
+      <p class="sub">We may also collect information from third parties where you have authorised us to do so — for example, your nominated bank, trade referees, or a credit reporting body — and only for the purpose of assessing your credit application.</p>
+      <p class="sub">If you choose to sign in to the account area, the website uses Google to verify your sign-in and keeps a customer profile for your account requests. An account application or order request still needs review by Hybrid-Ag.</p>
+
+      <h2 class="h2" style="margin-top:44px">4. Why we collect it</h2>
+      <p class="sub">We use personal information to:</p>
+      <ul class="sub">
+        <li>respond to website enquiries and direct them to the appropriate team member</li>
+        <li>assess and process credit account applications</li>
+        <li>verify the identity of applicants, directors and guarantors</li>
+        <li>manage and service your account (supply, invoicing, payment, dispute resolution)</li>
+        <li>comply with our legal obligations (tax, anti-money-laundering, regulatory)</li>
+        <li>contact you about your account, orders, or our products and services</li>
+        <li>protect our legal interests in the event of default or dispute</li>
+      </ul>
+      <p class="sub">We do not use your personal information for third-party marketing.</p>
+      <p class="sub">When you send a website enquiry, the page and available campaign or referring-page details can be kept with it so we can understand where the request came from.</p>
+
+      <h2 class="h2" style="margin-top:44px">5. Who we share it with</h2>
+      <p class="sub">We treat your personal information as confidential. We may disclose it to:</p>
+      <ul class="sub">
+        <li><strong>Our staff</strong> — only those who need access to perform their role (accounts, sales, management).</li>
+        <li><strong>Our professional advisers</strong> — lawyers, accountants and auditors, on a confidential basis.</li>
+        <li><strong>CreditorWatch</strong> — for credit-risk checks on credit account applicants, where you have consented as part of the application.</li>
+        <li><strong>Trade referees you have nominated</strong> — to verify the references you have provided.</li>
+        <li><strong>Regulators, courts and law enforcement</strong> — where required or permitted by law.</li>
+      </ul>
+      <p class="sub">When live enquiry delivery is enabled, the replacement website sends your saved request to our existing master-dashboard enquiry system. That system uses Google Apps Script and a Google Sheet, and can send SMS alerts to team members. The website does not itself send those SMS alerts.</p>
+      <p class="sub">We do not sell, rent or trade your personal information. The storage locations and overseas handling of the website, dashboard and notification providers still need to be confirmed for this replacement website before this policy is approved.</p>
+
+      <h2 class="h2" style="margin-top:44px">6. How we store and secure it</h2>
+      <p class="sub">Personal information is stored:</p>
+      <ul class="sub">
+        <li>electronically in our business systems, including business email, customer files, the master dashboard and our ERP (Odoo)</li>
+        <li>in hard-copy form where applicable, kept securely at our office</li>
+      </ul>
+      <p class="sub">The replacement website saves a complete enquiry in a private server-side record before attempting delivery to the dashboard. With the default review setting, preview requests are not sent to the team.</p>
+      <p class="sub">File permissions limit access to the private website records, but file permissions alone do not establish encryption at rest. The live host still needs verified HTTPS, storage access controls, encryption and backup arrangements before publication.</p>
+      <p class="sub">We restrict access on a need-to-know basis and require staff to handle personal information confidentially. We review our security practices periodically.</p>
+      <p class="sub">Driver's licence images are received by email and stored in our access-controlled customer files. Access is limited to staff who require it for credit assessment and account management.</p>
+
+      <h2 class="h2" style="margin-top:44px">7. How long we keep it</h2>
+      <p class="sub">We keep personal information for as long as we need it to provide our products and services, manage your account, and meet our legal obligations.</p>
+      <p class="sub">Australian tax and corporations law requires us to keep business records — including credit application records — for at least seven (7) years. We may keep records for longer where required for an active dispute, legal proceedings, or other legitimate business purposes.</p>
+      <p class="sub">When information is no longer required, we take reasonable steps to destroy or de-identify it. Physical records (where applicable) are securely destroyed after the statutory retention period.</p>
+      <p class="sub">The owner review must separately cover enquiries, account records, emailed attachments, dashboard copies, notification logs and backups. A retention schedule for the replacement website has not yet been approved.</p>
+
+      <h2 class="h2" style="margin-top:44px">8. Your rights — access and correction</h2>
+      <p class="sub">You have the right to:</p>
+      <ul class="sub">
+        <li>ask what personal information we hold about you</li>
+        <li>request a copy of that information</li>
+        <li>ask us to correct information that is inaccurate, incomplete or out of date</li>
+      </ul>
+      <p class="sub">To make a request, contact our Privacy Officer (details below). We will respond within a reasonable time (usually 30 days). There is no fee for making a request, although a reasonable cost-recovery fee may apply for providing copies of large volumes of information.</p>
+
+      <h2 class="h2" style="margin-top:44px">9. Cookies and website analytics</h2>
+      <p class="sub">The website keeps available campaign labels and a referring-page address in the same browser tab for up to 30 minutes. If you submit an enquiry, this context can be saved alongside your contact details. It is not anonymous enquiry data.</p>
+      <p class="sub">Signing in uses a session cookie. This is separate from the campaign context kept in the browser tab.</p>
+      <p class="sub">The replacement site includes Google Tag Manager code for the production hostname. Its active tags, any cookies or other identifiers, and the choice or consent controls for launch still need to be checked and approved. The website's own event helper excludes direct contact fields and free-text enquiry answers from its events; that does not establish how every external tag handles information.</p>
+
+      <h2 class="h2" style="margin-top:44px">10. Complaints</h2>
+      <p class="sub">If you believe we have breached your privacy or mishandled your personal information, please contact our Privacy Officer in writing. We will investigate and respond within a reasonable time.</p>
+      <p class="sub">If you are not satisfied with our response, you can refer the matter to the Office of the Australian Information Commissioner (OAIC):</p>
+      <ul class="sub">
+        <li>Web: oaic.gov.au</li>
+        <li>Phone: 1300 363 992</li>
+      </ul>
+
+      <h2 class="h2" style="margin-top:44px">11. Changes to this policy</h2>
+      <p class="sub">We may update this policy from time to time. The date above identifies this review draft. An approved policy will carry its effective date; this draft date is not publication or legal approval.</p>
+
+      <h2 class="h2" style="margin-top:44px">12. Contact us</h2>
+      <p class="sub">To make a privacy request, ask a question, or raise a complaint, contact our Privacy Officer:</p>
+      <p class="sub">Hybrid Ag Pty Ltd<br>52 Buckler Rd, Wangaratta VIC 3677<br>Phone: (03) 5722 8000</p>
+
+    </div>
+  </section>
+
+  <!-- BACK TO CONTACT -->
+  <section class="section section--tight" data-reveal>
+    <div class="wrap legal">
+      <a class="pill" href="contact.html">Questions? Contact us &rarr;</a>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

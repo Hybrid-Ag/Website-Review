@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Hybrid-Ag | Precision Nutrition</title>
+<meta name="description" content="Learn why Hybrid-Ag began and how testing, agronomic advice and prescription blends guide our work with growers.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/about-concepts.css?v=aa909cb860">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/about.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About Hybrid-Ag | Precision Nutrition">
+<meta property="og:description" content="Learn why Hybrid-Ag began and how testing, agronomic advice and prescription blends guide our work with growers.">
+<meta property="og:url" content="https://www.hybridag.com.au/about.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Hybrid-Ag | Precision Nutrition">
+<meta name="twitter:description" content="Learn why Hybrid-Ag began and how testing, agronomic advice and prescription blends guide our work with growers.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body class="about-concept concept-b about-refined" data-page="about">
+<div id="site-header"></div>
+
+<main>
+  <header class="b2-hero page-cover page-cover--photo" data-home-field>
+    <figure class="b2-hero__image">
+      <img src="assets/photos/responsive/about-apple-orchard-1118.webp" srcset="assets/photos/responsive/about-apple-orchard-480.webp 480w, assets/photos/responsive/about-apple-orchard-768.webp 768w, assets/photos/responsive/about-apple-orchard-1118.webp 1118w" sizes="100vw" width="1118" height="1490" alt="Fresh red apple held in front of an orchard block" fetchpriority="high" decoding="async">
+    </figure>
+    <div class="b2-hero__shade" aria-hidden="true"></div>
+    <div class="wrap b2-hero__copy page-cover__inner">
+      <span class="concept-kicker concept-kicker--light">About us</span>
+        <h1>Precision nutrition for your soil and crop.</h1>
+        <p>We work with growers to understand what their soil and crop need, then develop prescription blends using test results and agronomic advice. Improving the quality of the food we grow remains central to why Hybrid-Ag began.</p>
+        <div class="cta-row">
+          <a class="btn btn--teal" href="#evidence">Our approach to testing</a>
+          <a class="btn btn--outline" href="#origin">Why Hybrid-Ag exists</a>
+        </div>
+    </div>
+  </header>
+
+  <section class="b2-credibility" aria-label="Hybrid-Ag capabilities">
+    <div class="wrap b2-credibility__grid">
+      <article><strong>Wangaratta, Victoria</strong><span>Our home in North East Victoria</span></article>
+      <article><strong>Testing services</strong><span>Soil, plant, water and produce</span></article>
+      <article><strong>Prescription blends</strong><span>Based on your farm&rsquo;s requirements</span></article>
+      <article><strong>Agronomy support</strong><span>Help interpreting and applying the results</span></article>
+    </div>
+  </section>
+
+  <nav class="about-index" aria-label="On this page">
+    <div class="wrap">
+      <a href="#origin">Our story</a>
+      <a href="#evidence">Our approach</a>
+      <a href="#commitment">Our team</a>
+      <a href="#accreditation">Food quality</a>
+    </div>
+  </nav>
+
+  <section class="b2-origin b2-origin--editorial" id="origin" data-reveal data-home-field>
+    <div class="b2-origin__body">
+      <div class="b2-origin__head">
+        <span class="concept-kicker concept-kicker--orange">Our Heritage</span>
+        <h2>How Hybrid-Ag began.</h2>
+        <!-- Review draft: personal motivation and chronology drawn from Tom's 18 January 2022 meeting draft and the current /about page; final account, title and photograph require his approval. -->
+        <p class="b2-origin__intro">Hybrid-Ag began with Tom Rowe&rsquo;s search for better health, and the questions it raised about the food he was eating.</p>
+      </div>
+      <figure class="b2-origin__portrait">
+        <img src="assets/photos/responsive/founder-tom-rowe-1800.webp" srcset="assets/photos/responsive/founder-tom-rowe-480.webp 480w, assets/photos/responsive/founder-tom-rowe-768.webp 768w, assets/photos/responsive/founder-tom-rowe-1200.webp 1200w, assets/photos/responsive/founder-tom-rowe-1800.webp 1800w" sizes="(max-width: 820px) 100vw, 42vw" width="2482" height="3723" alt="Tom Rowe, founder of Hybrid-Ag" loading="lazy" decoding="async">
+        <figcaption><strong>Tom Rowe</strong><span>Founder &amp; Managing Director</span></figcaption>
+      </figure>
+      <div class="b2-origin__copy">
+        <p class="b2-origin__lead">His search led him to look beyond the food itself to the soil it came from. Tom and his family began exploring the connection between soil mineral balance, plant health and the quality of the food we grow.</p>
+        <p>For Tom, it was not enough to look at how food was grown without also asking what it contained. He wanted to understand how the mineral balance and biological health of the soil could influence the plants grown in it. That became the question behind Hybrid-Ag.</p>
+        <p>The business began in Melbourne in 2001, focusing on soil analysis and custom-tailored nutrition for growers. As demand for the service grew, Hybrid-Ag moved to Wangaratta in North East Victoria, where the team is based today.</p>
+        <p>Prescription blends have been central to that work from the beginning. The aim is to understand what a particular paddock or block needs, then develop a blend suited to those requirements and the grower&rsquo;s plans. Soil test results guide that discussion, rather than a standard mix being the starting point.</p>
+        <p>The purpose extends beyond supplying fertiliser. Tom&rsquo;s interest is in the quality of the food being produced and what it can mean for the people who eat it.</p>
+        <p class="b2-origin__purpose">Hybrid-Ag was founded to help growers produce better food by improving soil health.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="b2-reader concept-reader" id="evidence" data-system-reader data-reveal data-home-field>
+    <div class="wrap">
+      <div class="system-reader__heading">
+        <div>
+          <span class="concept-kicker concept-kicker--berry">Testing and interpretation</span>
+          <h2>Testing gives us a starting point.</h2>
+        </div>
+        <p>Different tests answer different questions. We look at the results alongside your crop and growing conditions before making a recommendation.</p>
+      </div>
+
+      <div class="system-reader__tabs" role="tablist" aria-label="Testing options">
+        <button type="button" role="tab" aria-selected="true" aria-controls="about-reader-panel" tabindex="0" data-reader-tab="soil"><span>01</span>Soil</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="about-reader-panel" tabindex="-1" data-reader-tab="plant"><span>02</span>Leaf and sap</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="about-reader-panel" tabindex="-1" data-reader-tab="water"><span>03</span>Water</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="about-reader-panel" tabindex="-1" data-reader-tab="produce"><span>04</span>Produce data</button>
+      </div>
+
+      <article class="system-reader__panel" id="about-reader-panel" role="tabpanel" data-reader-panel data-tone="soil">
+        <div class="system-reader__number" aria-hidden="true">01</div>
+        <div class="system-reader__content">
+          <span class="system-reader__label" data-reader-label>Soil conditions</span>
+          <h3 data-reader-title>What does your soil test tell you?</h3>
+          <p data-reader-copy>A soil test measures conditions in the sampled area. Depending on the test selected, results include pH, Carbon, holding capacity and Nutrient levels. We consider the sampling depth and test method when interpreting the results for your paddock or block.</p>
+          <a class="system-reader__link" href="services-soil-testing.html" data-reader-link>Explore soil testing</a>
+        </div>
+        <dl class="system-reader__facts">
+          <div><dt>What it shows</dt><dd data-reader-question>What do the results show about the soil in this area?</dd></div>
+          <div><dt>How it helps</dt><dd data-reader-decision>Which Nutrient requirements to consider for a prescription blend, and whether further testing is needed.</dd></div>
+        </dl>
+      </article>
+    </div>
+  </section>
+
+  <section class="b2-system" data-reveal>
+    <div class="wrap b2-system__grid">
+      <!-- Amos feedback relayed by Nathan on 8 October 2026: top arc now says Supported by science. Embedded scientific-proof wording remains subject to substantiation and publication approval. -->
+      <img src="assets/hybrid-ag-system-seal-science-white.svg?v=a277c0e4cb" width="1666" height="1666" alt="Hybrid-Ag stamp showing physical, mineral and biological soil conditions, supported by science" loading="lazy" decoding="async">
+      <div class="b2-system__copy">
+        <span class="concept-kicker concept-kicker--light">Understanding soil health</span>
+        <h2>Physical. Mineral. Biological.</h2>
+        <p>Soil structure affects the movement of air and water and the growth of roots. Minerals and biological activity also influence the soil environment. We consider these together when discussing your soil and crop nutrition.</p>
+        <div class="b2-system__facts">
+          <div><strong>Physical</strong><span>The rooting environment</span></div>
+          <div><strong>Mineral</strong><span>Balance and availability</span></div>
+          <div><strong>Biological</strong><span>Life in the soil</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="b2-method concept-method" id="approach" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="concept-section-head">
+        <div>
+          <span class="concept-kicker">Planning crop nutrition</span>
+          <h2 class="concept-title">Position. Pattern. Plan.</h2>
+        </div>
+        <p>The results need context. These questions help us work through the information with you.</p>
+      </div>
+      <div class="concept-method__grid">
+        <article class="concept-method__step">
+          <span class="concept-method__label">Position</span>
+          <h3>Where are you now?</h3>
+          <p>Start with the results you have and the crop or soil issue you want to address.</p>
+        </article>
+        <article class="concept-method__step">
+          <span class="concept-method__label">Pattern</span>
+          <h3>How did you get here?</h3>
+          <p>Look at previous tests and applications alongside changes in the crop and growing conditions.</p>
+        </article>
+        <article class="concept-method__step">
+          <span class="concept-method__label">Plan</span>
+          <h3>What should happen next?</h3>
+          <p>Discuss the Nutrient requirements, a suitable prescription blend and when to review progress.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="concept-team" id="commitment" data-reveal data-home-field>
+    <div class="concept-team__image">
+      <img src="assets/photos/responsive/human-support-team-1800.webp" srcset="assets/photos/responsive/human-support-team-480.webp 480w, assets/photos/responsive/human-support-team-768.webp 768w, assets/photos/responsive/human-support-team-1200.webp 1200w, assets/photos/responsive/human-support-team-1800.webp 1800w" sizes="(max-width: 1199px) 100vw, 50vw" width="2048" height="1455" alt="The Hybrid-Ag agronomy and support team" loading="lazy" decoding="async">
+    </div>
+    <div class="concept-team__copy">
+      <span class="concept-kicker concept-kicker--orange">Our Commitment</span>
+      <h2>Advice that relates to your farm.</h2>
+      <p>We work with you to understand what you want to achieve on your farm. Testing helps inform the discussion; your knowledge of the farm matters too.</p>
+      <ul class="about-commitments">
+        <li>Use soil and plant testing, together with your farm history, to understand the Nutrient requirements.</li>
+        <li>Develop prescription blends for your soil and crop, with your budget and application equipment in mind.</li>
+        <li>Consider soil structure, mineral balance and biological activity together, rather than treating one in isolation.</li>
+        <li>Discuss the timing of applications in relation to crop stage, and review test results with you through the season.</li>
+        <li>Explain our recommendations and share the research and practical experience behind them, so you can make informed decisions.</li>
+        <li>Consider the cost of inputs alongside what you want to achieve in crop quality and yield.</li>
+        <li>Build an ongoing working relationship, learning from your feedback and what happens on your farm.</li>
+      </ul>
+      <a class="btn btn--teal" href="team.html">Meet the team</a>
+    </div>
+  </section>
+
+  <section class="b2-accreditation" id="accreditation" data-reveal data-home-field>
+    <div class="b2-accreditation__copy">
+      <span class="concept-kicker concept-kicker--berry">Food quality</span>
+      <h2>Transforming Food for Health</h2>
+      <p class="b2-accreditation__lead">Tom&rsquo;s vision is for the Nutrient content of food to receive more attention, alongside the qualities we can see.</p>
+      <p>The aim is to help growers put that knowledge to use on their farms, and give consumers a better understanding of the food they choose. Our work on soil health and prescription nutrition is part of that purpose.</p>
+      <p>There is still much to learn about how to measure food quality and how soil health and plant nutrition influence it. We want to keep asking those questions and sharing what we learn.</p>
+      <a class="btn btn--outline" href="contact.html">Talk to us about food quality</a>
+    </div>
+    <figure class="b2-accreditation__image">
+      <!-- The taller desktop cover crop needs the full source resolution. -->
+      <img src="assets/photos/responsive/about-food-quality-orchard-1080.webp" srcset="assets/photos/responsive/about-food-quality-orchard-480.webp 480w, assets/photos/responsive/about-food-quality-orchard-768.webp 768w, assets/photos/responsive/about-food-quality-orchard-1080.webp 1080w" sizes="(max-width: 1199px) 100vw, 1080px" width="1080" height="566" alt="Rows of red apples beneath orchard netting, with a grassy lane between the trees" loading="lazy" decoding="async">
+    </figure>
+  </section>
+
+  <section class="concept-cta" data-reveal>
+    <div class="wrap concept-cta__inner">
+      <div>
+        <span class="concept-kicker concept-kicker--light">Talk to the team</span>
+        <h2>Talk to us about your crop.</h2>
+        <p>Already have test results? Bring them to the discussion. If you need testing, we can help you choose where to start.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn concept-btn--light" href="soil-test.html?test=existing">Bring existing results</a>
+        <a class="btn concept-btn--light" href="soil-test.html">Organise testing</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/system-reader.js?v=b4c2a5a71e"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

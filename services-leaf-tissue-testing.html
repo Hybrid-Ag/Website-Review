@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leaf Testing and Differential Sap Analysis - Hybrid-Ag</title>
+<meta name="description" content="Compare standard tissue testing with Differential Sap Analysis (DSA). Hybrid-Ag interprets plant results to help guide prescription blends for your crop.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/testing-detail.css?v=dedc84104f">
+<link rel="stylesheet" href="css/pages/differential-sap.css?v=01b84d7192">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/service-refinements.css?v=63c0fac8e0">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/services-leaf-tissue-testing.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Leaf Testing and Differential Sap Analysis - Hybrid-Ag">
+<meta property="og:description" content="Compare standard tissue testing with Differential Sap Analysis (DSA). Hybrid-Ag interprets plant results to help guide prescription blends for your crop.">
+<meta property="og:url" content="https://www.hybridag.com.au/services-leaf-tissue-testing.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Leaf Testing and Differential Sap Analysis - Hybrid-Ag">
+<meta name="twitter:description" content="Compare standard tissue testing with Differential Sap Analysis (DSA). Hybrid-Ag interprets plant results to help guide prescription blends for your crop.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="services" class="service-refined leaf-testing-refined">
+<div id="site-header"></div>
+
+<main>
+  <header class="testing-detail-hero testing-detail-hero--leaf page-cover page-cover--photo" data-home-field>
+    <img class="testing-detail-hero__image" src="assets/photos/responsive/leaf-testing-crop-foliage-1800.webp" decoding="async" height="2400" width="1800" sizes="100vw" srcset="assets/photos/responsive/leaf-testing-crop-foliage-480.webp 480w, assets/photos/responsive/leaf-testing-crop-foliage-768.webp 768w, assets/photos/responsive/leaf-testing-crop-foliage-1200.webp 1200w, assets/photos/responsive/leaf-testing-crop-foliage-1800.webp 1800w" alt="Close view of green crop leaves with water droplets" fetchpriority="high">
+    <div class="testing-detail-hero__shade" aria-hidden="true"></div>
+    <div class="wrap testing-detail-hero__inner page-cover__inner">
+      <span class="eyebrow">Leaf testing &amp; DSA</span>
+      <h1>Understand nutrition in the plant.</h1>
+      <p>Plant testing helps us investigate crop nutrition, alongside soil results and what you are seeing in the paddock or block. Standard tissue testing and Differential Sap Analysis (DSA) provide different information to help guide your next prescription.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="soil-test.html?test=sap">Discuss DSA testing</a>
+        <a class="btn testing-detail-hero__secondary" href="#compare-tests">Compare the tests</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="dsa-comparison leaf-test-comparison" id="compare-tests" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading" id="tissue-read">
+        <div><span class="eyebrow eyebrow--orange">Two ways to assess plant nutrition</span><h2>Standard tissue testing and DSA. What is the difference?</h2></div>
+        <p>Standard tissue testing measures Nutrient concentrations in dried plant material. DSA analyses extracted leaf fluid from young and old leaves separately, giving the agronomist another comparison to investigate.</p>
+      </div>
+      <div class="dsa-comparison__grid">
+        <article>
+          <span>Standard tissue test</span><strong>Dry matter analysis</strong>
+          <h3>Nutrient content of the sampled tissue.</h3>
+          <dl>
+            <div><dt>Sample</dt><dd>The crop-specific leaf, petiole or plant part required by the laboratory.</dd></div>
+            <div><dt>Measurement</dt><dd>Nutrient concentrations in dried material, reported on a dry-matter basis.</dd></div>
+            <div><dt>Use</dt><dd>Assess the result against a suitable crop and growth-stage reference, or compare consistently collected samples over time.</dd></div>
+          </dl>
+          <a class="btn btn--outline" href="soil-test.html?test=leaf">Request tissue testing</a>
+        </article>
+        <article class="leaf-test-comparison__dsa">
+          <span>Differential Sap Analysis</span><strong>Paired young and old leaves</strong>
+          <h3>Two leaf ages, analysed separately.</h3>
+          <dl>
+            <div><dt>Sample</dt><dd>Young and old leaves from the same crop and area, collected together and kept separate.</dd></div>
+            <div><dt>Measurement</dt><dd>Nutrients in extracted leaf fluid. The test may also report sugars, pH and EC.</dd></div>
+            <div><dt>Use</dt><dd>Compare the two leaf ages and investigate changes across repeat pairs, alongside crop growth and recent conditions.</dd></div>
+          </dl>
+          <a class="btn btn--teal" href="soil-test.html?test=sap">Request DSA testing</a>
+        </article>
+      </div>
+      <div class="dsa-comparison__together"><strong>Different methods. Different reference values.</strong><p>Dry tissue and sap results are not directly interchangeable. Each needs its own sampling protocol, reporting units and crop reference. The team can help you choose the test that suits the question.</p></div>
+    </div>
+  </section>
+
+  <section class="leaf-dsa-feature" id="dsa" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--berry">Why we use Differential Sap Analysis</span><h2>There is more to compare than one leaf result.</h2></div>
+        <p>A young-leaf result does not tell us what was measured in the older leaves. Keeping the two samples separate lets us compare their Nutrient levels and investigate the differences, rather than combine them into one result.</p>
+      </div>
+      <div class="leaf-dsa-feature__grid">
+        <figure class="leaf-dsa-pair">
+          <div class="leaf-dsa-pair__event">Same crop &amp; area · Same sampling event</div>
+          <div class="leaf-dsa-pair__samples">
+            <div><svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M21 77C16 35 43 18 79 21C82 56 65 81 21 77Z"/><path d="M17 83L70 30M37 62L35 43M51 48L69 49"/></svg><strong>Young leaves</strong><span>Separate sample</span></div>
+            <div><svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M21 77C16 35 43 18 79 21C82 56 65 81 21 77Z"/><path d="M17 83L70 30M37 62L35 43M51 48L69 49"/></svg><strong>Old leaves</strong><span>Separate sample</span></div>
+          </div>
+          <figcaption>Two separately reported results to compare. The team confirms which leaves to collect for your crop.</figcaption>
+        </figure>
+        <div class="leaf-dsa-feature__copy">
+          <h3>Follow the crop, not just a single number.</h3>
+          <p>DSA is an important part of Hybrid-Ag’s prescription approach. The agronomist reviews each result and the difference between leaf ages with crop stage, load, soil and water information where available.</p>
+          <p>Comparable repeat pairs help us see what has changed since the previous test. A difference is a reason to investigate, not proof of its cause or an automatic instruction to apply a product.</p>
+          <a class="btn btn--teal" href="services-differential-sap-analysis.html">Explore the DSA service</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-split" data-reveal data-home-field>
+    <div class="testing-detail-split__image"><img src="assets/photos/responsive/leaf-testing-field-samples-1280.webp" height="720" width="1280" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/leaf-testing-field-samples-480.webp 480w, assets/photos/responsive/leaf-testing-field-samples-768.webp 768w, assets/photos/responsive/leaf-testing-field-samples-1200.webp 1200w, assets/photos/responsive/leaf-testing-field-samples-1280.webp 1280w" alt="Uprooted green plants and two clear sample bags on a ute tailgate" loading="lazy" decoding="async"></div>
+    <div class="testing-detail-split__copy">
+      <span class="eyebrow eyebrow--orange">Interpreting the result</span>
+      <h2>Keep the crop beside the numbers.</h2>
+      <p>If a Nutrient result is low, the next question is why. Supply may be part of the explanation, but root access, water and crop growth can affect the result too.</p>
+      <p>Tell us what you are seeing and bring any soil or water results you already have. The team considers that information with the plant test before recommending a change.</p>
+      <p class="leaf-test-photo-note">Plants and sample bags in the field. For sampling, follow the current kit instructions for your crop.</p>
+      <a class="btn btn--teal" href="nutrient-audit.html">Discuss your existing results</a>
+    </div>
+  </section>
+
+  <section class="testing-detail-method" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow">Testing and liquid prescription blends</span><h2>Use the result to guide the next prescription.</h2></div>
+        <p>Testing is useful when it helps answer a practical question. We discuss what the crop needs, what the results support and whether more information is needed before changing the nutrition recommendation.</p>
+      </div>
+      <div class="leaf-test-prescription">
+        <p>Where an application is needed, we discuss a custom Hybrid-Ag liquid prescription blend for the crop’s requirements and your equipment. Rate, timing and budget are part of that decision. A test result alone does not determine the blend.</p>
+        <a class="btn testing-detail-method__action" href="services-liquid-prescription-blends.html">Explore liquid prescription blends</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-context" data-reveal data-home-field>
+    <div class="wrap testing-detail-context__inner">
+      <div><span class="eyebrow eyebrow--orange">Before sampling</span><h2>A useful result starts with the right sample.</h2><p>Tell us the crop and what you need to find out. We confirm the test and its current instructions before you collect the material.</p></div>
+      <div class="testing-detail-context__list">
+        <div><span>01</span><div><strong>Identify the crop and area</strong><p>Keep crop, variety, paddock or block and growth stage with each result. Separate materially different areas.</p></div></div>
+        <div><span>02</span><div><strong>Confirm which material to collect</strong><p>Leaf ages, plant parts and sample amounts depend on the crop and test. DSA young and old leaves stay in separately labelled samples.</p></div></div>
+        <div><span>03</span><div><strong>Follow the handling instructions</strong><p>Dry tissue and sap tests can require different packaging and handling. Use the instructions supplied for the selected test.</p></div></div>
+        <div><span>04</span><div><strong>Keep the sampling context</strong><p>Record the date, stage, recent rain, irrigation and applications so the result can be interpreted and compared later.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-cta" data-reveal data-home-field>
+    <div class="wrap testing-detail-cta__inner">
+      <div><span class="eyebrow">Start with your crop</span><h2>Talk with us about leaf testing or DSA.</h2></div>
+      <div class="cta-row">
+        <a class="btn testing-detail-cta__primary" href="soil-test.html?test=sap">Discuss DSA testing</a>
+        <a class="btn testing-detail-cta__secondary" href="soil-test.html?test=leaf">Request tissue testing</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>

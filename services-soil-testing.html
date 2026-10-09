@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soil Testing and Interpretation - Hybrid-Ag</title>
+<meta name="description" content="Understand your soil results and discuss prescription blends. Sampling details, crop history and laboratory methods guide the interpretation.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
+<link rel="stylesheet" href="css/pages/testing-detail.css?v=dedc84104f">
+<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/pages/service-refinements.css?v=63c0fac8e0">
+<!-- SEO:auto -->
+<link rel="canonical" href="https://www.hybridag.com.au/services-soil-testing.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Soil Testing and Interpretation - Hybrid-Ag">
+<meta property="og:description" content="Understand your soil results and discuss prescription blends. Sampling details, crop history and laboratory methods guide the interpretation.">
+<meta property="og:url" content="https://www.hybridag.com.au/services-soil-testing.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Soil Testing and Interpretation - Hybrid-Ag">
+<meta name="twitter:description" content="Understand your soil results and discuss prescription blends. Sampling details, crop history and laboratory methods guide the interpretation.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+
+<!-- /SEO:auto -->
+</head>
+<body data-page="services" class="service-refined">
+<div id="site-header"></div>
+
+<main>
+  <header class="testing-detail-hero testing-detail-hero--soil page-cover page-cover--photo" data-home-field>
+    <picture>
+      <source type="image/avif" sizes="100vw" srcset="assets/photos/responsive/soil-rootzone-480.avif 480w, assets/photos/responsive/soil-rootzone-768.avif 768w, assets/photos/responsive/soil-rootzone-1200.avif 1200w, assets/photos/responsive/soil-rootzone-1800.avif 1800w">
+      <img class="testing-detail-hero__image" src="assets/photos/responsive/soil-rootzone-1800.webp" decoding="async" height="2400" width="1800" sizes="100vw" srcset="assets/photos/responsive/soil-rootzone-480.webp 480w, assets/photos/responsive/soil-rootzone-768.webp 768w, assets/photos/responsive/soil-rootzone-1200.webp 1200w, assets/photos/responsive/soil-rootzone-1800.webp 1800w" alt="Soil structure and fine roots in an exposed soil profile" fetchpriority="high">
+    </picture>
+    <div class="testing-detail-hero__shade" aria-hidden="true"></div>
+    <div class="wrap testing-detail-hero__inner page-cover__inner">
+      <span class="eyebrow">Soil testing and interpretation</span>
+      <h1>Understand your soil before choosing a blend.</h1>
+      <p>A soil report helps identify the requirements of the area being tested. Hybrid-Ag considers the sampling depth and method alongside crop history before recommending a prescription blend or further investigation.</p>
+      <div class="cta-row">
+        <a class="btn btn--teal" href="soil-test.html?test=soil">Request soil testing</a>
+        <a class="btn testing-detail-hero__secondary" href="#soil-read">What a soil test measures</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="testing-detail-intro" id="soil-read" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--orange">Before sampling</span><h2>Define the area being tested.</h2></div>
+        <p>Define the paddock, block or management zone and sampling depth first. Record the sampling method and what you need to understand about the soil.</p>
+      </div>
+      <div class="testing-detail-intro__grid">
+        <article><span>01</span><strong>Where</strong><p>Name the paddock, block or zone and separate areas with a different soil type, history, drainage or crop response.</p></article>
+        <article><span>02</span><strong>How</strong><p>Confirm the depth, sampling pattern, laboratory suite and method so later results can be compared on the same basis.</p></article>
+        <article><span>03</span><strong>Why</strong><p>Explain the crop, rotation and season, and what the test needs to help you decide.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-signals" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--berry">What the report measures</span><h2>A soil report covers more than NPK.</h2></div>
+        <p>The exact suite depends on the question and laboratory method. A useful interpretation may connect acidity, salinity, Nutrient measures, Carbon, cation balance, trace elements and the physical soil description.</p>
+      </div>
+      <div class="testing-detail-signals__grid">
+        <article><span>01</span><h3>pH and electrical conductivity</h3><p>Interpret acidity or alkalinity and soluble salt levels using the reported method, soil type, crop and root-zone conditions.</p></article>
+        <article><span>02</span><h3>Phosphorus, Potassium and Sulphur</h3><p>Keep the extraction method and unit attached. Different methods do not create interchangeable numbers.</p></article>
+        <article><span>03</span><h3>Mineral Nitrogen</h3><p>Review nitrate and ammonium results beside sampling depth, timing, crop demand, rotation, moisture and recent management.</p></article>
+        <article><span>04</span><h3>Organic Carbon</h3><p>Consider the Carbon result and its test method alongside the other soil measurements and field observations.</p></article>
+        <article><span>05</span><h3>Exchangeable cations</h3><p>Read Calcium, Magnesium, Potassium, Sodium and Aluminium relationships with texture, pH, structure and crop context.</p></article>
+        <article><span>06</span><h3>Trace and physical context</h3><p>Connect measured trace elements with texture, gravel, colour and field observations where those details are included or relevant.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-units" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow eyebrow--orange">Method before comparison</span><h2>Compare results that use the same method.</h2></div>
+        <p>Soil results may use different extraction methods or reporting bases. The table below shows examples you may see on a report. The team confirms which tests are needed for your crop.</p>
+      </div>
+      <div class="testing-detail-units__list">
+        <div><strong>Soil pH</strong><span>Water or CaCl<sub>2</sub></span><p>Keep the solution method visible when comparing values, targets or previous reports.</p></div>
+        <div><strong>Phosphorus and Potassium</strong><span>Colwell, mg/kg</span><p>An extraction result needs its named method and unit before it can be interpreted or compared.</p></div>
+        <div><strong>Sulphur and mineral Nitrogen</strong><span>KCl extraction, mg/kg</span><p>Sampling depth, timing, moisture and crop or rotation history affect how these results are interpreted.</p></div>
+        <div><strong>Organic Carbon</strong><span>Method named, %</span><p>For example, a Walkley-Black result should remain identified rather than being treated as method-free total Carbon.</p></div>
+        <div><strong>Exchangeable cations</strong><span>meq/100 g</span><p>Calcium, Magnesium, Sodium, Potassium and Aluminium are read as related measures, not isolated percentages.</p></div>
+        <div><strong>Trace elements</strong><span>Extraction named, mg/kg</span><p>DTPA Copper, Zinc, Manganese and Iron are examples; Boron and other elements may use different methods.</p></div>
+      </div>
+      <p class="testing-detail-units__note">Specific questions may call for additional measures such as chloride, total Phosphorus or a saturated-paste assessment. More measurements are not automatically more useful; the test needs to address the issue being investigated.</p>
+    </div>
+  </section>
+
+  <section class="soil-prescription-bridge" data-reveal data-home-field>
+    <div class="wrap soil-prescription-bridge__inner">
+      <div class="soil-prescription-bridge__copy">
+        <span class="eyebrow">From result to prescription</span>
+        <h2>The soil test becomes a kg/ha requirement.</h2>
+        <p>Hybrid-Ag calculates the kilograms per hectare of each relevant element required to move the sampled soil toward balance. That calculation helps guide the prescription for the nominated paddock, block or zone, alongside crop demand and what is practical to address this season.</p>
+        <a class="btn soil-prescription-bridge__action" href="services-prescription-blends.html">Explore dry and granular blends</a>
+      </div>
+      <div class="soil-prescription-bridge__metric">
+        <strong>kg<span>/ha</span></strong>
+        <p>The measured requirement guides the blend. The team also considers crop demand, previous applications, budget and equipment when planning what to address this season.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-split" data-reveal data-home-field>
+    <div class="testing-detail-split__image"><img src="assets/photos/responsive/paddock-green-1800.webp" height="1278" width="1920" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/paddock-green-480.webp 480w, assets/photos/responsive/paddock-green-768.webp 768w, assets/photos/responsive/paddock-green-1200.webp 1200w, assets/photos/responsive/paddock-green-1800.webp 1800w" alt="Green crop paddock with visible differences between areas" loading="lazy" decoding="async"></div>
+    <div class="testing-detail-split__copy">
+      <span class="eyebrow eyebrow--orange">Interpretation before prescription</span>
+      <h2>A soil result does not prove what the plant received.</h2>
+      <p>The report measures Nutrient levels and conditions in the sampled soil. What the plant can access also depends on root activity, water, temperature, biology and crop stage.</p>
+      <dl>
+        <div><dt>The soil</dt><dd>Describes the sampled soil, with the location, depth, date and method recorded.</dd></div>
+        <div><dt>The plant</dt><dd>Leaf, tissue or paired sap data can show what reached the sampled crop at a particular stage.</dd></div>
+        <div><dt>The season</dt><dd>Weather, irrigation, rotation, inputs and crop response help explain differences between the soil and plant results.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="testing-detail-method" data-reveal data-home-field>
+    <div class="wrap">
+      <div class="testing-detail-heading">
+        <div><span class="eyebrow">The Hybrid-Ag approach</span><h2>Position. Pattern. Plan.</h2></div>
+        <p>Read the soil report alongside sampling details, crop history and observations from the paddock or block.</p>
+      </div>
+      <div class="testing-detail-method__grid">
+        <div><span>01</span><strong>Position</strong><h3>What does the current test show?</h3><p>Establish the sampled area, depth, method, current crop and the measures relevant to the decision.</p></div>
+        <div><span>02</span><strong>Pattern</strong><h3>What helps explain the result?</h3><p>Compare results taken on the same basis, considering soil type, sampling zones, rotation, inputs and weather.</p></div>
+        <div><span>03</span><strong>Plan</strong><h3>What should happen next?</h3><p>Discuss whether to change the nutrition plan, investigate further or arrange a repeat test.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-context" data-reveal data-home-field>
+    <div class="wrap testing-detail-context__inner">
+      <div><span class="eyebrow eyebrow--orange">Before sampling</span><h2>Prepare before taking the sample.</h2></div>
+      <div class="testing-detail-context__list">
+        <div><span>01</span><div><strong>Define the paddock, block or zone</strong><p>Keep areas with different soil, history, drainage or crop performance separate.</p></div></div>
+        <div><span>02</span><div><strong>Confirm depth and protocol</strong><p>Use the current crop and laboratory sampling instructions so the result represents the intended layer.</p></div></div>
+        <div><span>03</span><div><strong>Record crop and rotation</strong><p>Include the current crop, previous crop, growth stage and the decision the test needs to support.</p></div></div>
+        <div><span>04</span><div><strong>Note recent management</strong><p>Fertiliser, lime, amendments, irrigation and unusual seasonal events can change how a result should be read.</p></div></div>
+        <div><span>05</span><div><strong>Keep prior reports intact</strong><p>Previous depth, method, date and zone are essential if the aim is to understand a pattern over time.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testing-detail-cta" data-reveal data-home-field>
+    <div class="wrap testing-detail-cta__inner">
+      <div><span class="eyebrow">Start with the area and the question</span><h2>Tell us which area you need tested.</h2></div>
+      <div class="cta-row">
+        <a class="btn testing-detail-cta__primary" href="soil-test.html?test=soil">Request soil testing</a>
+        <a class="btn testing-detail-cta__secondary" href="services-prescription-blends.html">Explore dry and granular blends</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=2da7219a0b"></script>
+</body>
+</html>
