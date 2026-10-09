@@ -43,7 +43,7 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <meta name="description" content="Compare soil, leaf and tissue, differential sap, water and produce testing. Get help choosing a test and understanding your results.">
 <link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
 <link rel="stylesheet" href="css/components.css?v=5f4c987e33">
-<link rel="stylesheet" href="css/pages/services-testing.css?v=df473e25e4">
+<link rel="stylesheet" href="css/pages/services-testing.css?v=375ed6c7bb">
 <link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
 <link rel="stylesheet" href="css/pages/service-refinements.css?v=63c0fac8e0">
 <!-- SEO:auto -->
@@ -70,9 +70,18 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <div id="site-header"></div>
 
 <main>
-  <header class="service-hero page-cover page-cover--photo" data-home-field>
-    <img class="service-hero__image" src="assets/photos/responsive/paddock-green-1800.webp" decoding="async" height="1278" width="1920" sizes="100vw" srcset="assets/photos/responsive/paddock-green-480.webp 480w, assets/photos/responsive/paddock-green-768.webp 768w, assets/photos/responsive/paddock-green-1200.webp 1200w, assets/photos/responsive/paddock-green-1800.webp 1800w" alt="Green crop paddock under open Australian skies" fetchpriority="high">
-    <div class="service-hero__shade" aria-hidden="true"></div>
+  <header class="service-hero service-hero--library page-cover page-cover--photo" data-home-field>
+    <!-- Connected testing: decorative labels, not specimen test reports. -->
+    <div class="testing-library" aria-hidden="true">
+      <img class="testing-library__seal" src="assets/hybrid-ag-system-seal-science-white.svg?v=a277c0e4cb" width="1666" height="1666" alt="" decoding="async">
+      <svg class="testing-library__connections" viewBox="0 0 1440 560" preserveAspectRatio="none"><path d="M120 145 L380 145 L570 280 M1320 150 L1060 150 L870 280 M125 440 L375 440 L570 280 M1320 425 L1060 425 L870 280 M720 485 L720 410"/><circle cx="380" cy="145" r="3"/><circle cx="1060" cy="150" r="3"/><circle cx="375" cy="440" r="3"/><circle cx="1060" cy="425" r="3"/><circle cx="720" cy="410" r="3"/></svg>
+      <div class="testing-library__note testing-library__note--1"><small>01</small><b>Soil testing</b><i></i><i></i></div>
+      <div class="testing-library__note testing-library__note--2"><small>02</small><b>Leaf and tissue testing</b><i></i><i></i></div>
+      <div class="testing-library__note testing-library__note--3"><small>03</small><b>Differential Sap Analysis</b><i></i><i></i></div>
+      <div class="testing-library__note testing-library__note--4"><small>04</small><b>Water testing</b><i></i><i></i></div>
+      <div class="testing-library__note testing-library__note--5"><small>05</small><b>Produce testing</b><i></i></div>
+    </div>
+    <div class="testing-library__veil" aria-hidden="true"></div>
     <div class="wrap service-hero__inner page-cover__inner">
       <span class="eyebrow">Testing and interpretation</span>
       <h1>Choose the right test for your crop.</h1>
