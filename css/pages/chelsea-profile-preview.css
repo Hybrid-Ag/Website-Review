@@ -1,0 +1,5 @@
+/* Chelsea's approved supplied photo crop; experience tags use the shared style. */
+.team-profile-refined .profile-hero--areas .profile-hero__image{left:-36%;width:140%;max-width:none;object-position:center 36%}
+@media(max-width:900px){
+  .team-profile-refined .profile-hero--areas .profile-hero__image{left:0;width:100%;object-position:center 38%}
+}

@@ -25,11 +25,14 @@
 .team-profile-refined .profile-biography__copy{min-width:0}
 .team-profile-refined .profile-biography__copy :is(.measure-prose,.lead){max-width:64ch}
 .team-profile-refined main>section .lead{font-size:17px;font-style:normal;line-height:1.65}
-.team-profile-refined .profile-areas{margin-top:28px;padding-top:24px;border-top:1px solid var(--hairline)}
-.team-profile-refined .profile-areas h3{font-size:26px;line-height:1.18;max-width:30ch}
-.team-profile-refined .profile-areas .cta-row{margin-top:16px;gap:8px}
 .team-profile-refined .badge{background:var(--cream);font-size:12px;font-weight:400;line-height:1.5;padding:6px 10px}
-.team-profile-refined .profile-areas p{font-size:15px;line-height:1.6;font-style:normal!important;margin-top:16px!important;max-width:64ch!important}
+/* Approved Chelsea treatment: experience tags, never navigation controls. */
+.team-profile-refined .profile-hero--areas .profile-hero-areas{margin-top:var(--intro-action-gap)}
+.team-profile-refined .profile-hero--areas .profile-hero-areas__label{display:block;margin-bottom:10px;color:#e0f0ee;font-family:var(--font-display);font-size:12px;line-height:1.55;letter-spacing:var(--tracking-caps);text-transform:uppercase}
+.team-profile-refined .profile-hero--areas :is(.profile-hero-areas__tags,.profile-hero-areas__regions){display:flex;flex-wrap:wrap;justify-content:center;list-style:none;padding:0;margin:0}
+.team-profile-refined .profile-hero--areas .profile-hero-areas__tags{gap:8px}
+.team-profile-refined .profile-hero--areas .profile-hero-areas__tags .badge{padding:6px 12px;border:1px solid #ffffff26;background:#ffffff14;color:#e7f2f1;cursor:default}
+.team-profile-refined .profile-hero--areas .profile-hero-areas__regions{gap:4px 18px;margin-top:14px;color:#e0f0ee;font-size:13px;line-height:1.6}
 .team-profile-refined .profile-story{background:var(--cream)}
 .team-profile-refined .profile-story__image{width:100%;max-width:360px;margin:0;justify-self:start}
 .team-profile-refined .profile-story__image img{display:block;position:static;width:100%;height:auto;border-radius:var(--r-card)}
@@ -73,9 +76,15 @@
 @media(max-width:560px){
   .team-profile-refined .profile-contact .cta-row{flex-direction:column;align-items:stretch}
 }
+@media(max-width:520px){
+  .team-profile-refined .profile-hero--areas .profile-hero-areas__tags .badge{padding-inline:10px}
+  .team-profile-refined .profile-hero--areas .profile-hero-areas__regions{gap:4px 14px;font-size:12px}
+}
 @media(prefers-reduced-motion:reduce),(hover:none),(pointer:coarse){.team-profile-refined .card{transition:none}}
 @media(forced-colors:active){
   .team-profile-refined .profile-hero{background:Canvas;color:CanvasText}
   .team-profile-refined .profile-hero :is(h1,.eyebrow,.sub){color:CanvasText}
   .team-profile-refined :is(.profile-hero__image,.profile-hero__shade){display:none}
+  .team-profile-refined .profile-hero--areas :is(.profile-hero-areas__label,.profile-hero-areas__regions){color:CanvasText}
+  .team-profile-refined .profile-hero--areas .profile-hero-areas__tags .badge{background:Canvas;color:CanvasText;border-color:GrayText}
 }
