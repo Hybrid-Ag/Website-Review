@@ -1,6 +1,26 @@
 {
   "schema_version": 1,
   "assets": {
+    "assets/photos/liquid-prescription-apple-orchard.jpg": {
+      "source": "assets/photos/liquid-prescription-apple-orchard.jpg",
+      "width": 1800,
+      "height": 1350,
+      "source_bytes": 668710,
+      "variants": {
+        "webp": [
+          {"path": "assets/photos/responsive/liquid-prescription-apple-orchard-480.webp", "width": 480, "height": 360, "bytes": 51710},
+          {"path": "assets/photos/responsive/liquid-prescription-apple-orchard-768.webp", "width": 768, "height": 576, "bytes": 101190},
+          {"path": "assets/photos/responsive/liquid-prescription-apple-orchard-1200.webp", "width": 1200, "height": 900, "bytes": 190824},
+          {"path": "assets/photos/responsive/liquid-prescription-apple-orchard-1800.webp", "width": 1800, "height": 1350, "bytes": 373544}
+        ],
+        "avif": [
+          {"path": "assets/photos/responsive/liquid-prescription-apple-orchard-480.avif", "width": 480, "height": 360, "bytes": 26809},
+          {"path": "assets/photos/responsive/liquid-prescription-apple-orchard-768.avif", "width": 768, "height": 576, "bytes": 54185},
+          {"path": "assets/photos/responsive/liquid-prescription-apple-orchard-1200.avif", "width": 1200, "height": 900, "bytes": 109650},
+          {"path": "assets/photos/responsive/liquid-prescription-apple-orchard-1800.avif", "width": 1800, "height": 1350, "bytes": 223912}
+        ]
+      }
+    },
     "assets/photos/prescription-orchard-rows.jpg": {
       "source": "assets/photos/prescription-orchard-rows.jpg",
       "width": 1800,
