@@ -43,7 +43,8 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <meta name="description" content="Hybrid-Ag guides to crop nutrition, testing and prescription blends, with Apple and Cherry playbooks and sample programs for review.">
 <link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
 <link rel="stylesheet" href="css/components.css?v=5f4c987e33">
-<link rel="stylesheet" href="css/pages/resources.css?v=7fddd72a61">
+<link rel="stylesheet" href="css/pages/resources.css?v=59bcd96e21">
+<link rel="stylesheet" href="css/pages/library-headers.css?v=065b8cff57">
 <link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
 <!-- SEO:auto -->
 <link rel="canonical" href="https://www.hybridag.com.au/knowledge-center.html">
@@ -70,17 +71,9 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 
 <main>
   <header class="resources-hero resources-hero--library page-cover page-cover--photo" data-home-field="light">
-    <!-- Field Library: original booklet covers and decorative notes. -->
-    <div class="resources-library" aria-hidden="true">
-      <img class="resources-library__seal" src="assets/hybrid-ag-system-seal-science-white.svg?v=a277c0e4cb" width="1666" height="1666" alt="" decoding="async">
-      <div class="resources-library__books">
-        <img src="assets/playbook-cover.jpg" width="436" height="620" alt="" decoding="async">
-        <img src="assets/apple-playbook-cover.jpg" width="839" height="1191" alt="" decoding="async">
-      </div>
-      <div class="resources-library__field-notes"><span>Testing &amp; interpretation</span><i></i><i></i><i></i><strong>Prescription blends</strong><i></i><i></i><small>Soil · Crop · Farm context</small></div>
-      <div class="resources-library__rule"></div>
+    <div class="hero-seal-art" aria-hidden="true">
+      <img class="hero-seal-art__seal" src="assets/hybrid-ag-system-seal-science-white.svg?v=a277c0e4cb" width="1666" height="1666" alt="" decoding="async">
     </div>
-    <div class="resources-library__veil" aria-hidden="true"></div>
     <div class="wrap resources-hero__inner page-cover__inner">
       <span class="eyebrow">Resources</span>
       <h1>Practical guides to crop nutrition.</h1>
@@ -88,6 +81,16 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
       <div class="cta-row">
         <a class="btn btn--teal" href="#guides">Explore the guides</a>
         <a class="btn resources-hero__secondary" href="soil-test.html">Request testing</a>
+      </div>
+      <div class="hero-topics">
+        <span class="hero-topics__label" id="hero-topics-label">In the library</span>
+        <ul class="hero-topics__list" aria-labelledby="hero-topics-label" role="list">
+          <li class="badge">Testing &amp; interpretation</li>
+          <li class="badge">Prescription blends</li>
+          <li class="badge">Crop nutrition booklets</li>
+          <li class="badge">Sampling records</li>
+          <li class="badge">Seasonal review</li>
+        </ul>
       </div>
     </div>
   </header>
@@ -194,6 +197,5 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <script src="js/components.js?v=fe49b5e90c"></script>
 <script src="js/cart.js?v=df334d2d7d"></script>
 <script src="js/main.js?v=2da7219a0b"></script>
-<script src="js/resources-library.js?v=923fae4275"></script>
 </body>
 </html>

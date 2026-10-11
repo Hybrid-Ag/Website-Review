@@ -1,0 +1,38 @@
+/* Approved Resources/Services headers. Shared covers and Three Signals own
+   typography, action buttons and motion; topic tags are not navigation. */
+main>.resources-hero--library{background:#fff}
+main>.service-hero--library{background:var(--dark)}
+.hero-seal-art{position:absolute;z-index:0;inset:0;overflow:hidden;pointer-events:none}
+.hero-seal-art__seal{
+  position:absolute;width:650px;height:calc(100% - 24px);max-width:none;max-height:650px;
+  left:50%;top:50%;object-fit:contain;opacity:.15;
+  transform:translate(-50%,-50%);
+  mask-image:radial-gradient(circle,transparent 0%,#0006 40%,#000 68%);
+}
+.resources-hero--library .hero-seal-art__seal{filter:invert(1);opacity:.14}
+.hero-topics{margin:30px auto 0;max-width:900px}
+.hero-topics__label{
+  display:block;margin-bottom:10px;font:400 12px/1.55 var(--font-display);
+  letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--teal-dk);
+}
+.hero-topics__list{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;list-style:none;padding:0;margin:0}
+.hero-topics__list .badge{
+  padding:6px 12px;border:1px solid var(--hairline);border-radius:4px;
+  background:#f7f6f4e6;color:var(--body);cursor:default;
+  font-size:12px;font-weight:400;line-height:1.5;
+}
+.service-hero--library .hero-topics__label{color:#e0f0ee}
+.service-hero--library .hero-topics__list .badge{border-color:#ffffff26;background:#ffffff14;color:#e7f2f1}
+main>:is(.resources-hero--library,.service-hero--library) .page-cover__inner{z-index:3}
+main>:is(.resources-hero--library,.service-hero--library)>.site-signals-field{z-index:1}
+@media(max-width:740px){
+  .hero-seal-art__seal{width:490px;height:490px;opacity:.11}
+  .resources-hero--library .hero-seal-art__seal{opacity:.1}
+  .hero-topics{margin-top:26px}
+  .hero-topics__list .badge{padding-inline:10px}
+}
+@media(forced-colors:active){
+  .hero-seal-art{display:none}
+  .hero-topics__list .badge{background:Canvas;color:CanvasText;border-color:GrayText}
+  .hero-topics__label{color:CanvasText}
+}

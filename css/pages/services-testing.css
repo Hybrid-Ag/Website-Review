@@ -10,33 +10,10 @@
 .service-hero__secondary{background:var(--white);color:var(--ink)}
 .service-hero__secondary:hover{background:var(--cream-dk)}
 
-/* Connected Library treatment: the shared cover owns all copy and actions.
-   Test labels are decorative; the accessible comparison remains below. */
-.service-hero--library{background:var(--dark-2)}
+/* The shared cover owns copy and actions; library-headers.css adds
+   the selected seal and static tags. Test comparisons remain below. */
 main>.service-hero--library.page-cover .service-hero__inner{position:relative;z-index:3}
-.testing-library{position:absolute;z-index:0;inset:0;overflow:hidden;pointer-events:none}
-.testing-library__seal{position:absolute;max-width:none;width:640px;height:640px;left:50%;top:50%;object-fit:contain;opacity:.09;transform:translate(-50%,-50%)}
-.testing-library__connections{position:absolute;inset:0;width:100%;height:100%;opacity:.23;fill:none;stroke:#8fd0cd;stroke-width:.8}
-.testing-library__connections circle{fill:#8fd0cd;stroke:none}
-.testing-library__note{position:absolute;width:196px;min-height:130px;padding:20px;border:1px solid #ffffff30;background:#12131266;box-shadow:9px 9px 0 #ffffff03;opacity:.45;text-align:left;transform:rotate(var(--note-turn))}
-.testing-library__note small{font:12px var(--font-display);letter-spacing:.1em;color:#8fd0cd}
-.testing-library__note b{display:block;margin-top:8px;font:25px var(--font-display);color:var(--white)}
-.testing-library__note i{display:block;height:1px;margin-top:10px;background:#ffffff25}
-.testing-library__note i:last-child{width:60%}
-.testing-library__note--1{--note-turn:-7deg;left:4%;top:12%}
-.testing-library__note--2{--note-turn:6deg;right:4%;top:13%}
-.testing-library__note--3{--note-turn:4deg;left:6%;bottom:10%}
-.testing-library__note--4{--note-turn:-5deg;right:5%;bottom:9%}
-.testing-library__note--5{--note-turn:0deg;left:50%;bottom:20px;width:196px;min-height:0;padding:14px 20px;transform:translateX(-50%)}
-.testing-library__note--5 b{font-size:22px}
-.testing-library__note--2 small{color:#e99e5b}
-.testing-library__note--3 small{color:#c785b6}
-.testing-library__veil{position:absolute;z-index:1;inset:0;background:radial-gradient(ellipse at 50% 35%,#1d1f1cdc 0%,#1d1f1ccc 34%,#1d1f1c33 75%);pointer-events:none}
-.service-hero--library>.site-signals-field{z-index:2}
-@media(min-width:1800px){.testing-library__note--1,.testing-library__note--3{left:10%}.testing-library__note--2,.testing-library__note--4{right:10%}}
-@media(max-width:1100px){.testing-library__note{width:160px;opacity:.25}.testing-library__note--1,.testing-library__note--3{left:-55px}.testing-library__note--2,.testing-library__note--4{right:-55px}.testing-library__note--5{display:none}}
-@media(max-width:740px){.testing-library__seal{width:470px;height:470px;opacity:.065}.testing-library__note{display:none}.testing-library__connections{opacity:.11}}
-@media(forced-colors:active){.testing-library,.testing-library__veil{display:none!important}.service-hero--library{background:Canvas!important;color:CanvasText!important}.service-hero--library :is(h1,p,.eyebrow){color:CanvasText!important}.service-hero--library a:focus-visible{outline-color:Highlight!important}}
+@media(forced-colors:active){.service-hero--library{background:Canvas!important;color:CanvasText!important}.service-hero--library :is(h1,p,.eyebrow){color:CanvasText!important}.service-hero--library a:focus-visible{outline-color:Highlight!important}}
 
 .test-catalogue{scroll-margin-top:var(--nav-h);background:var(--cream)}
 .test-catalogue__heading{display:grid;grid-template-columns:1fr .75fr;gap:clamp(44px,8vw,110px);align-items:end}
