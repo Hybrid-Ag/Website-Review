@@ -7,6 +7,7 @@
   var preview = window.HybridAgCartPreview || null;
   var KEY = preview && preview.storageKey || 'hybridag_cart_v1';
   var drawerOpener = null;
+  var inertBackground = [];
   function siteLink(path) { return (preview && preview.root || '') + path; }
   function validQuantity(qty) { return Number.isSafeInteger(qty) && qty >= 1 && qty <= 999999; }
   function money(n) { return '$' + Number(n).toLocaleString('en-AU', { minimumFractionDigits: 0, maximumFractionDigits: 2 }); }
@@ -88,8 +89,8 @@
 
   function drawerHTML() {
     return '<div class="cart-backdrop" id="cartBackdrop"></div>' +
-      '<aside class="cart-drawer" id="cartDrawer" aria-label="' + (preview ? 'Preview order' : 'Your order') + '" aria-hidden="true"' + (preview ? ' role="dialog" aria-modal="true" tabindex="-1" inert' : '') + '>' +
-        '<div class="cart-head"><b>' + (preview ? 'Preview order' : 'Your order') + '</b><button class="cart-x" id="cartClose" aria-label="Close">&times;</button></div>' +
+      '<aside class="cart-drawer" id="cartDrawer" aria-label="' + (preview ? 'Preview order' : 'Your order') + '" aria-hidden="true" role="dialog" aria-modal="true" tabindex="-1" inert>' +
+        '<div class="cart-head" data-signals-overlay><b>' + (preview ? 'Preview order' : 'Your order') + '</b><button class="cart-x" id="cartClose" aria-label="Close">&times;</button></div>' +
         '<div class="cart-body" id="cartBody"></div>' +
         '<div class="cart-foot" id="cartFoot"></div>' +
       '</aside>';
@@ -106,7 +107,7 @@
     var body = document.getElementById('cartBody'), foot = document.getElementById('cartFoot');
     if (!body) return;
     var focus = null;
-    if (preview && document.getElementById('cartDrawer').classList.contains('open')) {
+    if (document.getElementById('cartDrawer').classList.contains('open')) {
       var active = document.activeElement;
       var focusedRow = active.closest('.cart-line');
       if (focusedRow && body.contains(focusedRow)) {
@@ -187,20 +188,48 @@
   function openDrawer() {
     var d = document.getElementById('cartDrawer'), b = document.getElementById('cartBackdrop');
     if (!d) return;
-    if (preview && !d.classList.contains('open')) drawerOpener = document.activeElement;
+    var wasOpen = d.classList.contains('open');
+    if (!wasOpen) drawerOpener = document.activeElement;
+    if (window.HybridAgPanels) window.HybridAgPanels.open('cart', closeDrawer);
     renderDrawer(); d.classList.add('open'); b.classList.add('open'); d.setAttribute('aria-hidden', 'false');
-    if (preview) { d.inert = false; document.getElementById('cartClose').focus(); }
+    d.inert = false;
+    document.body.classList.add('site-cart-lock');
+    if (!wasOpen) {
+      document.getElementById('cartClose').focus({ preventScroll: true });
+      inertBackground = Array.from(document.body.children).filter(function (node) { return node !== d.parentElement; }).map(function (node) {
+        var state = { node: node, inert: node.inert };
+        node.inert = true;
+        return state;
+      });
+    }
+    prepareMotion();
     track('view_cart', { product_line_count: Cart.lines().length, item_count: Cart.count(), value: Cart.subtotal(), currency: 'AUD' });
   }
-  function closeDrawer() {
+  function closeDrawer(restoreFocus) {
     var d = document.getElementById('cartDrawer'), b = document.getElementById('cartBackdrop');
     if (!d) return;
     var wasOpen = d.classList.contains('open');
+    if (!wasOpen) return;
     d.classList.remove('open'); b.classList.remove('open'); d.setAttribute('aria-hidden', 'true');
-    if (preview) d.inert = true;
-    if (preview && wasOpen && drawerOpener && drawerOpener.isConnected) drawerOpener.focus();
+    d.inert = true;
+    document.body.classList.remove('site-cart-lock');
+    inertBackground.forEach(function (state) { state.node.inert = state.inert; });
+    inertBackground = [];
+    if (window.HybridAgPanels) window.HybridAgPanels.close('cart');
+    if (restoreFocus !== false) {
+      var target = drawerOpener;
+      if (!target || target === document.body || !target.isConnected || target.closest('[inert]') || !target.getClientRects().length || getComputedStyle(target).visibility !== 'visible') {
+        target = Array.from(document.querySelectorAll('[data-cart-open]')).find(function (button) { return button.getClientRects().length && !button.closest('[inert]'); });
+      }
+      if (target) target.focus({ preventScroll: true });
+    }
   }
   Cart.open = openDrawer;
+
+  function prepareMotion() {
+    var head = document.querySelector('#cartDrawer [data-signals-overlay]');
+    if (head && window.HybridAgSignals) window.HybridAgSignals.prepareSurface(head);
+  }
 
   function toast(msg) {
     var t = document.createElement('div'); t.className = 'cart-toast'; t.textContent = msg;
@@ -267,12 +296,13 @@
   function mount() {
     if (!document.getElementById('cartDrawer')) {
       var wrap = document.createElement('div'); wrap.innerHTML = drawerHTML();
+      wrap.className = 'cart-layer';
       document.body.appendChild(wrap);
       document.getElementById('cartClose').addEventListener('click', closeDrawer);
       document.getElementById('cartBackdrop').addEventListener('click', closeDrawer);
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeDrawer();
-        if (!preview || e.key !== 'Tab') return;
+        if (e.key !== 'Tab') return;
         var drawer = document.getElementById('cartDrawer');
         if (!drawer.classList.contains('open')) return;
         var controls = Array.from(drawer.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),[tabindex]:not([tabindex="-1"])')).filter(function (node) { return node.getClientRects().length; });
@@ -285,6 +315,8 @@
       b.addEventListener('click', function (e) { e.preventDefault(); openDrawer(); });
     });
     document.addEventListener('cart:change', function () { renderBadge(); renderDrawer(); });
+    prepareMotion();
+    window.addEventListener('hybridag:signals-ready', prepareMotion);
     renderBadge();
     wireQuantityPicker();
     wireAddToCart();

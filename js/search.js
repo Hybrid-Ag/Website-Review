@@ -54,6 +54,7 @@
   var closeTimer = null;
   var trackedQueries = {};
   var lastTrigger = null;
+  var inertBackground = [];
 
   function normalise(value) {
     return String(value || '').toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
@@ -213,8 +214,7 @@
     wrapper.hidden = true;
     wrapper.innerHTML = '' +
       '<section class="site-search-panel" role="dialog" aria-modal="true" aria-labelledby="siteSearchTitle">' +
-        '<div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>' +
-        '<header class="site-search-head"><div><span class="eyebrow">Hybrid-Ag Finder</span><h2 id="siteSearchTitle">What are you looking for?</h2></div>' +
+        '<header class="site-search-head" data-signals-overlay><div><span class="eyebrow">Hybrid-Ag Finder</span><h2 id="siteSearchTitle">What are you looking for?</h2></div>' +
           '<button class="site-search-close" type="button" aria-label="Close search">&times;</button></header>' +
         '<form class="site-search-form" id="siteSearchForm" role="search">' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4 4"></path></svg>' +
@@ -247,7 +247,14 @@
       }
     });
     wrapper.addEventListener('keydown', trapDialogFocus);
+    prepareMotion();
   }
+
+  function prepareMotion() {
+    var head = document.querySelector('#siteSearchDialog [data-signals-overlay]');
+    if (head && window.HybridAgSignals) window.HybridAgSignals.prepareSurface(head);
+  }
+  window.addEventListener('hybridag:signals-ready', prepareMotion);
 
   function renderDialog() {
     var dialog = document.getElementById('siteSearchDialog');
@@ -311,44 +318,56 @@
     injectDialog();
     var dialog = document.getElementById('siteSearchDialog');
     window.clearTimeout(closeTimer);
-    if (!dialog.hidden) {
+    if (!dialog.hidden && document.body.classList.contains('site-search-lock')) {
       dialog.querySelector('#siteSearchInput').focus();
       return;
     }
     lastTrigger = trigger || document.activeElement;
+    if (window.HybridAgPanels) window.HybridAgPanels.open('search', close);
     dialog.hidden = false;
     document.body.classList.add('site-search-lock');
     var input = dialog.querySelector('#siteSearchInput');
     input.focus();
     input.select();
-    Array.prototype.forEach.call(document.body.children, function (child) {
-      if (child === dialog) return;
+    inertBackground = Array.prototype.filter.call(document.body.children, function (child) { return child !== dialog; }).map(function (child) {
+      var state = { node: child, inert: child.inert };
       child.setAttribute('inert', '');
       if (!child.hasAttribute('aria-hidden')) {
         child.setAttribute('aria-hidden', 'true');
         child.setAttribute('data-site-search-hidden', '');
       }
+      return state;
     });
-    window.requestAnimationFrame(function () { dialog.classList.add('is-open'); });
+    window.requestAnimationFrame(function () { if (!dialog.hidden && document.body.classList.contains('site-search-lock')) dialog.classList.add('is-open'); });
+    prepareMotion();
     renderDialog();
     track('site_search_open', { search_context: 'overlay' });
   }
 
-  function close() {
+  function close(restoreFocus) {
     var dialog = document.getElementById('siteSearchDialog');
     if (!dialog || dialog.hidden) return;
     dialog.classList.remove('is-open');
     document.body.classList.remove('site-search-lock');
-    Array.prototype.forEach.call(document.body.children, function (child) {
-      if (child === dialog) return;
-      child.removeAttribute('inert');
+    inertBackground.forEach(function (state) {
+      var child = state.node;
+      child.inert = state.inert;
       if (child.hasAttribute('data-site-search-hidden')) {
         child.removeAttribute('aria-hidden');
         child.removeAttribute('data-site-search-hidden');
       }
     });
-    closeTimer = window.setTimeout(function () { dialog.hidden = true; }, 180);
-    if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
+    inertBackground = [];
+    if (window.HybridAgPanels) window.HybridAgPanels.close('search');
+    if (restoreFocus === false) dialog.hidden = true;
+    else closeTimer = window.setTimeout(function () { dialog.hidden = true; }, 180);
+    if (restoreFocus !== false) {
+      var target = lastTrigger;
+      if (!target || !target.isConnected || target.closest('[inert]') || !target.getClientRects().length || getComputedStyle(target).visibility !== 'visible') {
+        target = Array.from(document.querySelectorAll('[data-site-search-open]')).find(function (button) { return button.getClientRects().length && !button.closest('[inert]'); });
+      }
+      if (target && target.focus) target.focus({ preventScroll: true });
+    }
   }
 
   function trapDialogFocus(event) {

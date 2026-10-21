@@ -14,7 +14,7 @@
   var lastFocus;
   var indexPromise;
   // Keep aligned with the lazy-loaded Finder index in components.js.
-  var SEARCH_ASSET_VERSION = '20261019-amos-check-6d3ff2b4ae';
+  var SEARCH_ASSET_VERSION = '20261021-panel-polish';
   var stateLoaded = false;
   var closeTimer;
   var isOpen = false;
@@ -188,6 +188,8 @@
     window.addEventListener('hybridag:signals-ready', prepareMotion);
     launcher.addEventListener('click', open);
     root.querySelector('.site-assistant-close').addEventListener('click', close);
+    document.addEventListener('hybridag:panel-change', syncAvailability);
+    syncAvailability();
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && !panel.hidden) close();
     });
@@ -214,10 +216,12 @@
   }
 
   function open() {
+    if (window.HybridAgPanels && window.HybridAgPanels.current() && window.HybridAgPanels.current() !== 'guide') return;
     clearTimeout(closeTimer);
     if (isOpen) return;
     isOpen = true;
     lastFocus = document.activeElement;
+    if (window.HybridAgPanels) window.HybridAgPanels.open('guide', close);
     panel.hidden = false;
     launcher.setAttribute('aria-expanded', 'true');
     root.classList.add('is-open');
@@ -231,14 +235,25 @@
     track('assistant_open', { state: stateLoaded ? 'returning' : 'initial' });
   }
 
-  function close() {
+  function close(restoreFocus) {
     if (!isOpen) return;
     isOpen = false;
     panel.classList.remove('is-open');
     launcher.setAttribute('aria-expanded', 'false');
     root.classList.remove('is-open');
-    closeTimer = setTimeout(function () { if (!isOpen) panel.hidden = true; }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 240);
-    if (lastFocus && lastFocus.focus) lastFocus.focus();
+    if (window.HybridAgPanels) window.HybridAgPanels.close('guide');
+    if (restoreFocus === false) panel.hidden = true;
+    else closeTimer = setTimeout(function () { if (!isOpen) panel.hidden = true; }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 240);
+    if (restoreFocus !== false && lastFocus && lastFocus.focus && !lastFocus.closest('[inert]')) lastFocus.focus({ preventScroll: true });
+  }
+
+  function syncAvailability() {
+    var active = window.HybridAgPanels && window.HybridAgPanels.current();
+    var blocked = Boolean(active && active !== 'guide');
+    root.classList.toggle('is-obscured', blocked);
+    root.inert = blocked;
+    if (blocked) root.setAttribute('aria-hidden', 'true');
+    else root.removeAttribute('aria-hidden');
   }
 
   function focusPanel() {

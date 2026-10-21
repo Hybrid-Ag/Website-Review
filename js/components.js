@@ -193,6 +193,30 @@
   else mount();
 })();
 
+/* One active panel: navigation and dialogs take precedence over the optional guide. */
+(function () {
+  var active = null;
+  function sync() {
+    document.body.classList.toggle('site-panel-open', Boolean(active && active.id !== 'guide'));
+    document.dispatchEvent(new CustomEvent('hybridag:panel-change', { detail: { id: active ? active.id : null } }));
+  }
+  window.HybridAgPanels = {
+    open: function (id, close) {
+      if (active && active.id === id) { active.close = close; return; }
+      var previous = active;
+      active = { id: id, close: close };
+      if (previous) previous.close(false);
+      sync();
+    },
+    close: function (id) {
+      if (!active || active.id !== id) return;
+      active = null;
+      sync();
+    },
+    current: function () { return active ? active.id : null; }
+  };
+})();
+
 /* Hybrid-Ag — shared header + footer for the static multi-page build. */
 (function () {
   var NAV = [
@@ -222,8 +246,8 @@
   ];
   var PHONE = '(03) 5722 7555', TEL = 'tel:+61357227555';
   // Update this cache key when either lazy-loaded Finder asset changes.
-  var SEARCH_ASSET_VERSION = '20261019-amos-check-6d3ff2b4ae';
-  var ASSISTANT_ASSET_VERSION = '20261019-amos-check-f7efbfe634';
+  var SEARCH_ASSET_VERSION = '20261021-panel-polish';
+  var ASSISTANT_ASSET_VERSION = '20261021-panel-polish';
   var searchLoadPromise = null;
 
   function loadSearchAsset(path, ready) {
@@ -309,11 +333,10 @@
   }
 
   function accountControl(icon) {
-    return '<div class="nav-account" data-nav-account>' +
-      '<a class="nav-account__trigger" href="account-application.html" aria-label="Customer account" aria-haspopup="true" title="Customer account">' + icon +
+    return '<div class="nav-account" id="navAccount" data-nav-account>' +
+      '<a class="nav-account__trigger" id="navAccountTrigger" href="account-application.html" aria-label="Customer account" aria-controls="navAccountMenu" aria-expanded="false" title="Customer account">' + icon +
         '<span class="nav-account__initial" data-nav-account-initial hidden></span></a>' +
-      '<div class="nav-account__menu" role="region" aria-label="Customer account summary">' +
-        '<div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>' +
+      '<div class="nav-account__menu" id="navAccountMenu" role="region" aria-label="Customer account summary" data-signals-overlay>' +
         '<div class="nav-account__content" data-nav-account-content>' +
           '<span class="nav-account__eyebrow">Customer account</span>' +
           '<strong class="nav-account__name">Sign in or create an account.</strong>' +
@@ -410,7 +433,7 @@
         '<ul class="mega-list">' + items + '</ul></div>';
     }).join('');
     return '<div class="mega" id="mega" role="region" aria-label="Products">' +
-      '<div class="wrap mega-inner">' + cols + '</div>' +
+      '<div class="wrap mega-inner" data-signals-overlay>' + cols + '</div>' +
       '<div class="mega-foot"><div class="wrap"><span>Ask about a prescription blend for your crop and soil.</span>' +
         '<a class="pill pill--teal" href="shop.html">View the full range &rarr;</a></div></div>' +
       '</div>';
@@ -600,23 +623,47 @@
     }
     mountCustomerAccount();
     loadSiteAssistant();
+    function preparePanelMotion() {
+      if (!window.HybridAgSignals) return;
+      h.querySelectorAll('[data-signals-overlay]').forEach(function (surface) {
+        window.HybridAgSignals.prepareSurface(surface);
+      });
+    }
+    if (h) {
+      preparePanelMotion();
+      window.addEventListener('hybridag:signals-ready', preparePanelMotion);
+    }
     var nav = document.getElementById('nav'), tog = document.getElementById('navToggle');
     function closeMobile(restoreFocus) {
       if (!nav || !tog || !nav.classList.contains('open')) return;
-      if (restoreFocus) tog.focus({ preventScroll: true });
       nav.classList.remove('open');
       tog.setAttribute('aria-expanded', 'false');
+      window.HybridAgPanels.close('mobile-nav');
+      if (restoreFocus) tog.focus({ preventScroll: true });
     }
     if (tog) tog.addEventListener('click', function () {
-      var open = nav.classList.toggle('open');
-      tog.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (nav.classList.contains('open')) { closeMobile(false); return; }
+      window.HybridAgPanels.open('mobile-nav', closeMobile);
+      nav.classList.add('open');
+      tog.setAttribute('aria-expanded', 'true');
     });
 
+    var pendingSearch = 0;
+    function cancelPendingSearch() {
+      pendingSearch += 1;
+      window.HybridAgPanels.close('search-pending');
+    }
     function openSearch(trigger) {
       closeMobile(false);
+      var request = ++pendingSearch;
+      window.HybridAgPanels.open('search-pending', cancelPendingSearch);
       ensureSearch().then(function (finder) {
+        if (request !== pendingSearch) return;
         if (finder) finder.open(trigger);
+        else cancelPendingSearch();
       }).catch(function () {
+        if (request !== pendingSearch) return;
+        cancelPendingSearch();
         window.location.href = 'search.html';
       });
     }
@@ -641,10 +688,12 @@
       if (!trigger || !panel || !host) return;
       var item = { trigger: trigger, panel: panel, host: host, openClass: openClass, pinned: false };
       function setOpen(open, pinned) {
-        if (open) disclosures.forEach(function (other) { if (other !== item) other.close(); });
+        if (open) window.HybridAgPanels.open(panelId, item.close);
         item.pinned = open && Boolean(pinned);
         host.classList.toggle(openClass, open);
         trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) preparePanelMotion();
+        else window.HybridAgPanels.close(panelId);
       }
       item.close = function () { setOpen(false); };
       disclosures.push(item);
@@ -678,6 +727,7 @@
     addDisclosure('navSectors', 'subnav', 'navSecWrap', 'is-open');
     addDisclosure('navServices', 'servicesSubnav', 'navSvcWrap', 'is-open');
     addDisclosure('navShop', 'mega', 'nav', 'mega-open');
+    addDisclosure('navAccountTrigger', 'navAccountMenu', 'navAccount', 'is-open');
     document.addEventListener('focusin', function (event) {
       disclosures.forEach(function (item) {
         if (event.target !== item.trigger && !item.panel.contains(event.target)) item.close();
@@ -692,6 +742,7 @@
     });
     document.addEventListener('keydown', function (event) {
       if (event.key !== 'Escape') return;
+      if (window.HybridAgPanels.current() === 'search-pending') cancelPendingSearch();
       disclosures.forEach(function (item) {
         if (item.trigger.getAttribute('aria-expanded') !== 'true') return;
         if (item.panel.contains(document.activeElement)) item.trigger.focus({ preventScroll: true });

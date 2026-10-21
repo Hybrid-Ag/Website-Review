@@ -2,6 +2,8 @@
 
 body.about-concept{background:var(--white)}
 .about-concept main{overflow:hidden}
+/* Let the photo extend behind the glass header without collapsing the hero margin. */
+.about-refined.nav-glass-ready main{display:flow-root;overflow:visible}
 
 /* Comparison navigation */
 .concept-switcher{position:sticky;top:var(--nav-h);z-index:44;background:var(--dark);color:var(--white);border-bottom:1px solid #ffffff24}
