@@ -14,7 +14,7 @@
   var lastFocus;
   var indexPromise;
   // Keep aligned with the lazy-loaded Finder index in components.js.
-  var SEARCH_ASSET_VERSION = '20261008-programme-copy-a43df82534';
+  var SEARCH_ASSET_VERSION = '20261019-amos-check-6d3ff2b4ae';
   var stateLoaded = false;
   var closeTimer;
   var isOpen = false;
@@ -57,12 +57,13 @@
       ]
     },
     program: {
-      text: 'Explore how a nutrition program is developed for a crop. The Apple and Cherry examples are review drafts, not approved application guidance. Speak with the Hybrid-Ag team about your own block or paddock.',
+      text: 'Explore how a nutrition program is developed for a crop. The Apple, Cherry and Citrus examples are review drafts, not approved application guidance. Speak with the Hybrid-Ag team about a prescription for your own block or paddock.',
       links: [
         ['program.html', 'Crop nutrition programs', 'See how testing informs a nutrition program.', 'Programs'],
         ['sectors.html', 'Choose your production system', 'Horticulture, broadacre, viticulture and small crop.', 'Sectors'],
         ['program-cherries.html', 'Cherry nutrition program', 'Review the draft seasonal example.', 'Crop program'],
-        ['program-apples.html', 'Apple nutrition program', 'Review the draft Pink Lady example.', 'Crop program']
+        ['program-apples.html', 'Apple nutrition program', 'Review the draft Pink Lady example.', 'Crop program'],
+        ['program-citrus.html', 'Citrus nutrition program', 'Review the draft seasonal example with crop-stage photographs.', 'Crop program']
       ]
     },
     people: {
@@ -100,6 +101,8 @@
       'shop.html': ['Product range', 'Need help finding a product?', 'Hybrid-Ag product range'],
       'program.html': ['Crop programs', 'Have a crop nutrition question?', 'Crop nutrition programs'],
       'program-cherries.html': ['Cherry program', 'Need help using this program?', 'Interactive cherry nutrition program'],
+      'program-citrus.html': ['Citrus program', 'Need help with your Citrus crop?', 'Citrus sample program and prescription planning'],
+      'sectors-citrus.html': ['Citrus', 'Have a question about your orchard?', 'Citrus testing and nutrition'],
       'contact.html': ['Contact', 'Not sure who to contact?', 'Contact and crop support'],
       'team.html': ['Team', 'Looking for an agronomist?', 'Hybrid-Ag agronomy team']
     };

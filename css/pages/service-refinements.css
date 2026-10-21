@@ -25,6 +25,25 @@
 .service-refined :is(.testing-detail-context__inner,.dsa-workflow__inner,.prescription-staging__inner,.testing-request__layout){grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px 64px}
 .service-refined :is(.dsa-report__inner,.prescription-kg__inner,.soil-prescription-bridge__inner){gap:40px 64px}
 .service-refined :is(.dsa-report__copy,.prescription-kg__copy,.soil-prescription-bridge__copy,.prescription-staging__inner>div:first-child,.dsa-workflow__inner>div:first-child)>p{margin-top:18px;font-size:17px;line-height:1.6}
+/* Nathan's actual sampling photograph, with the existing kg/ha explanation kept together. */
+.service-refined .soil-prescription-bridge--photo .soil-prescription-bridge__inner{grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);align-items:stretch}
+.service-refined .soil-prescription-bridge__photo{position:relative;z-index:1;min-height:480px;overflow:hidden;border-radius:var(--r-card)}
+.service-refined .soil-prescription-bridge__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 44%}
+.service-refined .soil-prescription-bridge--photo .soil-prescription-bridge__copy{position:relative;z-index:1;align-self:center;min-width:0}
+.service-refined .soil-prescription-bridge--photo .soil-prescription-bridge__metric{display:grid;grid-template-columns:110px minmax(0,1fr);gap:24px;align-items:center;margin-top:28px;padding:24px 0 0;border-left:0;border-top:1px solid rgba(255,255,255,.22)}
+.service-refined .soil-prescription-bridge--photo .soil-prescription-bridge__metric strong{font-size:76px;line-height:1}
+.service-refined .soil-prescription-bridge--photo .soil-prescription-bridge__metric strong span{margin-top:10px}
+.service-refined .soil-prescription-bridge--photo .soil-prescription-bridge__metric p{margin:0;max-width:none;font-size:14px;line-height:1.6}
+@media(max-width:900px){
+  .service-refined .soil-prescription-bridge--photo .soil-prescription-bridge__inner{grid-template-columns:minmax(0,1fr);gap:28px}
+  .service-refined .soil-prescription-bridge__photo{min-height:0;aspect-ratio:4/3}
+  .service-refined .soil-prescription-bridge__photo img{object-position:50% 35%}
+}
+@media(max-width:620px){
+  .service-refined .soil-prescription-bridge__photo{aspect-ratio:3/4}
+  .service-refined .soil-prescription-bridge--photo .soil-prescription-bridge__metric{grid-template-columns:80px minmax(0,1fr);gap:18px}
+  .service-refined .soil-prescription-bridge--photo .soil-prescription-bridge__metric strong{font-size:62px}
+}
 .service-refined :is(.testing-detail-context__list,.dsa-workflow__list,.prescription-staging__list)>div{padding-block:16px}
 .service-refined .prescription-formats__grid article{padding-block:24px}
 .service-refined .prescription-formats__grid h3{max-width:22ch;font-size:28px}

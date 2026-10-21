@@ -19,6 +19,15 @@
 .mx-stage .sbbch{font-family:var(--font-display);font-weight:500;font-size:9px;letter-spacing:.5px;color:var(--teal);margin-top:3px}
 .mx-stage .smonth{font-size:9.5px;font-style:italic;color:var(--body);margin-top:1px}
 .mx-stage .sphase{height:3px;border-radius:2px;margin-top:7px}
+:is(.cherry-program-page,.apple-program-page,.citrus-program-page) .stage-photo{display:block;width:44px;height:44px;flex-shrink:0;object-fit:cover;border-radius:8px}
+:is(.cherry-program-page,.apple-program-page,.citrus-program-page) .mx-stage .stage-photo{margin:0 auto 7px}
+:is(.cherry-program-page,.apple-program-page,.citrus-program-page) .mx-stage .sname{min-height:2.3em}
+:is(.cherry-program-page,.apple-program-page,.citrus-program-page) .mx-stage .smonth{min-height:3.1em;line-height:1.55}
+.mx-pending{grid-column:1 / -1;padding:18px 20px;color:var(--body);font-size:13px;line-height:1.6;background:var(--white)}
+.cherry-program-photo-credits{margin-top:10px;font-size:12px;line-height:1.55;color:var(--body)}
+.cherry-program-photo-credits summary{width:fit-content;cursor:pointer;color:var(--teal)}
+.cherry-program-photo-credits p{margin:8px 0;max-width:85ch}
+.cherry-program-photo-credits a{text-decoration:underline;text-underline-offset:3px}
 .ph-soil{background:var(--berry)} .ph-veg{background:var(--teal)} .ph-flower{background:#b5739f}
 .ph-fruit{background:#3aa39c} .ph-maturity{background:var(--orange)} .ph-post{background:#9b9485}
 
@@ -99,6 +108,14 @@
 .step-role{font-size:11px;color:var(--body);font-style:italic;flex:1}
 .step-rate{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--teal);white-space:nowrap}
 .step-none{color:var(--body);font-style:italic;font-size:13px;margin-top:12px}
+:is(.cherry-program-page,.apple-program-page,.citrus-program-page) .step-head{gap:8px}
+:is(.cherry-program-page,.apple-program-page,.citrus-program-page) .step-head .stage-photo{width:48px;height:48px}
+:is(.cherry-program-page,.apple-program-page,.citrus-program-page) .step-main{min-width:0}
+:is(.cherry-program-page,.apple-program-page,.citrus-program-page) .step-meta{min-height:28px;line-height:14px}
+
+@media (prefers-reduced-motion:reduce){
+  :is(.cherry-program-page,.apple-program-page,.citrus-program-page) .mx-stage,:is(.cherry-program-page,.apple-program-page,.citrus-program-page) .step-x{transition:none}
+}
 
 /* build-your-own beat */
 .prog-byo{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:26px;padding:22px 26px;background:var(--cream-dk);border:1px solid var(--hairline);border-radius:var(--r-card)}

@@ -42,10 +42,12 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <title>Horticulture — Hybrid-Ag</title>
 <meta name="description" content="Horticultural nutrition informed by soil, water, plant and fruit tests, with recommendations suited to the block and crop stage.">
 <link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
-<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
-<link rel="stylesheet" href="css/pages/horticulture.css?v=88dc522c2e">
-<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/components.css?v=f19e656431">
+<link rel="stylesheet" href="css/pages/horticulture.css?v=44319a14af">
+<link rel="stylesheet" href="css/page-covers.css?v=8654f7a3e8">
 <link rel="stylesheet" href="css/pages/segment-refinements.css?v=830f50d657">
+<link rel="stylesheet" href="css/pages/sector-resources.css?v=f81fa1dece">
+<link rel="stylesheet" href="css/pages/crop-foundations.css?v=b1c4c69286">
 <!-- SEO:auto -->
 <link rel="canonical" href="https://www.hybridag.com.au/horticulture.html">
 <meta name="theme-color" content="#018D8A">
@@ -66,7 +68,7 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 
 <!-- /SEO:auto -->
 </head>
-<body class="segment-refined" data-page="sectors">
+<body class="segment-refined" data-page="sectors" data-photo-credits="citrus-hero">
 <div id="site-header"></div>
 
 <main>
@@ -84,19 +86,35 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
     </div>
   </header>
 
-  <section class="hort-score" data-reveal data-home-field>
-    <div class="wrap hort-score__heading">
+  <section class="hort-score crop-foundation" id="production-priorities" data-crop-foundation="priorities" data-reveal data-home-field="light">
+    <div class="wrap hort-score__heading crop-foundation__heading">
       <div>
-        <span class="eyebrow eyebrow--orange">Fruit quality and market requirements</span>
+        <span class="eyebrow eyebrow--orange">Production priorities</span>
         <h2>Consider what can be packed and sold.</h2>
       </div>
       <p>A harvest result includes the quantity picked, the grades achieved and how the fruit holds through storage and sale.</p>
     </div>
-    <div class="wrap hort-score__grid">
-      <div><span>01</span><strong>Marketable yield</strong><p>The portion of the crop that reaches the intended market rather than harvested weight alone.</p></div>
-      <div><span>02</span><strong>Pack-out and grade</strong><p>Uniformity, defects and the share of fruit that meets the specification the block is targeting.</p></div>
-      <div><span>03</span><strong>Fruit quality</strong><p>Size, firmness, colour, sugars and condition interpreted against crop, variety and stage.</p></div>
-      <div><span>04</span><strong>Storage and shelf life</strong><p>How fruit condition holds after harvest, through storage and sale.</p></div>
+    <div class="wrap hort-score__grid crop-foundation__grid">
+      <article><span>01</span><h3>Marketable yield</h3><p>The portion of the crop that reaches the intended market rather than harvested weight alone.</p></article>
+      <article><span>02</span><h3>Pack-out and grade</h3><p>Uniformity, defects and the share of fruit that meets the specification the block is targeting.</p></article>
+      <article><span>03</span><h3>Fruit quality</h3><p>The crop and variety determine which quality measures matter, including size, firmness, colour and sugars. Growth stage affects how those results are assessed.</p></article>
+      <article><span>04</span><h3>Storage and shelf life</h3><p>How fruit condition holds after harvest, through storage and sale.</p></article>
+    </div>
+  </section>
+
+  <section class="crop-foundation crop-foundation--context" id="block-context" data-crop-foundation="context" data-reveal data-home-field="light">
+    <div class="wrap crop-foundation__heading">
+      <div>
+        <span class="eyebrow eyebrow--berry">Understanding the block</span>
+        <h2>Recommendations need the block’s history.</h2>
+      </div>
+      <p>We discuss the crop and how you manage the block before preparing a prescription. It needs to suit your equipment and budget.</p>
+    </div>
+    <div class="wrap crop-foundation__grid">
+      <article><span>01</span><h3>Production target</h3><p>The crop’s intended market and required fruit specification help define the prescription.</p></article>
+      <article><span>02</span><h3>Crop characteristics</h3><p>Variety, rootstock, tree age, crop load and actual growth stage provide context for interpreting the block’s results.</p></article>
+      <article><span>03</span><h3>Site and resources</h3><p>Soil and root-zone conditions, water source and quality, irrigation and application equipment shape what is practical in the block.</p></article>
+      <article><span>04</span><h3>Season and history</h3><p>Previous applications, sample dates, field observations and harvest or pack-out information help the team assess what has changed.</p></article>
     </div>
   </section>
 
@@ -128,6 +146,15 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
             <div class="hort-chapter__links"><a href="program-apples.html">Explore the Apple Program</a><a href="sectors-apples.html">Read about apple nutrition</a></div>
           </div>
         </article>
+        <article class="hort-chapter hort-chapter--citrus">
+          <div class="hort-chapter__image"><img src="assets/photos/responsive/citrus-hero-csiro-1800.webp" height="1611" width="2400" sizes="(max-width: 820px) 100vw, 33vw" srcset="assets/photos/responsive/citrus-hero-csiro-480.webp 480w, assets/photos/responsive/citrus-hero-csiro-768.webp 768w, assets/photos/responsive/citrus-hero-csiro-1200.webp 1200w, assets/photos/responsive/citrus-hero-csiro-1800.webp 1800w, assets/photos/responsive/citrus-hero-csiro-2400.webp 2400w" alt="Several orange-coloured fruit growing among citrus leaves" loading="lazy" decoding="async"></div>
+          <div class="hort-chapter__body">
+            <span class="hort-chapter__status">Citrus nutrition</span>
+            <h3>Citrus</h3>
+            <p>Explore how orchard growth, fruit development and harvest timing inform the prescription. The Citrus booklet is coming.</p>
+            <div class="hort-chapter__links"><a href="program-citrus.html">Explore the Citrus Program</a><a href="sectors-citrus.html">Read about Citrus nutrition</a></div>
+          </div>
+        </article>
       </div>
       <div class="hort-crops__more">
         <strong>Across the sector</strong>
@@ -143,11 +170,11 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
         <span class="eyebrow">Across the season</span>
         <h2>Plan from post-harvest through to picking.</h2>
       </div>
-      <p>Growth stage affects how a test result is interpreted. Recommendations follow the stage of the trees in the block rather than a fixed calendar date.</p>
+      <p>Growth stage affects how a test result is interpreted. Recommendations follow the stage of the trees in the block rather than a fixed calendar date. Citrus retains its canopy, and growth flushes, flowers and fruit can overlap.</p>
     </div>
     <div class="wrap hort-season__grid" role="list">
       <article role="listitem"><span>01</span><h3>Post-harvest</h3><p>The current crop is off. Review what the block showed and begin rebuilding the reserves that support the next season.</p></article>
-      <article role="listitem"><span>02</span><h3>Senescence and dormancy</h3><p>Nutrients move to storage, leaves shut down and the tree transitions through rest and chill.</p></article>
+      <article role="listitem"><span>02</span><h3>Senescence and dormancy</h3><p>In deciduous crops, Nutrients move to storage as leaves age and fall and the trees enter dormancy.</p></article>
       <article role="listitem"><span>03</span><h3>Bud and flower</h3><p>Stored reserves support early growth before the canopy is fully working and flowering becomes the immediate focus.</p></article>
       <article role="listitem"><span>04</span><h3>Set and cell division</h3><p>Fruit number and the early cell framework are established in a narrow window where crop load matters.</p></article>
       <article role="listitem"><span>05</span><h3>Expansion and fill</h3><p>Canopy, roots, water and Nutrient movement support fruit growth while the next crop is also taking shape.</p></article>
@@ -188,6 +215,21 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
     </div>
   </section>
 
+  <section class="sector-resources" id="resources" aria-labelledby="sector-resources-title" data-reveal data-home-field="light">
+    <div class="wrap">
+      <div class="sector-resources__heading">
+        <div><span class="eyebrow eyebrow--berry">Resources</span><h2 id="sector-resources-title">Horticulture guides and testing.</h2></div>
+        <p>Read the crop pages and sample programs above alongside your own block records. These guides explain the testing and seasonal review work.</p>
+      </div>
+      <div class="sector-resources__grid">
+        <a class="sector-resources__link" href="post-harvest.html"><h3>Post-harvest review</h3><p>Review yield, fruit quality and existing test results with the team before planning next season’s nutrition.</p><span>Read the post-harvest guide <i aria-hidden="true">→</i></span></a>
+        <a class="sector-resources__link" href="services-leaf-tissue-testing.html"><h3>Leaf testing and DSA</h3><p>Plant test results considered alongside growth stage, crop load and Nutrient demand.</p><span>Explore leaf testing <i aria-hidden="true">→</i></span></a>
+        <a class="sector-resources__link" href="services-produce-testing.html"><h3>Produce testing</h3><p>Read crop composition alongside dry matter, yield and relevant quality measures.</p><span>Explore produce testing <i aria-hidden="true">→</i></span></a>
+        <a class="sector-resources__link" href="resource-sampling-context.html"><h3>Sampling records</h3><p>Keep the original report and sample details together as a useful reference for future crop nutrition decisions.</p><span>Read the sampling guide <i aria-hidden="true">→</i></span></a>
+      </div>
+    </div>
+  </section>
+
   <section class="hort-team" data-reveal data-home-field>
     <div class="hort-team__copy">
       <span class="eyebrow eyebrow--berry">Horticulture team</span>
@@ -215,8 +257,8 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 
 <div id="site-footer"></div>
 <script src="js/data/products.js?v=c9d410f4d8"></script>
-<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/components.js?v=4ea50e092e"></script>
 <script src="js/cart.js?v=df334d2d7d"></script>
-<script src="js/main.js?v=2da7219a0b"></script>
+<script src="js/main.js?v=28cfd7c3db"></script>
 </body>
 </html>

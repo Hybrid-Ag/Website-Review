@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Citrus Nutrition — Hybrid-Ag</title>
+<meta name="description" content="Citrus nutrition for your crop and soil. Discuss testing and custom dry, granular and liquid prescription blends with the Hybrid-Ag team.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=f19e656431">
+<link rel="stylesheet" href="css/pages/cherries.css?v=799e6cfd11">
+<link rel="stylesheet" href="css/pages/citrus.css?v=7250e5b70b">
+<link rel="stylesheet" href="css/page-covers.css?v=8654f7a3e8">
+<link rel="stylesheet" href="css/pages/crop-foundations.css?v=b1c4c69286">
+<link rel="canonical" href="https://www.hybridag.com.au/sectors-citrus.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Citrus Nutrition — Hybrid-Ag">
+<meta property="og:description" content="Citrus nutrition for your crop and soil. Discuss testing and custom dry, granular and liquid prescription blends with the Hybrid-Ag team.">
+<meta property="og:url" content="https://www.hybridag.com.au/sectors-citrus.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Citrus Nutrition — Hybrid-Ag">
+<meta name="twitter:description" content="Citrus nutrition for your crop and soil. Discuss testing and custom dry, granular and liquid prescription blends with the Hybrid-Ag team.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+</head>
+<body data-page="sectors" class="citrus-page" data-photo-credits="citrus-hero">
+<div id="site-header"></div>
+<main>
+  <header class="cherry-hero page-cover page-cover--photo" data-home-field="dark">
+    <img class="cherry-hero__image" src="assets/photos/responsive/citrus-hero-csiro-1800.webp" width="2400" height="1611" sizes="100vw" srcset="assets/photos/responsive/citrus-hero-csiro-480.webp 480w, assets/photos/responsive/citrus-hero-csiro-768.webp 768w, assets/photos/responsive/citrus-hero-csiro-1200.webp 1200w, assets/photos/responsive/citrus-hero-csiro-1800.webp 1800w, assets/photos/responsive/citrus-hero-csiro-2400.webp 2400w" alt="Several orange-coloured fruit growing among citrus leaves" fetchpriority="high" decoding="async">
+    <div class="cherry-hero__shade" aria-hidden="true"></div>
+    <div class="wrap cherry-hero__inner page-cover__inner">
+      <a class="cherry-crumb" href="horticulture.html"><span>Horticulture</span><span aria-hidden="true">/</span> Citrus</a>
+      <h1>Citrus nutrition for your crop and soil.</h1>
+      <p>Citrus trees can carry new growth, flowers and fruit at the same time. Hybrid-Ag considers your block’s soil and plant results, variety and crop load when developing custom prescription blends through the season.</p>
+      <div class="cta-row"><a class="btn btn--teal" href="contact.html?program=citrus">Discuss your citrus block</a><a class="btn cherry-hero__secondary" href="program-citrus.html">Explore the Citrus Program</a></div>
+    </div>
+  </header>
+
+  <section class="cherry-score crop-foundation" id="production-priorities" data-crop-foundation="priorities" data-reveal data-home-field="light">
+    <div class="wrap cherry-heading crop-foundation__heading">
+      <div><span class="eyebrow eyebrow--orange">Production priorities</span><h2>What does this crop need to achieve?</h2></div>
+      <p>The fruit needs to meet the market’s requirements for size, rind condition and internal maturity. The amount harvested and the pack-out show how much reaches that standard.</p>
+    </div>
+    <div class="wrap cherry-score__grid crop-foundation__grid">
+      <article><span>01</span><h3>Fruit size and specification</h3><p>Fruit size and the spread of sizes affect how much can be packed into the required grades.</p></article>
+      <article><span>02</span><h3>Rind condition</h3><p>Fruit finish and damage affect its grade and the amount that can be packed for the intended market.</p></article>
+      <article><span>03</span><h3>Internal maturity</h3><p>Rind colour does not establish harvest readiness on its own. Juice content, soluble solids and acidity are assessed against the requirements of the variety and intended market.</p></article>
+      <article><span>04</span><h3>Yield and pack-out</h3><p>The quantity harvested and the share that meets the required grade help assess the season. The team uses grading results when reviewing the block’s prescription.</p></article>
+    </div>
+  </section>
+
+  <section class="crop-foundation crop-foundation--context" id="block-context" data-crop-foundation="context" data-reveal data-home-field="light">
+    <div class="wrap crop-foundation__heading">
+      <div><span class="eyebrow eyebrow--berry">Understanding the block</span><h2>Consider the growth and fruit on the trees.</h2></div>
+      <p>The variety, current growth and fruit on the trees help explain the test results. We use those details to plan a prescription that suits your orchard, equipment and budget.</p>
+    </div>
+    <div class="wrap crop-foundation__grid">
+      <article><span>01</span><h3>Market target</h3><p>The market you supply sets the fruit specification. Grading shows how much of the harvest meets it.</p></article>
+      <article><span>02</span><h3>Variety and crop</h3><p>We need to know the variety and rootstock, crop load and condition of the canopy. New shoots, flowers and fruit may be present at the same time.</p></article>
+      <article><span>03</span><h3>Soil and water</h3><p>The team reviews soil results with root-zone conditions and water quality. Any ground, foliar or fertigation recommendation needs to suit the equipment used.</p></article>
+      <article><span>04</span><h3>Flush and harvest history</h3><p>The growth flush and tissue sampled affect how a plant result is interpreted. Earlier applications and harvest timing, including any fruit still carried, provide context for the next prescription.</p></article>
+    </div>
+  </section>
+
+  <section class="cherry-playbook" id="citrus-guide" data-reveal data-home-field="light">
+    <div class="wrap cherry-playbook__inner">
+      <div class="cherry-playbook__copy">
+        <span class="eyebrow eyebrow--orange">Citrus nutrition guide</span>
+        <h2>Citrus nutrition guide — coming.</h2>
+        <p>There is not yet a Citrus booklet to download. The sample program is available to explore, with crop-stage photographs and application rates to discuss with the team.</p>
+        <p>For advice specific to your orchard, bring your existing results and tell the team what you grow.</p>
+        <div class="cta-row"><a class="btn btn--teal" href="contact.html?program=citrus">Talk about your block</a><a class="btn citrus-secondary" href="program-citrus.html">View the program review</a></div>
+      </div>
+      <div class="citrus-guide-image"><img src="assets/photos/responsive/citrus-orchard-1200.webp" width="4032" height="1908" sizes="(max-width: 900px) 100vw, 35vw" srcset="assets/photos/responsive/citrus-orchard-480.webp 480w, assets/photos/responsive/citrus-orchard-768.webp 768w, assets/photos/responsive/citrus-orchard-1200.webp 1200w, assets/photos/responsive/citrus-orchard-1800.webp 1800w" alt="Citrus trees growing in orchard rows" loading="lazy" decoding="async"></div>
+    </div>
+  </section>
+
+  <section class="cherry-team citrus-orchard" data-reveal data-home-field="light">
+    <div class="cherry-team__image"><img src="assets/photos/responsive/citrus-orchard-1800.webp" width="4032" height="1908" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/citrus-orchard-480.webp 480w, assets/photos/responsive/citrus-orchard-768.webp 768w, assets/photos/responsive/citrus-orchard-1200.webp 1200w, assets/photos/responsive/citrus-orchard-1800.webp 1800w" alt="Citrus trees growing in orchard rows" loading="lazy" decoding="async"></div>
+    <div class="cherry-team__copy">
+      <span class="eyebrow eyebrow--berry">Testing and prescription blends</span>
+      <h2>Read the results with the block in mind.</h2>
+      <p>Bring your soil results to the team to discuss a <a href="services-prescription-blends.html">custom dry or granular prescription blend</a>.</p>
+      <p>Leaf and sap results help the team review a <a href="services-liquid-prescription-blends.html">liquid prescription blend</a>. Tell us what you have already applied and what is growing or fruiting now.</p>
+      <p>A standard leaf sample and a paired young-and-old DSA sample are different. Follow the instructions for the test being requested and keep those sample details with the result.</p>
+      <div class="cta-row"><a class="btn btn--teal" href="soil-test.html?sector=horticulture&amp;crop=Citrus">Organise testing</a><a class="btn citrus-secondary" href="contact.html?program=citrus">Discuss your results</a></div>
+    </div>
+  </section>
+
+  <section class="cherry-season" data-reveal data-home-field="dark">
+    <div class="wrap cherry-heading">
+      <div><span class="eyebrow">Across the season</span><h2>Review the crop as it develops.</h2></div>
+      <p>These are broad review points, not fixed application dates. Variety, region and actual crop development determine when each is relevant.</p>
+    </div>
+    <div class="wrap cherry-season__grid" role="list">
+      <article role="listitem"><span>01</span><h3>Before spring growth</h3><p>Citrus retains its canopy through winter. Soil results and previous applications guide a dry or granular prescription, with the crop still carried and root-zone conditions considered before spring growth.</p></article>
+      <article role="listitem"><span>02</span><h3>Flush and flowering</h3><p>New shoots, leaves and flowers can develop together. Older leaves and stored carbohydrates help supply early growth. Read the plant results with the actual flush and flowering present, rather than following a fixed month.</p></article>
+      <article role="listitem"><span>03</span><h3>Fruit set</h3><p>A large number of flowers does not establish the final crop. Some young fruit is naturally shed after flowering. The fruit retained and the condition of the trees provide context for interpreting the results.</p></article>
+      <article role="listitem"><span>04</span><h3>Fruit growth</h3><p>Young fruit develops through cell division and then enlargement. The canopy supplies carbohydrates to the crop, and a further growth flush may occur. Crop load and water supply matter when reviewing the liquid prescription.</p></article>
+      <article role="listitem"><span>05</span><h3>Maturity</h3><p>Rind colour is only part of the picture. Juice content, soluble solids and acidity help assess maturity against the variety and intended market. Review any remaining applications with current product directions.</p></article>
+      <article role="listitem"><span>06</span><h3>Post-harvest review</h3><p>The canopy remains after picking, and later varieties may have little time before the next growth flush. Harvest and pack-out information, any fruit still carried and test results help guide the next prescription.</p></article>
+    </div>
+    <div class="wrap citrus-season-link"><a class="btn cherry-hero__secondary" href="program-citrus.html">Explore the program review</a></div>
+  </section>
+
+  <section class="cherry-method" data-reveal data-home-field="light">
+    <div class="wrap">
+      <div class="cherry-heading"><div><span class="eyebrow eyebrow--berry">The Hybrid-Ag approach</span><h2>Position. Pattern. Plan.</h2></div><p>Use the block’s results and history to work out what a prescription needs to address.</p></div>
+      <div class="cherry-method__grid">
+        <article><span>01</span><strong>Position</strong><h3>Where is the block now?</h3><p>Review the crop the trees are carrying, current growth and the soil and plant results available.</p></article>
+        <article><span>02</span><strong>Pattern</strong><h3>What has changed?</h3><p>Compare previous results and applications with recent conditions and the harvest and pack-out information you have.</p></article>
+        <article><span>03</span><strong>Plan</strong><h3>What needs to happen next?</h3><p>Agree a prescription that suits the block, your application method and budget, with any further testing discussed with the team.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cherry-cta" data-reveal data-home-field="dark">
+    <div class="wrap cherry-cta__inner">
+      <div><span class="eyebrow">Discuss your citrus block</span><h2>Start with the block and the results you have.</h2></div>
+      <div class="cta-row"><a class="btn cherry-cta__primary" href="contact.html?program=citrus">Talk to the team</a><a class="btn cherry-cta__secondary" href="soil-test.html?sector=horticulture&amp;crop=Citrus">Organise testing</a></div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=4ea50e092e"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=28cfd7c3db"></script>
+</body>
+</html>

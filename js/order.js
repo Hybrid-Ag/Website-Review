@@ -535,7 +535,7 @@
       }
       button.disabled = false;
       button.textContent = 'Submit order';
-      error.textContent = submissionError.message || 'Something went wrong sending the order. Please call (03) 5722 8000.';
+      error.textContent = submissionError.message || 'Something went wrong sending the order. Please call (03) 5722 7555.';
       error.hidden = false;
     });
   }

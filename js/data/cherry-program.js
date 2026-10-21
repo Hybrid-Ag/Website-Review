@@ -89,7 +89,7 @@ window.CHERRY = {
     { name:'Agri-Vive® 0.0.30', href:'agri-vive-0-0-30.html', cat:'foliar', role:'Potassium', rates:{8:'5 L',9:'5 L',10:'5 L'},
       why:'Review the Potassium requirement alongside current results and expected harvest. Assess the foliar entries shown here against the nutrition already supplied to the block.' },
     { name:'Opti-Trace® Boron', href:'opti-trace-boron.html', cat:'foliar', role:'Boron', rates:{8:'3 L',9:'3 L'},
-      why:'Assess the Boron requirement from the block’s results, allowing for Boron already supplied. The later-season entries shown here still need an appropriate reason and timing.' },
+      why:'Use the block’s results to assess its Boron requirement, allowing for Boron already supplied. Confirm whether these later-season applications are needed and when they should be made.' },
     { name:'Opti-Trace® Copper', href:'opti-trace-copper.html', cat:'foliar', role:'Copper', rates:{11:'0.3 L',12:'0.3 L'},
       why:'Assess whether the block requires Copper after harvest. Its inclusion should follow the test results and the recommendation for the trees, not the calendar alone.' },
     { name:'Power-N®', href:'power-n.html', cat:'foliar', role:'Nitrogen', rates:{11:'10 L',12:'10 L'},
@@ -104,4 +104,22 @@ window.CHERRY = {
     { name:'Nutri-Core® Multi-N', href:'nutri-core-multi-n.html', cat:'fert', role:'Nitrogen', rates:{11:'40 L',12:'40 L'},
       why:'Assess the Nitrogen requirement after harvest using the crop removed and the condition of the trees. Nutri-Core Multi-N is an option to review within that recommendation.' }
   ]
+};
+
+// Illustrative photography is separate from the protected programme dataset.
+// Source evidence and publication holds: content/source-notes/cherry-stage-photo-sources.json.
+window.CHERRY_STAGE_IMAGES = {
+  dormancy: {src:'assets/photos/cherry-stages/dormancy.webp?v=c2f7d85d67'},
+  budswell: {src:'assets/photos/cherry-stages/budswell.webp?v=8811f4c86e'},
+  budburst: {src:'assets/photos/cherry-stages/budburst.webp?v=71d4cc7df5'},
+  whitebud: {src:'assets/photos/cherry-stages/whitebud.webp?v=241015b22a'},
+  bloom: {src:'assets/photos/cherry-stages/bloom.webp?v=3df30f7ac1'},
+  petalfall: {src:'assets/photos/cherry-stages/petalfall.webp?v=c8e1ba98ae'},
+  celldiv: {src:'assets/photos/cherry-stages/celldiv.webp?v=4a29089ce3'},
+  cellexp: {src:'assets/photos/cherry-stages/cellexp.webp?v=8968c9fd67'},
+  straw: {src:'assets/photos/cherry-stages/straw.webp?v=8328fdb9df'},
+  colour: {src:'assets/photos/cherry-stages/colour.webp?v=6e40ca5458'},
+  harvest: {src:'assets/photos/cherry-stages/harvest.webp?v=0dc2809ecd'},
+  post1: {src:'assets/photos/cherry-stages/post1.webp?v=b4fe36274b'},
+  post2: {src:'assets/photos/cherry-stages/post2.webp?v=cc9bb310a4'}
 };

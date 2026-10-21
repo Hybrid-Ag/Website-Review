@@ -1,0 +1,28 @@
+/* The same compact opening on sector, crop and sample-program pages.
+   Only these two sections change; existing heroes and programme tables do not. */
+.crop-foundation[data-crop-foundation]{padding-block:clamp(48px,5vw,72px);background:var(--white)}
+.crop-foundation[data-crop-foundation].crop-foundation--context{background:var(--cream-dk)}
+.crop-foundation[data-crop-foundation]>.wrap{position:relative;z-index:1;width:calc(100% - 48px);padding-inline:0}
+.crop-foundation[data-crop-foundation] .crop-foundation__heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);align-items:center;gap:40px 64px}
+.crop-foundation[data-crop-foundation] .crop-foundation__heading h2{max-width:24ch;margin:0;font-size:clamp(34px,3.4vw,48px);line-height:1.08;text-wrap:balance}
+.crop-foundation[data-crop-foundation] .crop-foundation__heading>p{max-width:60ch;margin:0;color:var(--body);font-size:17px;line-height:1.6}
+.crop-foundation[data-crop-foundation] .crop-foundation__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:0;margin-top:32px;border:0;border-top:1px solid var(--hairline);border-left:1px solid var(--hairline)}
+.crop-foundation[data-crop-foundation] .crop-foundation__grid>article{min-width:0;min-height:0;padding:24px 26px;border:0;border-right:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.crop-foundation[data-crop-foundation] .crop-foundation__grid>article>span{display:block;font-family:var(--font-display);font-size:13px;letter-spacing:var(--tracking-ui);color:var(--teal)}
+.crop-foundation[data-crop-foundation] .crop-foundation__grid>article:nth-child(2)>span{color:var(--orange)}
+.crop-foundation[data-crop-foundation] .crop-foundation__grid>article:nth-child(3)>span{color:var(--berry)}
+.crop-foundation[data-crop-foundation] .crop-foundation__grid>article:nth-child(4)>span{color:var(--ink)}
+.crop-foundation[data-crop-foundation] .crop-foundation__grid h3{min-height:2.24em;margin:14px 0 0;font-size:25px;font-weight:400;line-height:1.12;text-wrap:balance}
+.crop-foundation[data-crop-foundation] .crop-foundation__grid p{margin:12px 0 0;color:var(--body);font-size:15px;line-height:1.62}
+.crop-foundation[data-crop-foundation]>.crop-foundation__note{margin-top:24px;color:var(--body);font-size:14px;line-height:1.6}
+@media(max-width:1060px){
+  .crop-foundation[data-crop-foundation] .crop-foundation__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:900px){
+  .crop-foundation[data-crop-foundation] .crop-foundation__heading{grid-template-columns:1fr;gap:18px}
+}
+@media(max-width:600px){
+  .crop-foundation[data-crop-foundation] .crop-foundation__grid{grid-template-columns:1fr}
+  .crop-foundation[data-crop-foundation] .crop-foundation__grid>article{padding:22px 24px}
+  .crop-foundation[data-crop-foundation] .crop-foundation__grid h3{min-height:0}
+}

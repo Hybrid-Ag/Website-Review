@@ -32,10 +32,10 @@
   }
 
   function prefillProgram(form, program) {
-    if (program !== 'apples') return;
+    if (program !== 'apples' && program !== 'citrus') return;
     var message = form.elements.namedItem('message');
     var test = form.elements.namedItem('test');
-    var request = 'I would like to discuss an apple nutrition program for my orchard.';
+    var request = program === 'citrus' ? 'I would like to discuss a Citrus nutrition program for my orchard.' : 'I would like to discuss an apple nutrition program for my orchard.';
     if (message && !message.disabled && !message.readOnly && message.value.indexOf(request) === -1) {
       message.value = request + (message.value.trim() ? '\n\n' + message.value : '');
     }

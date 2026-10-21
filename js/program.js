@@ -11,8 +11,25 @@
   var backdrop = document.getElementById('popoutBackdrop');
   var popout = document.getElementById('popout');
   var drillOpener = null, popoutOpener = null, inertSiblings = [];
+  var stageImages = null;
+  if (document.body.classList.contains('cherry-program-page') && C === window.CHERRY) stageImages = window.CHERRY_STAGE_IMAGES;
+  else if (document.body.classList.contains('apple-program-page') && C === window.CROP_PROGRAM && C.meta && C.meta.crop === 'Apples') stageImages = window.APPLE_STAGE_IMAGES;
+  else if (document.body.classList.contains('citrus-program-page') && C === window.CROP_PROGRAM && C.meta && C.meta.crop === 'Citrus') stageImages = window.CITRUS_STAGE_IMAGES;
+  var ratesPending = document.body.classList.contains('citrus-program-page') && C.meta && C.meta.crop === 'Citrus' && C.sourceDataset && C.sourceDataset.mappingStatus === 'pending';
+  var pendingNote = 'Products, rates and application timing are awaiting source verification. No application recommendation is shown here.';
 
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function stagePhoto(s, size) {
+    var source = stageImages && stageImages[s.key];
+    if (!source) return null;
+    var photo = el('img', 'stage-photo');
+    photo.src = source.src; photo.alt = '';
+    photo.setAttribute('aria-hidden', 'true');
+    photo.width = size; photo.height = size;
+    photo.loading = 'lazy'; photo.decoding = 'async';
+    if (source.objectPosition) photo.style.objectPosition = source.objectPosition;
+    return photo;
+  }
   function findProd(name, cat) { for (var i = 0; i < C.products.length; i++) { if (C.products[i].name === name && C.products[i].cat === cat) return C.products[i]; } return null; }
   // Keep Cherry's existing emphasis unless another crop explicitly opts out.
   function isBackbone(p) { return C.emphasizePowerCal !== false && p.name.indexOf('Power-Cal') >= 0; }
@@ -37,10 +54,13 @@
         (s.bbch ? '<div class="sbbch">' + s.bbch + '</div>' : '') +
         (s.month ? '<div class="smonth">' + s.month + '</div>' : '') +
         (s.phase ? '<div class="sphase ph-' + s.phase + '"></div>' : '');
+      var photo = stagePhoto(s, 44);
+      if (photo) cell.insertBefore(photo, cell.firstChild);
       matrix.appendChild(cell);
     });
+    if (ratesPending) matrix.appendChild(el('div', 'mx-pending', pendingNote));
     // Only crop sources that include testing receive this extra row.
-    if (C.stages.some(function (s) { return s.testing; })) {
+    if (!ratesPending && C.stages.some(function (s) { return s.testing; })) {
       matrix.appendChild(el('div', 'mx-testing-label', 'Testing'));
       C.stages.forEach(function (s) {
         var cell = el('div', 'mx-cell mx-testing-cell');
@@ -48,7 +68,7 @@
         matrix.appendChild(cell);
       });
     }
-    C.cats.forEach(function (cat) {
+    if (!ratesPending) C.cats.forEach(function (cat) {
       var lab = el('div', 'mx-cat cat-' + cat.key);
       lab.innerHTML = '<span class="dot"></span><span>' + cat.label + '</span>';
       matrix.appendChild(lab);
@@ -78,9 +98,9 @@
   // ---------- build stepper (mobile) ----------
   if (stepper) {
     C.stages.forEach(function (s, i) {
-      var active = C.products.filter(function (p) { return p.rates[i]; });
+      var active = ratesPending ? [] : C.products.filter(function (p) { return p.rates[i]; });
       var item = el('div', 'step-item');
-      var metadata = [s.bbch, s.month, active.length + ' input' + (active.length === 1 ? '' : 's'), s.testing ? 'Testing shown: ' + s.testing : ''].filter(Boolean).join(' &middot; ');
+      var metadata = ratesPending ? 'Timing and rates to confirm' : [s.bbch, s.month, active.length + ' input' + (active.length === 1 ? '' : 's'), s.testing ? 'Testing shown: ' + s.testing : ''].filter(Boolean).join(' &middot; ');
       var chips = active.map(function (p) {
         var tag = p.href ? 'a' : 'div';
         var href = p.href ? ' href="' + p.href + '"' : '';
@@ -97,8 +117,10 @@
         '<div class="step-panel" id="program-step-panel-' + i + '" aria-labelledby="program-step-' + i + '" hidden>' +
           (s.why ? '<p class="step-why">' + s.why + '</p>' : '') +
           (s.seeing ? '<p class="step-seeing"><b>Crop development:</b> ' + s.seeing + '</p>' : '') +
-          (chips ? '<div class="step-inputs">' + chips + '</div>' : '<p class="step-none">No products are listed for this stage. Discuss your crop with an agronomist.</p>') +
+          (ratesPending ? '<p class="step-none">' + pendingNote + '</p>' : (chips ? '<div class="step-inputs">' + chips + '</div>' : '<p class="step-none">No products are listed for this stage. Discuss your crop with an agronomist.</p>')) +
         '</div>';
+      var photo = stagePhoto(s, 48);
+      if (photo) item.querySelector('.step-head').insertBefore(photo, item.querySelector('.step-main'));
       stepper.appendChild(item);
     });
     stepper.addEventListener('click', function (e) {
@@ -152,7 +174,7 @@
     if (drillOpener) drillOpener.setAttribute('aria-expanded', 'false');
     drillOpener = opener;
     drillOpener.setAttribute('aria-expanded', 'true');
-    var active = C.products.filter(function (p) { return p.rates[i]; });
+    var active = ratesPending ? [] : C.products.filter(function (p) { return p.rates[i]; });
     var prods = active.map(function (p) {
       var tag = p.href ? 'a' : 'div';
       var href = p.href ? ' href="' + p.href + '"' : '';
@@ -167,7 +189,7 @@
       '<div class="drill-grid">' +
         '<div>' + (s.why ? '<h4>About this stage</h4><p>' + s.why + '</p>' : '') +
           (s.seeing ? '<h4 style="margin-top:18px">Crop development</h4><p>' + s.seeing + '</p>' : '') + '</div>' +
-        '<div><h4>Products shown for this stage &middot; ' + active.length + '</h4><div class="drill-prods">' + prods + '</div></div>' +
+        (ratesPending ? '<div><h4>Application details to confirm</h4><p>' + pendingNote + '</p></div>' : '<div><h4>Products shown for this stage &middot; ' + active.length + '</h4><div class="drill-prods">' + prods + '</div></div>') +
       '</div>';
     drill.setAttribute('aria-labelledby', 'program-drill-title');
     drill.removeAttribute('aria-label');

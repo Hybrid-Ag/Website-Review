@@ -198,8 +198,7 @@
   var NAV = [
     { key: 'about',     label: 'About Us',  href: 'about.html' },
     { key: 'sectors',   label: 'Sectors',   href: 'sectors.html' },
-    { key: 'resources', label: 'Resources', href: 'knowledge-center.html' },
-    { key: 'services',  label: 'Services',  href: 'services-testing.html' },
+    { key: 'services',  label: 'Testing',   href: 'services-testing.html' },
     { key: 'team',      label: 'Team',      href: 'team.html' },
     { key: 'shop',      label: 'Shop',      href: 'shop.html' }
   ];
@@ -221,10 +220,10 @@
     { label: 'Produce Testing', href: 'services-produce-testing.html' },
     { label: 'Nutrient Audit', href: 'nutrient-audit.html', note: 'Review results you already have' }
   ];
-  var PHONE = '(03) 5722 8000', TEL = 'tel:+61357228000';
+  var PHONE = '(03) 5722 7555', TEL = 'tel:+61357227555';
   // Update this cache key when either lazy-loaded Finder asset changes.
-  var SEARCH_ASSET_VERSION = '20261008-programme-copy-a43df82534';
-  var ASSISTANT_ASSET_VERSION = '20261009-method-guide';
+  var SEARCH_ASSET_VERSION = '20261019-amos-check-6d3ff2b4ae';
+  var ASSISTANT_ASSET_VERSION = '20261019-amos-check-f7efbfe634';
   var searchLoadPromise = null;
 
   function loadSearchAsset(path, ready) {
@@ -367,7 +366,7 @@
       return '<a class="subnav-item" href="' + s.href + '"><b>' + s.label + '</b>' +
         (s.note ? '<span class="subnav-note">' + s.note + '</span>' : '') + '</a>';
     }).join('');
-    return '<div class="subnav" id="subnav" role="region" aria-label="Sectors">' + rows +
+    return '<div class="subnav" id="subnav" role="region" aria-label="Sectors"><a class="subnav-item" href="sectors.html"><b>All sectors</b></a>' + rows +
       '<a class="subnav-all" href="program.html">Explore crop programs &rarr;</a></div>';
   }
 
@@ -384,7 +383,7 @@
       return '<a class="subnav-item" href="' + s.href + '"><b>' + s.label + '</b>' +
         (s.note ? '<span class="subnav-note">' + s.note + '</span>' : '') + '</a>';
     }).join('');
-    return '<div class="subnav subnav--services" id="servicesSubnav" role="region" aria-label="Services">' + rows +
+    return '<div class="subnav subnav--services" id="servicesSubnav" role="region" aria-label="Testing">' + rows +
       '<a class="subnav-all" href="soil-test.html?test=not-sure">Request testing &rarr;</a></div>';
   }
 
@@ -433,14 +432,14 @@
         return '<button type="button" class="nav-link nav-shop" id="navShop" aria-controls="mega" aria-expanded="false"' +
           (n.key === active ? ' aria-current="page"' : '') + '>' + n.label + '</button>';
       }
-      if (n.key === 'sectors') { // Sectors: link to landing + hover dropdown of segments
+      if (n.key === 'sectors') { // The landing page remains the first link in the disclosure.
         return '<span class="nav-hasdrop" id="navSecWrap">' +
-          '<a class="nav-link nav-drop" id="navSectors" href="' + n.href + '" aria-controls="subnav" aria-expanded="false"' + cur + '>' + n.label + '</a>' +
+          '<button type="button" class="nav-link nav-drop" id="navSectors" aria-controls="subnav" aria-expanded="false"' + cur + '>' + n.label + '</button>' +
           subnavPanel() + '</span>';
       }
       if (n.key === 'services') {
         return '<span class="nav-hasdrop" id="navSvcWrap">' +
-          '<a class="nav-link nav-drop" id="navServices" href="' + n.href + '" aria-controls="servicesSubnav" aria-expanded="false"' + cur + '>' + n.label + '</a>' +
+          '<button type="button" class="nav-link nav-drop" id="navServices" aria-controls="servicesSubnav" aria-expanded="false"' + cur + '>' + n.label + '</button>' +
           servicesPanel() + '</span>';
       }
       return '<a class="nav-link" href="' + n.href + '"' + cur + '>' + n.label + '</a>';
@@ -469,8 +468,10 @@
     var searchIco = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 4 4"></path></svg>';
     var cartIco = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6h15l-1.6 9H7.5z"/><path d="M6 6 5 3H2"/><circle cx="9.5" cy="20" r="1"/><circle cx="17.5" cy="20" r="1"/></svg>';
     var userIco = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c.7-4 3.1-6 7-6s6.3 2 7 6"></path></svg>';
-    var contactIco = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"></rect><path d="m4 7 8 6 8-6"></path></svg>';
-    var contactIcon = '<a class="nav-contact-icon" href="contact.html" aria-label="Contact Hybrid-Ag" title="Contact Us">' + contactIco + '</a>';
+    var contactLink = '<a class="nav-contact-icon" href="contact.html">Contact us</a>';
+    var logo = '<a class="nav-logo" href="index.html" aria-label="Hybrid-Ag home">' +
+      '<img class="nav-logo-img" src="assets/hybrid-ag-wordmark-black.png" width="1755" height="280" alt="Hybrid-Ag">' +
+      '<img class="nav-logo-img nav-logo-img--light" src="assets/hybrid-ag-wordmark-white.png" width="1755" height="280" alt="" aria-hidden="true"></a>';
     function searchBtn(cls, label) {
       return '<button class="nav-search ' + cls + '" type="button" data-site-search-open aria-label="Search Hybrid-Ag" title="Search" aria-haspopup="dialog">' +
         searchIco + (label ? '<span>' + label + '</span>' : '') + '</button>';
@@ -480,14 +481,14 @@
       '<div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>' +
       '<nav class="nav" id="nav" aria-label="Main">' +
         '<div class="wrap nav-inner">' +
-          '<a class="nav-logo" href="index.html" aria-label="Hybrid-Ag — Precision Nutrition"><img class="nav-logo-img" src="assets/hybrid-ag-lockup.png" width="1178" height="356" alt="Hybrid-Ag — Precision Nutrition"></a>' +
+          logo +
           '<div class="nav-links nav-desktop">' +
             '<div class="nav-left">' + left + '</div>' +
             '<div class="nav-right">' + right + '</div>' +
           '</div>' +
           '<div class="nav-tools nav-desktop">' +
             '<div class="nav-utilities">' + searchBtn('nav-search--button') + accountControl(userIco) + '</div>' +
-            '<div class="nav-actions">' + cartBtn('') + contactIcon + '</div>' +
+            '<div class="nav-actions">' + cartBtn('') + phone + contactLink + '</div>' +
           '</div>' +
           searchBtn('nav-search--mob') +
           cartBtn('nav-cart--mob') +
@@ -499,6 +500,11 @@
   }
 
   function footer() {
+    var photoCrop = document.body.getAttribute('data-photo-credits');
+    var photoSection = photoCrop === 'citrus-hero' ? 'citrus' : photoCrop;
+    var photoCredits = ['cherries', 'apples', 'citrus'].indexOf(photoSection) !== -1
+      ? '<a class="copy" href="photography-credits.html#' + photoSection + '">Photography credits</a>' : '';
+    if (photoCrop === 'citrus') photoCredits += '<span class="copy foot-photo-credit">Late-development and early-maturity photos: <a href="https://commons.wikimedia.org/wiki/File:Unripe_sweet_orange_(Citrus_×_sinensis),_Ponte_de_Sor,_Portugal_(approx._GPS_location)_julesvernex2.jpg">JulesVerneTimesTwo / julesvernex2.com</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · cropped and resized.</span>';
     return '' +
       '<div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>' +
       '<footer class="foot"><div class="wrap">' +
@@ -510,16 +516,62 @@
             '<div class="cta-row"><a class="btn btn--teal" href="soil-test.html">Request testing</a><a class="foot-call" href="' + TEL + '">' + PHONE + '</a></div>' +
           '</div>' +
           '<div class="foot-cols">' +
-            '<div class="foot-col"><h3>Customer Service</h3><a href="soil-test.html">Request testing</a><a href="contact.html">Contact Us</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>' +
+            '<div class="foot-col"><h3>Customer Service</h3><a href="soil-test.html">Request testing</a><a href="knowledge-center.html">Resources</a><a href="contact.html">Contact Us</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>' +
             '<div class="foot-col"><h3>Our Address</h3><p>52 Buckler Rd,<br>Wangaratta VIC 3677,<br>Australia</p></div>' +
             '<div class="foot-col"><h3>Stay Connected</h3><a href="https://www.facebook.com/HybridAgPtyLtd" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/hybridag" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/company/hybrid-ag" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/HybridAg1" target="_blank" rel="noopener">X</a></div>' +
           '</div>' +
         '</div>' +
         '<hr class="foot-rule">' +
-        '<div class="foot-meta"><div class="foot-brand"><img class="foot-logo-img" src="assets/hybrid-ag-logo.png" alt="Hybrid-Ag"><span class="copy">&copy; 2026 Hybrid Ag Pty Ltd</span></div><a class="nav-phone" href="' + TEL + '">' + PHONE + '</a></div>' +
+        '<div class="foot-meta"><div class="foot-brand"><img class="foot-logo-img" src="assets/hybrid-ag-logo.png" alt="Hybrid-Ag"><span class="copy">&copy; 2026 Hybrid Ag Pty Ltd</span>' + photoCredits + '</div><a class="nav-phone" href="' + TEL + '">' + PHONE + '</a></div>' +
       '</div>' +
       '<div class="stamp"><span>Precision Nutrition</span><span>Optimising Inputs</span><span>Maximising Outcomes</span></div>' +
       '</footer>';
+  }
+
+  function mountGlassNavigation(header) {
+    if (!header || !('IntersectionObserver' in window)) return;
+    var body = document.body;
+    var hero = document.querySelector('main > .page-cover, main > [data-feedback-hero]');
+    var observer;
+    function refresh() {
+      if (observer) observer.disconnect();
+      var height = Math.ceil(header.getBoundingClientRect().height);
+      body.style.setProperty('--site-header-height', height + 'px');
+      if (!hero) { body.classList.add('nav-glass-ready'); return; }
+      // Grow only the background into the header. Keep the copy and the next
+      // section at their accepted positions, including at mobile breakpoints.
+      hero.classList.remove('nav-glass-cover');
+      var padding = getComputedStyle(hero).paddingTop;
+      var heading = hero.querySelector('h1');
+      var ink = heading && getComputedStyle(heading).color.match(/[\d.]+/g);
+      var dark = hero.hasAttribute('data-feedback-hero') || hero.getAttribute('data-home-field') === 'dark' ||
+        (hero.getAttribute('data-home-field') !== 'light' && ink &&
+          (Number(ink[0]) * .2126 + Number(ink[1]) * .7152 + Number(ink[2]) * .0722) > 180);
+      var next = hero.nextElementSibling;
+      var gap = next ? parseFloat(getComputedStyle(next).scrollMarginTop) || 0 : 0;
+      var boundary = Math.max(height, gap) + 1;
+      try {
+        observer = new IntersectionObserver(function (entries) {
+          body.classList.toggle('nav-glass-over-hero', entries[0].isIntersecting);
+        }, { rootMargin: '-' + boundary + 'px 0px 0px 0px', threshold: 0 });
+        body.classList.add('nav-glass-ready');
+        body.classList.toggle('nav-glass-dark', Boolean(dark));
+        if (!hero.hasAttribute('data-feedback-hero')) {
+          hero.style.setProperty('--nav-cover-padding', padding);
+          hero.classList.add('nav-glass-cover');
+        }
+        observer.observe(hero);
+        var rect = hero.getBoundingClientRect();
+        body.classList.toggle('nav-glass-over-hero', rect.bottom > boundary && rect.top < innerHeight);
+      } catch (_) {
+        if (observer) observer.disconnect();
+        hero.classList.remove('nav-glass-cover');
+        body.classList.remove('nav-glass-ready', 'nav-glass-over-hero', 'nav-glass-dark');
+      }
+    }
+    refresh();
+    window.addEventListener('resize', refresh, { passive: true });
+    window.addEventListener('pageshow', refresh);
   }
 
   function mount() {
@@ -529,6 +581,7 @@
     if (h) {
       document.body.classList.add('nav-grouped');
       h.innerHTML = header(active);
+      mountGlassNavigation(h);
     }
     if (f) f.innerHTML = footer();
     var main = document.querySelector('main');
@@ -580,33 +633,43 @@
 
     // Disclosures use ordinary links and buttons, not application-menu roles.
     var disclosures = [];
+    var hoverNavigation = window.matchMedia('(hover:hover) and (pointer:fine)');
     function addDisclosure(triggerId, panelId, hostId, openClass) {
       var trigger = document.getElementById(triggerId);
       var panel = document.getElementById(panelId);
       var host = document.getElementById(hostId);
       if (!trigger || !panel || !host) return;
-      var item = { trigger: trigger, panel: panel, host: host, openClass: openClass };
-      function setOpen(open) {
+      var item = { trigger: trigger, panel: panel, host: host, openClass: openClass, pinned: false };
+      function setOpen(open, pinned) {
         if (open) disclosures.forEach(function (other) { if (other !== item) other.close(); });
+        item.pinned = open && Boolean(pinned);
         host.classList.toggle(openClass, open);
         trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
       }
       item.close = function () { setOpen(false); };
       disclosures.push(item);
-      trigger.addEventListener('mouseenter', function () { setOpen(true); });
-      panel.addEventListener('mouseenter', function () { setOpen(true); });
+      function preview() {
+        if (hoverNavigation.matches && !item.pinned) setOpen(true);
+      }
+      trigger.addEventListener('mouseenter', preview);
+      panel.addEventListener('mouseenter', preview);
       host.addEventListener('mouseleave', function () {
-        if (!panel.contains(document.activeElement)) setOpen(false);
+        if (!item.pinned && !panel.contains(document.activeElement)) setOpen(false);
       });
       if (trigger.tagName === 'BUTTON') {
-        trigger.addEventListener('click', function () { setOpen(trigger.getAttribute('aria-expanded') !== 'true'); });
+        trigger.addEventListener('click', function (event) {
+          var open = trigger.getAttribute('aria-expanded') === 'true';
+          // The first pointer click confirms a hover preview, rather than closing it.
+          var confirmPreview = event.detail > 0 && hoverNavigation.matches && open && !item.pinned;
+          setOpen(confirmPreview || !open, true);
+        });
       } else {
-        trigger.addEventListener('focus', function () { setOpen(true); });
+        trigger.addEventListener('focus', function () { setOpen(true, true); });
       }
       trigger.addEventListener('keydown', function (event) {
         if (event.key === 'ArrowDown' || (event.key === ' ' && trigger.tagName === 'A')) {
           event.preventDefault();
-          setOpen(true);
+          setOpen(true, true);
           var first = panel.querySelector('a,button');
           if (first) first.focus();
         }

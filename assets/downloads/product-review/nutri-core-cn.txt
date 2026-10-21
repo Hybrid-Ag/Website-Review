@@ -6,7 +6,7 @@ Nutri-Core CN supplies Calcium and Nitrogen in a liquid fertiliser.
 It is considered where the crop requires both Nutrients during growth, with the complete analysis assessed alongside other applications.
 
 Overview
-Calcium is needed as new plant tissue forms, while Nitrogen is used to make proteins during growth. Nutri-Core CN supplies Calcium and nitrate Nitrogen in the same liquid fertiliser, giving the agronomist a combined option when the crop needs them together.
+Calcium is an essential Nutrient for development of all plant tissue.
 A Calcium recommendation still needs to account for the Nitrogen that comes with it. Soil and plant results, the crop stage and previous applications help decide whether CN matches the requirement or whether the prescription needs a different balance.
 
 Composition source: dashboard staging. Basis: % w/v

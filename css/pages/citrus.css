@@ -1,0 +1,53 @@
+/* Citrus chapters share the existing crop templates; these refinements are Citrus-only. */
+.citrus-page #site-footer>.stripe{display:none}
+.citrus-page :is(.cherry-hero__image,.cherry-program-hero__image){object-position:50% 47%}
+.citrus-page :is(.cherry-score,.cherry-method,.cherry-season,.cherry-playbook,.cherry-program-principle,.cherry-program-interactive,.cherry-program-playbook){padding-block:clamp(52px,6vw,88px)}
+.citrus-page :is(.cherry-heading h2,.cherry-playbook h2,.cherry-team h2,.cherry-cta h2,.cherry-program-principle h2,.cherry-program-interactive h2,.cherry-program-evidence h2,.cherry-program-playbook h2,.programs-cta h2){font-size:clamp(36px,3.6vw,52px);line-height:1.08;max-width:20ch}
+.citrus-page :is(.cherry-heading,.cherry-program-interactive__heading,.cherry-program-principle__inner){gap:clamp(28px,5vw,72px)}
+.citrus-page :is(.cherry-score__grid,.cherry-season__grid,.cherry-method__grid){margin-top:36px}
+.citrus-page .cherry-season__grid article{min-height:0;padding:26px}
+.citrus-page .cherry-method__grid article{padding:28px}
+.citrus-page :is(.cherry-playbook__inner,.cherry-program-playbook__inner){grid-template-columns:minmax(0,1fr) minmax(260px,.54fr);gap:clamp(40px,7vw,96px)}
+.citrus-page .cherry-playbook__copy .btn{margin-top:0}
+.citrus-page :is(.cherry-playbook,.cherry-program-playbook) .cta-row{margin-top:26px}
+.citrus-page .citrus-secondary{border:1px solid #76736e;background:transparent;color:var(--ink)}
+.citrus-page .citrus-secondary:hover{background:var(--white);border-color:var(--ink)}
+.citrus-page .citrus-guide-image{overflow:hidden;border-radius:var(--r-card);aspect-ratio:1.4}
+.citrus-page .citrus-guide-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:60% 55%}
+.citrus-page .citrus-season-link{margin-top:32px}
+.citrus-page .citrus-orchard{grid-template-columns:repeat(2,minmax(0,1fr));min-height:0}
+.citrus-page .citrus-orchard>div{position:relative;z-index:1;min-width:0}
+.citrus-page .citrus-orchard :is(.cherry-team__image,.cherry-program-evidence__image){min-height:540px;overflow:hidden}
+.citrus-page .citrus-orchard img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 55%}
+.citrus-page .citrus-orchard :is(.cherry-team__copy,.cherry-program-evidence__copy){padding:clamp(36px,4.5vw,72px)}
+.citrus-page .citrus-orchard .cta-row{margin-top:26px}
+.citrus-page .citrus-orchard p>a{color:var(--teal-dk);text-decoration:underline;text-underline-offset:3px}
+.citrus-page :is(.cherry-cta__inner,.programs-cta__inner){padding-block:clamp(48px,6vw,76px)}
+.citrus-page .programs-cta__inner>div>p{max-width:48ch;margin-top:20px;color:var(--on-dark);line-height:1.65}
+.citrus-page .citrus-source-note{max-width:92ch;margin-top:20px;padding:20px 24px;border-left:2px solid var(--teal);background:var(--cream);color:var(--body);font-size:14px;line-height:1.65}
+.citrus-page .citrus-source-note a{display:inline-block;margin-top:10px;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.citrus-page .citrus-source-note p{margin:0}
+.citrus-page .citrus-source-hold{margin-block:24px;padding:18px 22px;border-left:2px solid var(--teal);background:var(--cream);color:var(--body);font-size:14px;line-height:1.65}
+.citrus-page .citrus-source-hold strong{font-family:var(--font-display);font-weight:500;color:var(--ink);font-size:19px}
+.citrus-page .citrus-source-hold p{margin-top:6px;max-width:82ch}
+.citrus-page .citrus-booklet-note{padding-block:clamp(40px,5vw,64px);background:var(--cream-dk)}
+.citrus-page .citrus-booklet-note h2{font-size:clamp(32px,3.1vw,44px);line-height:1.1}
+.citrus-page .citrus-booklet-note p{max-width:68ch;margin-top:18px;color:var(--body);font-size:16px;line-height:1.65}
+.citrus-page .citrus-text-link{display:inline-block;margin-top:18px;color:var(--teal-dk);text-decoration:underline;text-underline-offset:4px}
+.citrus-page .cherry-program-interactive .prog-tip{align-items:flex-start}
+@media(max-width:900px){
+  .citrus-page .citrus-orchard{grid-template-columns:minmax(0,1fr)}
+  .citrus-page .citrus-orchard :is(.cherry-team__image,.cherry-program-evidence__image){width:100%;height:auto;min-height:0;aspect-ratio:1.65}
+  .citrus-page :is(.cherry-playbook__inner,.cherry-program-playbook__inner){grid-template-columns:1fr;gap:36px}
+  .citrus-page .citrus-guide-image{width:min(100%,540px);justify-self:center}
+}
+@media(max-width:620px){
+  .citrus-page :is(.cherry-hero__image,.cherry-program-hero__image){object-position:29% 47%}
+  .citrus-page .cherry-season__grid article{padding:24px 0}
+  .citrus-page .cherry-method__grid article{padding:24px}
+  .citrus-page .citrus-orchard :is(.cherry-team__copy,.cherry-program-evidence__copy){padding:40px 24px}
+  .citrus-page .citrus-source-note{padding:16px}
+  .citrus-page .cherry-program-interactive__stats{grid-template-columns:repeat(2,1fr)}
+  .citrus-page :is(.cherry-playbook,.cherry-program-playbook) .cta-row{align-items:stretch;flex-direction:column}
+  .citrus-page :is(.cherry-playbook,.cherry-program-playbook) .btn{justify-content:center}
+}

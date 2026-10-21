@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'self'; form-action 'none'">
+<script data-hybridag-public-review>(function(){
+window.HybridAgReleaseMode="pages-review";
+window.HybridAgCartPreview={root:"",storageKey:"hybridag_pages_review_cart_v1",holdCheckout:true};
+var message="This public review does not send enquiries, sign-ins or orders. Contact the Hybrid-Ag team directly.";
+function isApi(input){
+var url=new URL(input&&input.url||input,location.href);
+var path=url.pathname;
+try{path=decodeURIComponent(path);}catch(error){}
+return /(^|\/)api(?:\/|$)/i.test(path);
+}
+function blocked(){return new DOMException(message,"InvalidStateError");}
+var originalFetch=window.fetch;
+window.fetch=function(input,options){
+if(isApi(input)){
+var path=new URL(input&&input.url||input,location.href).pathname;
+return Promise.resolve(new Response(JSON.stringify({error:"public_review_only",message:message}),{status:/\/api\/leads$/.test(path)?422:503,headers:{"Content-Type":"application/json"}}));
+}
+return originalFetch.call(window,input,options);
+};
+if(window.XMLHttpRequest){
+var originalOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){if(isApi(url))throw blocked();return originalOpen.apply(this,arguments);};
+}
+if(navigator.sendBeacon){
+var originalBeacon=navigator.sendBeacon;
+navigator.sendBeacon=function(url,data){return isApi(url)?false:originalBeacon.call(navigator,url,data);};
+}
+["WebSocket","EventSource"].forEach(function(name){
+if(window[name])window[name]=new Proxy(window[name],{construct:function(target,args){if(isApi(args[0]))throw blocked();return Reflect.construct(target,args);}});
+});
+document.addEventListener("submit",function(event){if(isApi(event.target.action)){event.preventDefault();event.stopImmediatePropagation();}},true);
+})();</script>
+<!-- Analytics disabled in public review -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Photography Credits — Hybrid-Ag</title>
+<meta name="description" content="Sources, authors and reuse licences for illustrative photographs in the Hybrid-Ag crop programs.">
+<link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
+<link rel="stylesheet" href="css/components.css?v=f19e656431">
+<link rel="stylesheet" href="css/page-covers.css?v=8654f7a3e8">
+<link rel="canonical" href="https://www.hybridag.com.au/photography-credits.html">
+<meta name="theme-color" content="#018D8A">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png?v=official-flower-2026">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=official-flower-2026">
+<meta property="og:site_name" content="Hybrid-Ag">
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Photography Credits — Hybrid-Ag">
+<meta property="og:description" content="Sources, authors and reuse licences for illustrative photographs in the Hybrid-Ag crop programs.">
+<meta property="og:url" content="https://www.hybridag.com.au/photography-credits.html">
+<meta property="og:image" content="https://www.hybridag.com.au/assets/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Photography Credits — Hybrid-Ag">
+<meta name="twitter:description" content="Sources, authors and reuse licences for illustrative photographs in the Hybrid-Ag crop programs.">
+<meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
+</head>
+<body data-page="">
+<div id="site-header"></div>
+<main>
+  <header class="hero hero--short page-cover">
+    <div class="wrap hero-inner page-cover__inner">
+      <span class="eyebrow">Photography</span>
+      <h1>Photography credits.</h1>
+      <p class="sub">Sources and reuse licences for the photographs used to illustrate crop development.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="wrap legal">
+      <p>The photographs are illustrative. They do not identify the cultivar, orchard or treatment results of a Hybrid-Ag sample program. Attribution does not imply endorsement by the photographers or publishers.</p>
+      <h2 id="cherries">Cherries</h2>
+      <p>Dormant buds: “<a href="https://commons.wikimedia.org/wiki/File:Bourgeon_de_merisier_01.jpg">Bourgeon de merisier 01</a>” by Tsaag Valren. White Bud: “<a href="https://commons.wikimedia.org/wiki/File:P1020260_buds.jpg">P1020260 buds</a>” by Thomas Schilling. Both are <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, cropped and resized by Hybrid-Ag; the cropped images retain that licence.</p>
+      <p>Bud Burst: photographed bud from <a href="https://doi.org/10.3389/fpls.2017.01233">Ionescu and colleagues, Frontiers in Plant Science (2017), Figure 1B</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, cropped and resized by Hybrid-Ag.</p>
+      <p><a href="program-cherries.html#interactive-program">Back to the Cherry program</a></p>
+
+      <h2 id="apples">Apples</h2>
+      <p>Dormant orchard: “<a href="https://commons.wikimedia.org/wiki/File:Apple_orchard_in_winter_-_geograph.org.uk_-_6981580.jpg">Apple orchard in winter</a>” by N Chadwick / Geograph. Flowers opening: “<a href="https://commons.wikimedia.org/wiki/File:Apple_flowers_opening_504521866.jpg">Apple flowers opening</a>” by Miika Silfverberg. Both are <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, cropped and resized by Hybrid-Ag; the cropped photographs retain that licence.</p>
+      <p>Early bud development: <a href="https://commons.wikimedia.org/wiki/File:20140228Malus_domestica1.jpg">20140228Malus domestica1</a>. Pink buds: <a href="https://commons.wikimedia.org/wiki/File:20150407Malus_domestica1.jpg">20150407Malus domestica1</a>. Open flowers: <a href="https://commons.wikimedia.org/wiki/File:20130501Malus_domestica_Hockenheim2.jpg">20130501Malus domestica Hockenheim2</a>. These photographs by AnRo0002 are <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>, cropped and resized by Hybrid-Ag.</p>
+      <p>Petal fall and fruit set: two crops of a photograph from <a href="https://doi.org/10.3389/fpls.2025.1572647">Ru and colleagues, Frontiers in Plant Science (2025), Table 2</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, cropped and resized by Hybrid-Ag. The two post-harvest views use the same harvested-apple photograph; they are not records of separate applications.</p>
+      <p><a href="program-apples.html#interactive-program">Back to the Apple program</a></p>
+
+      <h2 id="citrus">Citrus</h2>
+      <p>Spring and summer growth: photographic panels from <a href="https://doi.org/10.1371/journal.pone.0190563">Cifuentes-Arenas and colleagues (2018), Figure 3</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Buds and green fruit: “<a href="https://commons.wikimedia.org/wiki/File:Starr-150326-0717-Citrus_sinensis-Navel_flowers_and_immature_fruit-Citrus_Grove_Town_Sand_Island-Midway_Atoll_(25148505002).jpg">Starr-150326-0717-Citrus sinensis</a>” by Forest and Kim Starr, <a href="https://creativecommons.org/licenses/by/3.0/us/">CC BY 3.0 US</a>. These photographs were cropped and resized by Hybrid-Ag.</p>
+      <p>Open flowers: “<a href="https://commons.wikimedia.org/wiki/File:Orange_blossoms_-_Portakal_çiçekleri.jpg">Orange blossoms - Portakal çiçekleri</a>” by Zeynel Cebeci, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Fruitlets: “<a href="https://commons.wikimedia.org/wiki/File:Blood_orange_babies.JPG">Blood orange babies</a>” by Dvortygirl, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>. Cropped and resized by Hybrid-Ag; the cropped photographs retain their licences.</p>
+      <p>Late development and early maturity: “<a href="https://commons.wikimedia.org/wiki/File:Unripe_sweet_orange_(Citrus_×_sinensis),_Ponte_de_Sor,_Portugal_(approx._GPS_location)_julesvernex2.jpg">Unripe sweet orange (Citrus × sinensis), Ponte de Sor, Portugal</a>” by JulesVerneTimesTwo / julesvernex2.com, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Cropped and resized by Hybrid-Ag; the cropped photographs retain that licence.</p>
+      <p>Orange-coloured fruit on the tree: “<a href="https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_2313_Valencia_Oranges.jpg">Valencia Oranges, ScienceImage 2313</a>” by Plant Industry, CSIRO, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. Harvested oranges: <a href="https://commons.wikimedia.org/wiki/File:Winterswijk_(NL),_Wochenmarkt_--_2016_--_4139.jpg">Dietmar Rabich, “Winterswijk (NL), Wochenmarkt -- 2016 -- 4139”</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Cropped and resized by Hybrid-Ag; the cropped market photograph retains its licence. It shows a market display, not a Hybrid-Ag orchard or packing shed.</p>
+      <p>The Citrus hero and Horticulture tile also use the Plant Industry, CSIRO photograph credited above, resized and displayed with a crop. The orchard-row photographs come from the company archive. External photographs do not depict a Hybrid-Ag treatment result, and their cultivar names do not identify the cultivar of the sample.</p>
+      <p><a href="program-citrus.html#interactive-program">Back to the Citrus program</a></p>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="js/data/products.js?v=c9d410f4d8"></script>
+<script src="js/components.js?v=4ea50e092e"></script>
+<script src="js/cart.js?v=df334d2d7d"></script>
+<script src="js/main.js?v=28cfd7c3db"></script>
+</body>
+</html>

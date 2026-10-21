@@ -1,38 +1,53 @@
-/* Approved Resources/Services headers. Shared covers and Three Signals own
-   typography, action buttons and motion; topic tags are not navigation. */
-main>.resources-hero--library{background:#fff}
-main>.service-hero--library{background:var(--dark)}
-.hero-seal-art{position:absolute;z-index:0;inset:0;overflow:hidden;pointer-events:none}
-.hero-seal-art__seal{
-  position:absolute;width:650px;height:calc(100% - 24px);max-width:none;max-height:650px;
-  left:50%;top:50%;object-fit:contain;opacity:.15;
-  transform:translate(-50%,-50%);
-  mask-image:radial-gradient(circle,transparent 0%,#0006 40%,#000 68%);
+/* Quietly familiar: approved flower-only Resources and Services covers.
+   Shared page covers own the spacing; Three Signals owns the cursor field. */
+main>.library-hero.page-cover{
+  position:relative;isolation:isolate;overflow:hidden;height:auto;
+  --cover-min-height:clamp(440px,58svh,560px);
+  --cover-action-ink:var(--ink);background:#fff;color:var(--ink);
 }
-.resources-hero--library .hero-seal-art__seal{filter:invert(1);opacity:.14}
-.hero-topics{margin:30px auto 0;max-width:900px}
-.hero-topics__label{
-  display:block;margin-bottom:10px;font:400 12px/1.55 var(--font-display);
-  letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--teal-dk);
+main>.service-hero--library.library-hero.page-cover{
+  --cover-action-ink:#fff;background:var(--dark);color:#fff;
 }
-.hero-topics__list{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;list-style:none;padding:0;margin:0}
-.hero-topics__list .badge{
-  padding:6px 12px;border:1px solid var(--hairline);border-radius:4px;
-  background:#f7f6f4e6;color:var(--body);cursor:default;
-  font-size:12px;font-weight:400;line-height:1.5;
+main>.library-hero.page-cover .page-cover__inner{
+  position:relative;z-index:3;align-items:center;max-width:1200px;padding-inline:0;
 }
-.service-hero--library .hero-topics__label{color:#e0f0ee}
-.service-hero--library .hero-topics__list .badge{border-color:#ffffff26;background:#ffffff14;color:#e7f2f1}
-main>:is(.resources-hero--library,.service-hero--library) .page-cover__inner{z-index:3}
-main>:is(.resources-hero--library,.service-hero--library)>.site-signals-field{z-index:1}
-@media(max-width:740px){
-  .hero-seal-art__seal{width:490px;height:490px;opacity:.11}
-  .resources-hero--library .hero-seal-art__seal{opacity:.1}
-  .hero-topics{margin-top:26px}
-  .hero-topics__list .badge{padding-inline:10px}
+main>.library-hero.page-cover h1{color:inherit}
+main>.library-hero.page-cover p,main>.library-hero.page-cover .resources-library__intro{max-width:58ch;color:var(--body);text-wrap:wrap}
+main>.resources-hero--library.library-hero.page-cover .eyebrow{color:var(--teal-dk)}
+main>.service-hero--library.library-hero.page-cover p{color:var(--on-dark)}
+main>.service-hero--library.library-hero.page-cover .eyebrow{color:#71c7c1}
+main>.library-hero.page-cover .cta-row{width:100%}
+main>.library-hero.page-cover>.site-signals-field{z-index:1}
+.library-hero .flower-watermark{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.library-hero .flower-watermark img{
+  position:absolute;width:clamp(420px,43vw,690px);height:auto;max-width:none;
+  right:-40px;top:50%;transform:translateY(-50%);opacity:.055;
 }
+.service-hero--library .flower-watermark img{opacity:.045}
+.library-hero .hero-topics{margin:24px auto 0;max-width:900px}
+.library-hero .hero-topics__list{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;list-style:none;padding:0;margin:0}
+.library-hero .hero-topics__list .badge{
+  padding:6px 12px;border:1px solid #dedbd6;border-radius:4px;
+  background:#faf9f7d9;color:var(--body);cursor:default;
+  font-family:var(--font-body);font-size:12px;font-weight:400;line-height:1.5;
+  letter-spacing:normal;text-transform:none;
+}
+.service-hero--library .hero-topics__list .badge{border-color:#ffffff24;background:#ffffff09;color:var(--on-dark)}
+main>.resources-hero--library.library-hero.page-cover :is(a,button):focus-visible{outline-color:var(--teal-dk)}
+main>.resources-hero--library.library-hero.page-cover .cta-row .resources-hero__secondary:hover{color:var(--cream)}
+main>.service-hero--library.library-hero.page-cover :is(a,button):focus-visible{outline-color:#71c7c1}
+@media(max-width:1248px){main>.library-hero.page-cover .page-cover__inner{width:calc(100% - 64px)}}
+@media(max-width:900px){.library-hero .flower-watermark img{right:-140px}}
+@media(max-width:620px){
+  main>.library-hero.page-cover .page-cover__inner{width:calc(100% - 40px)}
+  .library-hero .flower-watermark img{width:400px;right:-210px;top:auto;bottom:-150px;transform:none;opacity:.035}
+  .service-hero--library .flower-watermark img{opacity:.03}
+  .library-hero .hero-topics{margin-top:22px}
+  .library-hero .hero-topics__list{gap:7px}
+  .library-hero .hero-topics__list .badge{padding:5px 10px}
+}
+@media(max-width:359px){.library-hero .hero-topics__list{gap:6px}.library-hero .hero-topics__list .badge{font-size:11px;padding:5px 8px}}
 @media(forced-colors:active){
-  .hero-seal-art{display:none}
-  .hero-topics__list .badge{background:Canvas;color:CanvasText;border-color:GrayText}
-  .hero-topics__label{color:CanvasText}
+  .library-hero .flower-watermark{display:none}
+  .library-hero .hero-topics__list .badge{background:Canvas;color:CanvasText;border-color:GrayText}
 }

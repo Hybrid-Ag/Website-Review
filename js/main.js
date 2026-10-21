@@ -1,26 +1,44 @@
 /* Hybrid Ag — global behaviour. Restrained, rural-fast, reduced-motion aware. */
 (function () {
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+  var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  var io = null, released = false;
   function showAll() {
     document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('in'); });
   }
-  if (reduce || !('IntersectionObserver' in window)) {
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', showAll);
-    else showAll();
-    return;
+  function constrained() {
+    return !reduce || reduce.matches || Boolean(connection && (connection.saveData || /(^|-)2g$/.test(connection.effectiveType || '')));
   }
-  document.documentElement.classList.add('reveal-ready');
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  function release() {
+    released = true;
+    if (io) io.disconnect();
+    document.documentElement.classList.remove('reveal-ready');
+    showAll();
+  }
   function arm() {
-    document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+    if (released || constrained() || typeof window.IntersectionObserver !== 'function') { release(); return; }
+    try {
+      io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+      document.documentElement.classList.add('reveal-ready');
+    } catch (_) { release(); }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arm);
   else arm();
-  window.setTimeout(showAll, 1200);
+  function preferenceChanged() { if (constrained()) release(); }
+  if (reduce && reduce.addEventListener) reduce.addEventListener('change', preferenceChanged);
+  else if (reduce && reduce.addListener) reduce.addListener(preferenceChanged);
+  if (connection && connection.addEventListener) connection.addEventListener('change', preferenceChanged);
+  document.addEventListener('focusin', function (event) {
+    var section = event.target.closest && event.target.closest('[data-reveal]');
+    if (!section) return;
+    section.classList.add('is-focus-revealed', 'in');
+    if (io && !released) io.unobserve(section);
+  });
 })();
 
 /* Three Signals — a quiet, local field response shared by every public page. */
@@ -30,6 +48,8 @@
   var body = document.body;
   var main = document.querySelector('main');
   if (!body || !main || body.hasAttribute('data-motion-study')) return;
+  // The homepage film/photo panels stay plain; its light panels share the field.
+  var homeFeedback = body.classList.contains('home-feedback');
   if (!window.matchMedia || !window.requestAnimationFrame || typeof window.IntersectionObserver !== 'function') return;
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -83,10 +103,10 @@
   }
 
   Array.prototype.forEach.call(main.children, function (element) {
-    if (element.hasAttribute && element.hasAttribute('data-home-field')) addSurface(element);
+    if (!homeFeedback && element.hasAttribute && element.hasAttribute('data-home-field')) addSurface(element);
   });
 
-  if (!surfaces.length) {
+  if (!surfaces.length && !homeFeedback) {
     if (main.classList.contains('not-found')) addSurface(main);
     else {
       Array.prototype.some.call(main.children, function (element) {
@@ -97,14 +117,23 @@
     }
   }
 
-  if (!main.classList.contains('not-found')) {
+  if (!homeFeedback && !main.classList.contains('not-found')) {
     Array.prototype.forEach.call(main.children, function (element) {
       if (surfaces.indexOf(element) !== -1 || !isDarkSection(element)) return;
       addSurface(element);
     });
   }
 
-  if (!surfaces.length) return;
+  // Explicit editorial surfaces only: no forms, programme tables, cart or imagery overlays.
+  var lightSurfaces = '.feedback-testing,.feedback-products,.feedback-product__image,.feedback-blog,.feedback-contact,' +
+    '.card:not(.card--dark) .card-body,.resources-guide__body,.resources-playbook,' +
+    '.resources-related,.resources-system,.test-service,.hort-chapter__body';
+  Array.prototype.forEach.call(main.querySelectorAll(lightSurfaces), function (element) {
+    element.classList.add('site-signals-light-tile');
+    addSurface(element);
+  });
+
+  if (!surfaces.length && !homeFeedback) return;
 
   function constrainedData() {
     if (!connection) return false;
@@ -116,7 +145,9 @@
   }
 
   function canTrack(state) {
-    return fieldAvailable() && !document.hidden && pageFocused && state.visible;
+    // A pointer over the local library heroes is enough to respond, even when
+    // the surrounding preview chat still owns keyboard focus.
+    return fieldAvailable() && !document.hidden && (pageFocused || state.polished) && state.visible;
   }
 
   function seededRandom(seed) {
@@ -132,8 +163,8 @@
   function buildNodes(state) {
     var width = state.width;
     var height = state.height;
-    var maximum = state.index === 0 ? 56 : 40;
-    var minimum = state.index === 0 ? 22 : 18;
+    var maximum = state.lightTile ? 30 : (state.index === 0 ? 56 : 40);
+    var minimum = state.lightTile ? 9 : (state.index === 0 ? 22 : 18);
     var count = Math.max(minimum, Math.min(maximum, Math.round(width * height / 18000)));
     var ratio = Math.max(.7, width / Math.max(1, height));
     var columns = Math.max(3, Math.ceil(Math.sqrt(count * ratio)));
@@ -219,20 +250,22 @@
   function draw(state, reactive) {
     var context = state.context;
     var neutral = state.dark ? [255, 255, 255] : [26, 23, 20];
-    var lineBase = state.dark ? .045 : .026;
-    var lineEnergy = state.dark ? .27 : .16;
-    var dotBase = state.dark ? .13 : .072;
-    var dotEnergy = state.dark ? .18 : .12;
+    var lineBase = state.lightTile ? .014 : (state.dark ? .045 : .026);
+    var lineEnergy = state.lightTile ? .20 : (state.polished ? (state.dark ? .42 : .30) : (state.dark ? .27 : .16));
+    var dotBase = state.lightTile ? .045 : (state.dark ? .13 : .072);
+    var dotEnergy = state.polished ? .24 : (state.dark ? .18 : .12);
     context.clearRect(0, 0, state.width, state.height);
 
     // Match the homepage's soft teal field without adding a second halo there.
     // Paint beneath the geometry; existing section pseudo-elements stay intact.
-    if (state.dark && state.glow > .001) {
+    if ((state.dark || state.polished) && state.glow > .001) {
       var glowRadius = 260;
       var glowX = state.pointer.localX;
       var glowY = state.pointer.localY;
       var glow = context.createRadialGradient(glowX, glowY, 0, glowX, glowY, glowRadius);
-      glow.addColorStop(0, rgba(accentColours[0], .14 * state.glow));
+      var glowOpacity = state.dark ? .14 : .055;
+      if (state.polished && state.dark) glowOpacity = .18;
+      glow.addColorStop(0, rgba(accentColours[0], glowOpacity * state.glow));
       glow.addColorStop(.72, rgba(accentColours[0], 0));
       context.fillStyle = glow;
       context.fillRect(glowX - glowRadius, glowY - glowRadius, glowRadius * 2, glowRadius * 2);
@@ -245,7 +278,7 @@
       context.beginPath();
       context.moveTo(first.x + first.dx, first.y + first.dy);
       context.lineTo(second.x + second.dx, second.y + second.dy);
-      context.lineWidth = .55;
+      context.lineWidth = state.polished ? .75 : .55;
       context.strokeStyle = rgba(neutral, lineBase + energy * lineEnergy);
       context.stroke();
     });
@@ -295,7 +328,7 @@
     }
 
     var ranked = [];
-    var targetGlow = reactive && state.dark && (body.dataset.page !== 'home' || state.element.hasAttribute('data-signals-overlay')) ? 1 : 0;
+    var targetGlow = reactive && (state.dark || state.polished) && (body.dataset.page !== 'home' || state.lightTile || state.element.hasAttribute('data-signals-overlay')) ? 1 : 0;
     var maximumDelta = Math.abs(targetGlow - state.glow);
     state.glow += (targetGlow - state.glow) * .24;
     state.nodes.forEach(function (node, nodeIndex) {
@@ -400,6 +433,8 @@
       width: 1,
       height: 1,
       dark: false,
+      polished: element.hasAttribute('data-signals-polish') || element.classList.contains('site-signals-light-tile'),
+      lightTile: element.classList.contains('site-signals-light-tile'),
       glow: 0,
       nodes: [],
       links: [],
@@ -412,6 +447,7 @@
 
     element.addEventListener('pointerenter', function (event) {
       if (event.pointerType !== 'mouse' || !canTrack(state)) return;
+      if (event.target.closest('.site-signals-surface') !== element) return;
       state.pointer.active = true;
       state.pointer.clientX = event.clientX;
       state.pointer.clientY = event.clientY;
@@ -422,6 +458,8 @@
     });
     element.addEventListener('pointermove', function (event) {
       if (event.pointerType !== 'mouse' || !canTrack(state)) return;
+      // A card owns its local response; its parent field must not react as well.
+      if (event.target.closest('.site-signals-surface') !== element) { resetState(state, true); return; }
       state.pointer.active = true;
       state.pointer.clientX = event.clientX;
       state.pointer.clientY = event.clientY;

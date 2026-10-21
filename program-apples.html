@@ -42,11 +42,12 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <title>Apple Nutrition Program — Hybrid-Ag</title>
 <meta name="description" content="Explore the representative Pink Lady nutrition program from Hybrid-Ag’s Apple Playbook, with growth stages, sample rates and testing checkpoints.">
 <link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
-<link rel="stylesheet" href="css/components.css?v=5f4c987e33">
-<link rel="stylesheet" href="css/pages/program.css?v=3e26ee2d5e">
+<link rel="stylesheet" href="css/components.css?v=f19e656431">
+<link rel="stylesheet" href="css/pages/program.css?v=d410fc7fd8">
 <link rel="stylesheet" href="css/pages/programs.css?v=37ee7897a6">
 <link rel="stylesheet" href="css/pages/apples.css?v=7ff56d9fe6">
-<link rel="stylesheet" href="css/page-covers.css?v=51f0fb5059">
+<link rel="stylesheet" href="css/page-covers.css?v=8654f7a3e8">
+<link rel="stylesheet" href="css/pages/crop-foundations.css?v=b1c4c69286">
 <link rel="canonical" href="https://www.hybridag.com.au/program-apples.html">
 <meta name="theme-color" content="#018D8A">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=official-flower-2026">
@@ -64,7 +65,7 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <meta name="twitter:description" content="Explore the representative Pink Lady nutrition program from Hybrid-Ag’s Apple Playbook, with growth stages, sample rates and testing checkpoints.">
 <meta name="twitter:image" content="https://www.hybridag.com.au/assets/og-default.png">
 </head>
-<body data-page="sectors" class="cherry-program-page apple-page apple-program-page">
+<body data-page="sectors" class="cherry-program-page apple-page apple-program-page" data-photo-credits="apples">
 <div id="site-header"></div>
 <main>
   <header class="cherry-program-hero page-cover page-cover--photo" data-home-field="dark">
@@ -78,11 +79,31 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
     </div>
   </header>
 
-  <section class="cherry-program-principle" data-reveal data-home-field="light">
-    <div class="wrap cherry-program-principle__inner">
-      <div><span class="eyebrow eyebrow--orange">A prescription for your orchard</span><h2>The block comes before the product list.</h2></div>
-      <div><p>A sample can help explain the approach, but it cannot account for the conditions in every orchard.</p><p>Your variety and rootstock, crop load, soil and water results, previous applications and budget inform the prescription. The team reviews those details with you before confirming products, rates and timing.</p></div>
+  <section class="cherry-score crop-foundation" id="production-priorities" data-crop-foundation="priorities" data-reveal data-home-field="light">
+    <div class="wrap cherry-heading crop-foundation__heading">
+      <div><span class="eyebrow eyebrow--orange">Production priorities</span><h2>What does this crop need to achieve?</h2></div>
+      <p>The variety and intended market affect the grades you are aiming for. Grading and storage results matter as well as the crop picked.</p>
     </div>
+    <div class="wrap cherry-score__grid crop-foundation__grid">
+      <article><span>01</span><h3>Fruit size and yield</h3><p>Yield and the spread of fruit sizes help show how much of the crop can meet the intended grade.</p></article>
+      <article><span>02</span><h3>Colour and maturity</h3><p>Colour alone does not show whether fruit is ready to pick. Other maturity measures need to be checked too.</p></article>
+      <article><span>03</span><h3>Fruit condition</h3><p>Firmness and fruit finish matter at picking and after storage. Problems such as bitter pit need a review of the whole season.</p></article>
+      <article><span>04</span><h3>Storage and pack-out</h3><p>Grading and storage results show how much fruit meets specification after harvest. They help assess the block’s performance beyond fruit size at picking.</p></article>
+    </div>
+  </section>
+
+  <section class="cherry-program-principle crop-foundation crop-foundation--context" id="block-context" data-crop-foundation="context" data-reveal data-home-field="light">
+    <div class="wrap crop-foundation__heading">
+      <div><span class="eyebrow eyebrow--berry">Understanding the block</span><h2>Read the results with the block’s history.</h2></div>
+      <p>The team reviews test results with the block’s conditions and history before planning the prescription. The recommendation also needs to suit your application equipment and budget.</p>
+    </div>
+    <div class="wrap crop-foundation__grid">
+      <article><span>01</span><h3>Market and storage target</h3><p>Fruit size, maturity and condition need to suit the market and intended storage period.</p></article>
+      <article><span>02</span><h3>Variety and crop</h3><p>We need the variety and rootstock, actual growth stage, crop load and an assessment of tree growth to interpret the results.</p></article>
+      <article><span>03</span><h3>Soil and water</h3><p>Soil and water results need to be checked with the root-zone conditions in the orchard. The water used for irrigation and applications also affects the recommendation.</p></article>
+      <article><span>04</span><h3>Season and history</h3><p>Previous tests, applications and growing conditions help explain changes through the season. Harvest maturity, storage performance and pack-out help the team investigate fruit condition and plan the next prescription.</p></article>
+    </div>
+    <p class="wrap crop-foundation__note">This sample explains the approach; it is not a prescription for your block. The team confirms products, rates and timing after reviewing your results and block history.</p>
   </section>
 
   <section class="cherry-program-interactive section" id="interactive-program" data-reveal>
@@ -98,6 +119,7 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
       <div class="matrix-wrap"><div class="matrix" id="matrix"></div></div>
       <div class="stepper" id="stepper" aria-label="Apple program, stage by stage"></div>
       <div class="drill" id="drill"></div>
+      <p class="cherry-program-interactive__note">The photos illustrate apple development, not this specific Pink Lady sample. They do not establish flowering percentages across a block or what is happening inside the fruit. Photo selections are included for technical review.</p>
       <noscript><p class="apple-source-note">The interactive sample needs JavaScript. You can <a href="assets/apple-nutrition-playbook.pdf#page=46">read the complete table on pages 46–47 of the playbook</a> without it.</p></noscript>
       <p class="cherry-program-interactive__note"><strong>Sample rates are shown in L/ha.</strong> Months reproduce this Pink Lady example, not fixed timing for all orchards. Blank cells are not advice to omit an application or test. DSA means Differential Sap Analysis.</p>
       <div class="apple-source-note"><p>Product selections, current directions and compatibility require technical confirmation before use. Products shown at the same stage are not necessarily a tank mix. The booklet’s Nutri-Core Soil Activator and Agri-Vive RF references remain flagged for identity confirmation.</p><a href="assets/apple-nutrition-playbook.pdf#page=46">Compare with the original booklet table</a></div>
@@ -107,8 +129,8 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
   <section class="cherry-program-evidence apple-orchard" data-reveal data-home-field="light">
     <div class="cherry-program-evidence__image"><img src="assets/photos/responsive/about-food-quality-orchard-1080.webp" width="1080" height="566" sizes="(max-width: 900px) 100vw, 50vw" srcset="assets/photos/responsive/about-food-quality-orchard-480.webp 480w, assets/photos/responsive/about-food-quality-orchard-768.webp 768w, assets/photos/responsive/about-food-quality-orchard-1080.webp 1080w" alt="Rows of apple trees carrying fruit beneath netting" loading="lazy" decoding="async"></div>
     <div class="cherry-program-evidence__copy">
-      <span class="eyebrow eyebrow--berry">Reviewing the recommendation</span><h2>Use the results in context.</h2>
-      <p>The playbook follows soil, water and plant results through to fruit quality. A result becomes more useful when the team understands the block it came from.</p>
+      <span class="eyebrow eyebrow--berry">Reviewing the recommendation</span><h2>Check what the block needs next.</h2>
+      <p>The playbook explains how soil, water and plant results help investigate fruit quality. The team needs to know what has happened in the block before recommending a change.</p>
       <dl><div><dt>The block</dt><dd>Variety and rootstock, crop load, growth stage and the issue you want to understand.</dd></div><div><dt>The history</dt><dd>Previous applications and test results, with harvest, storage and pack-out information where available.</dd></div><div><dt>The next decision</dt><dd>What the evidence supports now, and whether another sample or field assessment is needed before changing the prescription.</dd></div></dl>
       <div class="cta-row"><a class="btn btn--teal" href="soil-test.html?sector=horticulture&amp;crop=Apples">Organise testing</a><a class="btn apple-secondary" href="services-differential-sap-analysis.html">About DSA testing</a></div>
     </div>
@@ -121,16 +143,16 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
     </div>
   </section>
 
-  <section class="programs-cta" data-reveal data-home-field="dark"><div class="wrap programs-cta__inner"><div><span class="eyebrow">Discuss your apple block</span><h2>Bring the sample back to your orchard.</h2><p>Tell us about the block, what you want to understand and any results you already have.</p></div><div class="cta-row"><a class="btn programs-cta__primary" href="contact.html?program=apples">Talk to the team</a><a class="btn programs-cta__secondary" href="sectors-apples.html">Back to Apples</a></div></div></section>
+  <section class="programs-cta" data-reveal data-home-field="dark"><div class="wrap programs-cta__inner"><div><span class="eyebrow">Discuss your apple block</span><h2>Discuss a prescription for your orchard.</h2><p>Tell us about the block, what you want to understand and any results you already have.</p></div><div class="cta-row"><a class="btn programs-cta__primary" href="contact.html?program=apples">Talk to the team</a><a class="btn programs-cta__secondary" href="sectors-apples.html">Back to Apples</a></div></div></section>
 </main>
 <div id="site-footer"></div>
 <div class="tooltip" id="tooltip" role="status"></div>
 <div class="popout-backdrop" id="popoutBackdrop"><div class="popout" id="popout"></div></div>
 <script src="js/data/products.js?v=c9d410f4d8"></script>
-<script src="js/components.js?v=fe49b5e90c"></script>
+<script src="js/components.js?v=4ea50e092e"></script>
 <script src="js/cart.js?v=df334d2d7d"></script>
-<script src="js/data/apple-program.js?v=dbc2e06f4f"></script>
-<script src="js/program.js?v=197688b18f"></script>
-<script src="js/main.js?v=2da7219a0b"></script>
+<script src="js/data/apple-program.js?v=6bdadb1a97"></script>
+<script src="js/program.js?v=cbaa9d4bff"></script>
+<script src="js/main.js?v=28cfd7c3db"></script>
 </body>
 </html>

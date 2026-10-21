@@ -62,7 +62,7 @@ window.CROP_PROGRAM = {
       why:'A further DSA result provides information to review as the fruit develops. Keep the foliar and fertigation applications distinct when discussing the next application.',
       seeing:'Mid fruit development.' },
     { key:'late-fruit-1', name:'Late Fruit Development 1', month:'February', phase:'fruit', phenology:'FRUIT DEVELOPMENT & CELL EXPANSION', testing:'DSA', sourcePage:47, contextPages:[40,52],
-      why:'Review the DSA result during late fruit development alongside the condition of the canopy. Fruit fill needs consideration through the season, not just a late correction.',
+      why:'Review the DSA result with canopy condition and earlier applications before deciding whether the late-season recommendation needs changing.',
       seeing:'Late fruit development.' },
     { key:'late-fruit-2', name:'Late Fruit Development 2', month:'March', phase:'fruit', phenology:'FRUIT DEVELOPMENT & CELL EXPANSION', sourcePage:47, contextPages:[40,52],
       why:'Review fruit condition and maturity as the block approaches harvest. The absence of a DSA marker in this sample entry is not advice to omit testing where it is needed.',
@@ -102,7 +102,7 @@ window.CROP_PROGRAM = {
     { name:'Agri-Vive® RF', href:'agri-vive-rf.html', cat:'foliar', role:'Product identity to confirm', sourcePages:[46,47], rates:{6:'10 L/ha',7:'10 L/ha'},
       why:'RF is shown as a foliar application at fruit set and early fruit development. Its identity still needs confirmation against current product records. Do not substitute another Agri-Vive product.' },
     { name:'Opti-Trace® Max', href:'opti-trace-max.html', cat:'foliar', role:'Trace Nutrient option', sourcePages:[46,47], rates:{7:'2 L/ha',9:'2 L/ha',11:'2 L/ha'},
-      why:'Opti-Trace Max appears at the first early, mid and late fruit-development entries. Review the block’s trace Nutrient results before deciding whether those applications are appropriate.' },
+      why:'Opti-Trace Max appears at Early Fruit Development 1, Mid Fruit Development 1 and Late Fruit Development 1. Review the block’s trace Nutrient results before deciding whether these applications are needed.' },
     { name:'Opti-Trace® Boron', href:'opti-trace-boron.html', cat:'foliar', role:'Boron', sourcePages:[46,47], rates:{8:'2 L/ha',10:'2 L/ha',12:'2 L/ha'},
       why:'The sample shows Boron applications at the second early, mid and late fruit-development entries. Check the block’s Boron requirement and the amount already supplied when reviewing them.' },
     { name:'Agri-Vive® 0.0.30', href:'agri-vive-0-0-30.html', cat:'foliar', role:'Potassium', sourcePages:[46,47], rates:{9:'5 L/ha',10:'5 L/ha',11:'5 L/ha',12:'5 L/ha'},
@@ -121,4 +121,24 @@ window.CROP_PROGRAM = {
     { name:'Nutri-Core® Multi N', href:'nutri-core-multi-n.html', cat:'fert', role:'Nitrogen', sourcePages:[46,47], rates:{13:'40 L/ha',14:'40 L/ha'},
       why:'Multi N is shown through fertigation in both post-harvest entries. Review the remaining canopy and seasonal conditions when deciding on the post-harvest prescription.' }
   ]
+};
+
+// Illustrative photographs are presentation, not part of the booklet dataset.
+// Source evidence and release holds: content/source-notes/apple-stage-photo-sources.json.
+window.APPLE_STAGE_IMAGES = {
+  'dry-ground': {src:'assets/photos/apple-stages/dry-ground.webp?v=f62fa03647'},
+  'early-bud-break': {src:'assets/photos/apple-stages/early-bud-break.webp?v=cfd032c58c'},
+  'pink-bud': {src:'assets/photos/apple-stages/pink-bud.webp?v=4234346394'},
+  'flower-20-40': {src:'assets/photos/apple-stages/flower-20-40.webp?v=0d97f20a93'},
+  'flower-80-100': {src:'assets/photos/apple-stages/flower-80-100.webp?v=9e8095f4a7'},
+  'petal-fall': {src:'assets/photos/apple-stages/petal-fall.webp?v=909664eeed'},
+  'fruit-set': {src:'assets/photos/apple-stages/fruit-set.webp?v=1f44408a05'},
+  'early-fruit-1': {src:'assets/photos/apple-stages/early-fruit-1.webp?v=cc876618bf'},
+  'early-fruit-2': {src:'assets/photos/apple-stages/early-fruit-2.webp?v=96f5da5647'},
+  'mid-fruit-1': {src:'assets/photos/apple-stages/mid-fruit-1.webp?v=4ccea0d859'},
+  'mid-fruit-2': {src:'assets/photos/apple-stages/mid-fruit-2.webp?v=3599bc4908'},
+  'late-fruit-1': {src:'assets/photos/apple-stages/late-fruit-1.webp?v=9d01caf422'},
+  'late-fruit-2': {src:'assets/photos/apple-stages/late-fruit-2.webp?v=a3abbd7782'},
+  'post-harvest-1': {src:'assets/photos/apple-stages/post-harvest-1.webp?v=a513be2610'},
+  'post-harvest-2': {src:'assets/photos/apple-stages/post-harvest-2.webp?v=a36bdad0ab'}
 };

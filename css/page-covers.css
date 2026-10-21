@@ -139,6 +139,16 @@ main>.page-cover :is(.cherry-crumb,.cherry-program-crumb){
   line-height:1.55;
   letter-spacing:var(--tracking-caps);
 }
+/* Breadcrumb underlines follow the letters, not the bottom of the line box.
+   This keeps their heading anchor and visible breathing room with the labels. */
+main>.page-cover :is(.cherry-crumb span:first-child,.cherry-program-crumb a){
+  border-bottom:0;
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:2px;
+  text-decoration-color:rgba(255,255,255,.65);
+}
+main>.page-cover .cherry-crumb:hover span:first-child{ text-decoration-color:var(--teal) }
 main>.page-cover .socials{justify-content:center}
 main>.page-cover .search-page-form{width:100%;margin-inline:auto}
 main>.page-cover .guide-hero__back{align-self:center}

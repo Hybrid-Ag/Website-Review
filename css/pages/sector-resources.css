@@ -1,0 +1,18 @@
+/* Sector-level access to the existing guides; no separate resource library is required. */
+.sector-resources{padding-block:clamp(48px,5vw,72px);background:var(--white);scroll-margin-top:calc(var(--nav-h) + 20px)}
+.sector-resources__heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.8fr);align-items:end;gap:28px}
+.sector-resources h2{font-size:clamp(34px,3.6vw,46px);line-height:1.08}
+.sector-resources__heading>p{max-width:58ch;margin:0;color:var(--body);font-size:17px;line-height:1.6}
+.sector-resources__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+.sector-resources__link{position:relative;display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:24px 22px;border:1px solid var(--hairline);border-radius:var(--r-card);background:var(--cream);color:var(--ink);text-decoration:none;transition:border-color var(--t-fast),background-color var(--t-fast)}
+.sector-resources__link h3{font-size:26px;line-height:1.15}
+.sector-resources__link p{margin:12px 0 20px;color:var(--body);font-size:15px;line-height:1.6}
+.sector-resources__link>span{display:flex;align-items:center;justify-content:space-between;gap:16px;align-self:stretch;margin-top:auto;color:var(--teal-dk);font-family:var(--font-display);font-size:16px}
+.sector-resources__link i{font-family:var(--font-body);font-style:normal;transition:transform var(--t-fast)}
+.sector-resources__link:hover,.sector-resources__link:focus-visible{border-color:var(--teal-dk);background:var(--white)}
+.sector-resources__link:focus-visible{outline:3px solid var(--teal-dk);outline-offset:3px}
+.sector-resources__link:hover i,.sector-resources__link:focus-visible i{transform:translateX(3px)}
+@media(max-width:1020px){.sector-resources__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.sector-resources__heading{grid-template-columns:1fr;gap:16px}.sector-resources__grid{gap:12px}.sector-resources__link{padding:22px 20px}}
+@media(max-width:480px){.sector-resources__grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.sector-resources__link,.sector-resources__link i{transition:none}.sector-resources__link:hover i,.sector-resources__link:focus-visible i{transform:none}}
