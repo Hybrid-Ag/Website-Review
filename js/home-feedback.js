@@ -34,7 +34,10 @@
       video.load();
     }
     var attempt = video.play();
-    if (attempt) attempt.catch(function () {
+    if (attempt) attempt.catch(function (error) {
+      // Leaving the viewport can interrupt a pending load/play request. That is
+      // not a user pause or an autoplay refusal; allow the next visible sync.
+      if (error && error.name === 'AbortError') return;
       userPaused = true;
       // A browser may block autoplay; keep a user-initiated play option available.
       control.hidden = failed || constrained();
