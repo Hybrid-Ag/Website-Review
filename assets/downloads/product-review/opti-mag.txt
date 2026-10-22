@@ -7,7 +7,7 @@ The staged material describes foliar and fertigation use where the crop’s Magn
 
 Overview
 Magnesium is part of the chlorophyll molecule, so it is needed as the crop builds and maintains its canopy. Opti-Mag supplies Magnesium with Sulphur in a liquid formulation for a crop that needs these Nutrients.
-The product has foliar and irrigation uses. Crop testing helps establish whether Magnesium supply needs attention, while the complete analysis and previous applications help the agronomist choose the correction.
+The product has foliar and irrigation uses. Crop testing helps us establish whether Magnesium supply needs attention. We then consider the full analysis and previous applications before recommending a correction.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

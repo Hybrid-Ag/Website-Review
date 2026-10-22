@@ -42,8 +42,8 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <title>Shop — Hybrid-Ag</title>
 <meta name="description" content="Browse Hybrid-Ag products or talk to the team about a prescription blend for your crop and soil requirements.">
 <link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
-<link rel="stylesheet" href="css/components.css?v=f477cb344e">
-<link rel="stylesheet" href="css/pages/shop.css?v=97b738c7e0">
+<link rel="stylesheet" href="css/components.css?v=a67db000a6">
+<link rel="stylesheet" href="css/pages/shop.css?v=6907edf5f4">
 <link rel="stylesheet" href="css/page-covers.css?v=8654f7a3e8">
 <!-- SEO:auto -->
 <link rel="canonical" href="https://www.hybridag.com.au/shop.html">
@@ -74,7 +74,7 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
     <div class="wrap hero-inner page-cover__inner">
       <span class="eyebrow">Shop</span>
       <h1>Hybrid-Ag products and prescription blends.</h1>
-      <p class="sub">Start with what your crop and soil need. Talk to the team about a custom or prescription blend, or browse the Hybrid-Ag range below.</p>
+      <p class="sub">Our prescription blends are made for the requirements of your crop and soil. Talk to us about your test results, or browse our standard product range below.</p>
       <div class="cta-row mt-28">
         <a class="pill" href="soil-test.html">Request testing &rarr;</a>
         <a class="pill pill--ghost" href="program.html">Explore crop nutrition programs</a>
@@ -87,7 +87,7 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
     <div class="wrap">
       <span class="eyebrow">The Range</span>
       <h2 class="h2" style="max-width:24ch">Browse the product range.</h2>
-      <div class="shop-tools">
+      <div class="shop-tools" id="mycro-tec" style="scroll-margin-top:140px">
         <label class="shop-control" for="shopSearch"><span>Search products</span><input id="shopSearch" type="search" autocomplete="off" placeholder="Product name"></label>
         <label class="shop-control" for="shopCategory"><span>Category</span><select id="shopCategory"><option value="all">All categories</option></select></label>
         <p class="shop-count" id="shopCount" aria-live="polite"></p>
@@ -112,9 +112,9 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
       <span class="eyebrow eyebrow--orange">How the range works</span>
       <h2 class="h2" style="max-width:22ch">Plan the nutrition for your farm.</h2>
       <div class="grid grid-3" style="margin-top:40px">
-        <div class="card"><div class="card-accent"></div><div class="card-body"><h3>Review the results</h3><p>Consider the available tests alongside crop conditions and the history of the paddock or block.</p></div></div>
-        <div class="card"><div class="card-accent card-accent--orange"></div><div class="card-body"><h3>Discuss the prescription</h3><p>Work with an agronomist on a blend for the identified Nutrient requirements and relevant Hybrid-Ag products.</p></div></div>
-        <div class="card"><div class="card-accent card-accent--berry"></div><div class="card-body"><h3>Review progress</h3><p>Agree what to review and when, taking crop observations and further testing into account.</p></div></div>
+        <div class="card"><div class="card-accent"></div><div class="card-body"><h3>Review the results</h3><p>We review your tests with you, taking account of crop conditions and the history of the paddock or block.</p></div></div>
+        <div class="card"><div class="card-accent card-accent--orange"></div><div class="card-body"><h3>Discuss the prescription</h3><p>Your agronomist can recommend a blend for the Nutrient requirements identified, with other Hybrid-Ag products where appropriate.</p></div></div>
+        <div class="card"><div class="card-accent card-accent--berry"></div><div class="card-body"><h3>Review progress</h3><p>We agree with you when to review the crop and whether further testing is needed.</p></div></div>
       </div>
     </div>
   </section>
@@ -136,9 +136,9 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <div id="site-footer"></div>
 <script src="js/data/products.js?v=c9d410f4d8"></script>
 <script src="js/data/product-variants.js?v=0738616808"></script>
-<script src="js/components.js?v=b7fd990933"></script>
+<script src="js/components.js?v=16c4b94f38"></script>
 <script src="js/cart.js?v=930667fc15"></script>
-<script src="js/shop.js?v=ce936681d5"></script>
+<script src="js/shop.js?v=85e5f8441c"></script>
 <script src="js/main.js?v=28cfd7c3db"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ It is considered where soil and plant information identifies an Iron requirement
 
 Overview
 Iron is involved in enzyme activity and normal leaf function. Opti-Trace Iron supplies it in a chelated liquid, with foliar and watered-in options for a crop that needs an Iron correction.
-Pale growth can have more than one cause. Crop testing, soil conditions and root health help establish whether Iron is short and whether the correction should be targeted or included in a custom prescription.
+Pale growth can have more than one cause. We look at the crop tests and soil conditions, including root health, to establish whether Iron is short. This helps us decide whether to recommend a targeted correction or include Iron in a custom prescription.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

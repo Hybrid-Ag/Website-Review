@@ -20,6 +20,10 @@
   var isOpen = false;
   var methodTabs;
   var methodCopy;
+  var clearanceFrame = 0;
+  var clearanceRefresh = true;
+  var clearanceControls = new Set();
+  var clearanceObserver;
   var methodText = [
     'Start with the results you have and the crop or soil issue you want to address.',
     'Look at previous tests and applications alongside changes in the crop and growing conditions.',
@@ -190,6 +194,7 @@
     root.querySelector('.site-assistant-close').addEventListener('click', close);
     document.addEventListener('hybridag:panel-change', syncAvailability);
     syncAvailability();
+    prepareLauncherClearance();
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && !panel.hidden) close();
     });
@@ -254,6 +259,70 @@
     root.inert = blocked;
     if (blocked) root.setAttribute('aria-hidden', 'true');
     else root.removeAttribute('aria-hidden');
+    queueLauncherClearance();
+  }
+
+  /* The optional guide yields to page controls, rather than covering their edges.
+     Cache controls after DOM changes; scroll checks measure only nearby targets. */
+  function prepareLauncherClearance() {
+    if ('IntersectionObserver' in window) {
+      clearanceObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) clearanceControls.add(entry.target);
+          else clearanceControls.delete(entry.target);
+        });
+        queueLauncherClearance();
+      }, { rootMargin: '100px' });
+    }
+    var refresh = function () { clearanceRefresh = true; queueLauncherClearance(); };
+    var mutation = new MutationObserver(refresh);
+    document.querySelectorAll('main, #site-footer').forEach(function (surface) {
+      mutation.observe(surface, { childList: true, subtree: true, attributes: true, attributeFilter: ['hidden', 'open'] });
+    });
+    if ('ResizeObserver' in window) new ResizeObserver(queueLauncherClearance).observe(document.documentElement);
+    window.addEventListener('scroll', queueLauncherClearance, { passive: true, capture: true });
+    window.addEventListener('resize', queueLauncherClearance, { passive: true });
+    document.addEventListener('focusin', queueLauncherClearance);
+    document.addEventListener('focusout', queueLauncherClearance);
+    document.addEventListener('load', queueLauncherClearance, true);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', queueLauncherClearance, { passive: true });
+      window.visualViewport.addEventListener('scroll', queueLauncherClearance, { passive: true });
+    }
+    if (document.fonts) document.fonts.ready.then(queueLauncherClearance);
+    queueLauncherClearance();
+  }
+
+  function queueLauncherClearance() {
+    if (!clearanceFrame) clearanceFrame = requestAnimationFrame(checkLauncherClearance);
+  }
+
+  function checkLauncherClearance() {
+    clearanceFrame = 0;
+    if (clearanceRefresh) {
+      clearanceRefresh = false;
+      if (clearanceObserver) clearanceObserver.disconnect();
+      clearanceControls.clear();
+      document.querySelectorAll('main a[href], main button, main input:not([type="hidden"]), main select, main textarea, main summary, main [role="button"], #site-footer a[href], #site-footer button').forEach(function (control) {
+        clearanceControls.add(control);
+        if (clearanceObserver) clearanceObserver.observe(control);
+      });
+    }
+    // Never move a focused launcher or change the open panel's own availability.
+    if (isOpen || root.inert || document.activeElement === launcher) {
+      launcher.classList.remove('is-yielding');
+      return;
+    }
+    var bounds = launcher.getBoundingClientRect();
+    var overlap = false;
+    clearanceControls.forEach(function (control) {
+      if (overlap || !control.isConnected || !control.getClientRects().length || control.closest('[inert], [hidden]')) return;
+      var style = getComputedStyle(control);
+      if (style.visibility === 'hidden' || style.display === 'none') return;
+      var rect = control.getBoundingClientRect();
+      if (rect.right > bounds.left - 6 && rect.left < bounds.right + 6 && rect.bottom > bounds.top - 6 && rect.top < bounds.bottom + 6) overlap = true;
+    });
+    launcher.classList.toggle('is-yielding', overlap);
   }
 
   function focusPanel() {

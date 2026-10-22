@@ -15,6 +15,7 @@
   var profile;
   var accountType = 'cash';
   var stepIndex = 0;
+  var panelOpener = null;
 
   var labels = {
     account: 'Account',
@@ -134,13 +135,34 @@
     });
   }
 
-  function openPanel(panel) {
+  function scrollToPanel(panel) {
+    window.requestAnimationFrame(function () {
+      if (panel.hidden) return;
+      panel.scrollIntoView({
+        // A step can become much shorter; settle its focus position without
+        // racing the previous step's scrolling or browser scroll anchoring.
+        behavior: panel.classList.contains('application-step') || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start'
+      });
+    });
+  }
+
+  function focusPanelHeading(panel) {
+    var heading = panel.querySelector('legend,h2,h3');
+    if (!heading) return;
+    heading.setAttribute('tabindex', '-1');
+    heading.focus({ preventScroll: true });
+  }
+
+  function openPanel(panel, opener) {
+    panelOpener = opener || document.activeElement;
     start.hidden = true;
     linkPanel.hidden = panel !== linkPanel;
     applicationPanel.hidden = panel !== applicationPanel;
     complete.hidden = true;
     panel.hidden = false;
-    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    focusPanelHeading(panel);
+    scrollToPanel(panel);
   }
 
   function closePanels() {
@@ -148,7 +170,8 @@
     applicationPanel.hidden = true;
     complete.hidden = true;
     start.hidden = false;
-    start.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (panelOpener && panelOpener.isConnected) panelOpener.focus({ preventScroll: true });
+    scrollToPanel(start);
   }
 
   function configureBusinessStructure() {
@@ -191,7 +214,7 @@
     }).join('');
   }
 
-  function renderStep() {
+  function renderStep(moveFocus) {
     var steps = activeSteps();
     var current = steps[stepIndex];
     applicationForm.querySelectorAll('[data-app-step]').forEach(function (panel) {
@@ -199,6 +222,11 @@
     });
     renderProgress();
     if (current === 'review') renderReview();
+    if (moveFocus) {
+      var panel = applicationForm.querySelector('[data-app-step="' + current + '"]');
+      focusPanelHeading(panel);
+      scrollToPanel(panel);
+    }
   }
 
   function validABN(input) {
@@ -369,13 +397,13 @@
         var steps = activeSteps();
         if (!validateStep(steps[stepIndex], true)) return;
         stepIndex = Math.min(stepIndex + 1, steps.length - 1);
-        renderStep();
+        renderStep(true);
       });
     });
     applicationForm.querySelectorAll('[data-app-back]').forEach(function (button) {
       button.addEventListener('click', function () {
         stepIndex = Math.max(stepIndex - 1, 0);
-        renderStep();
+        renderStep(true);
       });
     });
     Array.prototype.forEach.call(applicationForm.elements.account_type, function (control) {
@@ -436,11 +464,11 @@
     root.querySelector('[data-sign-out]').addEventListener('click', Auth.logout);
     var returnLink = root.querySelector('[data-return-checkout]');
     returnLink.hidden = new URLSearchParams(location.search).get('return') !== 'order.html';
-    root.querySelector('[data-open-link]').addEventListener('click', function () { openPanel(linkPanel); });
+    root.querySelector('[data-open-link]').addEventListener('click', function () { openPanel(linkPanel, this); });
     root.querySelector('[data-open-application]').addEventListener('click', function () {
       stepIndex = 0;
       renderStep();
-      openPanel(applicationPanel);
+      openPanel(applicationPanel, this);
     });
     root.querySelectorAll('[data-close-panel]').forEach(function (button) { button.addEventListener('click', closePanels); });
     applicationForm.elements.contact_name.value = profile.name || '';

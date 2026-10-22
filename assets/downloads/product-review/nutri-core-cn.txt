@@ -7,7 +7,7 @@ It is considered where the crop requires both Nutrients during growth, with the 
 
 Overview
 Calcium is an essential Nutrient for development of all plant tissue.
-A Calcium recommendation still needs to account for the Nitrogen that comes with it. Soil and plant results, the crop stage and previous applications help decide whether CN matches the requirement or whether the prescription needs a different balance.
+When Calcium is needed, we also account for the Nitrogen supplied with it. The soil and plant results help us work out what is required at that stage of growth, allowing for previous applications. We can then discuss whether CN is suitable or the prescription needs a different balance.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

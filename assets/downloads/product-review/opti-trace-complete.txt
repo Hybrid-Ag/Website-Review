@@ -7,7 +7,7 @@ It is a fixed combination to assess where more than one of these trace Elements 
 
 Overview
 Opti-Trace Complete supplies Manganese, Zinc, Iron, Copper and Molybdenum in a liquid blend. It provides a combined option when several of these trace Elements need attention at the same time.
-A mixed blend is useful only when its contribution matches the requirement. Plant results and previous applications help the agronomist decide between Complete, a targeted trace correction and a custom liquid prescription.
+We need to establish which trace Elements are short before recommending a mixed blend. Plant results and previous applications help us compare Complete with a targeted correction or a custom liquid prescription.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

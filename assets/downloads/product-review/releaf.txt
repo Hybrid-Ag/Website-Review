@@ -7,7 +7,7 @@ The staged material describes in-season use in Broadacre crops and pasture where
 
 Overview
 ReLeaf combines Nitrogen, Phosphorus and Potassium with amino acids in a liquid foliar fertiliser. It offers a combined in-season option for Broadacre crops and pasture where more than one of those Nutrients is needed.
-Plant testing helps establish the requirement before another application is chosen. The agronomist can compare ReLeaf’s fixed contribution with the crop demand and previous inputs, or recommend a custom liquid prescription when a different balance is needed.
+Plant testing helps us establish what the crop needs before recommending another application. We compare ReLeaf’s fixed contribution with crop demand and previous inputs. Where a different balance is required, we can recommend a custom liquid prescription.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

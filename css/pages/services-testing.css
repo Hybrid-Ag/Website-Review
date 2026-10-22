@@ -40,7 +40,7 @@ main>.service-hero--library.page-cover .service-hero__inner{position:relative;z-
 .test-service p{margin-top:14px;color:var(--body);line-height:1.6}
 .test-service__action{margin-top:auto;padding-top:24px;font-family:var(--font-display);font-weight:700;color:var(--teal-dk)}
 .test-service:hover{border-color:var(--ink);border-top-color:var(--ink);transform:translateY(-2px)}
-.test-service:focus-visible{outline:4px solid rgba(1,141,138,.28);outline-offset:3px}
+.test-service:focus-visible{outline:3px solid var(--teal-dk);outline-offset:3px}
 .prescription-pathway{display:grid;grid-template-columns:minmax(120px,.22fr) minmax(0,1fr) auto;align-items:center;gap:clamp(24px,4vw,58px);margin-top:14px;padding:31px 34px;background:var(--teal-dk);color:var(--white)}
 .prescription-pathway__metric{font-family:var(--font-display);font-size:54px;line-height:.8;color:var(--white)}
 .prescription-pathway__metric span{display:block;margin-top:10px;font-size:.42em;color:var(--orange)}

@@ -7,7 +7,7 @@ Assess its own formulation for the crop’s requirement, with the Organic-specif
 
 Overview
 Calcium aids in the formation and strength of cell walls and is necessary for the development of plants. It is also required for early root growth and strong new top growth.
-The recommendation should account for the crop’s Calcium status, irrigation and root conditions. The team can compare this product’s contribution with the need before choosing a targeted application or a custom liquid prescription.
+We consider the crop’s Calcium status together with irrigation and root conditions. Comparing the product’s contribution with that requirement helps us decide between a targeted application and a custom liquid prescription.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

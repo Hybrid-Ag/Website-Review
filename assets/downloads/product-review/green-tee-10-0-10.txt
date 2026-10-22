@@ -7,7 +7,7 @@ The staged analysis describes very little Phosphorus. Compare the complete grade
 
 Overview
 Green-Tee 10.0.10 supplies Nitrogen and Potassium in similar proportions for turf. It provides a liquid grade to assess where both Nutrients are needed, without selecting a more Phosphorus-led feed.
-The existing turf feed and test information help determine whether that balance is appropriate. Count both contributions against the requirement and the nutrition already supplied. If the turf needs a different proportion or an additional Element, the team can assess a prescription instead of increasing the whole fixed grade to meet one shortage.
+We use the turf’s test information and details of the existing feed to work out whether this balance is suitable. Both Nutrient contributions need to be included. If a different proportion or another Element is needed, we can assess a prescription rather than increase the whole grade to meet one shortage.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

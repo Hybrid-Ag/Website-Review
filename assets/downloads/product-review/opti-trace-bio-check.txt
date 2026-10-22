@@ -7,7 +7,7 @@ Assess its Nutrient contribution against the crop’s test results and the nutri
 
 Overview
 Opti-Trace Bio-Check supplies Magnesium, Sulphur and Molybdenum with other trace Elements. It is a mixed Nutrient product to consider when crop testing identifies more than one requirement during growth.
-When assessing Nitrogen nutrition, the team also considers the Nutrients involved in its use. Molybdenum contributes to the plant’s Nitrogen-processing enzymes and Sulphur is used in proteins. Bio-Check also supplies Magnesium, a component of chlorophyll. The crop results help determine whether this combination is needed or a more targeted prescription would be appropriate.
+When reviewing Nitrogen nutrition, we also consider the Nutrients involved in its use. Molybdenum contributes to Nitrogen-processing enzymes and Sulphur is used in proteins. Bio-Check also supplies Magnesium, which is part of chlorophyll. Your crop results help us decide whether this combination is needed or a more targeted prescription would be appropriate.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

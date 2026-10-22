@@ -7,7 +7,7 @@ Its post-harvest use is aimed at the period when the crop still has an active ca
 
 Overview
 Picking the crop does not necessarily end the opportunity to supply nutrition. Nutri-Core Multi-N combines two Nitrogen sources with Calcium in a liquid fertiliser. It is used after harvest while leaves remain active, where the block needs those Nutrients.
-The harvest result and Nutrients already applied help determine what is still needed. Leaf condition and the time remaining before the canopy declines also matter; a post-harvest application needs to be appropriate for that block, not repeated because it was used last season.
+The harvest result and nutrition already applied help us work out what the block still needs. Leaf condition and the time remaining before the canopy declines also matter. We review the post-harvest application for that block rather than repeat it simply because it was used last season.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

@@ -7,7 +7,7 @@ It is considered where the crop requires a Magnesium correction during active gr
 
 Overview
 Magnesium is part of chlorophyll. Power-Mag supplies it with Nitrogen and Boron in a liquid using sugar alcohol complexes, for a crop that needs a Magnesium correction during active growth.
-The formulation includes spreading and penetrant agents for leaf application. The agronomist can compare the full Nutrient contribution with plant results and previous applications before deciding whether Power-Mag matches the requirement.
+The formulation includes spreading and penetrant agents for leaf application. We compare its full Nutrient contribution with the plant results and previous applications before deciding whether Power-Mag supplies what the crop needs.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

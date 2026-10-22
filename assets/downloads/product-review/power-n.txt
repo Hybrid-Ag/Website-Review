@@ -7,7 +7,7 @@ The staged material discusses foliar, liquid-injection and fertigation options w
 
 Overview
 Power-N supplies Nitrogen in a liquid formulation with sugar and fulvic components. Its foliar, liquid-injection and fertigation uses provide different ways to make an application when the crop needs Nitrogen.
-The amount needed depends on crop demand, soil supply and previous applications. The team can compare Power-N with those requirements and explain whether a standard Nitrogen product or a custom liquid prescription would be more appropriate.
+The amount needed depends on crop demand and soil supply, allowing for previous applications. We can use that information to help you choose between a standard Nitrogen product and a custom liquid prescription.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

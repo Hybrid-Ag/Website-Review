@@ -7,7 +7,7 @@ It is used with foliar nutrition applications. It is not a fertiliser or a subst
 
 Overview
 The staged material describes Amplify for spray-water conditioning and the way droplets contact the leaf. Water quality and the products in the proposed mixture need to be reviewed together.
-The reason for adding an adjuvant is different from choosing the Nutrients for the crop. The team can assess whether this product is appropriate for the water, equipment and foliar application being considered.
+Water quality can affect the choice of an adjuvant, but it does not tell us which Nutrients the crop needs. We can help you assess the water and proposed mixture, together with the equipment and foliar application being considered.
 
 Composition source: dashboard staging. Basis: not established
 No complete, confirmed composition is available for this page yet. Ask the team for the relevant product specification; a mineral analysis may not describe this product’s main purpose.

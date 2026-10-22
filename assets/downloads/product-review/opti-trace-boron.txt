@@ -7,7 +7,7 @@ It is considered where the crop requires a Boron correction, with the amount set
 
 Overview
 Boron is needed as new tissues develop and has a role in flowering and early fruit development. Opti-Trace Boron supplies this Element in a targeted liquid product, rather than adding a wider trace blend.
-The crop’s Boron requirement and the amount already supplied need to be assessed together. Soil and plant results help the agronomist decide whether a separate Boron application is useful or whether the liquid prescription should be adjusted.
+We assess the crop’s Boron requirement alongside the amount already supplied. Soil and plant results help us work out whether a separate Boron application is needed or whether the liquid prescription should be adjusted.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

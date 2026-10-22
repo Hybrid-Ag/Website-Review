@@ -138,10 +138,16 @@
       return field.required;
     });
     var invalid = null;
+    fields.forEach(clearFieldError);
 
     if (panel.dataset.formStep === '0' && !selectedTest()) {
       invalid = form.querySelector('input[name="test_type"]');
       error.textContent = 'Choose a test type, existing results, or Not sure to continue.';
+      error.id = 'test-type-error';
+      panel.querySelector('.test-options').before(error);
+      panel.querySelectorAll('input[name="test_type"]').forEach(function (field) {
+        field.setAttribute('aria-describedby', error.id);
+      });
     } else {
       fields.some(function (field) {
         field.removeAttribute('aria-invalid');
@@ -156,11 +162,49 @@
 
     if (invalid) {
       invalid.setAttribute('aria-invalid', 'true');
+      if (invalid.matches('.field')) showFieldError(invalid);
       if (focusInvalid !== false) invalid.focus();
       return false;
     }
     return true;
   }
+
+  function clearFieldError(field) {
+    field.removeAttribute('aria-invalid');
+    var errorId = field.id + '-error';
+    var message = document.getElementById(errorId);
+    if (message && message.classList.contains('testing-field-error')) message.remove();
+    var describedBy = (field.getAttribute('aria-describedby') || '').split(/\s+/).filter(function (id) {
+      return id && id !== errorId;
+    });
+    if (describedBy.length) field.setAttribute('aria-describedby', describedBy.join(' '));
+    else field.removeAttribute('aria-describedby');
+  }
+
+  function showFieldError(field) {
+    var label = field.labels && field.labels[0];
+    var name = label ? label.textContent.trim().replace(/\s+/g, ' ') : 'this field';
+    var message = document.createElement('span');
+    message.id = field.id + '-error';
+    message.className = 'testing-field-error';
+    message.textContent = field.name === 'question' ? 'Tell us what you would like help with to continue.'
+      : field.validity.typeMismatch && field.type === 'email'
+      ? 'Enter an email address, for example name@example.com.'
+      : (field.tagName === 'SELECT' ? 'Choose ' : 'Enter ') + name.toLowerCase() + ' to continue.';
+    field.after(message);
+    var describedBy = field.getAttribute('aria-describedby');
+    field.setAttribute('aria-describedby', (describedBy ? describedBy + ' ' : '') + message.id);
+  }
+
+  function clearResolvedError(event) {
+    var field = event.target;
+    if (!field.matches('.field[aria-invalid="true"]') || !field.validity.valid) return;
+    clearFieldError(field);
+    var panel = field.closest('[data-form-step]');
+    if (!panel.querySelector('[aria-invalid="true"]')) panel.querySelector('[data-step-error]').textContent = '';
+  }
+  form.addEventListener('input', clearResolvedError);
+  form.addEventListener('change', clearResolvedError);
 
   function addReviewRow(label, value) {
     var dt = document.createElement('dt');
@@ -255,6 +299,10 @@
     if (event.target.name === 'test_type') {
       explainerEl.textContent = testExplainers[event.target.value] || '';
       panels[0].querySelector('[data-step-error]').textContent = '';
+      panels[0].querySelectorAll('input[name="test_type"]').forEach(function (field) {
+        field.removeAttribute('aria-invalid');
+        field.removeAttribute('aria-describedby');
+      });
     }
     if (event.target.name === 'sector') updateSiteLanguage(event.target.value);
   });

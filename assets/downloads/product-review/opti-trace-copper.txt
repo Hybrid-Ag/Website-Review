@@ -7,7 +7,7 @@ It is considered for a documented Copper requirement, taking account of test res
 
 Overview
 Copper is involved in enzyme activity within the plant. Opti-Trace Copper supplies it with Sulphur in a chelated liquid for a crop that needs a targeted Copper correction.
-The formulation includes heptonate, sugar alcohol, amino acid and fulvic components with saponins. These named ingredients describe the product; crop testing and the wider Nutrient recommendation establish whether its Copper contribution is needed.
+The formulation includes heptonate, sugar alcohol, amino acid and fulvic components with saponins. We use crop testing and the wider Nutrient recommendation to establish whether Copper is needed and how much has already been supplied.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

@@ -7,7 +7,7 @@ Its staged analysis describes a grade with very little Potassium, for a requirem
 
 Overview
 A requirement for Phosphorus can also call for Nitrogen, without a substantial Potassium addition. Agri-Vive 12.18.0 provides that combination in a liquid grade. Its proportions differ from an NPK feed with a larger Potassium component, so the choice should follow what the soil and crop need.
-Include the Nitrogen supplied with the Phosphorus when reviewing the planned application. The crop’s development, available soil nutrition and previous inputs help the agronomist work out whether these proportions suit the farm. Use the complete analysis to calculate the contribution, rather than relying on the grade name alone.
+The Nitrogen supplied with the Phosphorus must also be included in the recommendation. We look at the crop’s development and available soil nutrition, taking previous applications into account. The full analysis is needed to calculate the contribution; the grade name alone does not give us that information.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

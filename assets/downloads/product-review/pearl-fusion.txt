@@ -7,7 +7,7 @@ The batch reference includes Calcium, Magnesium, Boron, Manganese, Zinc and humi
 
 Overview
 The supplier certificate for Pearl Fusion batch SRT25-008 records a black 2–4 mm granule containing NPK, Calcium, Magnesium and trace Nutrients, with humic acid. This is a batch-specific composition reference to assess against the soil and crop requirement.
-The combination needs to be compared with the Nutrients already available and applied. The team can then explain whether Pearl Fusion meets the requirement or whether a custom granular prescription needs a different balance.
+We compare this batch reference with the soil and crop requirements, taking account of the Nutrients already available and applied. We can then discuss whether Pearl Fusion is suitable or a custom granular prescription needs a different balance.
 
 Composition source: dashboard staging. Basis: Percent as reported; zinc in ppm
 This is a provisional source reference. The recorded basis, concentration and current product identity need technical confirmation before publication.

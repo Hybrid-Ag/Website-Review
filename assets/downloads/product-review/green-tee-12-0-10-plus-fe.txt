@@ -7,7 +7,7 @@ It provides a fixed combination to assess when the turf recommendation calls for
 
 Overview
 Green-Tee 12.0.10 + Fe combines a Nitrogen and Potassium feed with Iron in the same liquid application. It gives turf managers a fixed-analysis option when the recommendation calls for growth nutrition and an Iron contribution together.
-An Iron requirement should not obscure the other Nutrients supplied. Compare the complete grade with the existing turf feed, test results and growing conditions before selecting it. That helps determine whether this combination meets the requirement or whether Iron should be addressed without the same Nitrogen and Potassium addition.
+When Iron is needed, the Nitrogen and Potassium in the same application must also be considered. We compare the complete grade with the existing turf feed and test results, taking growing conditions into account. This helps establish whether the combination is suitable or Iron should be supplied without the same Nitrogen and Potassium addition.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

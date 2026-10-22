@@ -7,7 +7,7 @@ The staged material describes Broadacre and pasture use, including consideration
 
 Overview
 ToNik supplies Nitrogen in a liquid formulation with fulvic and carbohydrate components. It provides foliar and watered-in options for Broadacre crops and pasture when the crop needs Nitrogen.
-Winter growth is affected by more than nutrition alone. Soil Nitrogen, moisture, temperature and grazing pressure help the team assess a pasture application; the same attention to crop demand and previous inputs guides an in-season Broadacre recommendation.
+Winter growth is affected by more than nutrition alone. We consider soil Nitrogen and moisture, along with temperature and grazing pressure, when assessing pasture. For an in-season Broadacre application, we also need to know crop demand and what has already been supplied.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

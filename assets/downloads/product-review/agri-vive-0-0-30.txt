@@ -6,7 +6,7 @@ Agri-Vive 0.0.30 supplies Potassium in a liquid formulation, with heptonate and 
 Consider it where the crop needs additional Potassium, allowing for the nutrition already supplied by the soil and other applications.
 
 Overview
-A crop can need additional Potassium without a substantial Nitrogen addition. Agri-Vive 0.0.30 gives the team a concentrated liquid Potassium option to assess against that requirement, including when fruit or grain is filling. The amount already available from the soil and earlier applications remains part of the recommendation.
+Some crops need additional Potassium without a substantial Nitrogen addition. Agri-Vive 0.0.30 provides a concentrated liquid Potassium option for that requirement, including during fruit or grain filling. We take account of the Potassium already available in the soil and supplied through earlier applications before recommending more.
 The formulation includes heptonate and fulvic compounds. Foliar and watered-in methods are described in the product material, but they deliver the application differently. Choose the method for the crop and equipment, then compare the complete product analysis with the nutrition needed.
 
 Composition source: dashboard staging. Basis: % w/v

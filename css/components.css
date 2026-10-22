@@ -304,7 +304,7 @@ body.nav-glass-ready main>.nav-glass-cover{margin-top:calc(-1 * var(--site-heade
 .btn,.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:700;
   font-size:var(--fs-cta);letter-spacing:var(--tracking-ui);text-transform:uppercase;cursor:pointer;border:0;
   transition:transform var(--t-fast),background var(--t-fast),color var(--t-fast)}
-.btn{padding:0 22px;height:40px;border-radius:var(--r-btn);background:var(--orange-dk);color:var(--white)}
+.btn{padding:10px 22px;min-height:44px;line-height:1.25;border-radius:var(--r-btn);background:var(--orange-dk);color:var(--white);justify-content:center;text-align:center}
 .btn:hover{background:var(--orange-ui-hover)}
 .btn--teal{background:var(--teal-dk)} .btn--teal:hover{background:var(--teal-ui-hover)}
 .pill{padding:0 26px;height:46px;border-radius:var(--r-pill);background:var(--orange-dk);color:var(--white)}
@@ -315,8 +315,7 @@ body.nav-glass-ready main>.nav-glass-cover{margin-top:calc(-1 * var(--site-heade
 .cta-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 :where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:3px solid var(--teal-dk);outline-offset:3px}
 .band-dark :where(a,button,input,select,textarea,[tabindex]):focus-visible,
-.band-teal :where(a,button,input,select,textarea,[tabindex]):focus-visible,
-.foot :where(a,button,input,select,textarea,[tabindex]):focus-visible{outline-color:var(--white)}
+.band-teal :where(a,button,input,select,textarea,[tabindex]):focus-visible{outline-color:var(--white)}
 button:disabled,input:disabled{cursor:not-allowed;opacity:.62}
 
 /* ---------- Customer sign-in ---------- */
@@ -437,7 +436,8 @@ body[data-page="team"] main>.section>.wrap>h2.h2{font-size:clamp(32px,3vw,42px);
 
 /* ---------- Forms ---------- */
 .form{display:flex;flex-direction:column;gap:14px;max-width:520px}
-.form .field{height:46px;border:1px solid var(--hairline);border-radius:6px;background:var(--white);padding:0 16px;font-family:var(--font-body);font-size:15px;color:var(--ink)}
+.form .field{height:46px;border:1px solid #8c8880;border-radius:6px;background:var(--white);padding:0 16px;font-family:var(--font-body);font-size:16px;color:var(--ink);transition:border-color var(--t-fast),box-shadow var(--t-fast)}
+.form .field:focus-visible{border-color:var(--teal-dk);outline:2px solid var(--teal-dk);outline-offset:2px;box-shadow:0 0 0 5px #018d8a0c}
 .form textarea.field{height:auto;padding:14px 16px;resize:vertical;min-height:110px}
 .form label{font-family:var(--font-display);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--ink)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -452,7 +452,7 @@ body[data-page="team"] main>.section>.wrap>h2.h2{font-size:clamp(32px,3vw,42px);
 .form-status[data-state="success"]{color:var(--teal-dk)}
 .form-status[data-state="error"]{color:#8c2d25}
 .form[aria-busy="true"]{cursor:wait}
-.form .field[aria-invalid="true"]{border-color:#a64035;outline-color:rgba(166,64,53,.18)}
+.form .field[aria-invalid="true"],.form .field:user-invalid{border-color:#a64035;outline-color:#a64035}
 
 /* ---------- Footer ---------- */
 .foot{background:var(--cream);border-top:1px solid var(--hairline)}
@@ -468,6 +468,9 @@ body[data-page="team"] main>.section>.wrap>h2.h2{font-size:clamp(32px,3vw,42px);
 .foot-cols{display:flex;gap:64px;flex-wrap:wrap}
 .foot-col h3{font-family:var(--font-display);font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);margin:0 0 12px}
 .foot-col a,.foot-col p{display:block;color:var(--body);font-size:13px;margin-bottom:8px}
+.foot-col a{width:fit-content;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;transition:color var(--t-fast),text-decoration-color var(--t-fast)}
+.foot-col a:is(:hover,:focus-visible){color:var(--teal-dk);text-decoration-color:currentColor}
+.foot :where(a,button,input,select,textarea,[tabindex]):focus-visible{outline-color:var(--teal-dk)}
 .foot-rule{border:0;border-top:1px solid var(--hairline);margin:0}
 .foot-meta{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-block:22px;flex-wrap:wrap}
 .foot-meta .copy{font-size:11px;color:var(--body)}
@@ -977,6 +980,8 @@ html.site-signals-ready .home-hero .home-hero__field{opacity:0}
   :is(.cart-head,.nav-account__menu,.site-search-head)::before{display:none}
 }
 
+/* Keep page controls ahead of the optional closed guide. */
+.site-assistant-launcher.is-yielding{visibility:hidden;pointer-events:none;opacity:0}
 /* Printed reviews include sections that have not yet entered the viewport. */
 @media print{
   .reveal-ready [data-reveal]{opacity:1;transform:none;transition:none}

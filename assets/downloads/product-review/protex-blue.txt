@@ -7,7 +7,7 @@ The staged ingredient description includes heptonate, sugar-alcohol and fulvic c
 
 Overview
 Protex Blue combines Boron, Copper and Molybdenum in a liquid trace blend with heptonate, sugar alcohol and fulvic components. It is a foliar option for Broadacre crops when testing identifies a need for that combination.
-The recommendation starts with the crop results, not the product alone. The agronomist can compare each Element’s contribution with previous applications before choosing Protex Blue or adjusting a custom liquid prescription.
+The recommendation begins with the crop results. We compare the contribution of each Element with previous applications before choosing Protex Blue or adjusting a custom liquid prescription.
 
 Composition source: dashboard staging. Basis: % w/v (workbook basis, not restated by Tom)
 This is a provisional source reference. The recorded basis, concentration and current product identity need technical confirmation before publication.

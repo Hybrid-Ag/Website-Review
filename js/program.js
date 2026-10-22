@@ -10,7 +10,7 @@
   var tooltip = document.getElementById('tooltip');
   var backdrop = document.getElementById('popoutBackdrop');
   var popout = document.getElementById('popout');
-  var drillOpener = null, popoutOpener = null, inertSiblings = [];
+  var drillOpener = null, popoutOpener = null, inertSiblings = [], scrollLock = null;
   var stageImages = null;
   if (document.body.classList.contains('cherry-program-page') && C === window.CHERRY) stageImages = window.CHERRY_STAGE_IMAGES;
   else if (document.body.classList.contains('apple-program-page') && C === window.CROP_PROGRAM && C.meta && C.meta.crop === 'Apples') stageImages = window.APPLE_STAGE_IMAGES;
@@ -64,6 +64,7 @@
       matrix.appendChild(el('div', 'mx-testing-label', 'Testing'));
       C.stages.forEach(function (s) {
         var cell = el('div', 'mx-cell mx-testing-cell');
+        cell.dataset.stage = C.stages.indexOf(s);
         if (s.testing) cell.appendChild(el('span', 'mx-testing-badge', s.testing));
         matrix.appendChild(cell);
       });
@@ -81,6 +82,7 @@
         matrix.appendChild(name);
         C.stages.forEach(function (s, i) {
           var cell = el('div', 'mx-cell');
+          cell.dataset.stage = i;
           var rate = p.rates[i];
           if (rate) {
             var chip = el('button', 'chip ' + (bb ? 'chip-backbone' : 'chip-' + cat.key), rate);
@@ -123,6 +125,26 @@
       if (photo) item.querySelector('.step-head').insertBefore(photo, item.querySelector('.step-main'));
       stepper.appendChild(item);
     });
+    // Match the tallest actual heading, including wrapped labels and loaded fonts.
+    // Only header content is measured, so opening a stage does not resize its peers.
+    function alignStageHeads() {
+      if (!stepper.clientWidth) return;
+      var height = 100;
+      stepper.querySelectorAll('.step-head').forEach(function (head) {
+        var contentHeight = 0, style = window.getComputedStyle(head);
+        Array.prototype.forEach.call(head.children, function (child) {
+          contentHeight = Math.max(contentHeight, child.offsetHeight);
+        });
+        height = Math.max(height, Math.ceil(contentHeight + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom)));
+      });
+      stepper.style.setProperty('--program-step-height', height + 'px');
+    }
+    alignStageHeads();
+    if (window.ResizeObserver) {
+      var stageSizeObserver = new ResizeObserver(alignStageHeads);
+      stepper.querySelectorAll('.step-main').forEach(function (content) { stageSizeObserver.observe(content); });
+    } else window.addEventListener('resize', alignStageHeads, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(alignStageHeads);
     stepper.addEventListener('click', function (e) {
       var head = e.target.closest('.step-head'); if (!head) return;
       var item = head.parentNode, panel = head.nextElementSibling, open = panel.hasAttribute('hidden');
@@ -149,10 +171,12 @@
     var x = e.clientX + 14, y = e.clientY + 16, w = tooltip.offsetWidth, h = tooltip.offsetHeight;
     if (x + w > window.innerWidth - 12) x = e.clientX - w - 14;
     if (y + h > window.innerHeight - 12) y = e.clientY - h - 16;
-    tooltip.style.left = x + 'px'; tooltip.style.top = y + 'px';
+    tooltip.style.left = Math.max(12, Math.min(x, window.innerWidth - w - 12)) + 'px';
+    tooltip.style.top = Math.max(12, Math.min(y, window.innerHeight - h - 12)) + 'px';
   }
   function hideTip() { tooltip.classList.remove('show'); }
-  matrix.addEventListener('mouseover', function (e) {
+  function showTargetTip(e) {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
     var chip = e.target.closest('.chip'), stage = e.target.closest('.mx-stage'), prod = e.target.closest('.mx-prod');
     if (chip) {
       var p = findProd(chip.dataset.prod, chip.dataset.cat), s = C.stages[+chip.dataset.stage];
@@ -164,9 +188,15 @@
       var pp = findProd(prod.dataset.prod, prod.dataset.cat);
       showTip('<b>' + pp.name + '</b>' + roleLine(pp) + pp.why + '<br><span style="opacity:.65">' + (pp.href ? 'Click to open the product page →' : 'View product detail →') + '</span>', e);
     } else hideTip();
+  }
+  matrix.addEventListener('mouseover', showTargetTip);
+  matrix.addEventListener('mousemove', function (e) {
+    if (tooltip.classList.contains('show')) moveTip(e);
+    else showTargetTip(e); // Resume naturally after scrolling without requiring a cell exit.
   });
-  matrix.addEventListener('mousemove', function (e) { if (tooltip.classList.contains('show')) moveTip(e); });
   matrix.addEventListener('mouseleave', hideTip);
+  matrix.parentElement.addEventListener('scroll', hideTip, { passive: true });
+  window.addEventListener('scroll', hideTip, { passive: true });
 
   // ---------- Layer 3: click stage / rate → drill ----------
   function openDrill(i, opener) {
@@ -174,6 +204,9 @@
     if (drillOpener) drillOpener.setAttribute('aria-expanded', 'false');
     drillOpener = opener;
     drillOpener.setAttribute('aria-expanded', 'true');
+    matrix.querySelectorAll('.mx-cell').forEach(function (cell) {
+      cell.classList.toggle('is-stage-active', +cell.dataset.stage === i);
+    });
     var active = ratesPending ? [] : C.products.filter(function (p) { return p.rates[i]; });
     var prods = active.map(function (p) {
       var tag = p.href ? 'a' : 'div';
@@ -202,6 +235,7 @@
   function closeDrill() {
     if (!drill.classList.contains('show')) return;
     drill.classList.remove('show');
+    matrix.querySelectorAll('.is-stage-active').forEach(function (cell) { cell.classList.remove('is-stage-active'); });
     if (drillOpener) { drillOpener.setAttribute('aria-expanded', 'false'); restoreFocus(drillOpener); }
     drillOpener = null;
   }
@@ -210,21 +244,51 @@
   }
 
   // ---------- Layer 2: click input → popout ----------
+  function lockPageScroll() {
+    if (scrollLock) return;
+    scrollLock = {
+      root: document.documentElement.classList.contains('programme-modal-lock'),
+      body: document.body.classList.contains('programme-modal-lock'),
+      gutter: document.documentElement.classList.contains('programme-modal-gutter')
+    };
+    if (window.innerWidth > document.documentElement.clientWidth) document.documentElement.classList.add('programme-modal-gutter');
+    document.documentElement.classList.add('programme-modal-lock');
+    document.body.classList.add('programme-modal-lock');
+  }
+  function unlockPageScroll() {
+    if (!scrollLock) return;
+    if (!scrollLock.root) document.documentElement.classList.remove('programme-modal-lock');
+    if (!scrollLock.body) document.body.classList.remove('programme-modal-lock');
+    if (!scrollLock.gutter) document.documentElement.classList.remove('programme-modal-gutter');
+    scrollLock = null;
+  }
   function openPopout(p, opener) {
     if (!p) return;
+    if (backdrop.classList.contains('show')) closePopout(false);
+    if (window.HybridAgPanels) window.HybridAgPanels.open('programme-product', closePopout);
     popoutOpener = opener;
-    var wins = C.stages.map(function (s, i) { return p.rates[i] ? '<span class="badge">' + p.rates[i] + ' &middot; ' + s.name + '</span>' : ''; }).filter(Boolean).join(' ');
+    var signalField = popout.querySelector('.site-signals-field');
+    var wins = C.stages.map(function (s, i) { return p.rates[i] ? '<div class="popout-entry"><span>' + s.name + '</span><strong>' + p.rates[i] + '</strong></div>' : ''; }).filter(Boolean).join('');
     popout.innerHTML =
       '<div class="popout-head"><div><h3 id="program-popout-title">' + p.name + '</h3>' + (p.role ? '<span class="popout-role">' + p.role + '</span>' : '') + '</div><button type="button" class="popout-close" aria-label="Close product detail">&times;</button></div>' +
       '<div class="popout-body"><p>' + p.why + '</p>' +
-      '<h4 style="font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:0;text-transform:uppercase;margin:0 0 10px;color:var(--ink)">Entries in this draft</h4>' +
+      '<h4 class="popout-entries-title">Entries in this draft</h4>' +
       '<div class="popout-win">' + wins + '</div>' +
       '<p class="popout-rate-note">' + rateNote() + ' Products shown at the same stage are not necessarily a tank mix.</p>' +
       (p.href ? '<a class="pill pill--teal popout-product-link" href="' + p.href + '">View product &rarr;</a>' : '') + '</div>';
+    if (signalField) popout.appendChild(signalField);
     popout.setAttribute('aria-labelledby', 'program-popout-title');
     popout.removeAttribute('aria-label');
     backdrop.classList.add('show');
     backdrop.removeAttribute('aria-hidden');
+    // Reuse the site's single motion engine. The header is rebuilt on each open;
+    // the stable dialog hosts the field so detached headers never accumulate.
+    if (window.HybridAgSignals && !popout.hasAttribute('data-signals-overlay')) {
+      popout.setAttribute('data-signals-overlay', '');
+      popout.setAttribute('data-signals-polish', '');
+      window.HybridAgSignals.prepareSurface(popout);
+    }
+    lockPageScroll();
     hideTip();
     var close = popout.querySelector('.popout-close');
     close.addEventListener('click', closePopout);
@@ -237,12 +301,14 @@
       }
     });
   }
-  function closePopout() {
-    if (!backdrop.classList.contains('show')) return;
+  function closePopout(returnFocus) {
+    if (!backdrop.classList.contains('show') && !scrollLock) return;
     backdrop.classList.remove('show');
     inertSiblings.forEach(function (sibling) { sibling.inert = false; });
     inertSiblings = [];
-    restoreFocus(popoutOpener);
+    unlockPageScroll();
+    if (window.HybridAgPanels) window.HybridAgPanels.close('programme-product');
+    if (returnFocus !== false) restoreFocus(popoutOpener);
     popoutOpener = null;
     backdrop.setAttribute('aria-hidden', 'true');
   }

@@ -51,7 +51,8 @@
 .service-refined .audit-layers a{padding-block:24px}
 .service-refined .audit-start__grid article{min-height:0;padding:28px}
 .service-refined .audit-start__grid h3{max-width:24ch;margin-top:14px;font-size:29px}
-.service-refined .audit-start__grid .btn{margin-top:24px}
+.service-refined .audit-start__grid p{margin-bottom:24px}
+.service-refined .audit-start__grid .btn{margin-top:auto}
 .service-refined .audit-sectors__grid a{min-height:360px;padding:24px}
 
 /* Compact equal-width cards, with their actions aligned across each row. */

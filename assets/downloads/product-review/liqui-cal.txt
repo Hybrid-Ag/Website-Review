@@ -7,7 +7,7 @@ The staged material describes application through fertigation or watering into t
 
 Overview
 Calcium aids in the formation and strength of cell walls and is necessary for the development of plants. It is also required for early root growth and strong new top growth.
-A suspension needs to be considered with the irrigation system and preparation equipment, not treated as interchangeable with a soluble liquid. Review the Calcium contribution against the soil results and the nutrition already supplied. The team can then assess the amount required and whether this delivery method is appropriate for the crop.
+A suspension is not interchangeable with a soluble liquid. We need to consider the irrigation system and preparation equipment, as well as the Calcium requirement shown by the soil results. Allowing for nutrition already supplied helps us work out the amount required and whether this method is suitable for the crop.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

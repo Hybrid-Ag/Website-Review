@@ -1,8 +1,10 @@
 .shop-tools{display:grid;grid-template-columns:minmax(240px,1fr) minmax(220px,.6fr) auto;gap:16px;align-items:end;margin-top:28px}
 .shop-control{display:flex;flex-direction:column;gap:7px}
 .shop-control span{font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink)}
-.shop-control input,.shop-control select{width:100%;height:46px;border:1px solid var(--hairline);border-radius:6px;background:var(--white);padding:0 14px;font-family:var(--font-body);font-size:15px;color:var(--ink)}
-.shop-control input:focus,.shop-control select:focus{outline:3px solid color-mix(in srgb,var(--teal) 28%,transparent);outline-offset:1px;border-color:var(--teal)}
+.shop-control input,.shop-control select{width:100%;height:46px;border:1px solid #8c8880;border-radius:6px;background:var(--white);padding:0 14px;font-family:var(--font-body);font-size:16px;color:var(--ink)}
+.shop-control input,.shop-control select{transition:border-color var(--t-fast),box-shadow var(--t-fast)}
+.shop-control input:hover,.shop-control select:hover{border-color:var(--teal-dk)}
+.shop-control input:focus,.shop-control select:focus{outline:2px solid var(--teal-dk);outline-offset:2px;border-color:var(--teal-dk);box-shadow:0 0 0 5px #018d8a0c}
 .shop-count{min-width:94px;padding-bottom:12px;text-align:right;font-family:var(--font-display);font-size:13px;font-weight:700;color:var(--body)}
 .shop-grid{gap:22px;margin-top:30px}
 .catalogue-card[hidden]{display:none}
@@ -14,6 +16,31 @@
 .catalogue-card .card-link{margin-top:8px}
 .shop-empty{margin-top:28px;padding:24px 0;border-top:1px solid var(--hairline);font-style:italic;color:var(--body)}
 
+/* A single delegated pointer light keeps the catalogue quiet and lightweight.
+   It sits behind the copy, never over pack photography or click targets. */
+.catalogue-card{transition:border-color var(--t-fast),box-shadow var(--t-fast)}
+.catalogue-card:hover{transform:none;box-shadow:none}
+.catalogue-card .card-body{position:relative;isolation:isolate}
+.catalogue-card .card-body::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(180px circle at var(--shop-light-x,50%) var(--shop-light-y,50%),rgb(0 137 133 / .075),transparent 76%);opacity:0;transition:opacity var(--t-fast)}
+.catalogue-card:focus-visible{border-color:var(--teal-dk);box-shadow:0 10px 28px -20px rgb(26 23 20 / .25)}
+.catalogue-card:focus-visible .card-body{background:color-mix(in srgb,var(--teal) 4%,var(--white))}
+.catalogue-card .card-link::after{display:inline-block;transition:transform var(--t-fast)}
+@media(hover:hover) and (pointer:fine){
+  .catalogue-card:hover{border-color:color-mix(in srgb,var(--teal-dk) 48%,var(--hairline));box-shadow:0 10px 28px -20px rgb(26 23 20 / .25)}
+  .catalogue-card:hover .card-link::after{transform:translateX(3px)}
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .catalogue-card .card-body.is-pointer-lit::before{opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+  .catalogue-card,.catalogue-card .card-body::before,.catalogue-card .card-link::after,.shop-control input,.shop-control select{transition:none}
+  .catalogue-card:hover .card-link::after{transform:none}
+}
+@media(forced-colors:active){
+  .catalogue-card .card-body::before{display:none}
+  .catalogue-card:focus-visible{outline-color:Highlight}
+}
+
 @media(max-width:1080px){
   .shop-grid{grid-template-columns:repeat(3,1fr)}
 }
@@ -24,4 +51,52 @@
 }
 @media(max-width:520px){
   .shop-tools,.shop-grid{grid-template-columns:1fr}
+}
+
+/* Review-store surfaces share the quiet charcoal treatment of the guide.
+   Packaging stays on a neutral canvas; prices and controls never move. */
+body[data-page="shop"]:not([data-product-detail]){background:#121815;color:#f4f5ef}
+body[data-page="shop"]:not([data-product-detail]) main>.hero{--cover-action-ink:#f4f5ef;background:#121815;color:#f4f5ef}
+/* Keep the shared heading baseline, then move directly into the catalogue.
+   Unlike photo covers this plain introduction needs no empty image reserve. */
+body[data-page="shop"]:not([data-product-detail]) main>.page-cover>.page-cover__inner{min-height:0;padding-bottom:32px}
+body[data-page="shop"]:not([data-product-detail]) main>.page-cover+.section{padding-top:40px}
+body[data-page="shop"]:not([data-product-detail]) .hero h1{color:#f4f5ef}
+body[data-page="shop"]:not([data-product-detail]) .hero .sub{color:#bac6bf}
+body[data-page="shop"]:not([data-product-detail]) .page-cover .cta-row>.pill~.pill:hover{color:#121815}
+body[data-page="shop"]:not([data-product-detail]) main :is(a,button):focus-visible{outline-color:#8bd4cd}
+body[data-page="shop"]:not([data-product-detail]) main>.section{background:#121815;color:#f4f5ef}
+body[data-page="shop"]:not([data-product-detail]) main>.band-cream{background:#171e1b}
+body[data-page="shop"]:not([data-product-detail]) main :is(.h2,.card h3){color:#f4f5ef}
+body[data-page="shop"]:not([data-product-detail]) main :is(.eyebrow,.meta){color:#8bd4cd}
+body[data-page="shop"]:not([data-product-detail]) main :is(.card p,.muted,.shop-count,.shop-empty){color:#bac6bf}
+body[data-page="shop"]:not([data-product-detail]) main .card{background:#1b2420;border-color:#3c4943}
+body[data-page="shop"]:not([data-product-detail]) main .card-body{background:#1b2420}
+.shop-control span{color:#bac6bf}
+.shop-control input,.shop-control select{color-scheme:dark;background:#1b2420;color:#f4f5ef;border-color:#65776b}
+.shop-control input::placeholder{color:#bac6bf;opacity:1}
+.shop-control input:hover,.shop-control select:hover{border-color:#8bd4cd}
+.shop-control input:focus,.shop-control select:focus{outline-color:#8bd4cd;border-color:#8bd4cd;box-shadow:0 0 0 5px rgb(139 212 205 / .07)}
+.shop-empty{border-color:#3c4943}
+.catalogue-card{border-radius:8px;overflow:hidden}
+.catalogue-card .card-img{background:#f7f7f3;border-bottom:1px solid #3c4943}
+.catalogue-card .card-body{min-height:164px}
+.catalogue-card .card-body::before{background:radial-gradient(220px circle at var(--shop-light-x,50%) var(--shop-light-y,50%),rgb(139 212 205 / .12),transparent 76%)}
+.catalogue-card .price{color:#f4f5ef;font-variant-numeric:tabular-nums}
+.catalogue-card .card-link{color:#8bd4cd}
+.catalogue-card .card-link::after{color:inherit}
+.catalogue-card:focus-visible{outline:2px solid #8bd4cd;outline-offset:4px;border-color:#8bd4cd;box-shadow:none}
+body[data-page="shop"]:not([data-product-detail]) .catalogue-card:focus-visible .card-body{background:#24352e}
+body[data-page="shop"]:not([data-product-detail]) .testing-band{background:#1b2420;border-block:1px solid #3c4943;color:#f4f5ef}
+body[data-page="shop"]:not([data-product-detail]) .testing-band h3{color:#f4f5ef}
+@media(hover:hover) and (pointer:fine){
+  body[data-page="shop"]:not([data-product-detail]) .catalogue-card:hover{border-color:#8bd4cd;box-shadow:0 14px 30px -20px #0009}
+}
+@media(forced-colors:active){
+  body[data-page="shop"]:not([data-product-detail]) main>.hero{--cover-action-ink:LinkText;background:Canvas;color:CanvasText}
+  body[data-page="shop"]:not([data-product-detail]) .hero :is(h1,.sub){color:CanvasText}
+  body[data-page="shop"]:not([data-product-detail]) :is(.card,.card-body,.testing-band),.shop-control input,.shop-control select{background:Canvas;color:CanvasText;border-color:ButtonText}
+  body[data-page="shop"]:not([data-product-detail]) main :is(.h2,.card h3,.card p,.muted,.shop-count,.shop-empty,.eyebrow,.meta),.shop-control span,.catalogue-card .price{color:CanvasText}
+  .catalogue-card .card-link{color:LinkText}
+  .catalogue-card:focus-visible,.shop-control input:focus,.shop-control select:focus{outline-color:Highlight;border-color:Highlight}
 }

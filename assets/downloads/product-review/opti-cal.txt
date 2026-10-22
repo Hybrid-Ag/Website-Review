@@ -7,7 +7,7 @@ The staged material describes use during crop growth, including developing tissu
 
 Overview
 Opti-Cal supplies Calcium with Boron and Nitrogen in a liquid fertiliser. It gives the agronomist an option when the crop needs Calcium during growth, including while new tissue and fruit are developing.
-The complete contribution matters, not Calcium alone. Plant results and the crop stage help set the requirement, while irrigation, root condition and the Nutrients already supplied remain part of the decision.
+Boron and Nitrogen must be included in the recommendation as well as Calcium. We use plant results and the crop stage to help establish the requirement. Irrigation and root condition also matter, along with the nutrition already supplied.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

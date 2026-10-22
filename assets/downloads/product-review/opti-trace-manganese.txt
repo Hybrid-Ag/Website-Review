@@ -7,7 +7,7 @@ It provides a targeted option where the crop needs Manganese, rather than automa
 
 Overview
 Manganese is involved in photosynthesis. Opti-Trace Manganese supplies this Element with Sulphur in a chelated liquid for a crop whose Manganese requirement is not being met.
-The liquid has foliar and watered-in uses. Plant results help establish the requirement, and the agronomist can account for Manganese already supplied before choosing a targeted application or a mixed liquid prescription.
+The liquid has foliar and watered-in uses. Plant results help us establish the Manganese requirement, allowing for what has already been supplied. We can then discuss a targeted application or a mixed liquid prescription.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.

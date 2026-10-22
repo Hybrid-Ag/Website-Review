@@ -7,7 +7,7 @@ Confirm the actual products being supplied with the team before preparing the tw
 
 Overview
 The documented Lockout program pairs its liquid and powder components for preparation and placement around plant roots. It is considered within the biological part of a horticultural soil recommendation.
-Confirm the actual liquid and powder being supplied, then obtain the instructions for that pair before preparation. They are different components, not interchangeable Nutrient grades. The soil-biology discussion should also account for the crop’s mineral requirement and the conditions around the roots.
+Ask us to confirm the liquid and powder being supplied and the instructions for preparing that pair. They are separate components, not interchangeable Nutrient grades. The biological recommendation also needs to account for the crop’s mineral requirements and the conditions around the roots.
 
 Composition source: dashboard staging. Basis: CFU/mL
 This is a provisional source reference. The recorded basis, concentration and current product identity need technical confirmation before publication.

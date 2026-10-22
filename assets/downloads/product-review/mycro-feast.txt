@@ -7,7 +7,7 @@ It is described for root-zone use within the soil recommendation. It is differen
 
 Overview
 Mycro-Feast combines food sources for soil fungi and bacteria, including fish, kelp and humic and fulvic materials. Its purpose is to feed the biology already present or introduced with a suitable inoculant, rather than to supply a selected organism itself.
-The intended root-zone placement, soil conditions and any inoculant being considered help the team review the application. Mineral nutrition still needs to be assessed alongside the microbial food source. A food blend and an inoculant do different jobs, so their preparation and compatibility need to be confirmed before they are combined.
+We need to know where the product will be applied and which inoculant, if any, is being considered. The soil conditions and mineral requirements remain part of the recommendation. A food blend and an inoculant have different purposes, and their preparation and compatibility must be confirmed before combining them.
 
 Composition source: dashboard staging. Basis: not established
 No complete, confirmed composition is available for this page yet. Ask the team for the relevant product specification; a mineral analysis may not describe this product’s main purpose.

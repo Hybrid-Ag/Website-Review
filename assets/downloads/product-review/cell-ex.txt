@@ -7,7 +7,7 @@ The staged material describes foliar use through fruit development and grain or 
 
 Overview
 Cell-Ex combines Phosphorus and Calcium with Nitrogen, Potassium and trace Nutrients in a liquid foliar feed. The material describes use during fruit development and grain or seed filling, when the crop requires the Nutrients carried in the product.
-A developing crop does not automatically need every Nutrient in the same proportions. The full analysis lets the team compare this fixed combination with the test results, crop load and nutrition already supplied. That comparison is important before choosing a combined foliar feed instead of a prescription aimed at a more specific shortage.
+Developing crops do not all need the same proportions of Nutrients. We compare the full analysis with the crop’s test results and crop load, allowing for the nutrition already supplied. That helps us decide whether a combined foliar feed is appropriate or a prescription should address a more specific shortage.
 
 Composition source: dashboard staging. Basis: % w/v
 These are the governed dashboard staging figures, not a batch analysis or an approved website declaration. Tom’s product review and the current label and safety-document checks remain outstanding.
