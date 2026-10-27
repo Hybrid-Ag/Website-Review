@@ -66,6 +66,7 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Hybrid-Ag","url":"https://www.hybridag.com.au","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.hybridag.com.au/search.html?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
 <!-- /SEO:auto -->
 <link rel="stylesheet" href="css/pages/home-feedback.css?v=9e4a32288c">
+<link rel="stylesheet" href="css/pages/home-catalogue.css?v=prescription-first-20261027">
 </head>
 <body class="home-feedback" data-page="home">
 <div id="site-header"></div>
@@ -113,13 +114,17 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
     <div class="sector-scene__content"><div data-feedback-reveal><h2 id="home-broadacre-title">Broadacre</h2><p>Boost yields and set your crops up for success with a customised nutrition program.</p><a class="feedback-button" href="broadacre.html">Learn More <span class="sr-only">about Broadacre</span><span class="feedback-button__arrow" aria-hidden="true">&rarr;</span></a></div></div>
   </section>
 
-  <section class="feedback-products" id="products" aria-labelledby="home-products-title">
-    <div class="feedback-section-heading" data-feedback-reveal><h2 id="home-products-title">Products</h2><a href="shop.html">Shop</a></div>
-    <div class="feedback-product-grid">
-      <a class="feedback-product" href="agri-vive-rf.html" data-feedback-reveal><div class="feedback-product__image"><img src="assets/products/agri-vive-rf.webp" alt="Agri-Vive RF product packaging" loading="lazy" decoding="async"></div><h3>Agri-Vive RF</h3><span>Learn More</span></a>
-      <a class="feedback-product" href="product.html" data-feedback-reveal><div class="feedback-product__image"><img src="assets/products/product.webp" alt="Power-Cal product packaging" loading="lazy" decoding="async"></div><h3>Power-Cal</h3><span>Learn More</span></a>
-      <a class="feedback-product" href="opti-trace-budmax.html" data-feedback-reveal><div class="feedback-product__image"><img src="assets/products/opti-trace-budmax.webp" alt="Opti-Trace BudMax product packaging" loading="lazy" decoding="async"></div><h3>Opti-Trace BudMax</h3><span>Learn More</span></a>
-      <a class="feedback-product" href="bio-sea-fkf.html" data-feedback-reveal><div class="feedback-product__image"><img src="assets/products/bio-sea-fkf.webp" alt="Bio-Sea FKF product packaging" loading="lazy" decoding="async"></div><h3>Bio-Sea FKF</h3><span>Learn More</span></a>
+  <section class="home-prescriptions product-directions product-direction--2" id="products" aria-labelledby="home-products-title">
+    <div class="pd-prescription-feature" data-signals-overlay data-signals-polish>
+      <div class="pd-prescription-lead" data-feedback-reveal><span class="pd-kicker">Products</span><h2 id="home-products-title">Prescription blends<br>for your crop and soil.</h2><p>Our prescription blends are made for the requirements of your crop and soil. Talk to us about your test results.</p></div>
+      <nav class="pd-blend-grid" aria-label="Prescription blends">
+        <a class="pd-blend-card" href="services-prescription-blends.html"><img src="assets/photos/responsive/soil-rootzone-1200.webp" alt="" width="1200" height="1600" loading="lazy" decoding="async"><div class="pd-blend-copy"><span class="pd-kicker">Prescription blends</span><h3>Dry &amp; granular</h3><span class="pd-photo-action">Explore blends <span aria-hidden="true">↗</span></span></div></a>
+        <a class="pd-blend-card" href="services-liquid-prescription-blends.html"><img src="assets/photos/responsive/leaf-testing-crop-foliage-1200.webp" alt="" width="1200" height="1600" loading="lazy" decoding="async"><div class="pd-blend-copy"><span class="pd-kicker">Prescription blends</span><h3>Liquid</h3><span class="pd-photo-action">Explore blends <span aria-hidden="true">↗</span></span></div></a>
+      </nav>
+    </div>
+    <div class="pd-range-strip" data-signals-overlay data-signals-polish>
+      <div class="pd-section-label"><h3 class="pd-kicker">Standard ranges</h3><a class="pd-browse" href="shop.html">Browse all products <span aria-hidden="true">↗</span></a></div>
+      <nav class="pd-range-grid" aria-label="Standard product ranges"><a href="shop.html#foliar">Foliar <span aria-hidden="true">↗</span></a><a href="shop.html#fertigation">Fertigation <span aria-hidden="true">↗</span></a><a href="shop.html#biological">Biological &amp; Soil <span aria-hidden="true">↗</span></a><a href="shop.html#traces">Trace Elements <span aria-hidden="true">↗</span></a><a href="shop.html#stimulants">Plant Stimulants <span aria-hidden="true">↗</span></a><a href="shop.html#humates">Humates <span aria-hidden="true">↗</span></a></nav>
     </div>
   </section>
 
@@ -175,5 +180,9 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <script src="js/home-feedback.js?v=046c9775d8"></script>
 <script src="js/grower-videos.js?v=322dbb96d1"></script>
 <script src="js/main.js?v=28cfd7c3db"></script>
+<script data-home-products-signals>(function(){
+function prepare(){if(!window.HybridAgSignals)return;document.querySelectorAll('#products [data-signals-overlay]').forEach(function(surface){window.HybridAgSignals.prepareSurface(surface);});}
+window.addEventListener('hybridag:signals-ready',prepare,{once:true});prepare();
+})();</script>
 </body>
 </html>
