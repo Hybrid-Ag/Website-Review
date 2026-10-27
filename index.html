@@ -67,6 +67,7 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <!-- /SEO:auto -->
 <link rel="stylesheet" href="css/pages/home-feedback.css?v=9e4a32288c">
 <link rel="stylesheet" href="css/pages/home-catalogue.css?v=prescription-first-20261027">
+<link rel="stylesheet" href="css/pages/home-library.css?v=d38694cd86">
 </head>
 <body class="home-feedback" data-page="home">
 <div id="site-header"></div>
@@ -158,11 +159,138 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
     </div>
   </section>
 
-  <section class="feedback-blog" id="stories" aria-labelledby="home-blog-title">
-    <div class="feedback-section-heading" data-feedback-reveal><h2 id="home-blog-title">Blog</h2><a href="events.html">Webinars</a></div>
-    <div class="feedback-blog-grid">
-      <a class="feedback-blog-card" href="post-harvest.html" data-feedback-reveal><div class="feedback-blog-card__image"><img src="assets/stakeholder-home-2026-10-19/post-harvest.jpg" alt="Orchard rows after harvest" loading="lazy" decoding="async"></div><h3>Post-Harvest</h3><p>Post-Harvest is a particularly important period of time when we can have a significant influence on the plants&hellip;</p><span>Continue Reading</span></a>
-      <a class="feedback-blog-card" href="resource-testing-layers.html" data-feedback-reveal><div class="feedback-blog-card__image"><img src="assets/stakeholder-home-2026-10-19/soil-testing.jpg" alt="Wheat paddock" loading="lazy" decoding="async"></div><h3>Soil Testing</h3><p>Learn more about the importance of Soil Testing and what it can do for your crops.</p><span>Continue Reading</span></a>
+  <section class="feedback-blog home-library" id="stories" aria-labelledby="home-blog-title" data-content-library>
+    <div class="rd3-inner">
+      <div class="rd3-header" data-feedback-reveal>
+        <div><span class="home-collection-kicker">Knowledge &amp; experience</span><h2 id="home-blog-title">From our agronomists.</h2><p>Articles, crop guides and recordings from the Hybrid-Ag team.</p></div>
+        <a class="home-collection-link rd3-all" href="knowledge-center.html">Explore all resources <span aria-hidden="true">&nearr;</span></a>
+      </div>
+      <div class="rd3-tabs" data-library-tabs hidden>
+        <button type="button" id="rd3-tab-recordings" data-library-tab="recordings" aria-controls="rd3-panel-recordings">Recordings<span class="rd3-count">4</span></button>
+        <button type="button" id="rd3-tab-guides" data-library-tab="guides" aria-controls="rd3-panel-guides">Guides<span class="rd3-count">3</span></button>
+        <button type="button" id="rd3-tab-articles" data-library-tab="articles" aria-controls="rd3-panel-articles">Articles<span class="rd3-count">2</span></button>
+        <button type="button" id="rd3-tab-playbooks" data-library-tab="playbooks" aria-controls="rd3-panel-playbooks">Crop playbooks<span class="rd3-count">2</span></button>
+      </div>
+      <div class="rd3-group" id="rd3-panel-recordings" data-library-panel="recordings" aria-labelledby="rd3-heading-recordings">
+        <h3 class="rd3-group-heading" id="rd3-heading-recordings">Recordings</h3>
+        <div class="rd3-list">
+          <a class="rd3-resource" data-content-format="Video" href="https://www.youtube.com/watch?v=UOGgA1R0FS8" target="_blank" rel="noopener noreferrer">
+            <div class="rd3-thumb"><img src="assets/team/responsive/james-white-crop-1200.webp" width="104" height="112" alt="" loading="lazy" decoding="async"></div>
+            <div class="rd3-copy">
+              <span class="rd3-format">Video · Opens a new tab</span>
+              <h3>Dry Season Broadacre Nutrition</h3>
+              <p>A recording from the Hybrid-Ag team.</p>
+              <span class="rd3-credit">With James White</span>
+            </div><span class="rd3-arrow" aria-hidden="true">&nearr;</span>
+          </a>
+          <a class="rd3-resource" data-content-format="Video" href="https://www.youtube.com/watch?v=RwjZZNe9r2I" target="_blank" rel="noopener noreferrer">
+            <div class="rd3-thumb"><img src="assets/photos/responsive/cherries-1200.webp" width="104" height="112" alt="" loading="lazy" decoding="async"></div>
+            <div class="rd3-copy">
+              <span class="rd3-format">Video · Opens a new tab</span>
+              <h3>Cherry Nutrition Webinar</h3>
+              <p>Presented by Cherry Growers Australia.</p>
+              <span class="rd3-credit">With Andrew Smith</span>
+            </div><span class="rd3-arrow" aria-hidden="true">&nearr;</span>
+          </a>
+          <a class="rd3-resource" data-content-format="Video" href="https://www.youtube.com/watch?v=K2p6dhirnDE" target="_blank" rel="noopener noreferrer">
+            <div class="rd3-thumb"><img src="assets/photos/responsive/cereal-1200.webp" width="104" height="112" alt="" loading="lazy" decoding="async"></div>
+            <div class="rd3-copy">
+              <span class="rd3-format">Video · Opens a new tab</span>
+              <h3>Nitrogen Use Efficiency</h3>
+              <p>A Loam-hosted webinar with the Hybrid-Ag team.</p>
+              <span class="rd3-credit">Bruce Armstrong · James White · Dr Anders Classens</span>
+            </div><span class="rd3-arrow" aria-hidden="true">&nearr;</span>
+          </a>
+          <a class="rd3-resource" data-content-format="Video" href="https://www.youtube.com/watch?v=Xnt9IXQzUY4" target="_blank" rel="noopener noreferrer">
+            <div class="rd3-thumb"><img src="assets/team/responsive/james-white-portrait-690.webp" width="104" height="112" alt="" loading="lazy" decoding="async"></div>
+            <div class="rd3-copy">
+              <span class="rd3-format">Video · Opens a new tab</span>
+              <h3>Dry Season Pasture Management</h3>
+              <p>A recording from the Hybrid-Ag team.</p>
+              <span class="rd3-credit">With James White</span>
+            </div><span class="rd3-arrow" aria-hidden="true">&nearr;</span>
+          </a>
+        </div>
+      </div>
+      <div class="rd3-group" id="rd3-panel-guides" data-library-panel="guides" aria-labelledby="rd3-heading-guides">
+        <h3 class="rd3-group-heading" id="rd3-heading-guides">Guides</h3>
+        <div class="rd3-list">
+          <a class="rd3-resource" data-content-format="Guide" href="resource-testing-layers.html">
+            <div class="rd3-thumb"><img src="assets/photos/responsive/soil-rootzone-1200.webp" width="104" height="112" alt="" loading="lazy" decoding="async"></div>
+            <div class="rd3-copy">
+              <span class="rd3-format">Guide</span>
+              <h3>What each test can tell you.</h3>
+              <p>A guide to reading the results alongside the soil and crop being sampled.</p>
+              <span class="rd3-credit">Hybrid-Ag</span>
+            </div><span class="rd3-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="rd3-resource" data-content-format="Guide" href="resource-water-quality-foliar-sprays.html">
+            <div class="rd3-thumb"><img src="assets/photos/responsive/water-testing-hero-1200.webp" width="104" height="112" alt="" loading="lazy" decoding="async"></div>
+            <div class="rd3-copy">
+              <span class="rd3-format">Guide</span>
+              <h3>Water is part of every foliar spray.</h3>
+              <p>Understand the water report in the context of its intended use.</p>
+              <span class="rd3-credit">Hybrid-Ag</span>
+            </div><span class="rd3-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="rd3-resource" data-content-format="Guide" href="resource-sampling-context.html">
+            <div class="rd3-thumb"><img src="assets/photos/responsive/leaf-testing-field-samples-1200.webp" width="104" height="112" alt="" loading="lazy" decoding="async"></div>
+            <div class="rd3-copy">
+              <span class="rd3-format">Guide</span>
+              <h3>Make every sample a useful reference.</h3>
+              <p>Keep the original report and sample details together for future crop nutrition decisions.</p>
+              <span class="rd3-credit">Hybrid-Ag</span>
+            </div><span class="rd3-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+      <div class="rd3-group" id="rd3-panel-articles" data-library-panel="articles" aria-labelledby="rd3-heading-articles">
+        <h3 class="rd3-group-heading" id="rd3-heading-articles">Articles</h3>
+        <div class="rd3-list">
+          <a class="rd3-resource" data-content-format="Article" href="post-harvest.html">
+            <div class="rd3-thumb"><img src="assets/photos/responsive/post-harvest-apples-1200.webp" width="104" height="112" alt="" loading="lazy" decoding="async"></div>
+            <div class="rd3-copy">
+              <span class="rd3-format">Article</span>
+              <h3>Post-Harvest</h3>
+              <p>Review yield, fruit quality and existing test results with the team before planning next season’s nutrition.</p>
+              <span class="rd3-credit">Hybrid-Ag</span>
+            </div><span class="rd3-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="rd3-resource" data-content-format="Article" href="https://www.hybridag.com.au/marcus-oldham-rural-leadership-lessons" target="_blank" rel="noopener noreferrer">
+            <div class="rd3-thumb"><img src="assets/team/responsive/james-white-portrait-690.webp" width="104" height="112" alt="" loading="lazy" decoding="async"></div>
+            <div class="rd3-copy">
+              <span class="rd3-format">Article · Opens a new tab</span>
+              <h3>Leading with purpose: James White’s lessons from the Marcus Oldham Rural Leadership Program</h3>
+              <p>An article from the current Hybrid-Ag website.</p>
+              <span class="rd3-credit">By James White</span>
+            </div><span class="rd3-arrow" aria-hidden="true">&nearr;</span>
+          </a>
+        </div>
+      </div>
+      <div class="rd3-group" id="rd3-panel-playbooks" data-library-panel="playbooks" aria-labelledby="rd3-heading-playbooks">
+        <h3 class="rd3-group-heading" id="rd3-heading-playbooks">Crop playbooks</h3>
+        <div class="rd3-list">
+          <a class="rd3-resource" data-content-format="Playbook" href="sectors-apples.html">
+            <div class="rd3-thumb"><img src="assets/photos/responsive/fruit-on-tree-1200.webp" width="104" height="112" alt="" loading="lazy" decoding="async"></div>
+            <div class="rd3-copy">
+              <span class="rd3-format">Playbook · Review draft</span>
+              <h3>Apple nutrition through the season.</h3>
+              <p>Explore the Apple Nutrition Playbook and a sample program for review with the team.</p>
+              <span class="rd3-credit">Hybrid-Ag</span>
+            </div><span class="rd3-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="rd3-resource" data-content-format="Playbook" href="sectors-cherries.html">
+            <div class="rd3-thumb"><img src="assets/photos/responsive/cherries-1200.webp" width="104" height="112" alt="" loading="lazy" decoding="async"></div>
+            <div class="rd3-copy">
+              <span class="rd3-format">Playbook · Review draft</span>
+              <h3>Cherry nutrition through the season.</h3>
+              <p>Explore the Cherry Nutrition Playbook and a sample program for review with the team.</p>
+              <span class="rd3-credit">Hybrid-Ag</span>
+            </div><span class="rd3-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+      <span class="sr-only" data-library-status role="status" aria-live="polite" aria-atomic="true"></span>
     </div>
   </section>
 
@@ -184,5 +312,6 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 function prepare(){if(!window.HybridAgSignals)return;document.querySelectorAll('#products [data-signals-overlay]').forEach(function(surface){window.HybridAgSignals.prepareSurface(surface);});}
 window.addEventListener('hybridag:signals-ready',prepare,{once:true});prepare();
 })();</script>
+<script src="js/home-library.js?v=7d4a2da0ea"></script>
 </body>
 </html>
