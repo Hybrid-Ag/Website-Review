@@ -42,7 +42,7 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <title>Customer Account - Hybrid-Ag</title>
 <meta name="description" content="Sign in, link an existing Hybrid-Ag customer account, or create a new Cash Only or Credit account.">
 <link rel="stylesheet" href="css/tokens.css?v=534707a7ce">
-<link rel="stylesheet" href="css/components.css?v=a67db000a6">
+<link rel="stylesheet" href="css/components.css?v=3fa802bb4a">
 <link rel="stylesheet" href="css/pages/account-application.css?v=b51fb1e989">
 <link rel="stylesheet" href="css/page-covers.css?v=8654f7a3e8">
 <!-- SEO:auto -->
@@ -118,7 +118,7 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
               <span>Existing customer</span><strong>Connect my Hybrid-Ag account</strong><small>We check whether your verified Google email matches your customer account. If it does not, you can request a connection.</small>
             </button>
             <button class="account-path account-path--orange" type="button" data-open-application>
-              <span>New customer</span><strong>Create a new account</strong><small>Choose Cash Only or Credit. Credit-only information appears only if you request credit terms.</small>
+              <span>New customer</span><strong>Create a new account</strong><small>Choose Cash Only to pay before delivery, or apply for credit terms.</small>
             </button>
           </div>
         </section>
@@ -127,7 +127,7 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
           <button class="account-back" type="button" data-close-panel>&larr; Back to account options</button>
           <span class="eyebrow">Existing customer</span>
           <h2>Connect the account you already use.</h2>
-          <p>For customer privacy, we do not display or search the full customer database. Enter either detail below and our accounts team will confirm the link to your verified email.</p>
+          <p>Enter your Hybrid-Ag account number or business name so our accounts team can confirm the connection to your verified email.</p>
           <form class="account-link-form" data-link-form novalidate>
             <div class="form-row">
               <div class="field-group"><label for="link-account-number">Hybrid-Ag account number <span>Optional</span></label><input class="field" id="link-account-number" name="account_number" autocomplete="off"></div>
@@ -186,7 +186,7 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
             </section>
 
             <section class="application-step" data-app-step="credit" hidden>
-              <div class="credit-intro"><span>Credit application</span><strong>These details are only required to pay by invoice.</strong><p>They reflect the existing Hybrid-Ag credit process. Licence images and structure-specific documents are requested after submission.</p></div>
+              <div class="credit-intro"><span>Credit application</span><strong>These details are only required to pay by invoice.</strong><p>After you submit your credit application, our accounts team will ask for licence images and any documents required for your business structure.</p></div>
               <fieldset><legend>Credit request</legend><div class="form-row"><div class="field-group"><label for="credit-monthly">Estimated monthly purchases</label><div class="money-field"><span>$</span><input class="field" id="credit-monthly" name="estimated_monthly_purchases" inputmode="decimal" data-credit-required></div></div><div class="field-group"><label for="credit-limit">Credit limit required</label><div class="money-field"><span>$</span><input class="field" id="credit-limit" name="credit_limit_required" inputmode="decimal" data-credit-required></div></div></div></fieldset>
               <fieldset><legend>Accounts payable</legend><div class="form-row"><div class="field-group"><label for="ap-name">Contact name</label><input class="field" id="ap-name" name="ap_name" data-credit-required></div><div class="field-group"><label for="ap-phone">Phone</label><input class="field" id="ap-phone" name="ap_phone" type="tel" data-credit-required></div></div><div class="field-group"><label for="ap-email">Email</label><input class="field" id="ap-email" name="ap_email" type="email" data-credit-required></div></fieldset>
               <fieldset><legend>Bank details</legend><div class="form-row form-row--bank"><div class="field-group"><label for="bank-name">Bank</label><input class="field" id="bank-name" name="bank_name" data-credit-required></div><div class="field-group"><label for="bank-bsb">BSB</label><input class="field" id="bank-bsb" name="bank_bsb" inputmode="numeric" data-credit-required></div><div class="field-group"><label for="bank-account">Account number</label><input class="field" id="bank-account" name="bank_account_number" inputmode="numeric" data-credit-required></div></div></fieldset>
@@ -221,10 +221,10 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 
 <div id="site-footer"></div>
 <script src="js/data/products.js?v=c9d410f4d8"></script>
-<script src="js/components.js?v=16c4b94f38"></script>
+<script src="js/components.js?v=b3b65ec436"></script>
 <script src="js/cart.js?v=930667fc15"></script>
 <script src="js/customer-auth.js?v=1d04439703"></script>
 <script src="js/account-application.js?v=0afb79e6c6"></script>
-<script src="js/main.js?v=28cfd7c3db"></script>
+<script src="js/main.js?v=dfb0fa455d"></script>
 </body>
 </html>

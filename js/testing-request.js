@@ -73,7 +73,7 @@
     sap: 'For Differential Sap Analysis, tell us the crop stage and what you want to find out.',
     water: 'Tell us where the water comes from and how you use it, such as for irrigation, fertigation or foliar sprays.',
     produce: 'Tell us which crop you want to test, where it was grown and what you need to find out. Include harvest timing and yield if available.',
-    existing: 'Tell us what reports you already have. The file-sharing instructions are in the next step; this form does not upload files.',
+    existing: 'Tell us what reports you already have, and email them to the team after sending your request. This form does not upload files.',
     'not-sure': 'Tell us what you would like help with. The team can discuss whether testing is needed and which test to use.'
   };
 

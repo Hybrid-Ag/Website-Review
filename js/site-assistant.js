@@ -14,7 +14,7 @@
   var lastFocus;
   var indexPromise;
   // Keep aligned with the lazy-loaded Finder index in components.js.
-  var SEARCH_ASSET_VERSION = '20261021-panel-polish';
+  var SEARCH_ASSET_VERSION = 'e0463255b2';
   var stateLoaded = false;
   var closeTimer;
   var isOpen = false;
@@ -356,7 +356,7 @@
         '<div class="site-assistant-page-context"><span>This page</span><strong>' + escapeHTML(pageContext.title) + '</strong></div>' +
         '<div class="site-assistant-paths" aria-label="Crop support starting points">' +
           '<button type="button" data-assistant-path="I need new testing" aria-pressed="false"><b>01</b><span><strong>I need new testing</strong><small>Start a new testing request.</small></span><span aria-hidden="true">&rarr;</span></button>' +
-          '<button type="button" data-assistant-path="I have existing results" aria-pressed="false"><b>02</b><span><strong>I already have results</strong><small>Find out how to discuss your reports with the team.</small></span><span aria-hidden="true">&rarr;</span></button>' +
+          '<button type="button" data-assistant-path="I have existing results" aria-pressed="false"><b>02</b><span><strong>I already have results</strong><small>Ask the team about your reports and what to do next.</small></span><span aria-hidden="true">&rarr;</span></button>' +
           '<button type="button" data-assistant-path="Explain this page: ' + escapeHTML(pageContext.title) + '" aria-pressed="false"><b>03</b><span><strong>Find related information</strong><small>See other pages about this topic.</small></span><span aria-hidden="true">&rarr;</span></button>' +
         '</div>' +
         '<div class="site-assistant-gate__action">' +

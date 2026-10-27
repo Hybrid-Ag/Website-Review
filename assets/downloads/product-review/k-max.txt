@@ -6,7 +6,7 @@ K-Max is a liquid Potassium fertiliser with fulvic and other complexing compound
 The staged material includes fertigation, foliar and Broadacre liquid-injection contexts, where the crop requires additional Potassium.
 
 Overview
-K-Max provides concentrated Potassium in a liquid formulation with fulvic and other complexing compounds. It gives the team a targeted option to assess when the crop requires additional Potassium, with the full contribution compared against soil supply and previous applications.
+K-Max provides concentrated Potassium in a liquid formulation with fulvic and other complexing compounds. It is an option where the crop requires additional Potassium, with the full contribution compared against soil supply and previous applications.
 The material describes more than one way to deliver it: fertigation or foliar use, and liquid injection in Broadacre cropping. These methods have different placement and preparation requirements. Discuss the crop and equipment before choosing between them; a statement about liquid injection does not establish seed-contact safety or compatibility for a particular setup.
 
 Composition source: dashboard staging. Basis: % w/v

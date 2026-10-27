@@ -125,7 +125,7 @@
   }
 
   // Explicit editorial surfaces only: no forms, programme tables, cart or imagery overlays.
-  var lightSurfaces = '.feedback-testing,.feedback-products,.feedback-product__image,.feedback-blog,.feedback-contact,' +
+  var lightSurfaces = '.feedback-testing,.feedback-products,.feedback-product__image,.feedback-grower,.feedback-blog,.feedback-contact,' +
     '.card:not(.card--dark) .card-body,.resources-guide__body,.resources-playbook,' +
     '.resources-related,.resources-system,.test-service,.hort-chapter__body';
   Array.prototype.forEach.call(main.querySelectorAll(lightSurfaces), function (element) {

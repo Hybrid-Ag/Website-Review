@@ -6,7 +6,7 @@ Agri-Vive 3.14.32 combines Potassium and Phosphorus with a smaller Nitrogen comp
 The liquid grade provides a fixed-analysis option where a larger Nitrogen addition would not suit the crop’s requirement.
 
 Overview
-Agri-Vive 3.14.32 provides Potassium and Phosphorus together with a smaller Nitrogen component. It gives the team a liquid grade to assess where the first two Nutrients are required but a larger Nitrogen addition would not match the crop. The smaller Nitrogen contribution still needs to be included.
+Agri-Vive 3.14.32 provides Potassium and Phosphorus together with a smaller Nitrogen component. Consider it where the crop needs Potassium and Phosphorus without a larger Nitrogen addition. The smaller Nitrogen contribution still needs to be included.
 We compare the complete analysis with the soil supply and plant-test results, allowing for previous applications. This helps us work out whether the grade supplies what the crop needs, or whether a prescription blend with different proportions would be more suitable.
 
 Composition source: dashboard staging. Basis: not established

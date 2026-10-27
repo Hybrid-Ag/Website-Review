@@ -135,7 +135,7 @@
 
     var privacy = document.createElement('p');
     privacy.className = 'form-privacy';
-    privacy.appendChild(document.createTextNode('We use these details to respond to your enquiry and keep its source with the request. See our '));
+    privacy.appendChild(document.createTextNode('We use these details to respond to your enquiry and record which page or campaign it came from. See our '));
     var privacyLink = document.createElement('a');
     privacyLink.href = 'privacy.html';
     privacyLink.textContent = 'privacy policy';

@@ -104,7 +104,7 @@
       '<h2 class="h2 order-count">' + Cart.count() + ' item' + (Cart.count() === 1 ? '' : 's') + ' in your order</h2>' +
       '<div class="order-table-wrap"><table class="order-table"><tbody>' + rows + '</tbody></table></div>' +
       '<div class="cart-sub order-subtotal"><span>Indicative subtotal <em>(ex GST)</em></span><b>' + money(Cart.subtotal()) + '</b></div>' +
-      '<p class="cart-note">The website does not set your final price. Products are checked against our current system, then the team confirms stock, account pricing and delivery.</p>';
+      '<p class="cart-note">The prices shown are indicative. The team confirms stock, your account price and delivery before processing the order.</p>';
 
     element.querySelectorAll('tr[data-line-id]').forEach(function (row) {
       var id = decodeURIComponent(row.getAttribute('data-line-id'));
@@ -269,8 +269,8 @@
       picker.innerHTML = '<div class="account-setup"><span>' + (relationship === 'existing' ? 'No existing account connected' : 'No new account application saved') + '</span>' +
         '<strong>' + (relationship === 'existing' ? 'Connect the account you already use.' : 'Create your customer account first.') + '</strong>' +
         '<p>' + (relationship === 'existing'
-          ? 'We can match a verified email automatically or send a short connection request to accounts.'
-          : 'Choose Cash Only for the quickest path, or complete the extra details required for Credit.') + '</p>' +
+          ? 'Ask our accounts team to connect your Hybrid-Ag account to your verified email.'
+          : 'Choose Cash Only to pay before delivery, or apply for credit terms.') + '</p>' +
         '<a class="btn btn--teal" href="account-application.html?return=order.html">Set up customer account</a></div>';
       updateAddressOptions(form, null);
       return;
@@ -475,7 +475,7 @@
     var heading = response.order_number ? 'Your draft order is in our system.' : 'Your order request has been saved for review.';
     var copy = review
       ? 'Account, stock, pricing and delivery must be confirmed before the order can proceed.'
-      : 'The team will now check stock, account pricing and delivery before the order is progressed.';
+      : 'The team will check stock, your account price and delivery before processing your order.';
     document.getElementById('order-grid').innerHTML =
       '<div class="order-confirm"><div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>' +
       '<span class="eyebrow">Order request</span><h2 class="h2">' + heading + '</h2>' +

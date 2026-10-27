@@ -6,7 +6,7 @@ Agri-Vive 18.6.14 combines Nitrogen, Phosphorus and Potassium in one liquid fert
 The staged grade is an option where Nitrogen and Potassium are required together, with Phosphorus also supplied in the application.
 
 Overview
-Agri-Vive 18.6.14 supplies Nitrogen and Potassium together, with Phosphorus in the same liquid application. It offers a fixed grade to assess when the crop’s requirements include that combination. The amounts of all three Nutrients need to be reviewed, even if one of them prompted the discussion.
+Agri-Vive 18.6.14 supplies Nitrogen and Potassium together, with Phosphorus in the same liquid application. The amounts of all three Nutrients need to be reviewed, even if one of them prompted the discussion.
 A combined feed can be useful when its proportions suit the crop. We compare the soil and plant results with the nutrition already supplied to see what is still needed. If the crop needs a different balance, we can tailor a prescription rather than increase every Nutrient to meet a shortage of one.
 
 Composition source: dashboard staging. Basis: % w/v

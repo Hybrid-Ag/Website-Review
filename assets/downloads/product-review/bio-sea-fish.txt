@@ -6,7 +6,7 @@ Bio-Sea Fish is a liquid fish fertiliser described as supplying Nitrogen and ami
 It is an option to assess during active crop growth, alongside the Nutrients already supplied by the soil and other inputs.
 
 Overview
-Bio-Sea Fish supplies Nitrogen and amino acids from fish-derived material in a liquid fertiliser. It gives the team a fish-based option to assess during active crop growth, with its declared Nutrient contribution included alongside soil supply and other applications.
+Bio-Sea Fish supplies Nitrogen and amino acids from fish-derived material in a liquid fertiliser. If you are considering Bio-Sea Fish during active crop growth, include its Nutrient contribution alongside what the soil and other applications already supply.
 The Nitrogen from Bio-Sea Fish needs to be counted with the other nutrition supplied to the crop. Soil and plant information help us work out what is still required and whether a fish-based product is appropriate. Its amino-acid formulation does not remove the need to address a shortage of another Element.
 
 Composition source: dashboard staging. Basis: label basis (% w/v assumed for liquids, not restated by Tom)

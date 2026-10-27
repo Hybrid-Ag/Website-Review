@@ -33,6 +33,17 @@ main [id]{scroll-margin-top:calc(var(--nav-h) + 24px)}
   letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--teal-dk);margin-bottom:14px;display:block;
 }
 .eyebrow--orange{color:var(--orange-dk)} .eyebrow--berry{color:var(--berry)}
+/* Page-opening labels share teal; leave section labels and the artwork alone.
+   This narrow override wins over older page-specific white label rules.
+   System colours and print retain their existing presentation. */
+@media screen and (forced-colors:none){
+  body main :is(.page-cover,.product-purchase){--hero-label-ink:var(--teal-dk)}
+  body main.page-cover--photo,body main :is(.page-cover--photo,.product-purchase),
+  body[data-page="shop"] main>.page-cover{--hero-label-ink:#71c7c1}
+  body main .resources-hero--library{--hero-label-ink:var(--teal-dk)}
+  body main :is(.eyebrow,.concept-kicker,.product-kicker,.cherry-crumb,.cherry-program-crumb):has(+h1,+.not-found__code+h1){color:var(--hero-label-ink,var(--teal-dk))!important}
+  body main .cherry-program-crumb:has(+h1) :is(a,strong){color:inherit}
+}
 .h2{font-size:var(--fs-h2)}
 .sub{font-family:var(--font-body);font-style:normal;color:var(--body);font-size:17px;max-width:62ch}
 .h2 + .sub, h2 + .sub{margin-top:14px}
@@ -48,7 +59,9 @@ main [id]{scroll-margin-top:calc(var(--nav-h) + 24px)}
 .stripe span:nth-child(3){background:var(--berry)}
 
 /* ---------- Header / nav ---------- */
-#site-header{--nav-h:80px;position:sticky;top:0;z-index:50;min-height:calc(var(--nav-h) + 7px);background:#101210}
+#site-header{--nav-h:64px;position:sticky;top:0;z-index:50;min-height:calc(var(--nav-h) + 7px);background:#101210;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+#site-header.nav-scroll-hidden:not(:focus-within){transform:translateY(calc(-100% - 24px));pointer-events:none}
+#site-header:focus-within{transform:none;transition:none}
 .nav{position:relative;background:var(--white);border-bottom:1px solid var(--hairline)}
 .nav-inner{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:42px;height:var(--nav-h)}
 .nav-left,.nav-right{display:flex;align-items:center;gap:30px}
@@ -120,7 +133,7 @@ main [id]{scroll-margin-top:calc(var(--nav-h) + 24px)}
 
 /* Grouped 02: selected for the working site. Keep the legacy header styles
    available to the isolated comparisons; no preview controller runs here. */
-body.nav-grouped{--nav-h:80px}
+body.nav-grouped{--nav-h:64px}
 .nav-grouped .nav-logo{min-height:44px}
 .nav-grouped .nav-logo-img{height:44px}
 .nav-grouped .nav-logo-crop{position:relative;display:block;width:168px;max-width:calc(100vw - 208px);aspect-ratio:1755/280;overflow:hidden}
@@ -136,8 +149,9 @@ body.nav-grouped{--nav-h:80px}
 .nav-grouped .nav-actions .nav-phone::before{content:none}
 .nav-grouped .nav-link:hover{color:var(--teal-dk)}
 .nav-grouped :is(.nav-links,.nav-tools){overflow:visible;min-width:0}
+.nav-grouped .nav-links .nav-link{white-space:nowrap}
 @media(min-width:1101px){
-  .nav-grouped .nav-inner{width:calc(100% - 64px);max-width:1440px;padding-inline:0;grid-template-columns:168px minmax(0,1fr) 380px;gap:24px}
+  .nav-grouped .nav-inner{width:calc(100% - 80px);max-width:none;padding-inline:0;grid-template-columns:150px minmax(0,1fr) 380px;gap:24px}
   .nav-grouped .nav-logo{grid-column:1;justify-self:start}
   .nav-grouped .nav-links{grid-column:2;display:flex;align-items:center;justify-content:center;gap:22px;height:100%}
   .nav-grouped :is(.nav-left,.nav-right){grid-column:auto;justify-self:auto;gap:22px}
@@ -145,14 +159,16 @@ body.nav-grouped{--nav-h:80px}
   .nav-grouped :is(.nav-utilities,.nav-actions){position:static;transform:none;width:auto;gap:4px}
   .nav-grouped .nav-utilities .nav-account__menu,.nav-grouped .nav-utilities .nav-account::after{left:auto;right:0}
 }
+/* Keep the main routes beside the brand on wide monitors, not in a distant island. */
+@media(min-width:1600px){.nav-grouped .nav-links{justify-content:flex-start;padding-left:40px}}
 @media(min-width:1101px) and (max-width:1250px){
-  .nav-grouped .nav-inner{grid-template-columns:148px minmax(0,1fr) 380px;gap:16px}
-  .nav-grouped .nav-links,.nav-grouped :is(.nav-left,.nav-right){gap:17px}
+  .nav-grouped .nav-inner{width:calc(100% - 64px);grid-template-columns:148px minmax(0,1fr) 380px;gap:16px}
+  .nav-grouped .nav-links,.nav-grouped :is(.nav-left,.nav-right){gap:8px}
   .nav-grouped .nav-logo-img{height:41px}
 }
 @media(max-width:1100px){
-  #site-header{--nav-h:70px}
-  body.nav-grouped{--nav-h:70px}
+  #site-header{--nav-h:58px}
+  body.nav-grouped{--nav-h:58px}
   .nav-grouped :is(.nav-links,.nav-tools){display:none}
   .nav-grouped .nav-inner{gap:0;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
   .nav-grouped .nav-logo{grid-column:2;justify-self:center}
@@ -165,9 +181,10 @@ body.nav-grouped{--nav-h:80px}
 @media(max-width:360px){.nav-grouped .nav-logo-img{height:36px}}
 
 /* Official tagline-free wordmarks, with the coloured flower unchanged. */
-.nav-grouped .nav-logo{position:relative;width:168px;max-width:calc(100vw - 172px);height:44px}
+.nav-grouped .nav-logo{position:relative;width:150px;max-width:calc(100vw - 172px);height:44px}
 .nav-grouped .nav-logo .nav-logo-img{position:absolute;top:50%;left:0;width:100%;max-width:none;height:auto;aspect-ratio:1755/280;transform:translateY(-50%);filter:none}
 .nav-grouped .nav-logo .nav-logo-img--light{opacity:0}
+@media(max-width:1100px){.nav-grouped .nav-logo{max-width:calc(100vw - 208px)}}
 @media(min-width:1101px) and (max-width:1250px){.nav-grouped .nav-logo{width:148px}}
 
 /* Dark glass from the first paint, before the shared navigation script mounts.
@@ -214,7 +231,7 @@ body.nav-glass-ready main>.nav-glass-cover{margin-top:calc(-1 * var(--site-heade
 .nav-mshop.is-open .nav-mshop-x,.nav-msec.is-open .nav-mshop-x,.nav-msvc.is-open .nav-mshop-x{transform:rotate(45deg);display:inline-block}
 .nav-macc,.nav-sacc,.nav-vacc{display:none}
 
-/* ---------- Sectors dropdown (compact, anchored under the Sectors item) ---------- */
+/* ---------- Navigation dropdowns (compact, anchored under their trigger) ---------- */
 .nav-hasdrop{position:relative;display:flex;align-items:center;height:var(--nav-h)}
 .nav-drop::after{content:"";display:inline-block;width:6px;height:6px;margin-left:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform var(--t-fast)}
 .nav-hasdrop.is-open .nav-drop::after{transform:translateY(1px) rotate(-135deg)}
@@ -455,14 +472,16 @@ body[data-page="team"] main>.section>.wrap>h2.h2{font-size:clamp(32px,3vw,42px);
 .form .field[aria-invalid="true"],.form .field:user-invalid{border-color:#a64035;outline-color:#a64035}
 
 /* ---------- Footer ---------- */
-.foot{background:var(--cream);border-top:1px solid var(--hairline)}
+.foot{--ink:#f5f6f1;--body:#bec9c1;--hairline:#d7e6db2b;--teal-dk:#9bd5cd;background:#0d1510;color:var(--ink);border-top:1px solid var(--hairline);overflow:hidden}
 .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-block:48px 36px}
-.foot-news h2{font-size:24px}
-.foot-news p{color:var(--body);font-style:italic;margin-top:6px;max-width:42ch}
+.foot .foot-news h2{margin:0;font-size:clamp(28px,2.4vw,36px);line-height:1.1}
+.foot-news p{color:var(--body);font-size:15px;line-height:1.6;font-style:normal;margin-top:12px;max-width:42ch}
 .foot-news .eyebrow{margin-bottom:var(--intro-label-gap)}
 .foot-news .cta-row{margin-top:var(--intro-action-gap)}
+.foot .btn--teal{background:#017572;color:#fff}
+.foot .btn--teal:hover{background:var(--teal-ui-hover)}
 .foot-call{font-family:var(--font-display);font-weight:700;color:var(--ink)}
-.foot-call:hover{color:var(--teal)}
+.foot-call:hover{color:var(--teal-dk)}
 .foot-signup{display:flex;gap:10px;margin-top:18px}
 .foot-signup input{height:44px;border:1px solid var(--hairline);border-radius:6px;padding:0 14px;min-width:280px;font-size:15px}
 .foot-cols{display:flex;gap:64px;flex-wrap:wrap}
@@ -476,7 +495,11 @@ body[data-page="team"] main>.section>.wrap>h2.h2{font-size:clamp(32px,3vw,42px);
 .foot-meta .copy{font-size:11px;color:var(--body)}
 .foot-brand{display:flex;flex-direction:column;gap:10px}
 .foot-photo-credit{max-width:62ch;overflow-wrap:anywhere}
-.foot-logo-img{height:30px;width:auto}
+.foot-logo-img{height:auto;width:168px;max-width:100%;aspect-ratio:1755/280}
+.foot>.stamp{position:relative;z-index:1}
+.foot .stamp span:nth-child(1){color:#9bd5cd}
+.foot .stamp span:nth-child(2){color:#e79a4f}
+.foot .stamp span:nth-child(3){color:#c58ab5}
 .stamp{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;padding-block:18px;border-top:1px solid var(--hairline)}
 .stamp span{font-family:var(--font-display);font-weight:700;font-size:12px;letter-spacing:1.6px;text-transform:uppercase}
 .stamp span:nth-child(1){color:var(--teal)}
@@ -572,6 +595,8 @@ html.site-signals-ready .home-hero .home-hero__field{opacity:0}
 @media (min-width:1101px) and (max-width:1220px){
   .nav-inner{gap:32px}
   .nav-left,.nav-right{gap:22px}
+  .nav-grouped .nav-inner{grid-template-columns:148px minmax(0,1fr) 280px}
+  .nav-grouped .nav-actions .nav-phone{display:none}
 }
 
 /* ---------- Responsive ---------- */
@@ -624,6 +649,12 @@ html.site-signals-ready .home-hero .home-hero__field{opacity:0}
 }
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;animation:none!important}
+}
+@media(forced-colors:active){
+  .foot{--ink:CanvasText;--body:CanvasText;--hairline:CanvasText;--teal-dk:LinkText;background:Canvas;color:CanvasText}
+  .foot .stamp span:nth-child(n){color:CanvasText}
+  .foot :where(a,button,input,select,textarea,[tabindex]):focus-visible{outline-color:Highlight}
+  .foot-logo-img{background:#121312;padding:6px}
 }
 
 /* ---------- Site assistant mock-up (js/site-assistant.js) ---------- */
@@ -984,5 +1015,6 @@ html.site-signals-ready .home-hero .home-hero__field{opacity:0}
 .site-assistant-launcher.is-yielding{visibility:hidden;pointer-events:none;opacity:0}
 /* Printed reviews include sections that have not yet entered the viewport. */
 @media print{
+  #site-header.nav-scroll-hidden:not(:focus-within){transform:none;pointer-events:auto;transition:none}
   .reveal-ready [data-reveal]{opacity:1;transform:none;transition:none}
 }

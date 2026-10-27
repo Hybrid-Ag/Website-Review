@@ -4,10 +4,9 @@
   var hero = document.querySelector('[data-feedback-hero]');
   if (!hero) return;
   var video = hero.querySelector('video');
-  var control = hero.querySelector('[data-feedback-film-toggle]');
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-  var userPaused = false, visible = true, failed = false;
+  var playbackBlocked = false, visible = true, failed = false;
   var panels = Array.prototype.slice.call(document.querySelectorAll('[data-feedback-reveal]'));
   var photoScenes = Array.prototype.slice.call(document.querySelectorAll('.feedback-testing__image,.sector-scene'));
   var motionObserver = null, motionReleased = false;
@@ -18,15 +17,10 @@
     document.documentElement.classList.remove('feedback-motion-ready');
     panels.forEach(function (panel) { panel.classList.add('is-visible'); });
   }
-  function label() {
-    control.textContent = video.paused ? 'Play background film' : 'Pause background film';
-    control.setAttribute('aria-label', control.textContent);
-    control.setAttribute('aria-pressed', String(!video.paused));
-  }
   function sync() {
-    if (constrained() || !visible || document.hidden || userPaused || failed) {
+    if (constrained() || !visible || document.hidden || playbackBlocked || failed) {
       video.pause();
-      if (constrained()) { hero.dataset.playing = 'false'; control.hidden = true; }
+      if (constrained()) hero.dataset.playing = 'false';
       return;
     }
     if (!video.getAttribute('src')) {
@@ -36,18 +30,15 @@
     var attempt = video.play();
     if (attempt) attempt.catch(function (error) {
       // Leaving the viewport can interrupt a pending load/play request. That is
-      // not a user pause or an autoplay refusal; allow the next visible sync.
+      // not an autoplay refusal; allow the next visible sync.
       if (error && error.name === 'AbortError') return;
-      userPaused = true;
-      // A browser may block autoplay; keep a user-initiated play option available.
-      control.hidden = failed || constrained();
-      label();
+      playbackBlocked = true;
+      // Keep the still poster if this browser does not allow background playback.
+      hero.dataset.playing = 'false';
     });
   }
-  video.addEventListener('playing', function () { hero.dataset.playing = 'true'; control.hidden = false; label(); });
-  video.addEventListener('pause', label);
-  video.addEventListener('error', function () { failed = true; hero.dataset.playing = 'false'; control.hidden = true; });
-  control.addEventListener('click', function () { userPaused = !video.paused; if (userPaused) video.pause(); else sync(); label(); });
+  video.addEventListener('playing', function () { hero.dataset.playing = 'true'; });
+  video.addEventListener('error', function () { failed = true; hero.dataset.playing = 'false'; });
   document.addEventListener('visibilitychange', sync);
   if (reduced.addEventListener) reduced.addEventListener('change', function () { if (reduced.matches) { hero.dataset.playing = 'false'; releaseMotion(); } sync(); });
   if (connection && connection.addEventListener) connection.addEventListener('change', function () { if (constrained()) releaseMotion(); sync(); });

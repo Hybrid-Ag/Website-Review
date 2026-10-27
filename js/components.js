@@ -220,34 +220,18 @@
 /* Hybrid-Ag — shared header + footer for the static multi-page build. */
 (function () {
   var NAV = [
-    { key: 'about',     label: 'About Us',  href: 'about.html' },
-    { key: 'sectors',   label: 'Sectors',   href: 'sectors.html' },
-    { key: 'services',  label: 'Testing',   href: 'services-testing.html' },
-    { key: 'team',      label: 'Team',      href: 'team.html' },
-    { key: 'shop',      label: 'Shop',      href: 'shop.html' }
-  ];
-  // Sector navigation stays at production-system level. Crop chapters live under their parent sector.
-  var SECTORS = [
-    { label: 'Horticulture',        href: 'horticulture.html', note: 'Tree crops, berries & cherries' },
-    { label: 'Small Crop',          href: 'small-crop.html',   note: 'Vegetables & other short-cycle crops' },
-    { label: 'Broadacre & Pasture', href: 'broadacre.html',    note: 'Grain, oilseed & pasture' },
-    { label: 'Viticulture',         href: 'viticulture.html',  note: 'Wine & table grapes' }
-  ];
-  var SERVICES = [
-    { label: 'Testing and Interpretation', href: 'services-testing.html', note: 'Compare the testing options' },
-    { label: 'Soil Testing', href: 'services-soil-testing.html' },
-    { label: 'Dry and Granular Prescription Blends', href: 'services-prescription-blends.html' },
-    { label: 'Leaf and Tissue Testing', href: 'services-leaf-tissue-testing.html' },
-    { label: 'Differential Sap Analysis', href: 'services-differential-sap-analysis.html' },
-    { label: 'Liquid Prescription Blends', href: 'services-liquid-prescription-blends.html' },
-    { label: 'Water Testing', href: 'services-water-testing.html' },
-    { label: 'Produce Testing', href: 'services-produce-testing.html' },
-    { label: 'Nutrient Audit', href: 'nutrient-audit.html', note: 'Review results you already have' }
+    { key: 'services',     label: 'Testing',      href: 'services-testing.html' },
+    { key: 'small-crop',   label: 'Small Crop',   href: 'small-crop.html' },
+    { key: 'horticulture', label: 'Horticulture', href: 'horticulture.html' },
+    { key: 'broadacre',    label: 'Broadacre',    href: 'broadacre.html' },
+    { key: 'viticulture',  label: 'Viticulture',  href: 'viticulture.html' },
+    { key: 'about',        label: 'About Us',     href: 'about.html' },
+    { key: 'shop',         label: 'Shop',         href: 'shop.html' }
   ];
   var PHONE = '(03) 5722 7555', TEL = 'tel:+61357227555';
   // Update this cache key when either lazy-loaded Finder asset changes.
-  var SEARCH_ASSET_VERSION = '20261021-panel-polish';
-  var ASSISTANT_ASSET_VERSION = '20261022-control-clearance';
+  var SEARCH_ASSET_VERSION = 'e0463255b2';
+  var ASSISTANT_ASSET_VERSION = 'a05d9a208f';
   var searchLoadPromise = null;
 
   function loadSearchAsset(path, ready) {
@@ -384,40 +368,6 @@
     });
   }
 
-  function subnavPanel() {
-    var rows = SECTORS.map(function (s) {
-      return '<a class="subnav-item" href="' + s.href + '"><b>' + s.label + '</b>' +
-        (s.note ? '<span class="subnav-note">' + s.note + '</span>' : '') + '</a>';
-    }).join('');
-    return '<div class="subnav" id="subnav" role="region" aria-label="Sectors"><a class="subnav-item" href="sectors.html"><b>All sectors</b></a>' + rows +
-      '<a class="subnav-all" href="program.html">Explore crop programs &rarr;</a></div>';
-  }
-
-  function mobileSectors() {
-    var rows = SECTORS.map(function (s) {
-      return '<a class="nav-msub" href="' + s.href + '">' + s.label + '</a>';
-    }).join('');
-    return '<div class="nav-sacc" id="navSacc"><a class="nav-msub" href="sectors.html">All sectors</a>' + rows +
-      '<a class="nav-msub" href="program.html">Crop nutrition programs</a></div>';
-  }
-
-  function servicesPanel() {
-    var rows = SERVICES.map(function (s) {
-      return '<a class="subnav-item" href="' + s.href + '"><b>' + s.label + '</b>' +
-        (s.note ? '<span class="subnav-note">' + s.note + '</span>' : '') + '</a>';
-    }).join('');
-    return '<div class="subnav subnav--services" id="servicesSubnav" role="region" aria-label="Testing">' + rows +
-      '<a class="subnav-all" href="soil-test.html?test=not-sure">Request testing &rarr;</a></div>';
-  }
-
-  function mobileServices() {
-    var rows = SERVICES.map(function (s) {
-      return '<a class="nav-msub" href="' + s.href + '">' + s.label + '</a>';
-    }).join('');
-    return '<div class="nav-vacc" id="navVacc">' + rows +
-      '<a class="nav-msub nav-msub--action" href="soil-test.html?test=not-sure">Request testing</a></div>';
-  }
-
   // Products mega menu (data: js/data/products.js -> window.PRODUCTS).
   function catHref(c) { return c.href || ('shop.html#' + c.key); }
 
@@ -449,21 +399,15 @@
   }
 
   function header(active) {
+    var page = window.location ? window.location.pathname.split('/').pop() : '';
+    var route = NAV.find(function (n) { return n.href === page; });
+    if (route) active = route.key;
+    else if (/^(?:sectors|program)-(?:apples|cherries|citrus)\.html$/.test(page)) active = 'horticulture';
+    else if (active === 'team' || /^team(?:-[a-z-]+)?\.html$/.test(page)) active = 'about';
     function link(n) {
       var cur = n.key === active ? ' aria-current="page"' : '';
-      if (n.key === 'shop') { // Shop opens the products mega menu
-        return '<button type="button" class="nav-link nav-shop" id="navShop" aria-controls="mega" aria-expanded="false"' +
-          (n.key === active ? ' aria-current="page"' : '') + '>' + n.label + '</button>';
-      }
-      if (n.key === 'sectors') { // The landing page remains the first link in the disclosure.
-        return '<span class="nav-hasdrop" id="navSecWrap">' +
-          '<button type="button" class="nav-link nav-drop" id="navSectors" aria-controls="subnav" aria-expanded="false"' + cur + '>' + n.label + '</button>' +
-          subnavPanel() + '</span>';
-      }
-      if (n.key === 'services') {
-        return '<span class="nav-hasdrop" id="navSvcWrap">' +
-          '<button type="button" class="nav-link nav-drop" id="navServices" aria-controls="servicesSubnav" aria-expanded="false"' + cur + '>' + n.label + '</button>' +
-          servicesPanel() + '</span>';
+      if (n.key === 'shop') {
+        return '<button type="button" class="nav-link nav-shop" id="navShop" aria-controls="mega" aria-expanded="false"' + cur + '>' + n.label + '</button>';
       }
       return '<a class="nav-link" href="' + n.href + '"' + cur + '>' + n.label + '</a>';
     }
@@ -472,14 +416,6 @@
       if (n.key === 'shop') {
         return '<button type="button" class="nav-link nav-mshop" id="navMshop" aria-controls="navMacc" aria-expanded="false"' + cur + '>' + n.label +
           '<span class="nav-mshop-x" aria-hidden="true">+</span></button>' + mobileMega();
-      }
-      if (n.key === 'sectors') {
-        return '<button type="button" class="nav-link nav-msec" id="navMsec" aria-controls="navSacc" aria-expanded="false"' + cur + '>' + n.label +
-          '<span class="nav-mshop-x" aria-hidden="true">+</span></button>' + mobileSectors();
-      }
-      if (n.key === 'services') {
-        return '<button type="button" class="nav-link nav-msvc" id="navMsvc" aria-controls="navVacc" aria-expanded="false"' + cur + '>' + n.label +
-          '<span class="nav-mshop-x" aria-hidden="true">+</span></button>' + mobileServices();
       }
       return '<a class="nav-link" href="' + n.href + '"' + cur + '>' + n.label + '</a>';
     }
@@ -530,7 +466,7 @@
     if (photoCrop === 'citrus') photoCredits += '<span class="copy foot-photo-credit">Late-development and early-maturity photos: <a href="https://commons.wikimedia.org/wiki/File:Unripe_sweet_orange_(Citrus_×_sinensis),_Ponte_de_Sor,_Portugal_(approx._GPS_location)_julesvernex2.jpg">JulesVerneTimesTwo / julesvernex2.com</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · cropped and resized.</span>';
     return '' +
       '<div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>' +
-      '<footer class="foot"><div class="wrap">' +
+      '<footer class="foot" data-signals-overlay data-signals-polish><div class="wrap">' +
         '<div class="foot-top">' +
           '<div class="foot-news">' +
             '<span class="eyebrow">Talk to Hybrid-Ag</span>' +
@@ -545,7 +481,7 @@
           '</div>' +
         '</div>' +
         '<hr class="foot-rule">' +
-        '<div class="foot-meta"><div class="foot-brand"><img class="foot-logo-img" src="assets/hybrid-ag-logo.png" alt="Hybrid-Ag"><span class="copy">&copy; 2026 Hybrid Ag Pty Ltd</span>' + photoCredits + '</div><a class="nav-phone" href="' + TEL + '">' + PHONE + '</a></div>' +
+        '<div class="foot-meta"><div class="foot-brand"><img class="foot-logo-img" src="assets/hybrid-ag-wordmark-white.png" width="1755" height="280" alt="Hybrid-Ag"><span class="copy">&copy; 2026 Hybrid-Ag Pty Ltd</span>' + photoCredits + '</div><a class="nav-phone" href="' + TEL + '">' + PHONE + '</a></div>' +
       '</div>' +
       '<div class="stamp"><span>Precision Nutrition</span><span>Optimising Inputs</span><span>Maximising Outcomes</span></div>' +
       '</footer>';
@@ -597,6 +533,52 @@
     window.addEventListener('pageshow', refresh);
   }
 
+  function mountScrollNavigation(header) {
+    if (!header) return;
+    var lastY = scrollPosition(), travel = 0, frame = 0;
+    function scrollPosition() {
+      var maximum = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      return Math.max(0, Math.min(window.scrollY, maximum));
+    }
+    function reveal() {
+      header.classList.remove('nav-scroll-hidden');
+      lastY = scrollPosition();
+      travel = 0;
+    }
+    function update() {
+      frame = 0;
+      var y = scrollPosition();
+      var delta = y - lastY;
+      lastY = y;
+      if (y <= header.offsetHeight || header.contains(document.activeElement) ||
+          (window.HybridAgPanels && window.HybridAgPanels.current())) {
+        reveal();
+        return;
+      }
+      if (!delta) return;
+      // Accumulate in one direction; a small reversal must not flicker the bar.
+      if ((delta > 0 && travel < 0) || (delta < 0 && travel > 0)) travel = 0;
+      travel += delta;
+      if (travel >= 12) {
+        header.classList.add('nav-scroll-hidden');
+        travel = 0;
+      } else if (travel <= -6) {
+        header.classList.remove('nav-scroll-hidden');
+        travel = 0;
+      }
+    }
+    window.addEventListener('scroll', function () {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    }, { passive: true });
+    window.addEventListener('resize', reveal, { passive: true });
+    window.addEventListener('pageshow', reveal);
+    document.addEventListener('hybridag:panel-change', reveal);
+    header.addEventListener('focusin', reveal);
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Tab') reveal();
+    });
+  }
+
   function mount() {
     var active = document.body.getAttribute('data-page') || '';
     var h = document.getElementById('site-header');
@@ -605,6 +587,7 @@
       document.body.classList.add('nav-grouped');
       h.innerHTML = header(active);
       mountGlassNavigation(h);
+      mountScrollNavigation(h);
     }
     if (f) f.innerHTML = footer();
     var main = document.querySelector('main');
@@ -625,11 +608,14 @@
     loadSiteAssistant();
     function preparePanelMotion() {
       if (!window.HybridAgSignals) return;
-      h.querySelectorAll('[data-signals-overlay]').forEach(function (surface) {
-        window.HybridAgSignals.prepareSurface(surface);
+      [h, f].forEach(function (container) {
+        if (!container) return;
+        container.querySelectorAll('[data-signals-overlay]').forEach(function (surface) {
+          window.HybridAgSignals.prepareSurface(surface);
+        });
       });
     }
-    if (h) {
+    if (h || f) {
       preparePanelMotion();
       window.addEventListener('hybridag:signals-ready', preparePanelMotion);
     }
@@ -724,8 +710,6 @@
         }
       });
     }
-    addDisclosure('navSectors', 'subnav', 'navSecWrap', 'is-open');
-    addDisclosure('navServices', 'servicesSubnav', 'navSvcWrap', 'is-open');
     addDisclosure('navShop', 'mega', 'nav', 'mega-open');
     addDisclosure('navAccountTrigger', 'navAccountMenu', 'navAccount', 'is-open');
     document.addEventListener('focusin', function (event) {
@@ -766,25 +750,6 @@
       });
     }
 
-    // ----- Mobile: Sectors expands segment list -----
-    var msec = document.getElementById('navMsec'), sacc = document.getElementById('navSacc');
-    if (msec && sacc) {
-      msec.addEventListener('click', function () {
-        var open = sacc.classList.toggle('open');
-        msec.setAttribute('aria-expanded', open ? 'true' : 'false');
-        msec.classList.toggle('is-open', open);
-      });
-    }
-
-    // ----- Mobile: Services expands testing and audit pathways -----
-    var msvc = document.getElementById('navMsvc'), vacc = document.getElementById('navVacc');
-    if (msvc && vacc) {
-      msvc.addEventListener('click', function () {
-        var open = vacc.classList.toggle('open');
-        msvc.setAttribute('aria-expanded', open ? 'true' : 'false');
-        msvc.classList.toggle('is-open', open);
-      });
-    }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);
   else mount();

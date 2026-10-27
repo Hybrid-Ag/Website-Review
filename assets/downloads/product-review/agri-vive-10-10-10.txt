@@ -6,7 +6,7 @@ Agri-Vive 10.10.10 combines Nitrogen, Phosphorus and Potassium in similar propor
 It is an option to assess where the crop needs these Nutrients together, rather than a larger addition of one Element.
 
 Overview
-Agri-Vive 10.10.10 supplies Nitrogen, Phosphorus and Potassium in similar proportions. It gives the team a fixed-analysis liquid to consider when the crop needs those Nutrients together, rather than a feed concentrated on one Element. Each contribution needs to be counted against the crop’s requirement.
+If the crop needs Nitrogen, Phosphorus and Potassium in similar proportions, Agri-Vive 10.10.10 offers a fixed-analysis liquid option. Each contribution needs to be counted against the crop’s requirement.
 Soils and crops do not all need the same proportions of Nutrients. We use the soil and plant results, together with details of earlier applications, to work out whether this grade is suitable. Where the requirements differ, we can prepare a prescription blend rather than supply more of a Nutrient the crop already has.
 
 Composition source: dashboard staging. Basis: % w/v
