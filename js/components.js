@@ -230,8 +230,8 @@
   ];
   var PHONE = '(03) 5722 7555', TEL = 'tel:+61357227555';
   // Update this cache key when either lazy-loaded Finder asset changes.
-  var SEARCH_ASSET_VERSION = 'f4d7650128';
-  var ASSISTANT_ASSET_VERSION = '479631b7e3';
+  var SEARCH_ASSET_VERSION = 'e4297679ac';
+  var ASSISTANT_ASSET_VERSION = 'bd9aa35538';
   var searchLoadPromise = null;
 
   function loadSearchAsset(path, ready) {
