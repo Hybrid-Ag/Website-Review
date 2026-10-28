@@ -371,12 +371,25 @@
   // Products mega menu (data: js/data/products.js -> window.PRODUCTS).
   function catHref(c) { return c.href || ('shop.html#' + c.key); }
 
+  function navigationItems(c) {
+    var items = c.items || [];
+    var review = window.HybridAgDigesterConceptsReview === true &&
+      (window.HybridAgReleaseMode === 'pages-review' || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname));
+    if (c.key !== 'biological' || !review || items.some(function (item) { return item.href === 'mycro-tec-digester-review.html'; })) return items;
+    var result = items.slice();
+    var position = result.findIndex(function (item) { return /^mycro-tec-/.test(item.href || ''); });
+    result.splice(position < 0 ? result.length : position, 0, {
+      name: 'Mycro-Tec Digester · Review', href: 'mycro-tec-digester-review.html', review: true
+    });
+    return result;
+  }
+
   function megaPanel() {
     var cats = window.PRODUCTS || [];
     if (!cats.length) return '';
     var cols = cats.map(function (c) {
-      var items = c.items.map(function (it) {
-        return it.href ? '<li><a href="' + it.href + '">' + it.name + '</a></li>' : '';
+      var items = navigationItems(c).map(function (it) {
+        return it.href ? '<li><a href="' + it.href + '"' + (it.review ? ' data-digester-review-nav' : '') + '>' + it.name + '</a></li>' : '';
       }).join('');
       return '<div class="mega-col mega-col--' + (c.accent || 'teal') + '">' +
         '<a class="mega-head" href="' + catHref(c) + '">' + c.label + '</a>' +
@@ -393,7 +406,10 @@
     var cats = window.PRODUCTS || [];
     if (!cats.length) return '';
     var rows = cats.map(function (c) {
-      return '<a class="nav-msub" href="' + catHref(c) + '">' + c.label + '</a>';
+      var review = navigationItems(c).filter(function (item) { return item.review; }).map(function (item) {
+        return '<a class="nav-msub nav-msub--action" href="' + item.href + '" data-digester-review-nav><span aria-hidden="true">↳ </span>' + item.name + '</a>';
+      }).join('');
+      return '<a class="nav-msub" href="' + catHref(c) + '">' + c.label + '</a>' + review;
     }).join('');
     return '<div class="nav-macc" id="navMacc">' + rows + '</div>';
   }
