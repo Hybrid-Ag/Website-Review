@@ -1,9 +1,9 @@
-/* Design review editions: technical directions withheld, no commerce or external embeds. */
+/* Selected Digester brochure: local page images, no commerce or external embeds. */
 (function () {
   'use strict';
   var dialog = document.getElementById('brochure-viewer');
   if (!dialog || typeof dialog.showModal !== 'function') return;
-  var options = { a: { name: 'A · Field guide', pages: 4 }, b: { name: 'B · Residue-led', pages: 4 }, c: { name: 'C · Compact reference', pages: 2 } };
+  var options = { b: { name: 'Mycro-Tec Digester brochure', pages: 4 } };
   var image = document.getElementById('brochure-page');
   var pane = dialog.querySelector('.digester-viewer-page');
   var count = document.getElementById('brochure-count');
@@ -11,11 +11,11 @@
   var next = dialog.querySelector('[data-brochure-next]');
   var closeButton = dialog.querySelector('[data-brochure-close]');
   var fitButton = dialog.querySelector('[data-brochure-fit]');
-  var key = 'a', page = 1, opener = null, restoreFocus = true, oldOverflow = '';
+  var key = 'b', page = 1, opener = null, restoreFocus = true, oldOverflow = '';
   function render() {
     var focused = document.activeElement;
-    image.src = 'assets/review/digester-concepts-2026-10-28/digester-dir-' + key + '-' + String(page).padStart(2, '0') + '.webp';
-    image.alt = 'Digester direction ' + options[key].name + ', page ' + page + ' of ' + options[key].pages + '. Use the PDF for selectable text.';
+    image.src = 'assets/review/digester-residue-led-2026-10-29/digester-dir-' + key + '-' + String(page).padStart(2, '0') + '.webp';
+    image.alt = options[key].name + ', page ' + page + ' of ' + options[key].pages + '. Use the PDF for selectable text.';
     count.textContent = 'Page ' + page + ' of ' + options[key].pages;
     previous.disabled = page === 1;
     next.disabled = page === options[key].pages;
@@ -31,7 +31,7 @@
       if (!options[link.dataset.brochure]) return;
       event.preventDefault();
       key = link.dataset.brochure; page = 1; opener = link; restoreFocus = true;
-      document.getElementById('brochure-title').textContent = 'Direction ' + options[key].name;
+      document.getElementById('brochure-title').textContent = options[key].name;
       document.getElementById('brochure-download').href = link.href;
       dialog.classList.add('is-fit');
       fitButton.textContent = 'Enlarge page';

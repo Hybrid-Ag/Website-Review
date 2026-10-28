@@ -144,11 +144,11 @@
         grid.innerHTML = products.map(function (product) { return card(product.category, product.item); }).join('');
         if (conceptsReview || localReview) {
           var digesterHref = conceptsReview ? 'mycro-tec-digester-review.html' : 'mycro-tec-digester.html';
-          var digesterImage = conceptsReview ? 'assets/review/digester-concepts-2026-10-28/crop-residue.jpg' : 'assets/review/digester-2026-10-15/pack-concept.png';
+          var digesterImage = conceptsReview ? 'assets/review/digester-residue-led-2026-10-29/crop-residue.jpg' : 'assets/review/digester-2026-10-15/pack-concept.png';
           var digesterAlt = conceptsReview ? 'Crop residue on the soil surface' : 'Digester packaging concept, not confirmed pack availability';
           var digester = '<a class="card catalogue-card" href="' + digesterHref + '" data-category="biological" data-range="mycro-tec" data-search="mycro-tec digester residue biological brochure review" data-review-concept>' +
             '<div class="card-img"><img src="' + digesterImage + '" alt="' + digesterAlt + '" width="1200" height="1200" loading="lazy" decoding="async"></div>' +
-            '<div class="card-body"><span class="meta">Mycro-Tec · Review concept</span><h3>Mycro-Tec Digester</h3><span class="price">Product &amp; brochure review</span><span class="card-link">Explore three brochure options</span></div></a>';
+            '<div class="card-body"><span class="meta">Mycro-Tec · Review concept</span><h3>Mycro-Tec Digester</h3><span class="price">Product &amp; brochure review</span><span class="card-link">View product and brochure</span></div></a>';
           var firstMycro = grid.querySelector('[data-range="mycro-tec"]');
           if (firstMycro) firstMycro.insertAdjacentHTML('beforebegin', digester);
           else grid.insertAdjacentHTML('beforeend', digester);
