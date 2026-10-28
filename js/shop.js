@@ -3,6 +3,9 @@
   var productImages = {};
   // Digester remains local-only until its brochure directions and commercial identity are cleared.
   var localReview = document.body.hasAttribute('data-local-digester-review') && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+  // Separate design-review editions are enabled only in local and signed Pages reviews.
+  var conceptsReview = document.body.hasAttribute('data-digester-concepts-review') &&
+    (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) || window.HybridAgReleaseMode === 'pages-review');
 
   function money(value) {
     return '$' + Number(value).toLocaleString('en-AU', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
@@ -139,9 +142,12 @@
       .catch(function () { productImages = {}; })
       .then(function () {
         grid.innerHTML = products.map(function (product) { return card(product.category, product.item); }).join('');
-        if (localReview) {
-          var digester = '<a class="card catalogue-card" href="mycro-tec-digester.html" data-category="biological" data-range="mycro-tec" data-search="mycro-tec digester residue biological brochure review" data-review-concept>' +
-            '<div class="card-img"><img src="assets/review/digester-2026-10-15/pack-concept.png" alt="Digester packaging concept, not confirmed pack availability" width="1200" height="1200" loading="lazy" decoding="async"></div>' +
+        if (conceptsReview || localReview) {
+          var digesterHref = conceptsReview ? 'mycro-tec-digester-review.html' : 'mycro-tec-digester.html';
+          var digesterImage = conceptsReview ? 'assets/review/digester-concepts-2026-10-28/crop-residue.jpg' : 'assets/review/digester-2026-10-15/pack-concept.png';
+          var digesterAlt = conceptsReview ? 'Crop residue on the soil surface' : 'Digester packaging concept, not confirmed pack availability';
+          var digester = '<a class="card catalogue-card" href="' + digesterHref + '" data-category="biological" data-range="mycro-tec" data-search="mycro-tec digester residue biological brochure review" data-review-concept>' +
+            '<div class="card-img"><img src="' + digesterImage + '" alt="' + digesterAlt + '" width="1200" height="1200" loading="lazy" decoding="async"></div>' +
             '<div class="card-body"><span class="meta">Mycro-Tec · Review concept</span><h3>Mycro-Tec Digester</h3><span class="price">Product &amp; brochure review</span><span class="card-link">Explore three brochure options</span></div></a>';
           var firstMycro = grid.querySelector('[data-range="mycro-tec"]');
           if (firstMycro) firstMycro.insertAdjacentHTML('beforebegin', digester);
