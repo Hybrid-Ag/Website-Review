@@ -14,7 +14,7 @@
   var lastFocus;
   var indexPromise;
   // Keep aligned with the lazy-loaded Finder index in components.js.
-  var SEARCH_ASSET_VERSION = 'e0463255b2';
+  var SEARCH_ASSET_VERSION = 'f4d7650128';
   var stateLoaded = false;
   var closeTimer;
   var isOpen = false;
