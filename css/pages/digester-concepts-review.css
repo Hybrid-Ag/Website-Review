@@ -78,3 +78,6 @@ body[data-digester-concept-page] main section[id]{scroll-margin-top:calc(var(--p
 /* Keep the shared glass header dark when the reading surface beneath is white. */
 body[data-digester-concept-page] #site-header{--nav-glass-bg:#101110ed}
 @media(forced-colors:active){body[data-digester-concept-page] #site-header{--nav-glass-bg:Canvas}}
+
+/* Keep the new application table clear of its supporting directions. */
+body[data-digester-concept-page] #application .product-analysis{margin-bottom:18px}
