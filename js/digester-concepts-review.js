@@ -33,9 +33,8 @@
       key = link.dataset.brochure; page = 1; opener = link; restoreFocus = true;
       document.getElementById('brochure-title').textContent = options[key].name;
       document.getElementById('brochure-download').href = link.href;
-      dialog.classList.add('is-fit');
-      fitButton.textContent = 'Enlarge page';
-      fitButton.setAttribute('aria-pressed', 'false');
+      dialog.classList.remove('is-fit');
+      fitButton.textContent = 'Fit page';
       render();
       if (window.HybridAgPanels) window.HybridAgPanels.open('digester-brochure', close);
       oldOverflow = document.body.style.overflow;
@@ -49,7 +48,6 @@
   fitButton.addEventListener('click', function () {
     var fit = dialog.classList.toggle('is-fit');
     fitButton.textContent = fit ? 'Enlarge page' : 'Fit page';
-    fitButton.setAttribute('aria-pressed', String(!fit));
     pane.scrollTop = 0;
   });
   dialog.addEventListener('click', function (event) { if (event.target !== dialog) return; var rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) close(true); });
