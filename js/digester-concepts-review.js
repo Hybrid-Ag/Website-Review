@@ -71,10 +71,24 @@
   });
   var links = Array.from(document.querySelectorAll('.product-tabs a'));
   var header = document.getElementById('site-header');
+  var tabs = document.querySelector('.product-tabs');
   function alignTabs() {
-    document.body.style.setProperty('--product-header-height', (header ? Math.ceil(header.getBoundingClientRect().height) : 0) + 'px');
+    var height = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+    var hidden = header && header.classList.contains('nav-scroll-hidden') && !header.matches(':focus-within');
+    document.body.style.setProperty('--product-header-height', height + 'px');
+    document.body.style.setProperty('--digester-header-offset', (hidden ? 0 : height) + 'px');
+    document.body.style.setProperty('--digester-tabs-height', (tabs ? Math.ceil(tabs.getBoundingClientRect().height) : 0) + 'px');
   }
-  if (header && 'ResizeObserver' in window) new ResizeObserver(alignTabs).observe(header);
+  if ('ResizeObserver' in window) {
+    var navigationSize = new ResizeObserver(alignTabs);
+    if (header) navigationSize.observe(header);
+    if (tabs) navigationSize.observe(tabs);
+  }
+  if (header) {
+    if ('MutationObserver' in window) new MutationObserver(alignTabs).observe(header, { attributes: true, attributeFilter: ['class'] });
+    header.addEventListener('focusin', alignTabs);
+    header.addEventListener('focusout', function () { window.requestAnimationFrame(alignTabs); });
+  }
   window.addEventListener('resize', alignTabs, { passive: true });
   alignTabs();
   if ('IntersectionObserver' in window) {
