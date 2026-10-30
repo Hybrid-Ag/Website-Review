@@ -15,6 +15,13 @@
     return (href || '').replace(/^.*\//, '').replace(/\.html$/, '');
   }
 
+  function imageFor(href) {
+    var slug = slugFromHref(href);
+    return productImages[slug] && productImages[slug].default
+      ? productImages[slug].default.path
+      : 'assets/products/' + slug + '.webp';
+  }
+
   function priceFor(slug) {
     var data = (window.PRODUCT_VARIANTS || {})[slug];
     if (!data || !data.variants || !data.variants.length) return 'Pricing on request';
@@ -25,9 +32,7 @@
   function card(category, item) {
     var slug = slugFromHref(item.href);
     var search = (item.name + ' ' + category.label).toLowerCase();
-    var image = productImages[slug] && productImages[slug].default
-      ? productImages[slug].default.path
-      : 'assets/products/' + slug + '.webp';
+    var image = imageFor(item.href);
     return '<a class="card catalogue-card" href="' + item.href + '" data-category="' + category.key + '" data-range="' + (slug.indexOf('mycro-tec-') === 0 ? 'mycro-tec' : '') + '" data-search="' + search + '">' +
       '<div class="card-img"><img src="' + image + '" alt="' + item.name + '" loading="lazy" decoding="async" width="1200" height="1200"></div>' +
       '<div class="card-body"><span class="meta">' + category.label + '</span><h3>' + item.name + '</h3>' +
@@ -90,6 +95,15 @@
     var empty = document.getElementById('shopEmpty');
     if (!grid || !categorySelect || !searchInput || !count || !empty) return;
     var clearCardLight = mountCardLight(grid);
+    var sidebar = document.getElementById('shopSidebar');
+    var categoryLinks = document.getElementById('shopCategoryLinks');
+    var categoryTiles = document.getElementById('shopCategoryTiles');
+    var heading = document.getElementById('shopCategoryHeading');
+    var back = document.getElementById('shopBackCategories');
+    var reviewControls = document.getElementById('shopLayoutReview');
+    var reviewLayouts = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) || window.HybridAgReleaseMode === 'pages-review';
+    var requestedLayout = new URLSearchParams(location.search).get('layout');
+    var layout = reviewLayouts && /^[abc]$/.test(requestedLayout || '') ? requestedLayout : 'c';
 
     var categories = (window.PRODUCTS || []).filter(function (category) { return category.key !== 'testing'; });
     var products = [];
@@ -100,6 +114,83 @@
       });
     });
     categorySelect.insertAdjacentHTML('beforeend', '<option value="mycro-tec">Mycro-Tec range</option>');
+    var categoryChoices = [{ key: 'all', label: 'All products' }].concat(categories.map(function (category) {
+      return { key: category.key, label: category.label };
+    }), [{ key: 'mycro-tec', label: 'Mycro-Tec range' }]);
+
+    function categoryURL(key) {
+      return location.pathname + location.search + (key === 'all' ? '#all' : '#' + key);
+    }
+
+    function updateCategoryLinks() {
+      if (!categoryLinks) return;
+      categoryLinks.querySelectorAll('a').forEach(function (link) {
+        var key = link.getAttribute('data-shop-category');
+        link.setAttribute('href', categoryURL(key));
+        if (key === categorySelect.value) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+      if (categoryTiles) categoryTiles.querySelectorAll('a').forEach(function (link) {
+        link.setAttribute('href', categoryURL(link.getAttribute('data-shop-category')));
+      });
+    }
+
+    if (categoryLinks) categoryChoices.forEach(function (category) {
+      var link = document.createElement('a');
+      link.setAttribute('data-shop-category', category.key);
+      link.textContent = category.label;
+      categoryLinks.appendChild(link);
+    });
+
+    function renderCategoryTiles() {
+      if (!categoryTiles) return;
+      categories.forEach(function (category) {
+        var item = category.items.find(function (product) { return product.href; });
+        if (!item) return;
+        var link = document.createElement('a');
+        link.className = 'shop-category-tile';
+        link.setAttribute('data-shop-category', category.key);
+        link.href = categoryURL(category.key);
+        var picture = document.createElement('div');
+        picture.className = 'shop-category-picture';
+        var image = document.createElement('img');
+        image.src = imageFor(item.href);
+        image.alt = item.name;
+        image.width = 1200;
+        image.height = 1200;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        picture.appendChild(image);
+        var title = document.createElement('h3');
+        title.textContent = category.label;
+        var action = document.createElement('span');
+        action.className = 'shop-category-action';
+        action.textContent = 'Browse products →';
+        link.appendChild(picture);
+        link.appendChild(title);
+        link.appendChild(action);
+        categoryTiles.appendChild(link);
+      });
+    }
+
+    function setLayout(value, updateURL) {
+      layout = value;
+      document.body.setAttribute('data-shop-layout', layout);
+      if (updateURL) {
+        var url = new URL(location.href);
+        url.searchParams.set('layout', layout);
+        history.replaceState(null, '', url.pathname + url.search + url.hash);
+      }
+      if (reviewControls) {
+        reviewControls.hidden = !reviewLayouts;
+        reviewControls.querySelectorAll('[data-shop-layout-option]').forEach(function (button) {
+          button.setAttribute('aria-pressed', button.getAttribute('data-shop-layout-option') === layout ? 'true' : 'false');
+        });
+      }
+      if (sidebar) sidebar.hidden = layout !== 'c';
+      apply();
+    }
+
     function apply() {
       clearCardLight();
       var selected = categorySelect.value;
@@ -115,8 +206,17 @@
           else shown += 1;
         }
       });
-      count.textContent = shown + ' product' + (shown === 1 ? '' : 's') + (drafts ? ' + 1 review concept' : '');
-      empty.hidden = shown + drafts !== 0;
+      var showCategories = layout === 'b' && selected === 'all' && !query;
+      var focusWasInTiles = categoryTiles && categoryTiles.contains(document.activeElement);
+      if (categoryTiles) categoryTiles.hidden = !showCategories;
+      grid.hidden = showCategories;
+      if (back) back.hidden = layout !== 'b' || showCategories;
+      var choice = categoryChoices.find(function (category) { return category.key === selected; }) || categoryChoices[0];
+      if (heading) heading.textContent = showCategories ? 'Browse by category.' : selected === 'all' && query ? 'Search results.' : choice.label + '.';
+      count.textContent = (showCategories ? categories.length + ' categories · ' : '') + shown + ' product' + (shown === 1 ? '' : 's') + (drafts ? ' + 1 review concept' : '');
+      empty.hidden = showCategories || shown + drafts !== 0;
+      updateCategoryLinks();
+      if (focusWasInTiles && !showCategories && heading) heading.focus({ preventScroll: true });
     }
 
     function applyHash() {
@@ -133,6 +233,17 @@
     });
     searchInput.addEventListener('input', apply);
     window.addEventListener('hashchange', applyHash);
+    if (back) back.addEventListener('click', function () {
+      categorySelect.value = 'all';
+      searchInput.value = '';
+      history.replaceState(null, '', location.pathname + location.search);
+      apply();
+      if (heading) heading.focus({ preventScroll: true });
+    });
+    if (reviewControls && reviewLayouts) reviewControls.querySelectorAll('[data-shop-layout-option]').forEach(function (button) {
+      button.addEventListener('click', function () { setLayout(button.getAttribute('data-shop-layout-option'), true); });
+    });
+    setLayout(layout, false);
     fetch('assets/products/variant-images.json', { credentials: 'same-origin', cache: 'no-cache' })
       .then(function (response) {
         if (!response.ok) throw new Error('Product image manifest unavailable.');
@@ -141,6 +252,7 @@
       .then(function (manifest) { productImages = manifest.products || {}; })
       .catch(function () { productImages = {}; })
       .then(function () {
+        renderCategoryTiles();
         grid.innerHTML = products.map(function (product) { return card(product.category, product.item); }).join('');
         if (conceptsReview || localReview) {
           var digesterHref = conceptsReview ? 'mycro-tec-digester-review.html' : 'mycro-tec-digester.html';

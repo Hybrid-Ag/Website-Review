@@ -423,15 +423,18 @@
     function link(n) {
       var cur = n.key === active ? ' aria-current="page"' : '';
       if (n.key === 'shop') {
-        return '<button type="button" class="nav-link nav-shop" id="navShop" aria-controls="mega" aria-expanded="false"' + cur + '>' + n.label + '</button>';
+        return '<span class="nav-shop-group"><a class="nav-link" href="' + n.href + '"' + cur + '>' + n.label + '</a>' +
+          '<button type="button" class="nav-shop nav-quick" id="navShop" aria-label="Quick product links" aria-controls="mega" aria-expanded="false">' +
+          '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button></span>';
       }
       return '<a class="nav-link" href="' + n.href + '"' + cur + '>' + n.label + '</a>';
     }
     function mlink(n) {
       var cur = n.key === active ? ' aria-current="page"' : '';
       if (n.key === 'shop') {
-        return '<button type="button" class="nav-link nav-mshop" id="navMshop" aria-controls="navMacc" aria-expanded="false"' + cur + '>' + n.label +
-          '<span class="nav-mshop-x" aria-hidden="true">+</span></button>' + mobileMega();
+        return '<div class="nav-shop-group"><a class="nav-link" href="' + n.href + '"' + cur + '>' + n.label + '</a>' +
+          '<button type="button" class="nav-mshop nav-quick" id="navMshop" aria-label="Quick product links" aria-controls="navMacc" aria-expanded="false">' +
+          '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button></div>' + mobileMega();
       }
       return '<a class="nav-link" href="' + n.href + '"' + cur + '>' + n.label + '</a>';
     }
@@ -636,7 +639,18 @@
       window.addEventListener('hybridag:signals-ready', preparePanelMotion);
     }
     var nav = document.getElementById('nav'), tog = document.getElementById('navToggle');
+    var mshop = document.getElementById('navMshop'), macc = document.getElementById('navMacc');
+    function setMobileShop(open) {
+      if (!mshop || !macc) return;
+      macc.classList.toggle('open', open);
+      macc.inert = !open;
+      macc.setAttribute('aria-hidden', open ? 'false' : 'true');
+      mshop.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mshop.classList.toggle('is-open', open);
+    }
+    setMobileShop(false);
     function closeMobile(restoreFocus) {
+      setMobileShop(false);
       if (!nav || !tog || !nav.classList.contains('open')) return;
       nav.classList.remove('open');
       tog.setAttribute('aria-expanded', 'false');
@@ -683,17 +697,26 @@
     // Disclosures use ordinary links and buttons, not application-menu roles.
     var disclosures = [];
     var hoverNavigation = window.matchMedia('(hover:hover) and (pointer:fine)');
-    function addDisclosure(triggerId, panelId, hostId, openClass) {
+    function addDisclosure(triggerId, panelId, hostId, openClass, options) {
       var trigger = document.getElementById(triggerId);
       var panel = document.getElementById(panelId);
       var host = document.getElementById(hostId);
       if (!trigger || !panel || !host) return;
+      var hover = !options || options.hover !== false;
+      if (!hover) {
+        panel.inert = true;
+        panel.setAttribute('aria-hidden', 'true');
+      }
       var item = { trigger: trigger, panel: panel, host: host, openClass: openClass, pinned: false };
       function setOpen(open, pinned) {
         if (open) window.HybridAgPanels.open(panelId, item.close);
         item.pinned = open && Boolean(pinned);
         host.classList.toggle(openClass, open);
         trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (!hover) {
+          panel.inert = !open;
+          panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+        }
         if (open) preparePanelMotion();
         else window.HybridAgPanels.close(panelId);
       }
@@ -702,16 +725,18 @@
       function preview() {
         if (hoverNavigation.matches && !item.pinned) setOpen(true);
       }
-      trigger.addEventListener('mouseenter', preview);
-      panel.addEventListener('mouseenter', preview);
-      host.addEventListener('mouseleave', function () {
-        if (!item.pinned && !panel.contains(document.activeElement)) setOpen(false);
-      });
+      if (hover) {
+        trigger.addEventListener('mouseenter', preview);
+        panel.addEventListener('mouseenter', preview);
+        host.addEventListener('mouseleave', function () {
+          if (!item.pinned && !panel.contains(document.activeElement)) setOpen(false);
+        });
+      }
       if (trigger.tagName === 'BUTTON') {
         trigger.addEventListener('click', function (event) {
           var open = trigger.getAttribute('aria-expanded') === 'true';
           // The first pointer click confirms a hover preview, rather than closing it.
-          var confirmPreview = event.detail > 0 && hoverNavigation.matches && open && !item.pinned;
+          var confirmPreview = hover && event.detail > 0 && hoverNavigation.matches && open && !item.pinned;
           setOpen(confirmPreview || !open, true);
         });
       } else {
@@ -726,7 +751,7 @@
         }
       });
     }
-    addDisclosure('navShop', 'mega', 'nav', 'mega-open');
+    addDisclosure('navShop', 'mega', 'nav', 'mega-open', { hover: false });
     addDisclosure('navAccountTrigger', 'navAccountMenu', 'navAccount', 'is-open');
     document.addEventListener('focusin', function (event) {
       disclosures.forEach(function (item) {
@@ -752,17 +777,29 @@
     });
     var desktopNav = window.matchMedia('(min-width: 1101px)');
     desktopNav.addEventListener('change', function () {
+      var focused = document.activeElement;
+      var focusIsHidden = focused && (desktopNav.matches
+        ? focused === tog || Boolean(focused.closest('.nav-mobile,.nav-cart--mob,.nav-search--mob'))
+        : Boolean(focused.closest('.nav-desktop,.mega')));
       closeMobile(false);
       disclosures.forEach(function (item) { item.close(); });
+      if (focusIsHidden) {
+        var target = desktopNav.matches ? nav.querySelector('.nav-links a[href="shop.html"]') : tog;
+        if (target) target.focus({ preventScroll: true });
+      }
     });
 
     // ----- Mobile: Shop expands product categories -----
-    var mshop = document.getElementById('navMshop'), macc = document.getElementById('navMacc');
     if (mshop && macc) {
       mshop.addEventListener('click', function () {
-        var open = macc.classList.toggle('open');
-        mshop.setAttribute('aria-expanded', open ? 'true' : 'false');
-        mshop.classList.toggle('is-open', open);
+        setMobileShop(mshop.getAttribute('aria-expanded') !== 'true');
+      });
+      mshop.addEventListener('keydown', function (event) {
+        if (event.key !== 'ArrowDown') return;
+        event.preventDefault();
+        setMobileShop(true);
+        var first = macc.querySelector('a');
+        if (first) first.focus();
       });
     }
 
