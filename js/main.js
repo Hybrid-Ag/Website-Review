@@ -535,6 +535,9 @@
   document.documentElement.addEventListener('pointerleave', function () { resetAll(false); });
   // Shared overlays join the existing field; do not load a second motion runtime.
   var surfaceResizeObserver = typeof window.ResizeObserver === 'function' ? new ResizeObserver(scheduleResize) : null;
+  // Filters and layout switches can change a section without resizing the
+  // window. Keep its field within the new bounds, including after it shrinks.
+  if (surfaceResizeObserver) surfaces.forEach(function (surface) { surfaceResizeObserver.observe(surface); });
   window.HybridAgSignals = {
     prepareSurface: function (element) {
       if (!element || !element.hasAttribute('data-signals-overlay')) return;

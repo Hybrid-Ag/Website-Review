@@ -142,6 +142,17 @@
       categoryLinks.appendChild(link);
     });
 
+    // Keep every category reachable at short window heights or enlarged text.
+    // A sidebar that cannot fit scrolls with the page, without an inner scroller.
+    function fitSidebar() {
+      if (!sidebar) return;
+      var top = parseFloat(window.getComputedStyle(sidebar).top) || 0;
+      var height = sidebar.offsetHeight;
+      sidebar.classList.toggle('is-sticky', height > 0 && height + top + 24 <= document.documentElement.clientHeight);
+    }
+    if (sidebar && typeof ResizeObserver === 'function') new ResizeObserver(fitSidebar).observe(sidebar);
+    window.addEventListener('resize', fitSidebar, { passive: true });
+
     function renderCategoryTiles() {
       if (!categoryTiles) return;
       categories.forEach(function (category) {
@@ -188,6 +199,7 @@
         });
       }
       if (sidebar) sidebar.hidden = layout !== 'c';
+      fitSidebar();
       apply();
     }
 
