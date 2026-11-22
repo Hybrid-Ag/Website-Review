@@ -66,8 +66,8 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Hybrid-Ag","url":"https://www.hybridag.com.au","logo":"https://www.hybridag.com.au/assets/hybrid-ag-logo.png","telephone":"+61357227555","sameAs":["https://www.facebook.com/HybridAgPtyLtd","https://www.instagram.com/hybridag","https://www.linkedin.com/company/hybrid-ag","https://x.com/HybridAg1"],"address":{"@type":"PostalAddress","streetAddress":"52 Buckler Rd","addressLocality":"Wangaratta","addressRegion":"VIC","postalCode":"3677","addressCountry":"AU"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Hybrid-Ag","url":"https://www.hybridag.com.au","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.hybridag.com.au/search.html?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
 <!-- /SEO:auto -->
-  <link rel="stylesheet" href="css/pages/home-feedback.css?v=48ed113173">
-<link rel="stylesheet" href="css/pages/home-library.css?v=d38694cd86">
+  <link rel="stylesheet" href="css/pages/home-feedback.css?v=65ae00ff83">
+<link rel="stylesheet" href="css/pages/home-library.css?v=f81ad1dcb7">
 </head>
 <body class="home-feedback" data-page="home">
 <div id="site-header"></div>
@@ -78,10 +78,12 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
     <div class="feedback-hero__copy" data-feedback-reveal>
       <h1 class="feedback-hero__brand"><img src="assets/hybrid-ag-lockup-white.png" width="1320" height="374" alt="Hybrid-Ag — Precision Nutrition" fetchpriority="high" decoding="async"></h1>
       <p class="feedback-hero__tagline">Optimising inputs, maximising outcomes.</p>
-      <p class="feedback-hero__intro">Total soil and plant nutrition input systems customised for broadacre, horticulture, small crop and viticulture growers</p>
-      <div class="feedback-hero__actions">
-        <a class="feedback-button" href="contact.html">Contact Us <span class="feedback-button__arrow" aria-hidden="true">&rarr;</span></a>
-        <a class="feedback-hero__phone" href="tel:+61357227555">(03) 5722 7555</a>
+      <div class="feedback-hero__contact">
+        <p class="feedback-hero__intro">Total soil and plant nutrition input systems customised for broadacre, horticulture, small crop and viticulture growers</p>
+        <div class="feedback-hero__actions">
+          <a class="feedback-button" href="contact.html">Contact Us <span class="feedback-button__arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="feedback-hero__phone" href="tel:+61357227555">(03) 5722 7555</a>
+        </div>
       </div>
     </div>
   </header>
@@ -90,10 +92,10 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
     <div class="home-sector-nav__inner">
       <p id="home-sector-nav-title">Find your sector</p>
       <ul>
-        <li><a href="#small-crop">Small Crop <span aria-hidden="true">&darr;</span></a></li>
-        <li><a href="#horticulture">Horticulture <span aria-hidden="true">&darr;</span></a></li>
-        <li><a href="#broadacre">Broadacre <span aria-hidden="true">&darr;</span></a></li>
-        <li><a href="#viticulture">Viticulture <span aria-hidden="true">&darr;</span></a></li>
+        <li><a href="small-crop.html">Small Crop <span aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="horticulture.html">Horticulture <span aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="broadacre.html">Broadacre <span aria-hidden="true">&rarr;</span></a></li>
+        <li><a href="viticulture.html">Viticulture <span aria-hidden="true">&rarr;</span></a></li>
       </ul>
     </div>
   </nav>
@@ -102,49 +104,79 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
     <div class="feedback-testing__copy" data-feedback-reveal>
       <h2 id="home-testing-title">Testing</h2>
       <p>We&rsquo;ve built our business on testing rather than guessing. Results from your soil, plants and water help us recommend nutrition for your crop.</p>
-      <div class="feedback-actions">
-        <a class="feedback-button" href="services-testing.html">Explore testing <span class="feedback-button__arrow" aria-hidden="true">&rarr;</span></a>
-      </div>
+      <a class="testing-all" href="services-testing.html">Explore all testing <span aria-hidden="true">&rarr;</span></a>
     </div>
-    <div class="feedback-testing__image"><img src="assets/photos/responsive/leaf-inspection-orchard-1800.webp" srcset="assets/photos/responsive/leaf-inspection-orchard-480.webp 480w, assets/photos/responsive/leaf-inspection-orchard-768.webp 768w, assets/photos/responsive/leaf-inspection-orchard-1200.webp 1200w, assets/photos/responsive/leaf-inspection-orchard-1800.webp 1800w" sizes="(max-width: 660px) 100vw, 51vw" width="1200" height="1600" alt="A hand holding fresh leaves in an orchard" loading="lazy" decoding="async"></div>
+    <div class="testing-paths">
+      <a class="testing-path" href="services-soil-testing.html" aria-label="Soil testing">
+        <img src="assets/photos/responsive/soil-sample-kit-768.webp" srcset="assets/photos/responsive/soil-sample-kit-480.webp 480w, assets/photos/responsive/soil-sample-kit-768.webp 768w, assets/photos/responsive/soil-sample-kit-1200.webp 1200w" sizes="(max-width: 720px) 45vw, 28vw" width="1200" height="1600" alt="" loading="lazy" decoding="async">
+        <span>Soil <b aria-hidden="true">&rarr;</b></span>
+      </a>
+      <a class="testing-path" href="services-leaf-tissue-testing.html" aria-label="Leaf and tissue testing">
+        <img src="assets/photos/responsive/leaf-inspection-orchard-768.webp" srcset="assets/photos/responsive/leaf-inspection-orchard-480.webp 480w, assets/photos/responsive/leaf-inspection-orchard-768.webp 768w, assets/photos/responsive/leaf-inspection-orchard-1200.webp 1200w" sizes="(max-width: 720px) 45vw, 28vw" width="1200" height="1600" alt="" loading="lazy" decoding="async">
+        <span>Leaf &amp; tissue <b aria-hidden="true">&rarr;</b></span>
+      </a>
+    </div>
   </section>
 
-  <section class="sector-scene sector-scene--right" id="small-crop" aria-labelledby="home-small-crop-title">
+  <section class="sector-scene" id="small-crop" aria-labelledby="home-small-crop-title">
     <img src="assets/stakeholder-home-2026-10-19/small-crop.jpg" alt="Leafy green small crop" loading="lazy" decoding="async">
-    <div class="sector-scene__content"><div data-feedback-reveal><h2 id="home-small-crop-title">Small Crop</h2><p>Prescription blends for short growing cycles, based on test results and field observations.</p><a class="feedback-button" href="small-crop.html">Explore Small Crop <span class="feedback-button__arrow" aria-hidden="true">&rarr;</span></a></div></div>
+    <a class="sector-scene__link" href="small-crop.html" aria-labelledby="home-small-crop-title" aria-describedby="small-crop-summary">
+      <div class="sector-scene__content">
+        <h2 id="home-small-crop-title">Small Crop</h2>
+        <p id="small-crop-summary">Prescription blends for short growing cycles, based on test results and field observations.</p>
+        <span class="sector-scene__arrow" aria-hidden="true">&rarr;</span>
+      </div>
+    </a>
   </section>
   <section class="sector-scene" id="horticulture" aria-labelledby="home-horticulture-title">
     <img src="assets/stakeholder-home-2026-10-19/horticulture.jpg" alt="Cherries ripening on the tree" loading="lazy" decoding="async">
-    <div class="sector-scene__content"><div data-feedback-reveal><h2 id="home-horticulture-title">Horticulture</h2><p>Orchard nutrition planned around fruit quality, pack-out and the history of your block.</p><a class="feedback-button" href="horticulture.html">Explore Horticulture <span class="feedback-button__arrow" aria-hidden="true">&rarr;</span></a></div></div>
+    <a class="sector-scene__link" href="horticulture.html" aria-labelledby="home-horticulture-title" aria-describedby="horticulture-summary">
+      <div class="sector-scene__content">
+        <h2 id="home-horticulture-title">Horticulture</h2>
+        <p id="horticulture-summary">Orchard nutrition planned around fruit quality, pack-out and the history of your block.</p>
+        <span class="sector-scene__arrow" aria-hidden="true">&rarr;</span>
+      </div>
+    </a>
   </section>
-  <section class="sector-scene sector-scene--right" id="broadacre" aria-labelledby="home-broadacre-title">
+  <section class="sector-scene" id="broadacre" aria-labelledby="home-broadacre-title">
     <img src="assets/stakeholder-home-2026-10-19/broadacre.jpg" alt="Green cereal crop in the paddock" loading="lazy" decoding="async">
-    <div class="sector-scene__content"><div data-feedback-reveal><h2 id="home-broadacre-title">Broadacre</h2><p>Soil testing and prescription blends for broadacre crops and pastures.</p><a class="feedback-button" href="broadacre.html">Explore Broadacre <span class="feedback-button__arrow" aria-hidden="true">&rarr;</span></a></div></div>
+    <a class="sector-scene__link" href="broadacre.html" aria-labelledby="home-broadacre-title" aria-describedby="broadacre-summary">
+      <div class="sector-scene__content">
+        <h2 id="home-broadacre-title">Broadacre</h2>
+        <p id="broadacre-summary">Soil testing and prescription blends for broadacre crops and pastures.</p>
+        <span class="sector-scene__arrow" aria-hidden="true">&rarr;</span>
+      </div>
+    </a>
   </section>
   <section class="sector-scene" id="viticulture" aria-labelledby="home-viticulture-title">
     <img src="assets/stakeholder-home-2026-10-19/viticulture.jpg" alt="Grape bunches along a vineyard row" loading="lazy" decoding="async">
-    <div class="sector-scene__content"><div data-feedback-reveal><h2 id="home-viticulture-title">Viticulture</h2><p>Prescription blends that take account of your variety, crop load and block history.</p><a class="feedback-button" href="viticulture.html">Explore Viticulture <span class="feedback-button__arrow" aria-hidden="true">&rarr;</span></a></div></div>
+    <a class="sector-scene__link" href="viticulture.html" aria-labelledby="home-viticulture-title" aria-describedby="viticulture-summary">
+      <div class="sector-scene__content">
+        <h2 id="home-viticulture-title">Viticulture</h2>
+        <p id="viticulture-summary">Prescription blends that take account of your variety, crop load and block history.</p>
+        <span class="sector-scene__arrow" aria-hidden="true">&rarr;</span>
+      </div>
+    </a>
   </section>
 
   <section class="feedback-grower" id="grower-stories" aria-labelledby="home-grower-title">
     <div class="feedback-grower__inner" data-feedback-reveal>
       <div class="feedback-grower__heading">
         <h2 id="home-grower-title">Hear from our growers</h2>
-        <div class="feedback-grower__controls" data-grower-controls hidden role="group" aria-label="Choose a grower story">
-          <span class="feedback-grower__count" data-grower-count aria-hidden="true">01 / 02</span>
-          <button type="button" data-grower-step="-1" aria-label="Previous grower story" aria-controls="grower-films"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></button>
-          <button type="button" data-grower-step="1" aria-label="Next grower story" aria-controls="grower-films"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button>
+        <div class="feedback-grower__controls" data-grower-controls hidden role="group" aria-label="Choose a grower film">
+          <button type="button" data-grower-choice="0" aria-controls="grower-manna" aria-pressed="true">Manna Farms</button>
+          <button type="button" data-grower-choice="1" aria-controls="grower-old-oak" aria-pressed="false">Old Oak Orchards</button>
         </div>
       </div>
       <div class="feedback-grower__films" id="grower-films" data-grower-carousel>
-        <article class="feedback-grower__slide" data-grower-slide data-grower-name="Manna Farms">
+        <article class="feedback-grower__slide" id="grower-manna" data-grower-slide data-grower-name="Manna Farms">
           <h3>Manna Farms</h3>
           <video data-grower-video controls preload="none" playsinline poster="assets/video/grower-stories/manna-farms-poster.jpg" aria-label="Manna Farms grower story">
             <source src="assets/video/grower-stories/manna-farms-testimonial.mp4" type="video/mp4">
             <track kind="captions" srclang="en" label="English" src="assets/video/grower-stories/manna-farms-testimonial.en.vtt" default>
           </video>
         </article>
-        <article class="feedback-grower__slide" data-grower-slide data-grower-name="Old Oak Orchards">
+        <article class="feedback-grower__slide" id="grower-old-oak" data-grower-slide data-grower-name="Old Oak Orchards">
           <h3>Old Oak Orchards</h3>
           <video data-grower-video controls preload="none" playsinline poster="assets/video/grower-stories/old-oak-orchards-poster.jpg" aria-label="Old Oak Orchards grower story">
             <source src="assets/video/grower-stories/old-oak-orchards-testimonial.mp4" type="video/mp4">
@@ -159,8 +191,8 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
   <section class="feedback-blog home-library" id="stories" aria-labelledby="home-blog-title" data-content-library>
     <div class="rd3-inner">
       <div class="rd3-header" data-feedback-reveal>
-        <div><span class="home-collection-kicker">Knowledge &amp; experience</span><h2 id="home-blog-title">From our agronomists.</h2><p>Articles, crop guides and recordings from the Hybrid-Ag team.</p></div>
-        <a class="home-collection-link rd3-all" href="knowledge-center.html">Explore all resources <span aria-hidden="true">&nearr;</span></a>
+        <div><h2 id="home-blog-title">From our agronomists</h2><p>Articles, crop guides and recordings from the Hybrid-Ag team.</p></div>
+        <a class="home-collection-link rd3-all" href="knowledge-center.html">All resources <span aria-hidden="true">&rarr;</span></a>
       </div>
       <div class="rd3-tabs" data-library-tabs hidden>
         <button type="button" id="rd3-tab-recordings" data-library-tab="recordings" aria-controls="rd3-panel-recordings">Recordings<span class="rd3-count">4</span></button>
@@ -176,7 +208,6 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
             <div class="rd3-copy">
               <span class="rd3-format">Video · Opens a new tab</span>
               <h3>Dry Season Broadacre Nutrition</h3>
-              <p>A recording from the Hybrid-Ag team.</p>
               <span class="rd3-credit">With James White</span>
             </div><span class="rd3-arrow" aria-hidden="true">&nearr;</span>
           </a>
@@ -203,7 +234,6 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
             <div class="rd3-copy">
               <span class="rd3-format">Video · Opens a new tab</span>
               <h3>Dry Season Pasture Management</h3>
-              <p>A recording from the Hybrid-Ag team.</p>
               <span class="rd3-credit">With James White</span>
             </div><span class="rd3-arrow" aria-hidden="true">&nearr;</span>
           </a>
@@ -297,7 +327,7 @@ document.addEventListener("submit",function(event){if(isApi(event.target.action)
 <script src="js/components.js?v=e60a6378dc"></script>
 <script src="js/cart.js?v=930667fc15"></script>
 <script src="js/home-feedback.js?v=0162fb3b28"></script>
-<script src="js/grower-videos.js?v=322dbb96d1"></script>
+<script src="js/grower-videos.js?v=e468520b2f"></script>
 <script src="js/home-library.js?v=7d4a2da0ea"></script>
 <script src="js/main.js?v=53abc1936b"></script>
 </body>
