@@ -1,5 +1,5 @@
 /* Amos's October review: one film, then independent full-width features. */
-.home-feedback{--home-rail:1440px;--home-gutter:clamp(24px,4.2vw,96px);--home-panel-inset:clamp(88px,10svh,120px);background:var(--white);color:var(--ink)}
+.home-feedback{--home-rail:1440px;--home-gutter:clamp(24px,4.2vw,96px);--home-panel-inset:clamp(38px,5.5svh,64px);background:var(--white);color:var(--ink)}
 .home-feedback main{overflow:clip}
 /* Extend only the film behind the existing header; the copy and page geometry stay put. */
 .home-feedback.nav-glass-ready main{overflow:visible}
@@ -47,7 +47,7 @@
 .feedback-testing>.feedback-testing__image{position:absolute;inset:0;z-index:-2;overflow:hidden}
 .feedback-testing__image img{position:absolute;width:100%;height:100%;object-fit:cover;object-position:50% 42%;inset:0}
 .feedback-actions{display:flex;gap:12px;flex-wrap:wrap}
-.feedback-testing,.sector-scene{position:relative;isolation:isolate;min-height:560px;height:82svh;max-height:980px;display:flex;align-items:flex-start;overflow:hidden;background:#17221a;color:#fff}
+.feedback-testing,.sector-scene{position:relative;isolation:isolate;min-height:clamp(340px,46svh,550px);display:flex;align-items:center;overflow:hidden;background:#17221a;color:#fff}
 .sector-scene>img{z-index:-2;object-position:center}
 .feedback-testing:after,.sector-scene:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,15,11,.72),rgba(7,15,11,.06) 85%),linear-gradient(180deg,rgba(7,15,11,.4),transparent 85%)}
 .sector-scene--right:after{background:linear-gradient(270deg,rgba(7,15,11,.72),rgba(7,15,11,.06) 85%),linear-gradient(180deg,rgba(7,15,11,.4),transparent 85%)}
@@ -107,8 +107,8 @@
 @keyframes feedback-photo-settle{from{transform:scale(1.035)}to{transform:scale(1)}}
 /* Keep editorial cards on a reading rail; photographic panels use the viewport edges. */
 @media(min-width:2100px){.home-feedback{--home-rail:1840px}}
-@media(max-width:900px){.feedback-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.feedback-hero{min-height:600px}.feedback-testing,.sector-scene{height:72svh}}
-@media(max-width:600px){.feedback-hero{min-height:580px;height:auto}.feedback-hero__intro{font-size:17px;max-width:34ch}.feedback-testing,.sector-scene{height:72svh;min-height:540px}.sector-scene--right .sector-scene__content>div{margin-left:0}.sector-scene--right:after{background:linear-gradient(90deg,rgba(7,15,11,.72),rgba(7,15,11,.1)),linear-gradient(180deg,rgba(7,15,11,.4),transparent 85%)}.feedback-testing h2,.sector-scene h2{font-size:40px}.feedback-product-grid{gap:30px 18px}.feedback-product{gap:16px}.feedback-section-heading{align-items:flex-start}.feedback-product h3{font-size:23px}.feedback-blog-grid{grid-template-columns:1fr;gap:42px}.feedback-contact__inner{align-items:flex-start;flex-direction:column;gap:25px}.feedback-actions .feedback-button{padding-inline:18px}.feedback-grower{padding-inline:0}.feedback-grower h2,.feedback-grower h3{padding-inline:24px}.feedback-section-heading a{font-size:14px}}
+@media(max-width:900px){.feedback-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.feedback-hero{min-height:600px}}
+@media(max-width:600px){.feedback-hero{min-height:580px;height:auto}.feedback-hero__intro{font-size:17px;max-width:34ch}.home-feedback{--home-panel-inset:34px}.feedback-testing,.sector-scene{min-height:clamp(270px,38svh,360px)}.sector-scene--right .sector-scene__content>div{margin-left:0}.feedback-testing:after,.sector-scene:after{background:linear-gradient(90deg,rgba(7,15,11,.83),rgba(7,15,11,.42)),rgba(7,15,11,.12)}.feedback-testing h2,.sector-scene h2{font-size:40px}.feedback-product-grid{gap:30px 18px}.feedback-product{gap:16px}.feedback-section-heading{align-items:flex-start}.feedback-product h3{font-size:23px}.feedback-blog-grid{grid-template-columns:1fr;gap:42px}.feedback-contact__inner{align-items:flex-start;flex-direction:column;gap:25px}.feedback-actions .feedback-button{padding-inline:18px}.feedback-grower{padding-inline:0}.feedback-grower h2,.feedback-grower h3{padding-inline:24px}.feedback-section-heading a{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.home-feedback *{scroll-behavior:auto!important}.feedback-motion-ready [data-feedback-reveal]>[data-feedback-part]{opacity:1;transform:none;transition:none}.feedback-motion-ready [data-feedback-photo]{animation:none!important;transform:none!important}.feedback-product:focus-visible img,.feedback-blog-card:focus-visible .feedback-blog-card__image img,.feedback-product:hover img,.feedback-blog-card:hover .feedback-blog-card__image img{transform:none}.feedback-hero video,.feedback-product img,.feedback-blog-card__image img,.feedback-product span,.feedback-blog-card span,.home-feedback .feedback-button,.home-feedback .feedback-button::before{transition:none}}
 /* Approved lower-left hero; supporting content may grow on small screens. */
 /* Preserve the approved preview's type scale on wider screens. */
